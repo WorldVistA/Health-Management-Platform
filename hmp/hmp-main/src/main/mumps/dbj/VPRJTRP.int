@@ -1,0 +1,133 @@
+VPRJTRP ;SLC/KCM -- Unit tests for RESTful paging
+ ;;1.0;JSON DATA STORE;;Sep 01, 2012
+ ;
+STARTUP  ; Run once before all tests
+ N DATA,I,LOC
+ S VPRJTPID=$O(^VPRPT("PID","DFN","93EF:-7",""))
+ I VPRJTPID D CLEARPT^VPRJP(VPRJTPID)
+ D SETUP^VPRJM
+ D GETDATA("DEMOG7",.DATA)
+ S VPRJTPID=$P($$PUTPT^VPRJPR("",.DATA),"/",3)
+ F I=1:1:5 D GETDATA("MED"_I,.DATA) S LOC=$$SAVE^VPRJP(VPRJTPID,.DATA) K DATA
+ Q
+SHUTDOWN ; Run once after all tests
+ S VPRJTPID=$O(^VPRPT("PID","DFN","93EF:-7",""))
+ D CLEARPT^VPRJP(VPRJTPID)
+ K VPRJTPID
+ K ^TMP($J),^TMP("HTTPERR",$J)
+ Q
+SETUP    ; Run before each test
+ K HTTPREQ,HTTPERR,HTTPRSP
+ Q
+TEARDOWN ; Run after each test
+ K HTTPREQ,HTTPERR,HTTPRSP
+ Q
+ASSERT(EXPECT,ACTUAL) ; convenience
+ D EQ^VPRJT(EXPECT,ACTUAL)
+ Q
+ ;
+GETDATA(TAG,DATA) ;
+ N I,X
+ F I=1:1 S X=$P($T(@TAG+I^VPRJTPD),";;",2,999) Q:X="zzz"  S DATA(I)=X
+ Q
+DATA2ARY(ARY) ; call SENDATA to write out response and read back into ARY
+ ; cause TCP data to be written to file
+ D WR4HTTP^VPRJRUT
+ D SENDATA^VPRJRSP
+ D C4HTTP^VPRJRUT
+ ;
+ ; read TCP data from file into variable and delete file
+ N X,ERR
+ S X=$$RD4HTTP^VPRJRUT
+ D DECODE^VPRJSON("X","ARY","ERR")
+ D ASSERT(0,$D(ERR))
+ Q
+SETGET(URL) ; set up a request (to emulate HTTP call)
+ S HTTPREQ("method")="GET"
+ S HTTPREQ("path")=$P(URL,"?")
+ S HTTPREQ("query")=$P(URL,"?",2,999)
+ Q
+SETPUT(URL,SRC) ; set up a PUT request
+ N DATA
+ S HTTPREQ("method")="PUT"
+ S HTTPREQ("path")=$P(URL,"?")
+ S HTTPREQ("query")=$P(URL,"?",2,999)
+ D GETDATA(SRC,.DATA)
+ M HTTPREQ("body")=DATA
+ Q
+SETDEL(URL) ; set up a delete request
+ S HTTPREQ("method")="DELETE"
+ S HTTPREQ("path")=$P(URL,"?")
+ S HTTPREQ("query")=$P(URL,"?",2,999)
+ Q
+PAGE1 ;; @TEST query for first page
+ N JSON,HTTPERR,HASH
+ S HASH=$$HASH^VPRJRUT("vpr/index/"_VPRJTPID_"/medication////")
+ D ASSERT(0,$D(^VPRTMP(HASH)))
+ D SETGET("/vpr/"_VPRJTPID_"/index/medication?start=0&limit=2")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT(2,JSON("data","currentItemCount"))
+ D ASSERT(5,JSON("data","totalItems"))
+ D ASSERT("urn:va:93EF:-7:med:17203",JSON("data","items",2,"uid"))
+ D ASSERT(10,$D(^VPRTMP(HASH)))
+ Q
+PAGE3 ;; @TEST query for last page
+ N JSON,HTTPERR
+ D SETGET("/vpr/"_VPRJTPID_"/index/medication?start=4&limit=2")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT(1,JSON("data","currentItemCount"))
+ D ASSERT(5,JSON("data","totalItems"))
+ D ASSERT(4,JSON("data","startIndex"))
+ D ASSERT("urn:va:93EF:-7:med:18068",JSON("data","items",1,"uid"))
+ Q
+PAGECHG ;; @TEST query when page changed
+ W "(pause 1 sec)" H 1 ; wait long enough for the second to change
+ N JSON,HTTPERR,HASH
+ S HASH=$$HASH^VPRJRUT("vpr/index/"_VPRJTPID_"/medication////")
+ D ASSERT(5,^VPRTMP(HASH,"total"))
+ D SETPUT("/vpr/"_VPRJTPID,"MED6")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D ASSERT("/vpr/"_VPRJTPID_"/urn:va:93EF:-7:med:15231",HTTPREQ("location"))
+ D SETGET("/vpr/"_VPRJTPID_"/index/medication?start=0&limit=2")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT(6,^VPRTMP(HASH,"total"))
+ Q
+LIMIT1 ;; @TEST query when order changed and want only 1 item
+ N JSON,HTTPERR
+ D SETGET("/vpr/"_VPRJTPID_"/index/medication?order=overallStart asc&limit=1")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT(1,JSON("data","currentItemCount"))
+ D ASSERT(0,JSON("data","startIndex"))
+ D ASSERT("urn:va:93EF:-7:med:18068",JSON("data","items",1,"uid"))
+ Q
+TEMPLATE ;; @TEST query using template
+ N JSON,HTTPERR
+ D SETGET("/vpr/"_VPRJTPID_"/index/medication/uid?start=2&limit=2")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT("uid",$O(JSON("data","items",1,"")))
+ D ASSERT("uid",$O(JSON("data","items",2,"")))
+ D ASSERT(2,JSON("data","currentItemCount"))
+ D ASSERT(1,JSON("data","pageIndex"))
+ Q
+NOLIMIT ;; @TEST query when no paging is requested
+ N JSON,HTTPERR
+ D SETGET("/vpr/"_VPRJTPID_"/index/medication/uid")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT("uid",$O(JSON("data","items",1,"")))
+ D ASSERT("uid",$O(JSON("data","items",2,"")))
+ D ASSERT(6,JSON("data","currentItemCount"))
+ D ASSERT(0,$D(JSON("data","pageIndex")))
+ Q

@@ -1,0 +1,108 @@
+VPRJPQU ;SLC/KCM -- Query utilities
+ ;;1.0;JSON DATA STORE;;Sep 01, 2012
+ ;
+PARSERNG ; Parse range value
+ ; expects: INDEX, RANGE
+ ; updates: START, STOP, DIR
+ ; returned structures:
+ ;   START(level)=beginning of range    ;defaults to ""
+ ;   START(level,#)="value"             ;for comma delimited range
+ ;   START(level,"collation")=V|S|s...  ;"L" for list
+ ;   STOP(level)=end of range           ;defaults to $C(255)
+ ;   DIR(level)=1                       ;direction to traverse subscript
+ ;
+ ; @see unit test in PARSERNG^VPRJTQX
+ N I,CLTN
+ F I=1:1:INDEX("levels") D
+ . N TMPSTRT,TMPSTOP
+ . S CLTN=INDEX("collate",I) S:'$L(CLTN) CLTN="P"
+ . D RNG2VAL($P(RANGE,">",I),.TMPSTRT,.TMPSTOP,CLTN)
+ . M START(I)=TMPSTRT,STOP(I)=TMPSTOP
+ . S START(I,"collate")=CLTN,DIR(I)=1
+ . I $D(START(I,"list")) S START(I,"collate")="L"
+ Q
+RNG2VAL(RANGE,START,STOP,CTYPE) ; Parse start and stop from range
+ ;@see unit tests in RNG2VAL^VPRJTQU and RNG2VAL2^VPRJTQU
+ S START="",STOP=$C(255,255,255)
+ I RANGE="" Q
+ I $A(CTYPE)>96 S RANGE=$$LOW^XLFSTR(RANGE) ; lowercase for case-insensitive
+ S CTYPE=$$UP^XLFSTR(CTYPE)
+ I RANGE["," D  Q
+ . N I,S
+ . F I=1:1:$L(RANGE,",") D
+ . . S S=$$TRIM^XLFSTR($P(RANGE,",",I))
+ . . I CTYPE="V" S S=S_"="
+ . . I CTYPE="T" S S=S_" "
+ . . I CTYPE="S"!(CTYPE="s") S S=S_" "
+ . . I CTYPE="N" S S=+S
+ . . S START("list",S)=""
+ ;
+ N ENDPOINT,NUMERIC,X
+ ; figure out the endpoints (include, exclusive, startswith)
+ S ENDPOINT="[]" ; default to include endpoints
+ I $E(RANGE)="]" S RANGE=$E(RANGE,2,$L(RANGE)),$E(ENDPOINT)="("
+ I $E(RANGE)="[" S RANGE=$E(RANGE,2,$L(RANGE))
+ I $E(RANGE,$L(RANGE))="[" S RANGE=$E(RANGE,1,$L(RANGE)-1),$E(ENDPOINT,2)=")"
+ I $E(RANGE,$L(RANGE))="]" S RANGE=$E(RANGE,1,$L(RANGE)-1),$E(ENDPOINT,2)="]"
+ I $E(RANGE,$L(RANGE))="*" S RANGE=$E(RANGE,1,$L(RANGE)-1),$E(ENDPOINT,2)="*"
+ ; get start, stop and make sure stop is after start
+ S START=$P(RANGE,".."),STOP=$P(RANGE,"..",2),NUMERIC=$$NUMERIC^VPRJSONE(START)
+ I STOP="" S STOP=START
+ I (NUMERIC&(START>STOP))!('NUMERIC&(START]STOP)) S X=STOP,STOP=START,START=X
+ ;
+ ; adjust start/stop for String and Time indexes
+ I (CTYPE="S")!(CTYPE="T") D  Q
+ . ;I ENDPOINT["[" S START=START_" "
+ . I ENDPOINT["(" S START=START_" "
+ . I ENDPOINT["*" S STOP=STOP_$C(255)
+ . I ENDPOINT["]" S STOP=STOP_" "
+ ; adjust start/stop for Inverse Time index
+ I CTYPE="V" D  Q
+ . ; get complement for each time and swap the times
+ . S START=$TR(START,"0123456789","9876543210"),STOP=$TR(STOP,"0123456789","9876543210")
+ . S X=STOP,STOP=START,START=X
+ . I ENDPOINT["[" S STOP=STOP_"="
+ . I ENDPOINT["(" S STOP=STOP_":"
+ . I ENDPOINT["*" S START=START_" "
+ . I ENDPOINT["]" S START=START_":"
+ . I ENDPOINT[")" S START=START_"="
+ ; adjust start/stop for Numeric index
+ I CTYPE="N" D  Q
+ . I ENDPOINT["[" S START=$$ADJNUM(START,"-")
+ . I ENDPOINT[")" S STOP=$$ADJNUM(STOP,"-")
+ Q
+ADJNUM(N,SIGN) ; adjusted a number in a positive or negative direction
+ ;@see unit test in ADJNUM^VPRJTQU
+ I N'=+N Q N              ; not a number, leave it as is
+ N P S P=$L($P(N,".",2))  ; get precision
+ N D S D=$S('P:1,1:"."_$E("000000000000000",1,P-1)_"1")
+ S D=$S($G(SIGN)="-":-D,1:D)
+ Q N+D
+ ;
+ADJSTR(S,SIGN) ; bump a string ahead or behind in collation sequence
+ ;@see unit test in ADJSTR^VPRJTQU
+ I S="" Q S
+ I $G(SIGN)="-" S $E(S,$L(S))=$C($A($E(S,$L(S)))-1),S=S_$C(255) Q S
+ Q S_$C(255)
+ ;
+BLDFTYP(FIELD,FTYPE) ; build components for field
+ ; .FTYPE=1|2|3|4  ; identified structure of field
+ ; .FTYPE("field")=field name
+ ; .FTYPE("mult")=array name
+ ; .FTYPE("sub")=sub-field name
+ ;
+ K FTYPE
+ ;case
+ I FIELD'["." S FTYPE=1 G X0
+ I FIELD'["[]" S FTYPE=2 G X0
+ ; now only array types to check
+ I $L($P(FIELD,"[].",2),".")=1 S FTYPE=3 G X0
+ I $L($P(FIELD,"[].",2),".")=2 S FTYPE=4 G X0
+X0 ;end case
+ Q:'$D(FTYPE)  ; structure not yet supported
+ ;
+ I FTYPE=1 S FTYPE("field")=FIELD Q
+ I FTYPE=2 S FTYPE("field")=$P(FIELD,"."),FTYPE("sub")=$P(FIELD,".",2) Q
+ I FTYPE=3 S FTYPE("mult")=$P(FIELD,"[]"),FTYPE("field")=$P(FIELD,".",2) Q
+ I FTYPE=4 S FTYPE("mult")=$P(FIELD,"[]"),FTYPE("field")=$P(FIELD,".",2),FTYPE("sub")=$P(FIELD,".",3) Q
+ Q

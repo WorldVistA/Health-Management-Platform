@@ -1,0 +1,2491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xsi:schemaLocation="http://wadl.dev.java.net/2009/02 http://www.w3.org/Submission/wadl/wadl.xsd">
+    <doc title="VPR Web Services">Hello World</doc>
+    <resources base="${serverURL}/v1/">
+        <doc title="Virtual Patient Record">Some stuff about this section</doc>
+
+        <resource id="demographics" path="{pid}" type="#contentNegotiated">
+            <doc title="Patient Demographics">
+                <div xmlns="http://www.w3.org/1999/xhtml">
+                    <div class="description">This resource contains patient demographics information for the specified
+                        patient.
+                    </div>
+                    <table class="usageExamples">
+                        <tr>
+                            <td>${serverURL}/vpr/41205322</td>
+                            <td>Fetch demographics for patient 41205322</td>
+                        </tr>
+                        <tr>
+                            <td>${serverURL}/vpr/41205322?format=json</td>
+                            <td>Fetch demographics for patient 41205322 formatted as JSON</td>
+                        </tr>
+                    </table>
+                </div>
+            </doc>
+            <param name="pid" type="xsd:string" style="template" required="true">
+                <doc title="a patient identifier">In Vista, the patient's id is their Internal Control Number or ICN
+                    assigned by the Master Patient Index (MPI).
+                </doc>
+            </param>
+            <method href="#getDemographics"/>
+
+            <resource id="ptFeed" path="feed">
+                <doc title="Patient Feed">
+                    <div xmlns="http://www.w3.org/1999/xhtml">
+                        <div class="description">This exposes the specified patients data as an atom feed.
+                        </div>
+                        <table class="usageExamples">
+                            <tr>
+                                <td>${serverURL}/vpr/00000222/feed</td>
+                                <td>Fetch the feed for patient '00000222'</td>
+                            </tr>
+                        </table>
+                    </div>
+                </doc>
+                <method href="#getPtFeed"/>
+            </resource>
+
+            <resource path="lab">
+                <doc title="Lab Results"/>
+                <resource id="labResult" path="show/{uid}" type="#contentNegotiated">
+                    <doc title="Lab Result">
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+                            <div class="description">This resource represents a specific lab result.</div>
+                            <table class="usageExamples">
+                                <tr>
+                                    <td>${serverURL}/vpr/41205322/lab/show/CH;6919868.919994;2</td>
+                                    <td>Fetch individual lab result with uid 'CH;6919868.919994;2'</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </doc>
+                    <param name="uid" type="xsd:string" style="template" required="true">
+                        <doc title="a lab result identifier"/>
+                    </param>
+                    <method href="#getLabResult"/>
+                </resource>
+                <resource id="allLabs" path="all" type="#resultList #paginatedTemporalList #contentNegotiated">
+                    <doc title="Lab Results">
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+                            <div class="description">Use this URI to refer to all of a patients lab results. It will
+                                return results in pages of 100 starting with the most recent and including embedded next
+                                and
+                                previous links (like search engine result pages).
+                            </div>
+                            <table class="usageExamples">
+                                <tr>
+                                    <td>${serverURL}/vpr/00000222/lab/all</td>
+                                    <td>Fetch all lab results for patient '00000222'</td>
+                                </tr>
+                                <tr>
+                                    <td>${serverURL}/vpr/00000222/lab/all?count=20&amp;amp;startIndex=40</td>
+                                    <td>Fetch all lab results for patient '00000222' in pages of 20 starting at the 40th
+                                        most recent result
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>${serverURL}/vpr/00000222/lab/all?dateRange=200311-200312</td>
+                                    <td>Fetch all lab results for patient '00000222' in November and December of
+                                        2003
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>${serverURL}/vpr/00000222/lab/all?dateRange=2005&amp;amp;count=100</td>
+                                    <td>Fetch all lab results for patient '00000222' in 2005 in pages of 100.</td>
+                                </tr>
+                                <tr>
+                                    <td>${serverURL}/vpr/00000222/lab/all?typeName=glucose</td>
+                                    <td>Fetch all glucose results for patient '00000222'</td>
+                                </tr>
+                                <tr>
+                                    <td>${serverURL}/vpr/00000222/lab/all?typeName=LDL&amp;amp;typeName=HDL</td>
+                                    <td>Fetch LDL and HDL results for patient '00000222'</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </doc>
+                    <method href="#getLabResultList"/>
+                </resource>
+                <resource id="abnormalLabs" path="abnormal" type="#resultList #paginatedTemporalList #contentNegotiated">
+                    <doc title="Abnormal Lab Results">
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+                            <div class="description">This resource is a collection of the specified patients abnormal
+                                lab results.
+                            </div>
+                            <table class="usageExamples">
+                                <tr>
+                                    <td>${serverURL}/vpr/00000222/lab/abnormal</td>
+                                    <td>Fetch abnormal lab results for patient '00000222'</td>
+                                </tr>
+                                <tr>
+                                    <td>${serverURL}/vpr/00000222/lab/abnormal?dateRange=200311-200312</td>
+                                    <td>Fetch critical lab results for patient '00000222' in November and December of
+                                        2003
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </doc>
+                    <method href="#getLabResultList"/>
+                </resource>
+                <resource id="criticalLabs" path="critical" type="#resultList #paginatedTemporalList #contentNegotiated">
+                    <doc title="Critial Lab Results">
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+                            <div class="description">This resource is a collection of the specified patients critical
+                                lab results.
+                            </div>
+                            <table class="usageExamples">
+                                <tr>
+                                    <td>${serverURL}/vpr/00000222/lab/critical</td>
+                                    <td>Fetch critical lab results for patient '00000222'</td>
+                                </tr>
+                                <tr>
+                                    <td>${serverURL}/vpr/00000222/lab/critical?dateRange=200311-200312</td>
+                                    <td>Fetch critical lab results for patient '00000222' in November and December of
+                                        2003
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </doc>
+                    <method href="#getLabResultList"/>
+                </resource>
+            </resource>
+
+            <resource path="encounter">
+                <doc title="Encounters"/>
+                <resource id="encounter" path="show/{uid}" type="#contentNegotiated">
+                    <doc title="Encounter">
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+                            <div class="description">This resource represents a single encounter
+                            </div>
+                            <table class="usageExamples">
+                                <tr>
+                                    <td>${serverURL}/vpr/41205322/encounter/show/32</td>
+                                    <td>Fetch encounter for patient '41205322' with id '32'</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </doc>
+                    <param name="uid" type="xsd:string" style="template" required="true">
+                        <doc title="an encounter identifier"/>
+                    </param>
+                    <method href="#getEncounter"/>
+                </resource>
+                <resource id="allEncounters" path="all" type="#paginatedTemporalList #contentNegotiated">
+                    <doc title="Encounters">
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+                            <div class="description">This resource represents all encounters for the specified patient.
+                            </div>
+                            <table class="usageExamples">
+                                <tr>
+                                    <td>${serverURL}/vpr/41205322/encounter/all</td>
+                                    <td>Fetch all encounters for patient '41205322'</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </doc>
+                    <method href="#getEncounterList"/>
+                </resource>
+            </resource>
+
+            <resource path="document">
+                <doc title="Documents"/>
+
+                <resource id="document" path="show/{uid}" type="#contentNegotiated">
+                    <doc title="Document">
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+                            <div class="description">This resource represents a single document
+                            </div>
+                            <table class="usageExamples">
+                                <tr>
+                                    <td>${serverURL}/vpr/41205322/document/show/345</td>
+                                    <td>Fetch document for patient '41205322' with uid '345' (TODO: concrete example)
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </doc>
+                    <param name="uid" type="xsd:string" style="template" required="true">
+                        <doc title="a document identifier"/>
+                    </param>
+                    <method href="#getDocument"/>
+                </resource>
+
+                <resource id="allDocuments" path="all" type="#paginatedTemporalList #contentNegotiated">
+                    <doc title="Documents">
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+                            <div class="description">This resource represents all documents for the specified patient.
+                            </div>
+                            <table class="usageExamples">
+                                <tr>
+                                    <td>${serverURL}/vpr/41205322/document/all</td>
+                                    <td>Fetch all documents for patient '41205322'</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </doc>
+                    <method href="#getDocumentList"/>
+                </resource>
+            </resource>
+
+            <resource path="immunization">
+                <doc title="Immunizations"/>
+
+                <resource id="immunization" path="show/{uid}" type="#contentNegotiated">
+                    <doc title="Immunization">
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+                            <div class="description">This resource represents a single immunization
+                            </div>
+                            <table class="usageExamples">
+                                <tr>
+                                    <td>${serverURL}/vpr/41205322/immunization/show/345</td>
+                                    <td>Fetch immunization for patient '41205322' with uid '345' (TODO: concrete example)
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </doc>
+                    <param name="uid" type="xsd:string" style="template" required="true">
+                        <doc title="an immunization identifier"/>
+                    </param>
+                    <method href="#getImmunization"/>
+                </resource>
+
+                <resource id="allImmunizations" path="all" type="#paginatedTemporalList #contentNegotiated">
+                    <doc title="Immunizations">
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+                            <div class="description">This resource represents all immuunizations for the specified patient.
+                            </div>
+                            <table class="usageExamples">
+                                <tr>
+                                    <td>${serverURL}/vpr/41205322/immunization/all</td>
+                                    <td>Fetch all immunizations for patient '41205322'</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </doc>
+                    <method href="#getImmunizationList"/>
+                </resource>
+            </resource>
+
+            <resource path="medication">
+                <doc title="Medications"/>
+
+                <resource id="medication" path="show/{uid}" type="#contentNegotiated">
+                    <doc title="Medication">
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+                            <div class="description">This resource represents a single medication
+                            </div>
+                            <table class="usageExamples">
+                                <tr>
+                                    <td>${serverURL}/vpr/41205322/medication/show/345</td>
+                                    <td>Fetch medication for patient '41205322' with uid '345' (TODO: concrete example)
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </doc>
+                    <param name="uid" type="xsd:string" style="template" required="true">
+                        <doc title="a medication identifier"/>
+                    </param>
+                    <method href="#getMedication"/>
+                </resource>
+
+                <resource id="allMedications" path="all" type="#drugClass #paginatedTemporalList #contentNegotiated">
+                    <doc title="Medications">
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+                            <div class="description">This resource represents all medications for the specified patient.
+                            </div>
+                            <table class="usageExamples">
+                                <tr>
+                                    <td>${serverURL}/vpr/41205322/medication/all</td>
+                                    <td>Fetch all medications for patient '41205322'</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </doc>
+                    <method href="#getMedicationList"/>
+                </resource>
+
+                <resource id="allActiveMedications" path="allactive" type="#paginatedTemporalList #contentNegotiated">
+                    <doc title="Medications">
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+                            <div class="description">This resource represents all active medications for the specified patient.
+                            </div>
+                            <table class="usageExamples">
+                                <tr>
+                                    <td>${serverURL}/vpr/41205322/medication/allactive</td>
+                                    <td>Fetch all active medications for patient '41205322'</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </doc>
+                    <method href="#getMedicationActiveList"/>
+                </resource>
+
+                <resource id="allActiveOutpatientMedications" path="alloutactive" type="#paginatedTemporalList #contentNegotiated">
+                    <doc title="Medications">
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+                            <div class="description">This resource represents all active outpatient and Non-VA medications for the specified patient.
+                            </div>
+                            <table class="usageExamples">
+                                <tr>
+                                    <td>${serverURL}/vpr/41205322/medication/alloutactive</td>
+                                    <td>Fetch all active outpatient and Non-VA medications for patient '41205322'</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </doc>
+                    <method href="#getMedicationActiveOutList"/>
+                </resource>
+
+                <resource id="allActiveInpatientMedications" path="allinactive" type="#paginatedTemporalList #contentNegotiated">
+                    <doc title="Medications">
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+                            <div class="description">This resource represents all active inpatient and IV medications for the specified patient.
+                            </div>
+                            <table class="usageExamples">
+                                <tr>
+                                    <td>${serverURL}/vpr/41205322/medication/allinactive</td>
+                                    <td>Fetch all active inpatient and IV medications for patient '41205322'</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </doc>
+                    <method href="#getMedicationActiveInList"/>
+                </resource>
+            </resource>
+            
+            <resource path="allergy">
+                <doc title="Allergies" />
+
+                <resource id="allergy" path="show/{uid}" type="#contentNegotiated">
+                    <doc title="Allergy">
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+                            <div class="description">This resource represents a single allergy.</div>
+                            <table class="usageExamples">
+                                <tr>
+                                    <td>${serverURL}/vpr/41205322/allergy/show/345</td>
+                                    <td>Fetch allergy for patient '41205322' with uid '345'
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </doc>
+                    <param name="uid" type="xsd:string" style="template" required="true">
+                        <doc title="an allergy identifier" />
+                    </param>
+                    <method href="#getAllergy" />
+                </resource>
+                <resource id="allAllergies" path="all" type="#contentNegotiated">
+                    <doc title="Allergies">
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+                            <div class="description">This resource represents all known allergies for the specified patient.
+                            </div>
+                            <table class="usageExamples">
+                                <tr>
+                                    <td>${serverURL}/vpr/41205322/allergy/all</td>
+                                    <td>Fetch all allergies for patient '41205322'</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </doc>
+                    <method href="#getAllergyList" />
+                </resource>
+            </resource>
+
+            <resource path="problem">
+                <doc title="Problems" />
+
+                <resource id="problem" path="show/{uid}" type="#contentNegotiated">
+                    <doc title="Problem">
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+                            <div class="description">This resource represents a single problem.</div>
+                            <table class="usageExamples">
+                                <tr>
+                                    <td>${serverURL}/vpr/41205322/problem/show/345</td>
+                                    <td>Fetch problem for patient '41205322' with uid '345'
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </doc>
+                    <param name="uid" type="xsd:string" style="template" required="true">
+                        <doc title="a problem identifier" />
+                    </param>
+                    <method href="#getProblem" />
+                </resource>
+                <resource id="allProblems" path="all" type="#contentNegotiated">
+                    <doc title="Problems">
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+                            <div class="description">This resource represents all known problems for the specified patient.
+                            </div>
+                            <table class="usageExamples">
+                                <tr>
+                                    <td>${serverURL}/vpr/41205322/problem/all</td>
+                                    <td>Fetch all problems for patient '41205322'</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </doc>
+                    <method href="#getProblemList" />
+                </resource>
+            </resource>
+
+            <resource path="procedure">
+                <doc title="Procedures" />
+
+                <resource id="procedure" path="show/{uid}" type="#contentNegotiated">
+                    <doc title="Procedure">
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+                            <div class="description">This resource represents a single procedure.</div>
+                            <table class="usageExamples">
+                                <tr>
+                                    <td>${serverURL}/vpr/41205322/procedure/show/345</td>
+                                    <td>Fetch procedure for patient '41205322' with uid '345'
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </doc>
+                    <param name="uid" type="xsd:string" style="template" required="true">
+                        <doc title="a procedure identifier" />
+                    </param>
+                    <method href="#getProcedure" />
+                </resource>
+                <resource id="allProcedures" path="all" type="#contentNegotiated">
+                    <doc title="Procedures">
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+                            <div class="description">This resource represents all known procedures for the specified patient.
+                            </div>
+                            <table class="usageExamples">
+                                <tr>
+                                    <td>${serverURL}/vpr/41205322/procedure/all</td>
+                                    <td>Fetch all procedures for patient '41205322'</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </doc>
+                    <method href="#getProcedureList" />
+                </resource>
+            </resource>
+
+            <resource path="order">
+                <doc title="Orders" />
+
+                <resource id="order" path="show/{uid}" type="#contentNegotiated">
+                    <doc title="Order">
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+                            <div class="description">This resource represents a single order.</div>
+                            <table class="usageExamples">
+                                <tr>
+                                    <td>${serverURL}/vpr/41205322/order/33966</td>
+                                    <td>Fetch order for patient '41205322' with uid '33966'
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </doc>
+                    <param name="uid" type="xsd:string" style="template" required="true">
+                        <doc title="an order identifier" />
+                    </param>
+                    <method href="#getOrder" />
+                </resource>
+                <resource id="allOrders" path="all" type="#contentNegotiated">
+                    <doc title="Orders">
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+                            <div class="description">This resource represents all known orders for the specified patient.
+                            </div>
+                            <table class="usageExamples">
+                                <tr>
+                                    <td>${serverURL}/vpr/41205322/order/all</td>
+                                    <td>Fetch all orders for patient '41205322'</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </doc>
+                    <method href="#getOrderList" />
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+
+
+    <resource_type id="authenticated">
+        <param name="Authentication" style="header"/>
+    </resource_type>
+
+    <resource_type id="contentNegotiated">
+        <param name="format" style="query" required="false">
+            <doc title="the preferred response format"/>
+            <option value="xml" mediaType="application/xml"/>
+            <option value="json" mediaType="application/json"/>
+        </param>
+    </resource_type>
+
+    <resource_type id="paginatedTemporalList">
+         <param name="dateRange" type="xsd:string" style="query" required="false">
+            <doc title="A date range with which to limit results returned">
+                    TBD: include a link to a page talking about HL7 date strings and range strings
+            </doc>
+        </param>
+        <param name="count" type="xsd:integer" style="query" required="false">
+            <doc title="The page size for a paged collection.">
+                Defaults to 1000.
+            </doc>
+        </param>
+        <param name="startIndex" type="xsd:integer" style="query" required="false">
+            <doc title="An integer specifying the starting point when paging through a list of items.">
+                Defaults to 0.
+            </doc>
+        </param>
+    </resource_type>
+
+    <resource_type id="resultList">
+        <param name="typeName" type="xsd:string" style="query" required="false">
+            <doc title="A result type name with which to limit the results returned."><!-- TODO: xsd:string is case sensitive, define our own schema include case insensitve string -->
+                In VistA, this is the lab test name or name of the vital sign of interest.
+            </doc>
+        </param>
+     </resource_type>
+    
+    <resource_type id="drugClass">
+        <param name="drugClass" type="xsd:string" style="query" required="false">
+            <doc title="A drug class name with which to limit the medications returned."><!-- TODO: xsd:string is case sensitive, define our own schema include case insensitve string -->
+                In VistA, this is the drug class the medication is assigned to.
+            </doc>
+        </param>
+    </resource_type>
+
+    <method id="getDemographics" name="GET">
+        <doc title="Returns patient demographics."/>
+        <response status="200">
+            <representation mediaType="application/xml">
+                <doc title="Example XML response giving patient demographics"><![CDATA[
+<patient>
+    <link xmlns="http://www.w3.org/2005/Atom" rel="self"
+          href="http://localhost:8080/cpe/vpr/41205322"/>
+    <dateOfBirth>19670323</dateOfBirth>
+    <familyName>Smith</familyName>
+    <icn>41205322</icn>
+    <gender>
+        <link xmlns="http://www.w3.org/2005/Atom" rel="self"
+              href="http://localhost:8080/cpe/codes/administrativeGender/M"/>
+        <name>Male</name>
+        <code>M</code>
+    </gender>
+    <givenNames>Joe</givenNames>
+</patient>
+                ]]></doc>
+            </representation>
+            <representation mediaType="application/json">
+                <doc title="Example JSON response giving patient demographics"><![CDATA[
+
+{
+    link: {
+        rel: "self",
+        href: "http://localhost:8080/cpe/vpr/41205322"
+    }
+    dateOfBirth: "19670323",
+    familyName: "Smith",
+    icn: "41205322",
+    givenNames: "Joe",
+    gender: {
+        name: "Male",
+        code: "M,
+        link: {
+            rel: "self",
+            href: "http://localhost:8080/cpe/codes/administrativeGender/M"
+        }
+    }
+}
+                ]]></doc>
+            </representation>
+        </response>
+    </method>
+
+    <method id="getPtFeed" name="GET">
+        <doc title="Returns all activity related to a patient exposed as a feed."/>
+        <response status="200">
+            <representation mediaType="application/atom+xml"/>
+        </response>
+    </method>
+
+    <method id="getLabResult" name="GET">
+        <doc title="Returns information about an individual lab result."/>
+        <response status="200">
+            <representation mediaType="application/xml">
+
+            </representation>
+            <representation mediaType="application/json">
+
+            </representation>
+        </response>
+    </method>
+
+    <method id="getLabResultList" name="GET">
+        <doc title="Returns a list of lab results."/>
+        <response status="200">
+            <representation mediaType="application/xml">
+                <doc title="Example XML response giving list of lab results">
+                    <![CDATA[
+<list total="37">
+	<link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/vpr/00000222/lab/all"/>
+	<lab>
+		<link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/vpr/00000222/lab/14"/>
+		<link xmlns="http://www.w3.org/2005/Atom" rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/cpe/vpr/00000222"/>
+		<localAbbreviation>Glucose</localAbbreviation>
+		<result>185</result>
+		<localName>Glucose</localName>
+		<status>
+			<link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/codes/resultStatus/completed"/>
+			<name>Completed</name>
+			<code>completed</code>
+		</status>
+		<collected>20100227</collected>
+		<labId>14</labId>
+		<facility>
+			<name>CCHIT 2011 Ambulatory EHR Test Script</name>
+			<code>CCHIT</code>
+			<homeSite>true</homeSite>
+		</facility>
+	</lab>
+	<lab>
+		<link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/vpr/00000222/lab/15"/>
+		<link xmlns="http://www.w3.org/2005/Atom" rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/cpe/vpr/00000222"/>
+		<localAbbreviation>LDH</localAbbreviation>
+		<result>151</result>
+		<localName>LDH</localName>
+		<status>
+			<link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/codes/resultStatus/completed"/>
+			<name>Completed</name>
+			<code>completed</code>
+		</status>
+		<collected>20100227</collected>
+		<labId>15</labId>
+		<facility>
+			<name>CCHIT 2011 Ambulatory EHR Test Script</name>
+			<code>CCHIT</code>
+			<homeSite>true</homeSite>
+		</facility>
+	</lab>
+	... truncated ...
+</list>
+            ]]></doc>
+            </representation>
+            <representation mediaType="application/json">
+
+            </representation>
+        </response>
+    </method>
+
+    <method id="getDocument" name="GET">
+        <doc title="Returns information about an individual document."/>
+        <response status="200">
+            <representation mediaType="application/xml">
+
+            </representation>
+            <representation mediaType="application/json">
+                <doc title="Example JSON response giving information about a document">
+
+                </doc>
+            </representation>
+        </response>
+    </method>
+
+    <method id="getDocumentList" name="GET">
+        <doc title="Returns a list of documents."/>
+        <response status="200">
+            <representation mediaType="application/xml">
+
+            </representation>
+            <representation mediaType="application/json">
+
+            </representation>
+        </response>
+    </method>
+
+    <method id="getEncounter" name="GET">
+        <doc title="Returns information about an individual encounter."/>
+        <response status="200">
+            <representation mediaType="application/xml">
+
+            </representation>
+            <representation mediaType="application/json">
+
+            </representation>
+        </response>
+    </method>
+
+    <method id="getEncounterList" name="GET">
+        <doc title="Returns a list of encounters."/>
+        <response status="200">
+            <representation mediaType="application/xml">
+
+            </representation>
+            <representation mediaType="application/json">
+
+            </representation>
+        </response>
+    </method>
+
+    <method id="getImmunization" name="GET">
+        <doc title="Returns information about an individual immunization."/>
+        <response status="200">
+            <representation mediaType="application/xml">
+            <doc title="Example XML response for an immunization result">
+                    <![CDATA[
+<list size="1">
+    <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/vpr/10104/immunization/all" />
+    <immunization>
+        <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/vpr/10104/immunization/1" />
+        <link xmlns="http://www.w3.org/2005/Atom" rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/cpe/vpr/10104" />
+        <CPTCode>90732</CPTCode>
+        <CPTName>PNEUMOCOCCAL VACCINE</CPTName>
+        <administeredTime>20000404105506.000</administeredTime>
+        <contraindicated>0</contraindicated>
+        <facility>
+            <code>888</code>
+            <localPatientId>229</localPatientId>
+            <name>FT. LOGAN</name>
+        </facility>
+        <location>AUDIOLOGY</location>
+        <name>PNEUMOCOCC</name>
+        <id>urn:va:immunization:888:229:PNEUMOCOCC:20000404105506.000</id>
+    </immunization>
+</list>
+            ]]></doc>
+            </representation>
+            <representation mediaType="application/json">
+
+            </representation>
+        </response>
+    </method>
+
+    <method id="getImmunizationList" name="GET">
+        <doc title="Returns a list of immunizations."/>
+        <response status="200">
+            <representation mediaType="application/xml">
+            <doc title="Example XML response for all immunization result">
+                    <![CDATA[
+    <list size="2">
+        <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/vpr/vpr/10038/immunization/all" />
+        <immunization>
+            <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/vpr/vpr/10038/immunization/2" />
+            <link xmlns="http://www.w3.org/2005/Atom" rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/vpr/vpr/10038" />
+            <CPTCode>90658</CPTCode>
+            <CPTName>FLU VACCINE, 3 YRS &amp; >, IM</CPTName>
+            <administeredTime>20101201100500.000</administeredTime>
+            <contraindicated>0</contraindicated>
+            <facility>
+                <code>500</code>
+                <localPatientId>100022</localPatientId>
+                <name>CAMP MASTER</name>
+            </facility>
+            <location>20 MINUTE</location>
+            <name>FLU,3 YRS</name>
+            <performer>
+                <name>PULEO,ANTHONY</name>
+            </performer>
+            <reaction>NONE</reaction>
+            <series>COMPLETE</series>
+            <id>urn:va:immunization:500:100022:FLU,3 YRS:20101201100500.000</id>
+        </immunization>
+        <immunization>
+            <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/vpr/vpr/10038/immunization/3" />
+            <link xmlns="http://www.w3.org/2005/Atom" rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/vpr/vpr/10038" />
+            <CPTCode>90718</CPTCode>
+            <CPTName>TD VACCINE > 7, IM</CPTName>
+            <administeredTime>20101002081000.000</administeredTime>
+            <contraindicated>0</contraindicated>
+            <facility>
+                <code>500</code>
+                <localPatientId>100022</localPatientId>
+                <name>CAMP MASTER</name>
+            </facility>
+            <location>20 MINUTE</location>
+            <name>TETANUS DI</name>
+            <performer>
+                <name>NURSE,SEVEN</name>
+            </performer>
+            <reaction>NONE</reaction>
+            <series>COMPLETE</series>
+            <id>urn:va:immunization:500:100022:TETANUS DI:20101002081000.000</id>
+        </immunization>
+    </list>
+            ]]></doc>
+            </representation>
+            <representation mediaType="application/json">
+
+            </representation>
+        </response>
+    </method>
+
+    <method id="getMedication" name="GET">
+        <doc title="Returns information about an individual medication."/>
+        <response status="200">
+            <representation mediaType="application/xml">
+            <doc title="Example XML response for a medications result">
+                    <![CDATA[
+<list size="1">
+    <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/vpr/10104/immunization/all" />
+    <immunization>
+        <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/vpr/10104/immunization/1" />
+        <link xmlns="http://www.w3.org/2005/Atom" rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/cpe/vpr/10104" />
+        <CPTCode>90732</CPTCode>
+        <CPTName>PNEUMOCOCCAL VACCINE</CPTName>
+        <administeredTime>20000404105506.000</administeredTime>
+        <contraindicated>0</contraindicated>
+        <facility>
+            <code>888</code>
+            <localPatientId>229</localPatientId>
+            <name>FT. LOGAN</name>
+        </facility>
+        <location>AUDIOLOGY</location>
+        <name>PNEUMOCOCC</name>
+        <id>urn:va:immunization:888:229:PNEUMOCOCC:20000404105506.000</id>
+    </immunization>
+</list>
+            ]]></doc>
+            </representation>
+            <representation mediaType="application/json">
+
+            </representation>
+        </response>
+    </method>
+
+    <method id="getMedicationList" name="GET">
+        <doc title="Returns a list of medications."/>
+        <response status="200">
+            <representation mediaType="application/xml">
+            <doc title="Example XML response for all medication result">
+                    <![CDATA[
+<list size="5">
+    <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/vpr/10038/medication/all" />
+    <medication>
+        <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/vpr/10038/medication/1" />
+        <link xmlns="http://www.w3.org/2005/Atom" rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/cpe/vpr/10038" />
+        <doses size="1">
+            <medicationDose>
+            <routeName>SC</routeName>
+            <schedule>BID AC</schedule>
+            </medicationDose>
+            </doses>
+        <facility>
+            <code>500</code>
+            <localPatientId>100022</localPatientId>
+            <name>CAMP MASTER</name>
+            </facility>
+            <localId>1U;I</localId>
+        <medOrders size="1">
+        <medicationOrder>
+            <location>BCMA</location>
+            <orderId>17690</orderId>
+            <provider>
+                <name>PHYSICIAN,ASSISTANT</name>
+            </provider>
+        </medicationOrder>
+        </medOrders>
+        <medStatus>
+            <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/codes/medicationStatus/73425007" />
+            <code>73425007</code>
+            <name>No Longer Active</name>
+        </medStatus>
+        <overallStart>20060616122700.000</overallStart>
+        <overallStop>20060616123002.000</overallStop>
+        <productForm>INJ</productForm>
+        <productFormName>INSULIN NOVOLIN N(NPH) INJ</productFormName>
+        <products size="1">
+            <medicationProduct>
+                <code>962</code>
+                <drugClass>INSULIN</drugClass>
+                <name>INSULIN NPH HUMAN 100 UNIT/ML NOVOLIN N</name>
+            </medicationProduct>
+        </products>
+        <sig>Give: 15 UNITS SC BID AC TEST ORDER</sig>
+        <stopped>20060616123002.000</stopped>
+        <id>urn:va:medication:500:100022:1U;I</id>
+        <vaStatus>DISCONTINUED (EDIT)</vaStatus>
+        <vaType>I</vaType>
+    </medication>
+    <medication>
+        <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/vpr/10038/medication/2" />
+        <link xmlns="http://www.w3.org/2005/Atom" rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/cpe/vpr/10038" />
+        <doses size="1">
+            <medicationDose>
+                <routeName>SC</routeName>
+                <schedule>BID AC</schedule>
+            </medicationDose>
+        </doses>
+        <facility>
+            <code>500</code>
+            <localPatientId>100022</localPatientId>
+            <name>CAMP MASTER</name>
+        </facility>
+        <localId>2U;I</localId>
+        <medOrders size="1">
+            <medicationOrder>
+                <location>BCMA</location>
+                <orderId>17691</orderId>
+                <provider>
+                    <name>PHYSICIAN,ASSISTANT</name>
+                    </provider>
+            </medicationOrder>
+        </medOrders>
+        <medStatus>
+            <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/codes/medicationStatus/73425007" />
+            <code>73425007</code>
+            <name>No Longer Active</name>
+        </medStatus>
+        <overallStart>20060616050000.000</overallStart>
+        <overallStop>20060924235959.999</overallStop>
+        <productForm>INJ</productForm>
+        <productFormName>INSULIN NOVOLIN N(NPH) INJ</productFormName>
+        <products size="1">
+            <medicationProduct>
+                <code>962</code>
+                <drugClass>INSULIN</drugClass>
+                <name>INSULIN NPH HUMAN 100 UNIT/ML NOVOLIN N</name>
+            </medicationProduct>
+        </products>
+        <sig>Give: 15 UNITS SC BID AC TEST ORDER</sig>
+        <stopped>20060924235959.999</stopped>
+        <id>urn:va:medication:500:100022:2U;I</id>
+        <vaStatus>EXPIRED</vaStatus>
+        <vaType>I</vaType>
+    </medication>
+    <medication>
+        <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/vpr/10038/medication/3" />
+        <link xmlns="http://www.w3.org/2005/Atom" rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/cpe/vpr/10038" />
+        <doses size="1">
+            <medicationDose>
+                <dose>325 MG</dose>
+                <routeName>PO</routeName>
+                <schedule>Q4H</schedule>
+            </medicationDose>
+        </doses>
+        <facility>
+            <code>500</code>
+            <localPatientId>100022</localPatientId>
+            <name>CAMP MASTER</name>
+        </facility>
+        <localId>3U;I</localId>
+        <medOrders size="1">
+            <medicationOrder>
+                <location>BCMA</location>
+                <orderId>17692</orderId>
+                <provider>
+                    <name>PHYSICIAN,ASSISTANT</name>
+                </provider>
+            </medicationOrder>
+        </medOrders>
+        <medStatus>
+            <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/codes/medicationStatus/73425007" />
+            <code>73425007</code>
+            <name>No Longer Active</name>
+        </medStatus>
+        <overallStart>20060616123100.000</overallStart>
+        <overallStop>20060924235959.999</overallStop>
+        <productForm>TAB</productForm>
+        <productFormName>ACETAMINOPHEN TAB</productFormName>
+        <products size="1">
+            <medicationProduct>
+                <code>5591</code>
+                <drugClass>NON-OPIOID ANALGESICS</drugClass>
+                <name>ACETAMINOPHEN 325MG TAB</name>
+            </medicationProduct>
+        </products>
+        <sig>Give: 325MG PO Q4H</sig>
+        <stopped>20060924235959.999</stopped>
+        <id>urn:va:medication:500:100022:3U;I</id>
+        <vaStatus>EXPIRED</vaStatus>
+        <vaType>I</vaType>
+    </medication>
+    <medication>
+        <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/vpr/10038/medication/4" />
+        <link xmlns="http://www.w3.org/2005/Atom" rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/cpe/vpr/10038" />
+        <doses size="1">
+            <medicationDose>
+                <IVRate>30 ml/hr</IVRate>
+                <routeName>IV</routeName>
+            </medicationDose>
+        </doses>
+        <facility>
+            <code>500</code>
+            <localPatientId>100022</localPatientId>
+            <name>CAMP MASTER</name>
+        </facility>
+        <localId>1V;I</localId>
+        <medOrders size="1">
+            <medicationOrder>
+                <provider>
+                    <name>PULEO,ANTHONY</name>
+                </provider>
+            </medicationOrder>
+        </medOrders>
+        <medStatus>
+            <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/codes/medicationStatus/55561003" />
+            <code>55561003</code>
+            <name>Active</name>
+        </medStatus>
+        <overallStart>20101119130500.000</overallStart>
+        <overallStop>20101122235900.000</overallStop>
+        <productFormName>ACYCLOVIR INJ</productFormName>
+        <products size="1">
+            <medicationProduct>
+                <code>62</code>
+                <concentration>20 MG</concentration>
+                <drugClass>ANTIVIRALS</drugClass>
+                <name>ACYCLOVIR</name>
+            </medicationProduct>
+        </products>
+        <stopped>20101122235900.000</stopped>
+        <id>urn:va:medication:500:100022:1V;I</id>
+        <vaStatus>ACTIVE</vaStatus>
+        <vaType>V</vaType>
+        <vehicles size="1">
+            <medicationVehicle>
+                <code>22</code>
+                <drugClass>AMINO ACIDS/PROTEINS,PARENTERAL,WITHOUT ADDED ELECTROLYTES</drugClass>
+                <name>AMINO ACIDS 10%</name>
+                <volume>500 ML</volume>
+            </medicationVehicle>
+        </vehicles>
+    </medication>
+    <medication>
+        <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/vpr/10038/medication/5" />
+        <link xmlns="http://www.w3.org/2005/Atom" rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/cpe/vpr/10038" />
+        <doses size="1">
+            <medicationDose>
+                <IVRate>INFUSE OVER 30 Minutes</IVRate>
+                <routeName>IV</routeName>
+                <schedule>BID</schedule>
+            </medicationDose>
+        </doses>
+        <facility>
+            <code>500</code>
+            <localPatientId>100022</localPatientId>
+            <name>CAMP MASTER</name>
+        </facility>
+        <localId>2V;I</localId>
+        <medOrders size="1">
+            <medicationOrder>
+                <provider>
+                    <name>PULEO,ANTHONY</name>
+                </provider>
+            </medicationOrder>
+        </medOrders>
+        <medStatus>
+            <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/codes/medicationStatus/55561003" />
+            <code>55561003</code>
+            <name>Active</name>
+        </medStatus>
+        <overallStart>20101119130500.000</overallStart>
+        <overallStop>20101123235900.000</overallStop>
+        <productFormName>CYCLOPHOSPHAMIDE INJ</productFormName>
+        <products size="1">
+            <medicationProduct>
+                <code>119</code>
+                <concentration>30 MG</concentration>
+                <drugClass>ANTINEOPLASTICS,ALKYLATING AGENTS</drugClass>
+                <name>CYCLOPHOSPHAMIDE</name>
+            </medicationProduct>
+        </products>
+        <stopped>20101123235900.000</stopped>
+        <id>urn:va:medication:500:100022:2V;I</id>
+        <vaStatus>ACTIVE</vaStatus>
+        <vaType>V</vaType>
+        <vehicles size="1">
+            <medicationVehicle>
+                <code>42</code>
+                <drugClass>AMINO ACIDS/PROTEINS,PARENTERAL,WITH ADDED ELECTROLYTES</drugClass>
+                <name>AMINO ACIDS 8%</name>
+                <volume>500 ML</volume>
+            </medicationVehicle>
+        </vehicles>
+    </medication>
+  </list>
+            ]]></doc>
+            </representation>
+            <representation mediaType="application/json">
+
+            </representation>
+        </response>
+    </method>
+
+    <method id="getMedicationActiveList" name="GET">
+        <doc title="Returns a list of active medications."/>
+        <response status="200">
+            <representation mediaType="application/xml">
+            <doc title="Example XML response for all active medications result">
+                    <![CDATA[
+<list size="2">
+    <medication>
+        <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/vpr/10038/medication/4" />
+        <link xmlns="http://www.w3.org/2005/Atom" rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/cpe/vpr/10038" />
+        <doses size="1">
+            <medicationDose>
+                <IVRate>30 ml/hr</IVRate>
+                <routeName>IV</routeName>
+            </medicationDose>
+        </doses>
+        <facility>
+            <code>500</code>
+            <localPatientId>100022</localPatientId>
+            <name>CAMP MASTER</name>
+        </facility>
+        <localId>1V;I</localId>
+        <medOrders size="1">
+            <medicationOrder>
+                <provider>
+                    <name>PULEO,ANTHONY</name>
+                </provider>
+            </medicationOrder>
+        </medOrders>
+        <medStatus>
+            <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/codes/medicationStatus/55561003" />
+            <code>55561003</code>
+            <name>Active</name>
+        </medStatus>
+        <overallStart>20101119130500.000</overallStart>
+        <overallStop>20101122235900.000</overallStop>
+        <productFormName>ACYCLOVIR INJ</productFormName>
+        <products size="1">
+            <medicationProduct>
+                <code>62</code>
+                <concentration>20 MG</concentration>
+                <drugClass>ANTIVIRALS</drugClass>
+                <name>ACYCLOVIR</name>
+            </medicationProduct>
+        </products>
+        <stopped>20101122235900.000</stopped>
+        <id>urn:va:medication:500:100022:1V;I</id>
+        <vaStatus>ACTIVE</vaStatus>
+        <vaType>V</vaType>
+        <vehicles size="1">
+            <medicationVehicle>
+                <code>22</code>
+                    <drugClass>AMINO ACIDS/PROTEINS,PARENTERAL,WITHOUT ADDED ELECTROLYTES</drugClass>
+                    <name>AMINO ACIDS 10%</name>
+                    <volume>500 ML</volume>
+            </medicationVehicle>
+        </vehicles>
+    </medication>
+    <medication>
+        <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/vpr/10038/medication/5" />
+        <link xmlns="http://www.w3.org/2005/Atom" rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/cpe/vpr/10038" />
+        <doses size="1">
+            <medicationDose>
+                <IVRate>INFUSE OVER 30 Minutes</IVRate>
+                <routeName>IV</routeName>
+                <schedule>BID</schedule>
+            </medicationDose>
+        </doses>
+        <facility>
+            <code>500</code>
+            <localPatientId>100022</localPatientId>
+            <name>CAMP MASTER</name>
+        </facility>
+        <localId>2V;I</localId>
+        <medOrders size="1">
+            <medicationOrder>
+                <provider>
+                    <name>PULEO,ANTHONY</name>
+                </provider>
+            </medicationOrder>
+        </medOrders>
+        <medStatus>
+            <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/codes/medicationStatus/55561003" />
+            <code>55561003</code>
+            <name>Active</name>
+        </medStatus>
+        <overallStart>20101119130500.000</overallStart>
+        <overallStop>20101123235900.000</overallStop>
+        <productFormName>CYCLOPHOSPHAMIDE INJ</productFormName>
+        <products size="1">
+            <medicationProduct>
+                <code>119</code>
+                <concentration>30 MG</concentration>
+                <drugClass>ANTINEOPLASTICS,ALKYLATING AGENTS</drugClass>
+                <name>CYCLOPHOSPHAMIDE</name>
+            </medicationProduct>
+        </products>
+        <stopped>20101123235900.000</stopped>
+        <id>urn:va:medication:500:100022:2V;I</id>
+        <vaStatus>ACTIVE</vaStatus>
+        <vaType>V</vaType>
+        <vehicles size="1">
+            <medicationVehicle>
+                <code>42</code>
+                <drugClass>AMINO ACIDS/PROTEINS,PARENTERAL,WITH ADDED ELECTROLYTES</drugClass>
+                <name>AMINO ACIDS 8%</name>
+                <volume>500 ML</volume>
+            </medicationVehicle>
+        </vehicles>
+    </medication>
+  </list>
+            ]]></doc>
+            </representation>
+            <representation mediaType="application/json">
+
+            </representation>
+        </response>
+    </method>
+
+    <method id="getMedicationActiveOutList" name="GET">
+        <doc title="Returns a list of active outpatient and non-VA medications."/>
+        <response status="200">
+            <representation mediaType="application/xml">
+            <doc title="Example XML response for all active medications result">
+                    <![CDATA[
+    <list size="2">
+        <medication>
+            <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/vpr/vpr/10104/medication/25" />
+            <link xmlns="http://www.w3.org/2005/Atom" rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/vpr/vpr/10104" />
+            <doses size="1">
+                <medicationDose>
+                    <dose>50 MG</dose>
+                    <doseStart>20100227</doseStart>
+                    <doseStop>20110228</doseStop>
+                    <routeName>PO</routeName>
+                    <schedule>BID</schedule>
+                    <unitsOfNoun>TABLET</unitsOfNoun>
+                </medicationDose>
+            </doses>
+            <facility>
+                <code>500</code>
+                <localPatientId>229</localPatientId>
+                <name>CAMP MASTER</name>
+            </facility>
+            <localId>403946R;O</localId>
+            <medOrders size="1">
+                <medicationOrder>
+                    <daysSupply>90</daysSupply>
+                    <expiration>20110228</expiration>
+                    <fillCost>2.466</fillCost>
+                    <fillsAllowed>3</fillsAllowed>
+                    <fillsRemaining>3</fillsRemaining>
+                    <location>GENERAL MEDICINE</location>
+                    <orderId>27952</orderId>
+                    <ordered>20100227090343.000</ordered>
+                    <pharmacist>
+                        <name>PHARMACIST,ONE</name>
+                    </pharmacist>
+                    <prescriptionId>500724</prescriptionId>
+                    <provider>
+                        <name>PROVIDER,ONE</name>
+                    </provider>
+                    <quantityOrdered>180</quantityOrdered>
+                    <routing>W</routing>
+                </medicationOrder>
+            </medOrders>
+            <medStatus>
+                <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/vpr/codes/medicationStatus/55561003" />
+                <code>55561003</code>
+                <name>Active</name>
+            </medStatus>
+            <overallStart>20100227</overallStart>
+            <overallStop>20110228</overallStop>
+            <productForm>TAB</productForm>
+            <productFormName>METOPROLOL TARTRATE TAB</productFormName>
+            <products size="1">
+                <medicationProduct>
+                    <code>1752</code>
+                    <drugClass>BETA BLOCKERS/RELATED</drugClass>
+                    <name>METOPROLOL TARTRATE 50MG TAB</name>
+                </medicationProduct>
+            </products>
+            <sig>TAKE ONE TABLET BY MOUTH TWICE A DAY</sig>
+            <stopped>20110228</stopped>
+            <id>urn:va:medication:500:229:403946R;O</id>
+            <vaStatus>Active</vaStatus>
+            <vaType>O</vaType>
+        </medication>
+        <medication>
+            <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/vpr/vpr/10104/medication/26" />
+            <link xmlns="http://www.w3.org/2005/Atom" rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/vpr/vpr/10104" />
+            <doses size="1">
+                <medicationDose>
+                    <dose>40 MG</dose>
+                    <doseStart>20100227</doseStart>
+                    <doseStop>20110228</doseStop>
+                    <routeName>PO</routeName>
+                    <schedule>QPM</schedule>
+                    <unitsOfNoun>TABLET</unitsOfNoun>
+                </medicationDose>
+            </doses>
+            <facility>
+                <code>500</code>
+                <localPatientId>229</localPatientId>
+                <name>CAMP MASTER</name>
+            </facility>
+            <localId>404046R;O</localId>
+            <medOrders size="1">
+                <medicationOrder>
+                <daysSupply>90</daysSupply>
+                <expiration>20110228</expiration>
+                <fillCost>45.378</fillCost>
+                <fillsAllowed>3</fillsAllowed>
+                <fillsRemaining>3</fillsRemaining>
+                <location>GENERAL MEDICINE</location>
+                <orderId>28052</orderId>
+                <ordered>20100227090343.000</ordered>
+                <pharmacist>
+                    <name>PHARMACIST,ONE</name>
+                </pharmacist>
+                <prescriptionId>500824</prescriptionId>
+                <provider>
+                    <name>PROVIDER,ONE</name>
+                </provider>
+                <quantityOrdered>90</quantityOrdered>
+                <routing>W</routing>
+            </medicationOrder>
+        </medOrders>
+        <medStatus>
+            <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/vpr/codes/medicationStatus/55561003" />
+            <code>55561003</code>
+            <name>Active</name>
+        </medStatus>
+        <overallStart>20100227</overallStart>
+        <overallStop>20110228</overallStop>
+        <productForm>TAB</productForm>
+        <productFormName>SIMVASTATIN TAB</productFormName>
+        <products size="1">
+            <medicationProduct>
+                <code>153</code>
+                <drugClass>ANTILIPEMIC AGENTS</drugClass>
+                <name>SIMVASTATIN 40MG TAB</name>
+            </medicationProduct>
+        </products>
+        <sig>TAKE ONE TABLET BY MOUTH EVERY EVENING</sig>
+        <stopped>20110228</stopped>
+        <id>urn:va:medication:500:229:404046R;O</id>
+        <vaStatus>Active</vaStatus>
+        <vaType>O</vaType>
+    </medication>
+  </list>
+            ]]></doc>
+            </representation>
+            <representation mediaType="application/json">
+
+            </representation>
+        </response>
+    </method>
+
+    <method id="getMedicationActiveInList" name="GET">
+        <doc title="Returns a list of active inpatient and IV medications."/>
+        <response status="200">
+            <representation mediaType="application/xml">
+            <doc title="Example XML response for all active medications result">
+                    <![CDATA[
+<list size="2">
+    <medication>
+        <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/vpr/10038/medication/4" />
+        <link xmlns="http://www.w3.org/2005/Atom" rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/cpe/vpr/10038" />
+        <doses size="1">
+            <medicationDose>
+                <IVRate>30 ml/hr</IVRate>
+                <routeName>IV</routeName>
+            </medicationDose>
+        </doses>
+        <facility>
+            <code>500</code>
+            <localPatientId>100022</localPatientId>
+            <name>CAMP MASTER</name>
+        </facility>
+        <localId>1V;I</localId>
+        <medOrders size="1">
+            <medicationOrder>
+                <provider>
+                    <name>PULEO,ANTHONY</name>
+                </provider>
+            </medicationOrder>
+        </medOrders>
+        <medStatus>
+            <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/codes/medicationStatus/55561003" />
+            <code>55561003</code>
+            <name>Active</name>
+        </medStatus>
+        <overallStart>20101119130500.000</overallStart>
+        <overallStop>20101122235900.000</overallStop>
+        <productFormName>ACYCLOVIR INJ</productFormName>
+        <products size="1">
+            <medicationProduct>
+                <code>62</code>
+                <concentration>20 MG</concentration>
+                <drugClass>ANTIVIRALS</drugClass>
+                <name>ACYCLOVIR</name>
+            </medicationProduct>
+        </products>
+        <stopped>20101122235900.000</stopped>
+        <id>urn:va:medication:500:100022:1V;I</id>
+        <vaStatus>ACTIVE</vaStatus>
+        <vaType>V</vaType>
+        <vehicles size="1">
+            <medicationVehicle>
+                <code>22</code>
+                    <drugClass>AMINO ACIDS/PROTEINS,PARENTERAL,WITHOUT ADDED ELECTROLYTES</drugClass>
+                    <name>AMINO ACIDS 10%</name>
+                    <volume>500 ML</volume>
+            </medicationVehicle>
+        </vehicles>
+    </medication>
+    <medication>
+        <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/vpr/10038/medication/5" />
+        <link xmlns="http://www.w3.org/2005/Atom" rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/cpe/vpr/10038" />
+        <doses size="1">
+            <medicationDose>
+                <IVRate>INFUSE OVER 30 Minutes</IVRate>
+                <routeName>IV</routeName>
+                <schedule>BID</schedule>
+            </medicationDose>
+        </doses>
+        <facility>
+            <code>500</code>
+            <localPatientId>100022</localPatientId>
+            <name>CAMP MASTER</name>
+        </facility>
+        <localId>2V;I</localId>
+        <medOrders size="1">
+            <medicationOrder>
+                <provider>
+                    <name>PULEO,ANTHONY</name>
+                </provider>
+            </medicationOrder>
+        </medOrders>
+        <medStatus>
+            <link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/cpe/codes/medicationStatus/55561003" />
+            <code>55561003</code>
+            <name>Active</name>
+        </medStatus>
+        <overallStart>20101119130500.000</overallStart>
+        <overallStop>20101123235900.000</overallStop>
+        <productFormName>CYCLOPHOSPHAMIDE INJ</productFormName>
+        <products size="1">
+            <medicationProduct>
+                <code>119</code>
+                <concentration>30 MG</concentration>
+                <drugClass>ANTINEOPLASTICS,ALKYLATING AGENTS</drugClass>
+                <name>CYCLOPHOSPHAMIDE</name>
+            </medicationProduct>
+        </products>
+        <stopped>20101123235900.000</stopped>
+        <id>urn:va:medication:500:100022:2V;I</id>
+        <vaStatus>ACTIVE</vaStatus>
+        <vaType>V</vaType>
+        <vehicles size="1">
+            <medicationVehicle>
+                <code>42</code>
+                <drugClass>AMINO ACIDS/PROTEINS,PARENTERAL,WITH ADDED ELECTROLYTES</drugClass>
+                <name>AMINO ACIDS 8%</name>
+                <volume>500 ML</volume>
+            </medicationVehicle>
+        </vehicles>
+    </medication>
+  </list>
+            ]]></doc>
+            </representation>
+            <representation mediaType="application/json">
+
+            </representation>
+        </response>
+    </method>
+
+    <method id="getAllergy" name="GET">
+        <doc title="Returns an individual allergy or adverse reaction." />
+        <response status="200">
+            <representation mediaType="application/xml">
+                <doc title="Example XML response for allergy result"><![CDATA[
+<?xml version="1.0" encoding="UTF-8" ?>
+<allergy>
+	<link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/vpr/v1/10104/allergy/2" />
+	<link xmlns="http://www.w3.org/2005/Atom" rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/vpr/v1/10104" />
+	<adverseEventTypeCode>urn:sct:419511003</adverseEventTypeCode>
+	<adverseEventTypeName>Drug - PHARMACOLOGIC</adverseEventTypeName>
+	<entered>20050317195600.000</entered>
+	<facility>
+		<code>500</code>
+		<id>1</id>
+		<localPatientId>41205322</localPatientId>
+		<name>CAMP MASTER</name>
+	<version>1</version>
+	</facility>
+	<historical>true</historical>
+	<id>345</id>
+	<localId>747</localId>
+	<products size="1">
+		<allergyProduct>
+			<id>1</id>
+			<name>PENICILLIN</name>
+		</allergyProduct>
+	</products>
+	<reactions size="1">
+		<allergyReaction>
+			<id>1</id>
+			<name>ITCHING,WATERING EYES</name>
+		</allergyReaction>
+	</reactions>
+	<reference>125;GMRD(120.82,</reference>
+	<id>urn:va:art:500:747</id>
+	<verified>20050317195619.000</verified>
+</allergy>
+                ]]></doc>
+            </representation>
+            <representation mediaType="application/json">
+                <doc title="Example JSON response for allergy result"><![CDATA[
+{"class":"EXT.DOMAIN.cpe.vpr.Allergy",
+ "id":345,"adverseEventTypeCode":"urn:sct:419511003","adverseEventTypeName":"Drug - PHARMACOLOGIC","comments":[],
+ "entered":"20050317195600.000","enteredBy":null,"facility":{"class":"PatientFacility","id":1},
+ "historical":true,"localId":"747","patient":{"class":"Patient","id":1},
+ "products":[{"class":"AllergyProduct","id":4}],
+ "reactions":[{"class":"AllergyReaction","id":5}],
+ "reference":"125;GMRD(120.82,","severityCode":null,"severityName":null,"uid":"urn:va:art:500:747",
+ "verified":"20050317195619.000","verifiedBy":null}
+
+                ]]></doc>
+            </representation>
+        </response>
+    </method>
+
+    <method id="getAllergyList" name="GET">
+        <doc title="Returns a list of allergies and adverse reactions." />
+        <response status="200">
+            <representation mediaType="application/xml">
+                <doc title="Example XML response for all allergies result"><![CDATA[
+<?xml version="1.0" encoding="UTF-8" ?>
+<list size="3">
+	<link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/vpr/v1/10104/allergy/all" />
+	<allergy>
+		<link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/vpr/v1/10104/allergy/2" />
+		<link xmlns="http://www.w3.org/2005/Atom" rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/vpr/v1/10104" />
+		<adverseEventTypeCode>urn:sct:419511003</adverseEventTypeCode>
+		<adverseEventTypeName>Drug - PHARMACOLOGIC</adverseEventTypeName>
+		<entered>20050317195600.000</entered>
+		<facility>
+			<code>500</code>
+			<id>1</id>
+			<localPatientId>41205322</localPatientId>
+			<name>CAMP MASTER</name>
+			<version>1</version>
+		</facility>
+		<historical>true</historical>
+		<id>345</id>
+		<localId>747</localId>
+		<products size="1">
+			<allergyProduct>
+				<id>4</id>
+				<name>PENICILLIN</name>
+			</allergyProduct>
+		</products>
+		<reactions size="1">
+			<allergyReaction>
+				<id>5</id>
+				<name>ITCHING,WATERING EYES</name>
+			</allergyReaction>
+		</reactions>
+		<reference>125;GMRD(120.82,</reference>
+		<id>urn:va:art:500:747</id>
+		<verified>20050317195619.000</verified>
+		<version>1</version>
+	</allergy>
+	<allergy>
+		<link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/vpr/v1/10104/allergy/3" />
+		<link xmlns="http://www.w3.org/2005/Atom" rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/vpr/v1/10104" />
+		<adverseEventTypeCode>urn:sct:419199007</adverseEventTypeCode>
+		<adverseEventTypeName>Drug / Food - ALLERGY</adverseEventTypeName>
+		<entered>20071217145800.000</entered>
+		<facility>
+			<code>500</code>
+			<id>1</id>
+			<localPatientId>41205322</localPatientId>
+			<name>CAMP MASTER</name>
+			<version>1</version>
+		</facility>
+		<historical>true</historical>
+		<id>3</id>
+		<localId>870</localId>
+		<products size="1">
+			<allergyProduct>
+				<id>5</id>
+				<name>CHOCOLATE</name>
+				<vuid>4636681</vuid>
+			</allergyProduct>
+		</products>
+		<reactions size="1">
+			<allergyReaction>
+				<id>6</id>
+				<name>DIARRHEA</name>
+				<vuid>4637011</vuid>
+			</allergyReaction>
+		</reactions>
+		<reference>3;GMRD(120.82,</reference>
+		<id>urn:va:art:500:870</id>
+		<verified>20071217145839.000</verified>
+		<version>1</version>
+	</allergy>
+	<allergy>
+		<link xmlns="http://www.w3.org/2005/Atom" rel="self" href="http://localhost:8080/vpr/v1/10104/allergy/4" />
+		<link xmlns="http://www.w3.org/2005/Atom" rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/vpr/v1/10104" />
+		<adverseEventTypeCode>urn:sct:414285001</adverseEventTypeCode>
+		<adverseEventTypeName>Food - ALLERGY</adverseEventTypeName>
+		<entered>20101202121000.000</entered>
+		<facility>
+			<code>500</code>
+			<id>1</id>
+			<localPatientId>41205322</localPatientId>
+			<name>CAMP MASTER</name>
+			<version>1</version>
+		</facility>
+		<historical>true</historical>
+		<id>4</id>
+		<localId>968</localId>
+		<products size="1">
+			<allergyProduct>
+			<id>6</id>
+			<name>STRAWBERRIES</name>
+			<vuid>4637360</vuid>
+			</allergyProduct>
+		</products>
+		<reactions size="2">
+			<allergyReaction>
+				<id>7</id>
+				<name>NAUSEA,VOMITING</name>
+			</allergyReaction>
+			<allergyReaction>
+				<id>8</id>
+				<name>HIVES</name>
+			</allergyReaction>
+		</reactions>
+		<reference>6;GMRD(120.82,</reference>
+		<severityCode>urn:sct:6736007</severityCode>
+		<severityName>MODERATE</severityName>
+		<id>urn:va:art:500:968</id>
+		<verified>20101202121119.000</verified>
+		<version>1</version>
+	</allergy>
+</list>
+                ]]></doc>
+            </representation>
+            <representation mediaType="application/json">
+                <doc title="Example JSON response for all allergies result"><![CDATA[
+[{"rel":"self","href":"http://localhost:8080/vpr/v1/10104/allergy/all"},
+{"class":"EXT.DOMAIN.cpe.vpr.Allergy","id":2,"adverseEventTypeCode":"urn:sct:419511003",
+"adverseEventTypeName":"Drug - PHARMACOLOGIC","comments":[],"entered":"20050317195600.000",
+"enteredBy":null,"facility":{"class":"PatientFacility","id":1},"historical":true,
+"localId":"747","patient":{"class":"Patient","id":1},"products":[{"class":"AllergyProduct","id":1}],
+"reactions":[{"class":"AllergyReaction","id":1}],"reference":"125;GMRD(120.82,",
+"severityCode":null,"severityName":null,"uid":"urn:va:art:500:747","verified":"20050317195619.000",
+"verifiedBy":null},
+{"class":"EXT.DOMAIN.cpe.vpr.Allergy","id":3,"adverseEventTypeCode":"urn:sct:419199007",
+"adverseEventTypeName":"Drug / Food - ALLERGY","comments":[],"entered":"20071217145800.000",
+"enteredBy":null,"facility":{"class":"PatientFacility","id":1},"historical":true,
+"localId":"870","patient":{"class":"Patient","id":1},"products":[{"class":"AllergyProduct","id":2}],
+"reactions":[{"class":"AllergyReaction","id":2}],"reference":"3;GMRD(120.82,",
+"severityCode":null,"severityName":null,"uid":"urn:va:art:500:870","verified":"20071217145839.000",
+"verifiedBy":null},
+{"class":"EXT.DOMAIN.cpe.vpr.Allergy","id":4,"adverseEventTypeCode":"urn:sct:414285001",
+"adverseEventTypeName":"Food - ALLERGY","comments":[],"entered":"20101202121000.000",
+"enteredBy":null,"facility":{"class":"PatientFacility","id":1},"historical":true,
+"localId":"968","patient":{"class":"Patient","id":1},"products":[{"class":"AllergyProduct","id":3}],
+"reactions":[{"class":"AllergyReaction","id":4},{"class":"AllergyReaction","id":3}],
+"reference":"6;GMRD(120.82,","severityCode":"urn:sct:6736007","severityName":"MODERATE",
+"uid":"urn:va:art:500:968","verified":"20101202121119.000","verifiedBy":null}]
+                ]]></doc>
+            </representation>
+        </response>
+    </method>
+        <method id="getProblem" name="GET">
+        <doc title="Returns an individual problem." />
+        <response status="200">
+            <representation mediaType="application/xml">
+                <doc title="Example XML response for problem result"><![CDATA[
+<?xml version="1.0" encoding="UTF-8" ?>
+<list size="2">
+<link rel="self" href="http://localhost:8080/vpr/v1/10104/problem/all"/>
+<totalResults>2</totalResults>
+<entry>
+    <link rel="self" href="http://localhost:8080/vpr/v1/10104/problem/urn%3Ava%3Aproblem%3A960%3A229%3A881"/>
+    <link rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/vpr/v1/10104"/>
+    <acuity>Chronic</acuity>
+    <comments>
+        <problemComment>
+            <comment>drinks too much</comment>
+            <entered>20101130</entered>
+            <enteredBy>PROVIDER,ONE</enteredBy>
+        </problemComment>
+    </comments>
+    <entered>20101130</entered>
+    <facility>
+        <code>960</code>
+        <localPatientId>229</localPatientId>
+        <name>SLC-FO AVIVA VDEV</name>
+        </facility>
+    <icd>303.90</icd>
+    <kind>Problem</kind>
+    <localId>881</localId>
+    <location>GENERAL MEDICINE</location>
+    <problemText>Alcohol Dependence</problemText>
+    <provider>
+        <name>PROVIDER,ONE</name>
+    </provider>
+    <removed>No</removed>
+    <sc>No</sc>
+    <status>Active</status>
+    <summary>Alcohol Dependence</summary>
+    <uid>urn:va:problem:960:229:881</uid>
+    <unverified>No</unverified>
+    <updated>20101130</updated>
+</entry>
+                ]]></doc>
+            </representation>
+            <representation mediaType="application/json">
+                <doc title="Example JSON response for a problem result"><![CDATA[
+{
+
+    links: [
+            {
+                + rel: "self"
+                + href: http://localhost:8080/vpr/v1/10104/problem/all
+            }
+      ]
+    totalResults: 1
+    entry: [
+          {
+                + class: "EXT.DOMAIN.cpe.vpr.Problem"
+                  link: {
+                      # rel: http://vaww.cpe.DOMAIN.EXT/rels/patient
+                      # href: http://localhost:8080/vpr/v1/10104
+                  }
+                acuity: "Chronic"
+                comments: [
+                      {
+                         class: "EXT.DOMAIN.cpe.vpr.ProblemComment"
+                         comment: "drinks too much"
+                         entered: "20101130"
+                         enteredBy: "PROVIDER,ONE"
+                      }
+                  ]
+                entered: "20101130"
+                facility: {
+                      class: "EXT.DOMAIN.cpe.vpr.PatientFacility"
+                      code: "960"
+                      localPatientId: "229"
+                      name: "SLC-FO AVIVA VDEV"
+                  }
+                icd: "303.90"
+                kind: "Problem"
+                localId: "881"
+                location: "GENERAL MEDICINE"
+                problemText: "Alcohol Dependence"
+                provider: {
+                      class: "EXT.DOMAIN.cpe.vpr.Clinician"
+                      name: "PROVIDER,ONE"
+                  }
+                removed: "No"
+                sc: "No"
+                status: "Active"
+                summary: "Alcohol Dependence"
+                uid: "urn:va:problem:960:229:881"
+                unverified: "No"
+                updated: "20101130"
+          }
+
+                ]]></doc>
+            </representation>
+        </response>
+    </method>
+
+    <method id="getProblemList" name="GET">
+        <doc title="Returns a list of all problems." />
+        <response status="200">
+            <representation mediaType="application/xml">
+                <doc title="Example XML response for all problems result"><![CDATA[
+<?xml version="1.0" encoding="UTF-8" ?>
+<list size="2">
+<link rel="self" href="http://localhost:8080/vpr/v1/10104/problem/all"/>
+<totalResults>2</totalResults>
+<entry>
+    <link rel="self" href="http://localhost:8080/vpr/v1/10104/problem/urn%3Ava%3Aproblem%3A960%3A229%3A881"/>
+    <link rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/vpr/v1/10104"/>
+    <acuity>Chronic</acuity>
+    <comments>
+        <problemComment>
+            <comment>drinks too much</comment>
+            <entered>20101130</entered>
+            <enteredBy>PROVIDER,ONE</enteredBy>
+        </problemComment>
+    </comments>
+    <entered>20101130</entered>
+    <facility>
+        <code>960</code>
+        <localPatientId>229</localPatientId>
+        <name>SLC-FO AVIVA VDEV</name>
+        </facility>
+    <icd>303.90</icd>
+    <kind>Problem</kind>
+    <localId>881</localId>
+    <location>GENERAL MEDICINE</location>
+    <problemText>Alcohol Dependence</problemText>
+    <provider>
+        <name>PROVIDER,ONE</name>
+    </provider>
+    <removed>No</removed>
+    <sc>No</sc>
+    <status>Active</status>
+    <summary>Alcohol Dependence</summary>
+    <uid>urn:va:problem:960:229:881</uid>
+    <unverified>No</unverified>
+    <updated>20101130</updated>
+</entry>
+<entry>
+    <link rel="self" href="http://localhost:8080/vpr/v1/10104/problem/urn%3Ava%3Aproblem%3A960%3A229%3A882"/>
+    <link rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/vpr/v1/10104"/>
+    <comments>
+        <problemComment>
+            <comment>TESTING</comment>
+            <entered>20101130</entered>
+            <enteredBy>PROVIDER,ONE</enteredBy>
+        </problemComment>
+    </comments>
+    <entered>20101130</entered>
+    <facility>
+        <code>960</code>
+        <localPatientId>229</localPatientId>
+        <name>SLC-FO AVIVA VDEV</name>
+    </facility>
+    <icd>V49.9</icd>
+    <kind>Problem</kind>
+    <localId>882</localId>
+    <location>GENERAL MEDICINE</location>
+    <onset>20101130</onset>
+    <problemText>problems</problemText>
+    <provider>
+        <name>BUECHLER,MELANIE K</name>
+    </provider>
+    <removed>No</removed>
+    <sc>No</sc>
+    <status>Active</status>
+    <summary>problems</summary>
+    <uid>urn:va:problem:960:229:882</uid>
+    <unverified>No</unverified>
+    <updated>20101130</updated>
+</entry>
+</list>
+                ]]></doc>
+            </representation>
+            <representation mediaType="application/json">
+                <doc title="Example JSON response for all problems result"><![CDATA[
+[{
+
+    links: [
+            {
+                + rel: "self"
+                + href: http://localhost:8080/vpr/v1/10104/problem/all
+            }
+      ]
+    totalResults: 12
+    entry: [
+          {
+                + class: "EXT.DOMAIN.cpe.vpr.Problem"
+                  link: {
+                      # rel: http://vaww.cpe.DOMAIN.EXT/rels/patient
+                      # href: http://localhost:8080/vpr/v1/10104
+                  }
+                acuity: "Chronic"
+                comments: [
+                      {
+                         class: "EXT.DOMAIN.cpe.vpr.ProblemComment"
+                         comment: "drinks too much"
+                         entered: "20101130"
+                         enteredBy: "PROVIDER,ONE"
+                      }
+                  ]
+                entered: "20101130"
+                facility: {
+                      class: "EXT.DOMAIN.cpe.vpr.PatientFacility"
+                      code: "960"
+                      localPatientId: "229"
+                      name: "SLC-FO AVIVA VDEV"
+                  }
+                icd: "303.90"
+                kind: "Problem"
+                localId: "881"
+                location: "GENERAL MEDICINE"
+                problemText: "Alcohol Dependence"
+                provider: {
+                      class: "EXT.DOMAIN.cpe.vpr.Clinician"
+                      name: "PROVIDER,ONE"
+                  }
+                removed: "No"
+                sc: "No"
+                status: "Active"
+                summary: "Alcohol Dependence"
+                uid: "urn:va:problem:960:229:881"
+                unverified: "No"
+                updated: "20101130"
+          }
+          {
+           class: "EXT.DOMAIN.cpe.vpr.Problem"
+           link: {
+                      rel: http://vaww.cpe.DOMAIN.EXT/rels/patient
+                      href: http://localhost:8080/vpr/v1/10104
+                  }
+                comments: [
+                      {
+                            * class: "EXT.DOMAIN.cpe.vpr.ProblemComment"
+                            * comment: "TESTING"
+                            * entered: "20101130"
+                            * enteredBy: "BUECHLER,MELANIE K"
+                      }
+                  ]
+                entered: "20101130"
+                facility: {
+                      # class: "EXT.DOMAIN.cpe.vpr.PatientFacility"
+                      # code: "960"
+                      # localPatientId: "229"
+                      # name: "SLC-FO AVIVA VDEV"
+                  }
+                icd: "V49.9"
+                kind: "Problem"
+                localId: "882"
+                location: "GENERAL MEDICINE"
+                onset: "20101130"
+                problemText: "problems"
+                provider: {
+                      class: "EXT.DOMAIN.cpe.vpr.Clinician"
+                      name: "PROVIDER,ONE"
+                  }
+                removed: "No"
+                sc: "No"
+                status: "Active"
+                summary: "problems"
+                uid: "urn:va:problem:960:229:882"
+                unverified: "No"
+                updated: "20101130"
+            }
+                ]]></doc>
+            </representation>
+        </response>
+    </method>
+            <method id="getProcedure" name="GET">
+        <doc title="Returns an individual procedure." />
+        <response status="200">
+            <representation mediaType="application/xml">
+                <doc title="Example XML response for procedure result"><![CDATA[
+<procedure>
+    <link rel="self" href="http://localhost:8080/vpr/v1/10104/procedure/urn%3Ava%3Aprocedure%3A500%3A229%3A10010"/>
+    <link rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/vpr/v1/10104"/>
+    <category>SR</category>
+    <dateTime>20061208073000.000</dateTime>
+    <facility>
+        <code>500</code>
+        <localPatientId>229</localPatientId>
+        <name>CAMP MASTER</name>
+    </facility>
+    <kind>Procedure</kind>
+    <localId>10010</localId>
+    <providers>
+        <procedureProvider>
+            <provider>
+                <name>PROVIDER,ONE</name>
+            </provider>
+        </procedureProvider>
+    </providers>
+    <results>
+        <procedureResult>
+            <procedure/>
+            <report>OPERATION REPORT</report>
+        </procedureResult>
+        <procedureResult>
+            <localTitle>NURSE INTRAOPERATIVE REPORT</localTitle>
+            <procedure/>
+        </procedureResult>
+        <procedureResult>
+            <localTitle>ANESTHESIA REPORT</localTitle>
+            <procedure/>
+        </procedureResult>
+        <procedureResult>
+            <localTitle>OPERATION REPORT</localTitle>
+            <procedure/>
+        </procedureResult>
+    </results>
+    <status>COMPLETED</status>
+    <summary>LEFT INGUINAL HERNIA REPAIR WITH MESH</summary>
+    <typeName>LEFT INGUINAL HERNIA REPAIR WITH MESH</typeName>
+    <uid>urn:va:procedure:500:229:10010</uid>
+<procedure>
+                ]]></doc>
+            </representation>
+            <representation mediaType="application/json">
+                <doc title="Example JSON response for a procedure result"><![CDATA[
+[{
+# links: [
+        {
+          rel: "self"
+          href: http://localhost:8080/vpr/v1/10104/procedure/all
+        }
+
+        ]
+    totalResults: 2
+    entry: [
+    {
+        class: "EXT.DOMAIN.cpe.vpr.Procedure"
+        link: {
+            rel: http://vaww.cpe.DOMAIN.EXT/rels/patient
+            href: http://localhost:8080/vpr/v1/10104
+        }
+        category: "SR"
+        dateTime: "20061208073000.000"
+        facility: {
+            class: "EXT.DOMAIN.cpe.vpr.PatientFacility"
+            code: "500"
+            localPatientId: "229"
+            name: "CAMP MASTER"
+        }
+        kind: "Procedure"
+        localId: "10010"
+        providers: [
+            {
+                class: "EXT.DOMAIN.cpe.vpr.ProcedureProvider"
+                provider: {
+                    class: "EXT.DOMAIN.cpe.vpr.Clinician"
+                    name: "PROVIDER,ONE"
+                    }
+                }
+            ]
+        results: [
+            {
+                class: "EXT.DOMAIN.cpe.vpr.ProcedureResult"
+                localTitle: "NURSE INTRAOPERATIVE REPORT"
+                procedure: null
+            }
+            {
+                class: "EXT.DOMAIN.cpe.vpr.ProcedureResult"
+                localTitle: "OPERATION REPORT"
+                procedure: null
+            }
+            {
+                class: "EXT.DOMAIN.cpe.vpr.ProcedureResult"
+                procedure: null
+                report: "OPERATION REPORT"
+            }
+            {
+                class: "EXT.DOMAIN.cpe.vpr.ProcedureResult"
+                localTitle: "ANESTHESIA REPORT"
+                procedure: null
+            }
+            ]
+        status: "COMPLETED"
+        summary: "LEFT INGUINAL HERNIA REPAIR WITH MESH"
+        typeName: "LEFT INGUINAL HERNIA REPAIR WITH MESH"
+        uid: "urn:va:procedure:500:229:10010"
+      }
+
+                ]]></doc>
+            </representation>
+        </response>
+    </method>
+
+    <method id="getProcedureList" name="GET">
+        <doc title="Returns a list of all procedures." />
+        <response status="200">
+            <representation mediaType="application/xml">
+                <doc title="Example XML response for all procedures result"><![CDATA[
+<?xml version="1.0" encoding="UTF-8" ?>
+<link rel="self" href="http://localhost:8080/vpr/v1/10104/procedure/all"/>
+<totalResults>2</totalResults>
+<entry>
+    <link rel="self" href="http://localhost:8080/vpr/v1/10104/procedure/urn%3Ava%3Aprocedure%3A500%3A229%3A10010"/>
+    <link rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/vpr/v1/10104"/>
+    <category>SR</category>
+    <dateTime>20061208073000.000</dateTime>
+    <facility>
+        <code>500</code>
+        <localPatientId>229</localPatientId>
+        <name>CAMP MASTER</name>
+    </facility>
+    <kind>Procedure</kind>
+    <localId>10010</localId>
+    <providers>
+        <procedureProvider>
+            <provider>
+                <name>PROVIDER,ONE</name>
+            </provider>
+        </procedureProvider>
+    </providers>
+    <results>
+        <procedureResult>
+            <procedure/>
+            <report>OPERATION REPORT</report>
+        </procedureResult>
+        <procedureResult>
+            <localTitle>NURSE INTRAOPERATIVE REPORT</localTitle>
+            <procedure/>
+        </procedureResult>
+        <procedureResult>
+            <localTitle>ANESTHESIA REPORT</localTitle>
+            <procedure/>
+        </procedureResult>
+        <procedureResult>
+            <localTitle>OPERATION REPORT</localTitle>
+            <procedure/>
+        </procedureResult>
+    </results>
+    <status>COMPLETED</status>
+    <summary>LEFT INGUINAL HERNIA REPAIR WITH MESH</summary>
+    <typeName>LEFT INGUINAL HERNIA REPAIR WITH MESH</typeName>
+    <uid>urn:va:procedure:500:229:10010</uid>
+</entry>
+<entry>
+    <link rel="self" href="http://localhost:8080/vpr/v1/10104/procedure/urn%3Ava%3Aprocedure%3A500%3A229%3A6898877.8898-1"/>
+    <link rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/vpr/v1/10104"/>
+    <category>RA</category>
+    <dateTime>20101122110100.000</dateTime>
+    <facility>
+        <code>500</code>
+        <localPatientId>229</localPatientId>
+        <name>CAMP MASTER</name>
+    </facility>
+    <kind>Procedure</kind>
+    <localId>6898877.8898-1</localId>
+    <results>
+        <procedureResult>
+            <localTitle>KNEE 2 VIEWS</localTitle>
+            <procedure/>
+        </procedureResult>
+    </results>
+    <status>COMPLETE</status>
+    <summary>RADIOLOGIC EXAMINATION, KNEE; 1 OR 2 VIEWS</summary>
+    <typeCode>73560</typeCode>
+    <typeName>RADIOLOGIC EXAMINATION, KNEE; 1 OR 2 VIEWS</typeName>
+    <uid>urn:va:procedure:500:229:6898877.8898-1</uid>
+</entry>
+</list>
+                ]]></doc>
+            </representation>
+            <representation mediaType="application/json">
+                <doc title="Example JSON response for all problems result"><![CDATA[
+[{
+# links: [
+        {
+          rel: "self"
+          href: http://localhost:8080/vpr/v1/10104/procedure/all
+        }
+
+        ]
+    totalResults: 2
+    entry: [
+    {
+        class: "EXT.DOMAIN.cpe.vpr.Procedure"
+        link: {
+            rel: http://vaww.cpe.DOMAIN.EXT/rels/patient
+            href: http://localhost:8080/vpr/v1/10104
+        }
+        category: "SR"
+        dateTime: "20061208073000.000"
+        facility: {
+            class: "EXT.DOMAIN.cpe.vpr.PatientFacility"
+            code: "500"
+            localPatientId: "229"
+            name: "CAMP MASTER"
+        }
+        kind: "Procedure"
+        localId: "10010"
+        providers: [
+            {
+                class: "EXT.DOMAIN.cpe.vpr.ProcedureProvider"
+                provider: {
+                    class: "EXT.DOMAIN.cpe.vpr.Clinician"
+                    name: "PROVIDER,ONE"
+                    }
+                }
+            ]
+        results: [
+            {
+                class: "EXT.DOMAIN.cpe.vpr.ProcedureResult"
+                localTitle: "NURSE INTRAOPERATIVE REPORT"
+                procedure: null
+            }
+            {
+                class: "EXT.DOMAIN.cpe.vpr.ProcedureResult"
+                localTitle: "OPERATION REPORT"
+                procedure: null
+            }
+            {
+                class: "EXT.DOMAIN.cpe.vpr.ProcedureResult"
+                procedure: null
+                report: "OPERATION REPORT"
+            }
+            {
+                class: "EXT.DOMAIN.cpe.vpr.ProcedureResult"
+                localTitle: "ANESTHESIA REPORT"
+                procedure: null
+            }
+            ]
+        status: "COMPLETED"
+        summary: "LEFT INGUINAL HERNIA REPAIR WITH MESH"
+        typeName: "LEFT INGUINAL HERNIA REPAIR WITH MESH"
+        uid: "urn:va:procedure:500:229:10010"
+      }
+    {
+        class: "EXT.DOMAIN.cpe.vpr.Procedure"
+        link: {
+            rel: http://vaww.cpe.DOMAIN.EXT/rels/patient
+            href: http://localhost:8080/vpr/v1/10104
+            }
+        category: "RA"
+        dateTime: "20101122110100.000"
+        facility: {
+            class: "EXT.DOMAIN.cpe.vpr.PatientFacility"
+            code: "500"
+            localPatientId: "229"
+            name: "CAMP MASTER"
+        }
+        kind: "Procedure"
+        localId: "6898877.8898-1"
+        results: [
+            {
+                class: "EXT.DOMAIN.cpe.vpr.ProcedureResult"
+                localTitle: "KNEE 2 VIEWS"
+                procedure: null
+            }
+        ]
+        status: "COMPLETE"
+        summary: "RADIOLOGIC EXAMINATION, KNEE; 1 OR 2 VIEWS"
+        typeCode: 73560
+        typeName: "RADIOLOGIC EXAMINATION, KNEE; 1 OR 2 VIEWS"
+        uid: "urn:va:procedure:500:229:6898877.8898-1"
+      }
+                ]]></doc>
+            </representation>
+        </response>
+    </method>
+    <method id="getOrder" name="GET">
+        <doc title="Returns an individual order." />
+        <response status="200">
+            <representation mediaType="application/xml">
+                <doc title="Example XML response for order result"><![CDATA[
+    <response>
+        <apiVersion>1</apiVersion>
+            <data>
+                <link rel="self" href="http://localhost:8080/vpr/v1/10104/order/33966"/>
+                <item>
+                    <domain>order</domain>
+                    <link rel="self" href="http://localhost:8080/vpr/v1/10104/order/urn%3Ava%3Aorder%3A960%3A229%3A33966"/>
+                    <link rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/vpr/v1/10104"/>
+                    <content>REGULAR Diet</content>
+                    <entered>20110721051300.000</entered>
+                    <facilityCode>960</facilityCode>
+                    <facilityName>SLC-FO AVIVA VDEV</facilityName>
+                    <group>DO</group>
+                    <kind>Order</kind>
+                    <localId>33966</localId>
+                    <locationId>158</locationId>
+                    <locationName>7A GEN MED</locationName>
+                    <name>REGULAR</name>
+                    <oiIen>129</oiIen>
+                    <provider>
+                        <domain>clinician</domain>
+                        <name>AVIVAUSER,FIFTYSEVEN</name>
+                    </provider>
+                    <start>20110721</start>
+                    <statusCode>actv</statusCode>
+                    <statusName>Active</statusName>
+                    <summary>REGULAR Diet</summary>
+                    <uid>urn:va:order:960:229:33966</uid>
+                </item>
+            </response>
+                ]]></doc>
+            </representation>
+            <representation mediaType="application/json">
+                <doc title="Example JSON response for an order result"><![CDATA[
+{
+
+{
+    apiVersion: "1"
+    data: {
+          selfLink: http://localhost:8080/vpr/v1/10104/order/33966
+          items: [
+            {
+                domain: "order"
+                link: {
+                    rel: http://vaww.cpe.DOMAIN.EXT/rels/patient
+                    href: http://localhost:8080/vpr/v1/10104
+                }
+                    content: "REGULAR Diet"
+                    entered: "20110721051300.000"
+                    facilityCode: "960"
+                    facilityName: "SLC-FO AVIVA VDEV"
+                    group: "DO"
+                    kind: "Order"
+                    localId: "33966"
+                    locationId: "158"
+                    locationName: "7A GEN MED"
+                    name: "REGULAR"
+                    oiIen: "129"
+                    provider: {
+                        domain: "clinician"
+                        name: "AVIVAUSER,FIFTYSEVEN"
+                    }
+                    start: "20110721"
+                    statusCode: "actv"
+                    statusName: "Active"
+                    summary: "REGULAR Diet"
+                    uid: "urn:va:order:960:229:33966"
+                  }
+                  }
+
+                ]]></doc>
+            </representation>
+        </response>
+    </method>
+    <method id="getOrderList" name="GET">
+        <doc title="Returns a list of orders." />
+        <response status="200">
+            <representation mediaType="application/xml">
+                <doc title="Example XML response for a list of orders"><![CDATA[
+    <response>
+        <apiVersion>1</apiVersion>
+            <data>
+                <link rel="self" href="http://localhost:8080/vpr/v1/10104/order/all"/>
+                <totalItems>216</totalItems>
+                <currentItemCount>100</currentItemCount>
+                <startIndex>0</startIndex>
+                <itemsPerPage>100</itemsPerPage>
+                <totalPages>3</totalPages>
+                <item>
+                    <domain>order</domain>
+                    <link rel="self" href="http://localhost:8080/vpr/v1/10104/order/urn%3Ava%3Aorder%3A960%3A229%3A33966"/>
+                    <link rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/vpr/v1/10104"/>
+                    <content>REGULAR Diet</content>
+                    <entered>20110721051300.000</entered>
+                    <facilityCode>960</facilityCode>
+                    <facilityName>SLC-FO AVIVA VDEV</facilityName>
+                    <group>DO</group>
+                    <kind>Order</kind>
+                    <localId>33966</localId>
+                    <locationId>158</locationId>
+                    <locationName>7A GEN MED</locationName>
+                    <name>REGULAR</name>
+                    <oiIen>129</oiIen>
+                    <provider>
+                        <domain>clinician</domain>
+                        <name>AVIVAUSER,FIFTYSEVEN</name>
+                    </provider>
+                    <start>20110721</start>
+                    <statusCode>actv</statusCode>
+                    <statusName>Active</statusName>
+                    <summary>REGULAR Diet</summary>
+                    <uid>urn:va:order:960:229:33966</uid>
+                </item>
+                <item>
+                    <domain>order</domain>
+                    <link rel="self" href="http://localhost:8080/vpr/v1/10104/order/urn%3Ava%3Aorder%3A960%3A229%3A33825"/>
+                    <link rel="http://vaww.cpe.DOMAIN.EXT/rels/patient" href="http://localhost:8080/vpr/v1/10104"/>
+                    <content>CHEM 7 BLOOD   SERUM SP LB #17895</content>
+                    <entered>20110705135300.000</entered>
+                    <facilityCode>960</facilityCode>
+                    <facilityName>SLC-FO AVIVA VDEV</facilityName>
+                    <group>CH</group>
+                    <kind>Order</kind>
+                    <localId>33825</localId>
+                    <locationId>64</locationId>
+                    <locationName>AUDIOLOGY</locationName>
+                    <name>CHEM 7</name>
+                    <oiIen>375</oiIen>
+                    <provider>
+                        <domain>clinician</domain>
+                        <name>AVIVAUSER,NINE</name>
+                        <uid>urn:va:user:960:1086</uid>
+                    </provider>
+                    <start>20110705142055.000</start>
+                    <statusCode>comp</statusCode>
+                    <statusName>Complete</statusName>
+                    <stop>20110705142400.000</stop>
+                    <summary>CHEM 7 BLOOD   SERUM SP LB #17895</summary>
+                    <uid>urn:va:order:960:229:33825</uid>
+                </item>
+            </response>
+                ]]></doc>
+            </representation>
+            <representation mediaType="application/json">
+                <doc title="Example JSON response for an order result"><![CDATA[
+{
+
+{
+    apiVersion: "1"
+    data: {
+          selfLink: http://localhost:8080/vpr/v1/10104/order/all
+          totalItems: 216
+          currentItemCount: 100
+          startIndex: 0
+          itemsPerPage: 100
+          totalPages: 3
+          items: [
+            {
+                domain: "order"
+                link: {
+                    rel: http://vaww.cpe.DOMAIN.EXT/rels/patient
+                    href: http://localhost:8080/vpr/v1/10104
+                }
+                    content: "REGULAR Diet"
+                    entered: "20110721051300.000"
+                    facilityCode: "960"
+                    facilityName: "SLC-FO AVIVA VDEV"
+                    group: "DO"
+                    kind: "Order"
+                    localId: "33966"
+                    locationId: "158"
+                    locationName: "7A GEN MED"
+                    name: "REGULAR"
+                    oiIen: "129"
+                    provider: {
+                        domain: "clinician"
+                        name: "AVIVAUSER,FIFTYSEVEN"
+                    }
+                    start: "20110721"
+                    statusCode: "actv"
+                    statusName: "Active"
+                    summary: "REGULAR Diet"
+                    uid: "urn:va:order:960:229:33966"
+                  }
+                  {
+                    domain: "order"
+                    link: {
+                        rel: http://vaww.cpe.DOMAIN.EXT/rels/patient
+                        href: http://localhost:8080/vpr/v1/10104
+                    }
+                    content: "CHEM 7 BLOOD SERUM SP LB #17895"
+                    entered: "20110705135300.000"
+                    facilityCode: "960"
+                    facilityName: "SLC-FO AVIVA VDEV"
+                    group: "CH"
+                    kind: "Order"
+                    localId: "33825"
+                    locationId: "64"
+                    locationName: "AUDIOLOGY"
+                    name: "CHEM 7"
+                    oiIen: "375"
+                    provider: {
+                        domain: "clinician"
+                        name: "AVIVAUSER,NINE"
+                        uid: "urn:va:user:960:1086"
+                    }
+                    start: "20110705142055.000"
+                    statusCode: "comp"
+                    statusName: "Complete"
+                    stop: "20110705142400.000"
+                    summary: "CHEM 7 BLOOD SERUM SP LB #17895"
+                    uid: "urn:va:order:960:229:33825"
+                  }
+                  }
+
+                ]]></doc>
+            </representation>
+        </response>
+    </method>
+</application>

@@ -1,0 +1,237 @@
+VPRJTR ;SLC/KCM -- Unit tests for RESTful queries
+ ;;1.0;JSON DATA STORE;;Sep 01, 2012
+ ;
+STARTUP  ; Run once before all tests
+ N DATA,I,LOC
+ S VPRJTPID=$O(^VPRPT("PID","DFN","93EF:-7",""))
+ I VPRJTPID D CLEARPT^VPRJP(VPRJTPID)
+ D SETUP^VPRJM
+ D GETDATA("DEMOG7",.DATA)
+ S VPRJTPID=$P($$PUTPT^VPRJPR("",.DATA),"/",3)
+ F I=1:1:5 D GETDATA("MED"_I,.DATA) S LOC=$$SAVE^VPRJP(VPRJTPID,.DATA) K DATA
+ Q
+SHUTDOWN ; Run once after all tests
+ S VPRJTPID=$O(^VPRPT("PID","DFN","93EF:-7",""))
+ D CLEARPT^VPRJP(VPRJTPID)
+ K VPRJTPID
+ K ^TMP($J),^TMP("HTTPERR",$J)
+ Q
+SETUP    ; Run before each test
+ K HTTPREQ,HTTPERR,HTTPRSP
+ Q
+TEARDOWN ; Run after each test
+ K HTTPREQ,HTTPERR,HTTPRSP
+ Q
+ASSERT(EXPECT,ACTUAL) ; convenience
+ D EQ^VPRJT(EXPECT,ACTUAL)
+ Q
+ ;
+GETDATA(TAG,DATA) ;
+ N I,X
+ F I=1:1 S X=$P($T(@TAG+I^VPRJTPD),";;",2,999) Q:X="zzz"  S DATA(I)=X
+ Q
+DATA2ARY(ARY) ; call SENDATA to write out response and read back into ARY
+ ; cause TCP data to be written to file
+ D WR4HTTP^VPRJRUT
+ D SENDATA^VPRJRSP
+ D C4HTTP^VPRJRUT
+ ;
+ ; read TCP data from file into variable and delete file
+ N X,ERR
+ S X=$$RD4HTTP^VPRJRUT
+ D DECODE^VPRJSON("X","ARY","ERR")
+ D ASSERT(0,$D(ERR))
+ Q
+SETGET(URL) ; set up a request (to emulate HTTP call)
+ S HTTPREQ("method")="GET"
+ S HTTPREQ("path")=$P(URL,"?")
+ S HTTPREQ("query")=$P(URL,"?",2,999)
+ Q
+SETPUT(URL,SRC) ; set up a PUT request
+ N DATA
+ S HTTPREQ("method")="PUT"
+ S HTTPREQ("path")=$P(URL,"?")
+ S HTTPREQ("query")=$P(URL,"?",2,999)
+ D GETDATA(SRC,.DATA)
+ M HTTPREQ("body")=DATA
+ Q
+SETDEL(URL) ; set up a delete request
+ S HTTPREQ("method")="DELETE"
+ S HTTPREQ("path")=$P(URL,"?")
+ S HTTPREQ("query")=$P(URL,"?",2,999)
+ Q
+SHOWRSP(ROOT) ; write out response
+ N I
+ I $D(@ROOT)#2 W !,@ROOT
+ S I=0 F  S I=$O(@ROOT@(I)) Q:'I  W !,@ROOT@(I)
+ Q
+ ;
+QSPLIT ;; @TEST splitting query parameters
+ N QRY,HTTPERR
+ S HTTPREQ("query")="range=20060101..20061231"
+ D QSPLIT^VPRJRSP(.QRY)
+ D ASSERT($D(QRY("range")),1)
+ D ASSERT("20060101..20061231",QRY("range"))
+ K QRY
+ S HTTPREQ("query")="range=20060101..20061231&order=desc&limit=5"
+ D QSPLIT^VPRJRSP(.QRY)
+ D ASSERT("desc",QRY("order"))
+ D ASSERT(5,QRY("limit"))
+ Q
+TIMERNG ;; @TEST query for range of time
+ ;;{"apiVersion":"1.0","data":{"updated":20120517174918,"totalItems":3,"items":[{
+ N ROOT,JSON,ERR,HTTPERR
+ D SETGET("/vpr/"_VPRJTPID_"/index/med-time/?range=20060101..20061231")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT(3,JSON("data","totalItems"))
+ D ASSERT("METFORMIN",JSON("data","items",3,"products",1,"ingredientName"))
+ ;D SHOWRSP(ROOT)
+ Q
+LAST ;; @TEST query for last instance of items in list
+ N ROOT,JSON,ERR,HTTPERR
+ D SETGET("/vpr/"_VPRJTPID_"/last/med-ingredient-name?range=Metformin, Aspirin Tab")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT(2,JSON("data","totalItems"))
+ D ASSERT("urn:va:93EF:-7:med:18069",JSON("data","items",1,"uid"))
+ D ASSERT("urn:va:93EF:-7:med:18068",JSON("data","items",2,"uid"))
+ Q
+ORDASC ;; @TEST query to return in different order
+ N ROOT,JSON,ERR,HTTPERR
+ D SETGET("/vpr/"_VPRJTPID_"/index/medication?order=qualifiedName asc")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT("WARFARIN",JSON("data","items",5,"qualifiedName"))
+ Q
+ORDDESC ;; @TEST query to return in different order
+ N ROOT,JSON,ERR,HTTPERR
+ D SETGET("/vpr/"_VPRJTPID_"/index/medication?order=qualifiedName DESC")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT("WARFARIN",JSON("data","items",1,"qualifiedName"))
+ Q
+FILTER ;; @TEST filter to return based on criteria
+ ;;{"apiVersion":"1.0","data":{"updated":20120517174918,"totalItems":3,"items":[{
+ N ROOT,JSON,ERR,HTTPERR
+ D SETGET("/vpr/"_VPRJTPID_"/index/medication/?filter=gt(""orders[].fillsRemaining"",4)")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT(1,JSON("data","totalItems"))
+ D ASSERT("urn:va:93EF:-7:med:17203",JSON("data","items",1,"uid"))
+ ;D SHOWRSP(ROOT)
+ Q
+GETUID ;; @TEST getting an object by UID only
+ N JSON,ERR,HTTPERR
+ D SETGET("/vpr/uid/"_"urn:va:93EF:-7:med:18068")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT("ASPIRIN",JSON("data","items",1,"qualifiedName"))
+ Q
+EVERY ;; @TEST retrieving every object for a patient
+ N JSON,ERR,HTTPERR
+ D SETGET("/vpr/"_VPRJTPID_"/index/every")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT(6,JSON("data","totalItems"))
+ D ASSERT(0,$D(^TMP($J,$J)))
+ D ASSERT(10,$D(^VPRTMP($$HASH^VPRJRUT("vpr/index/"_VPRJTPID_"/every////"))))
+ D ASSERT(0,$D(^VPRTMP($$HASH^VPRJRUT("vpr/index/"_VPRJTPID_"/every////"),$J)))
+ K JSON
+ D SETGET("/vpr/"_VPRJTPID_"/index/every?start=3&limit=3")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT(3,JSON("data","currentItemCount"))
+ D ASSERT(10,$D(^VPRTMP($$HASH^VPRJRUT("vpr/index/"_VPRJTPID_"/every////"))))
+ D ASSERT(0,$D(^VPRTMP($$HASH^VPRJRUT("vpr/index/"_VPRJTPID_"/every////"),$J)))
+ Q
+FINDALL ;; @TEST finding every object in collection
+ N JSON,ERR,HTTPERR
+ D SETGET("/vpr/"_VPRJTPID_"/find/med")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT(5,JSON("data","totalItems"))
+ Q
+FINDPAR ;; @TEST finding with parameters
+ N JSON,ERR,HTTPERR
+ D SETGET("/vpr/"_VPRJTPID_"/find/med?filter=eq(""products[].ingredientName"",""METFORMIN"") eq(""dosages[].dose"",""250 MG"")")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT(1,JSON("data","totalItems"))
+ D ASSERT("urn:va:93EF:-7:med:16982",JSON("data","items",1,"uid"))
+ Q
+FINDLIKE ;; @TEST finding using like()
+ N JSON,ERR,HTTPERR
+ D SETGET("/vpr/"_VPRJTPID_"/find/med?filter=like(""products[].ingredientName"",""ASPIRIN%25"")")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT(1,JSON("data","totalItems"))
+ D ASSERT("urn:va:93EF:-7:med:18068",JSON("data","items",1,"uid"))
+ Q
+ADDOBJ ;; @TEST adding object to store
+ N HTTPERR
+ D SETPUT("/vpr/"_VPRJTPID,"MED6")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D ASSERT("/vpr/"_VPRJTPID_"/urn:va:93EF:-7:med:15231",HTTPREQ("location"))
+ D ASSERT(10,$D(^VPRPT(VPRJTPID,"urn:va:93EF:-7:med:15231")))
+ D ASSERT(1,$D(^VPRPTI(VPRJTPID,"attr","medication","79949668=","urn:va:93EF:-7:med:15231",0)))
+ Q
+DELOBJ ;; @TEST remove object from store
+ N HTTPERR
+ ;D SETDEL("/vpr/"_VPRJTPID_"/urn:va:93EF:-7:med:15231")
+ D SETDEL("/vpr/uid/urn:va:93EF:-7:med:15231")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D ASSERT(0,$D(^VPRPT(VPRJTPID,"urn:va:93EF:-7:med:15231")))
+ D ASSERT(0,$D(^VPRPTI(VPRJTPID,"list","medication",20050331,"urn:va:93EF:-7:med:15231")))
+ Q
+ADDPT ;; @TEST add new patient
+ N MYPID,JSON,HTTPERR
+ D SETPUT("/vpr","DEMOG8")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ S MYPID=$O(^VPRPT("PID","DFN","93EF:-8",""))
+ D ASSERT("/vpr/"_MYPID_"/urn:va:93EF:-8:pat:-8",HTTPREQ("location"))
+ ; do it again, make sure we get the same PID
+ D SETPUT("/vpr","DEMOG8")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D ASSERT("/vpr/"_MYPID_"/urn:va:93EF:-8:pat:-8",HTTPREQ("location"))
+ ; now get the patient demographics
+ D SETGET("/vpr/"_MYPID)
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT(666000008,JSON("data","items",1,"ssn"))
+ D SETDEL("/vpr/"_MYPID)
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D ASSERT(0,$D(^VPRPT(MYPID)))
+ D ASSERT(0,$D(^VPRPT("JSON",MYPID)))
+ D ASSERT(0,$D(^VPRPTI(MYPID)))
+ Q
+ ;
+ALLFIND ;; test find across patients
+ ; this shouldn't be run like the other tests
+ ; it can't produce the same results each time since it works across patients
+ N MYPID,JSON,HTTPERR
+ D SETGET("/vpr/all/find/med/uid?filter=like(""products[].ingredientName"",""ASPIRIN%25"")")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D ASSERT(1,($G(^TMP($J,"total"))>0))
+ Q
+1 ; run just one test
+ D STARTUP,SETUP,ALLFIND,TEARDOWN,SHUTDOWN
+ Q

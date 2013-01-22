@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 28, 2011 9:47:28 AM by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="EXT.DOMAIN.cpe.vpr.LastViewed" table="last_viewed">
+    	<id name="uid" type="java.lang.String">
+            <column name="uid" />
+        </id>
+        <property name="userId" type="java.lang.String" lazy="true">
+            <column name="userId" />
+        </property>
+    </class>
+</hibernate-mapping>
+

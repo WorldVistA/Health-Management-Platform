@@ -1,0 +1,210 @@
+VPRJTU ;SLC/KCM -- Unit tests for utilities
+ ;;1.0;JSON DATA STORE;;Sep 01, 2012
+ ;
+STARTUP  ; Run once before all tests
+ Q
+SHUTDOWN ; Run once after all tests
+ K ^TMP($J),^TMP("HTTPERR",$J)
+ Q
+SETUP    ; Run before each test
+ Q
+TEARDOWN ; Run after each test
+ Q
+ASSERT(EXPECT,ACTUAL) ; convenience
+ D EQ^VPRJT(EXPECT,ACTUAL)
+ Q
+ ;
+SETREQ(METHOD,URL) ; set up a request (to emulate HTTP call)
+ S HTTPREQ("method")=METHOD
+ S HTTPREQ("path")=$P(URL,"?")
+ S HTTPREQ("query")=$P(URL,"?",2,999)
+ Q
+URLENC ;; @TEST test encoding string for use in a URL
+ N X
+ S X=$$URLENC^VPRJRUT("VALUES=20%&60% + or -")
+ D ASSERT("VALUES%3D20%25%2660%25+%2B+or+-",X)
+ Q
+URLDEC ;; @TEST test decoding URL back into string
+ N X
+ S X=$$URLDEC^VPRJRUT("VALUES%3D20%25%2660%25+%2B+or+-")
+ D ASSERT("VALUES=20%&60% + or -",X)
+ S X=$$URLDEC^VPRJRUT("piece+of+path",1) ; '+' may be part of path
+ D ASSERT("piece+of+path",X)
+ Q
+MATCH ;; @TEST matching for URLs
+ N ROU,ARGS
+ D SETREQ("GET","/vpr/48/urn:va:9E3C:229:med:33246") D MATCH^VPRJRSP(.ROU,.ARGS)
+ D ASSERT("GETOBJ^VPRJPR",ROU)
+ D ASSERT("urn:va:9E3C:229:med:33246",ARGS("uid"))
+ D SETREQ("PUT","/vpr") D MATCH^VPRJRSP(.ROU,.ARGS)
+ D ASSERT("PUTPT^VPRJPR",ROU)
+ D ASSERT(0,$D(ARGS))
+ D SETREQ("PUT","/vpr/42") D MATCH^VPRJRSP(.ROU,.ARGS)
+ D ASSERT("PUTOBJ^VPRJPR",ROU)
+ D ASSERT(42,ARGS("pid"))
+ D SETREQ("GET","/vpr/42/index/med-outpt") D MATCH^VPRJRSP(.ROU,.ARGS)
+ D ASSERT("INDEX^VPRJPR",ROU)
+ D ASSERT(42,ARGS("pid"))
+ D ASSERT("med-outpt",ARGS("indexName"))
+ D SETREQ("GET","/vpr/42/index/med-outpt/simple") D MATCH^VPRJRSP(.ROU,.ARGS)
+ D ASSERT("INDEX^VPRJPR",ROU)
+ D ASSERT(42,ARGS("pid"))
+ D ASSERT("med-outpt",ARGS("indexName"))
+ D ASSERT("simple",ARGS("template"))
+ D SETREQ("GET","/vpr/all/count/med-outpt") D MATCH^VPRJRSP(.ROU,.ARGS)
+ D ASSERT("ALLCOUNT^VPRJPR",ROU)
+ D ASSERT("med-outpt",ARGS("countName"))
+ D SETREQ("DELETE","/vpr/42") D MATCH^VPRJRSP(.ROU,.ARGS)
+ D ASSERT("DELPT^VPRJPR",ROU)
+ K HTTPREQ,HTTPERR
+ Q
+NOMATCH ;; @TEST error codes when no match found
+ ;;GET vpr/{patient?1.N}/find/{collection} FIND^VPRJPR
+ N ROU,ARGS
+ D SETREQ("DELETE","/vpr/42/find/med") D MATCH^VPRJRSP(.ROU,.ARGS)
+ D ASSERT(405,HTTPERR)
+ D ASSERT(0,$D(ARGS))
+ D ASSERT("",ROU)
+ D SETREQ("GET","vpr/42/bogus") D MATCH^VPRJRSP(.ROU,.ARGS)
+ D ASSERT(404,HTTPERR)
+ D ASSERT(0,$D(ARGS))
+ D ASSERT("",ROU)
+ K HTTPREQ,HTTPERR
+ Q
+SETVALS ;; @TEST set values procedure
+ N OBJECT,VALUES,IDXMETA
+ S OBJECT("top")="top value"
+ S OBJECT("when")="201208121030"
+ S OBJECT("how")="miracle"
+ S OBJECT("mult",1,"sub")="sub1 value"
+ S OBJECT("mult",2,"sub")="sub2 value"
+ S OBJECT("mult",2,"provider","name")="Welby"
+ S OBJECT("products",1,"drugClassCode")="urn:vadc:HS502"
+ ;
+ S IDXMETA(1,"field")="top"
+ S IDXMETA(1,"collate")="S",IDXMETA(1,"ifNull")="",IDXMETA("levels")=1
+ S IDXMETA(1,"ftype")=1,IDXMETA(1,"ftype","field")="top"
+ D SETVALS^VPRJPX(.OBJECT,.VALUES)
+ D ASSERT("top value ",VALUES(0,1))
+ S IDXMETA(2,"field")="when"
+ S IDXMETA("collateField")="S",IDXMETA("collateSort")="V"
+ S IDXMETA(1,"collate")="S",IDXMETA(1,"ftype")=1,IDXMETA(1,"ftype","field")="top",IDXMETA(1,"ifNull")=""
+ S IDXMETA(2,"collate")="V",IDXMETA(2,"ftype")=1,IDXMETA(2,"ftype","field")="when",IDXMETA(2,"ifNull")=0
+ S IDXMETA("levels")=2
+ D SETVALS^VPRJPX(.OBJECT,.VALUES)
+ D ASSERT("798791878969=",VALUES(0,2))
+ S IDXMETA(1,"field")="mult[].sub"
+ S IDXMETA(1,"collate")="S",IDXMETA(1,"ftype")=3,IDXMETA(1,"ifNull")=""
+ S IDXMETA(1,"ftype","field")="sub",IDXMETA(1,"ftype","mult")="mult"
+ S IDXMETA("levels")=2
+ D SETVALS^VPRJPX(.OBJECT,.VALUES)
+ D ASSERT("sub1 value ",VALUES("mult.1",1))
+ D ASSERT("sub2 value ",VALUES("mult.2",1))
+ D ASSERT("798791878969=",VALUES("mult.1",2))
+ D ASSERT("798791878969=",VALUES("mult.2",2))
+ ; fields: mult[].sub, when, mult[].provider.name
+ S IDXMETA(3,"field")="mult[].provider.name"
+ S IDXMETA(3,"collate")="s",IDXMETA(3,"ifNull")=""
+ S IDXMETA(3,"ftype")=4,IDXMETA(3,"ftype","mult")="mult"
+ S IDXMETA(3,"ftype","field")="provider",IDXMETA(3,"ftype","sub")="name"
+ S IDXMETA("levels")=3
+ D SETVALS^VPRJPX(.OBJECT,.VALUES)
+ D ASSERT(0,$D(VALUES("mult.1")))
+ D ASSERT("welby ",VALUES("mult.2",3))
+ S IDXMETA(3,"ifNull")="?"
+ D SETVALS^VPRJPX(.OBJECT,.VALUES)
+ D ASSERT("? ",VALUES("mult.1",3))
+ S IDXMETA(2,"ftype","field")="gone",IDXMETA(2,"field")="gone"
+ D SETVALS^VPRJPX(.OBJECT,.VALUES)
+ D ASSERT("9=",VALUES("mult.1",2)) ; reverse time, so 0= becomes 9=
+ D ASSERT("9=",VALUES("mult.2",2))
+ S IDXMETA(3,"field")="products[].drugClassCode"
+ S IDXMETA(3,"collate")="S",IDXMETA(3,"ifNull")=""
+ S IDXMETA(3,"ftype")=3,IDXMETA(3,"ftype","mult")="products"
+ S IDXMETA(3,"ftype","field")="drugClassCode"
+ S IDXMETA("levels")=3
+ D SETVALS^VPRJPX(.OBJECT,.VALUES)
+ D ASSERT("urn:vadc:HS502 ",VALUES("mult.1&products.1",3))
+ D ASSERT("urn:vadc:HS502 ",VALUES("mult.2&products.1",3))
+ K IDXMETA
+ S IDXMETA(1,"collate")="s",IDXMETA(1,"ftype")=1,IDXMETA(1,"ftype","field")="top",IDXMETA(1,"field")="top"
+ S IDXMETA(2,"collate")="s",IDXMETA(2,"ftype")=1,IDXMETA(2,"ftype","field")="how",IDXMETA(2,"field")="how"
+ S IDXMETA(3,"collate")="V",IDXMETA(3,"ftype")=1,IDXMETA(3,"ftype","field")="when",IDXMETA(3,"field")="when"
+ S IDXMETA("levels")=3
+ D SETVALS^VPRJPX(.OBJECT,.VALUES)
+ D ASSERT("top value ",VALUES(0,1))
+ D ASSERT("miracle ",VALUES(0,2))
+ D ASSERT("798791878969=",VALUES(0,3))
+ K IDXMETA
+ S IDXMETA(1,"field")="mult[].sub"
+ S IDXMETA(1,"collate")="s",IDXMETA("levels")=1
+ S IDXMETA(1,"ftype")=3,IDXMETA(1,"ftype","mult")="mult",IDXMETA(1,"ftype","field")="sub"
+ D SETVALS^VPRJPX(.OBJECT,.VALUES)
+ Q
+BLDREF ;; @TEST building a node reference from object notation
+ N X
+ S X=$$BLDREF^VPRJP("results[].clinician.name")
+ D ASSERT("(""results"",NUM,""clinician"",""name"")",X)
+ S X=$$BLDREF^VPRJP("summary")
+ D ASSERT("(""summary"")",X)
+ S X=$$BLDREF^VPRJP("results[].units")
+ D ASSERT("(""results"",NUM,""units"")",X)
+ S X=$$BLDREF^VPRJP("clinician.name")
+ D ASSERT("(""clinician"",""name"")",X)
+ Q
+ADDFLD ;; @TEST adding fields to template object
+ N OBJECT,TOBJECT
+ D BLDOBJ(.OBJECT)
+ D ADDFLD^VPRJP("summary",.OBJECT,.TOBJECT)
+ D ASSERT(1,$$NODECNT(.TOBJECT))
+ D ASSERT("short description",TOBJECT("summary"))
+ D ADDFLD^VPRJP("nonexist",.OBJECT,.TOBJECT)
+ D ASSERT(1,$$NODECNT(.TOBJECT))
+ D ADDFLD^VPRJP("facility.name",.OBJECT,.TOBJECT)
+ D ASSERT(2,$$NODECNT(.TOBJECT))
+ D ADDFLD^VPRJP("mult[].clinician.name",.OBJECT,.TOBJECT)
+ D ASSERT(5,$$NODECNT(.TOBJECT))
+ D ADDFLD^VPRJP("mult[].sub",.OBJECT,.TOBJECT)
+ D ASSERT(8,$$NODECNT(.TOBJECT))
+ D ADDFLD^VPRJP("mult[].*",.OBJECT,.TOBJECT)
+ D ASSERT(12,$$NODECNT(.TOBJECT))
+ D ASSERT("o4",TOBJECT("mult",4,"other"))
+ Q
+DELFLD ;; @TEST removing fields from template object
+ N OBJECT,TOBJECT
+ D BLDOBJ(.OBJECT) M TOBJECT=OBJECT
+ D ASSERT(14,$$NODECNT(.TOBJECT))
+ D DELFLD^VPRJP("mult[].*",.TOBJECT)
+ D ASSERT(4,$$NODECNT(.TOBJECT))
+ D DELFLD^VPRJP("summary",.TOBJECT)
+ D ASSERT(3,$$NODECNT(.TOBJECT))
+ D DELFLD^VPRJP("facility.name",.TOBJECT)
+ D ASSERT(2,$$NODECNT(.TOBJECT))
+ M TOBJECT=OBJECT
+ D DELFLD^VPRJP("mult[].sub",.TOBJECT)
+ D ASSERT(11,$$NODECNT(.TOBJECT))
+ D DELFLD^VPRJP("mult[].clinician.name",.TOBJECT)
+ D ASSERT(8,$$NODECNT(.TOBJECT))
+ Q
+BLDOBJ(OBJECT) ; build a sample object for adding removing fields
+ S OBJECT("one")=1
+ S OBJECT("two")=2
+ S OBJECT("mult",1,"sub")="s1"
+ S OBJECT("mult",1,"other")="o1"
+ S OBJECT("mult",1,"clinician","name")="Marcus"
+ S OBJECT("mult",2,"sub")="s2"
+ S OBJECT("mult",2,"other")="o2"
+ S OBJECT("mult",2,"clinician","name")="Welby"
+ S OBJECT("mult",3,"sub")="s3"
+ S OBJECT("mult",3,"other")="o3"
+ S OBJECT("mult",3,"clinician","name")="Kildare"
+ S OBJECT("mult",4,"other")="o4"
+ S OBJECT("facility","name")="somewhere"
+ S OBJECT("summary")="short description"
+ Q
+NODECNT(OBJECT) ; Return a count of nodes in the object
+ N X,CNT
+ S CNT=0,X="OBJECT"
+ F  S X=$Q(@X) Q:X=""  S CNT=CNT+1
+ Q CNT
+ ;

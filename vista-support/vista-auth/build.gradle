@@ -1,0 +1,28 @@
+dependencies {
+    compile project(':vista-rpc-client')
+	
+	compile 'commons-codec:commons-codec:1.4'
+	compile "org.springframework:org.springframework.web:${springVersion}"
+	compile "org.springframework:org.springframework.web.servlet:${springVersion}"
+	
+	['org.springframework.security.core','org.springframework.security.config','org.springframework.security.web'].each {
+		compile group:'org.springframework.security', name: it, version: springSecurityVersion
+	}
+	
+	compile "javax.servlet:servlet-api:${servletVersion}"
+	
+	runtime "org.slf4j:jcl-over-slf4j:${slf4jVersion}"
+	
+	testCompile "org.springframework:org.springframework.test:${springVersion}"
+	testCompile "org.easymock:easymock:${easymockVersion}"
+	testCompile "junit:junit:${junitVersion}"
+	
+	testRuntime "org.slf4j:slf4j-nop:${slf4jVersion}"
+}
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'VistA Authentication Support', 
+					'Implementation-Version': version,
+					'Implementation-Vendor': 'US Department of Veterans Affairs'
+    }
+}

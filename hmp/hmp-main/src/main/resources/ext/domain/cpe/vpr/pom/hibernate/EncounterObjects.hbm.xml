@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-cascade="all,delete-orphan">
+
+	 <class table="encounter" entity-name="encounter">
+    	<id name="uid" length="64" type="string"/>
+        <property name="pid" length="64" type="string"/>
+        <property name="json" type="text"/>
+        
+		<property name="dateTime" type="string"/>
+		<property name="categoryName" type="string"/>
+		<property name="categoryCode" type="string"/>
+		<property name="facilityName" type="string"/>
+		<property name="facilityCode" type="string"/>
+		<property name="localId" type="string"/>
+		<property name="location" type="string"/>
+		<property name="kind" type="string"/>
+		<property name="typeName" type="string"/>
+		<property name="typeCode" type="string"/>
+		<property name="patientClassName" type="string"/>
+		<property name="patientClassCode" type="string"/>
+		<property name="duration" type="string"/>
+		<property name="service" type="string"/>
+		<property name="specialty" type="string"/>
+		<property name="stopCode" type="string"/>
+		<property name="stopCodeName" type="string"/>
+		<property name="appointmentStatus" type="string"/>
+		<property name="roomBed" type="string"/>
+		<property name="reason" type="string"/>
+		<property name="reasonCode" type="string"/>
+		<property name="dispositionCode" type="string"/>
+		<property name="dispositionName" type="string"/>
+		<property name="sourceCode" type="string"/>
+		<property name="sourceName" type="string"/>
+		<property name="referrerUid" type="string"/>
+		<property name="referrerName" type="string"/>
+		<!-- <many-to-one name="stay">
+		</many-to-one> -->
+        <list name="providers">
+            <key column="encounter_id" not-null="true" />
+            <index column="providers_idx" />
+            <one-to-many entity-name="EncounterProviderMap" />
+        </list>
+        <list name="documentUids">
+            <key column="encounter_id" not-null="true" />
+            <index column="documents_idx" />
+            <one-to-many entity-name="EncounterDocumentMap"/>
+        </list>
+    </class>
+    
+    <union-subclass table="encounter_provider" entity-name="EncounterProviderMap" extends="POMObjectMap">
+		<property name="name" type="string"/>
+		<property name="uid" type="string"/>
+		<property name="role" type="string" column="user_role"/>
+		<property name="isPrimary" type="boolean"/>
+    </union-subclass>
+    
+    <union-subclass table="encounter_document" entity-name="EncounterDocumentMap" extends="POMObjectMap">
+		<property name="localTitle" type="string"/>
+		<property name="uid" type="string"/>
+    </union-subclass>
+     
+</hibernate-mapping>

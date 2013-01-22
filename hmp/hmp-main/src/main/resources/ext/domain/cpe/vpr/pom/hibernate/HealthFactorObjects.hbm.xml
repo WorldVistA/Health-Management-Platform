@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-cascade="all,delete-orphan">
+	<class entity-name="healthFactor" table="health_Factor">
+		<id name="uid" length="64" type="string" />
+		<property name="pid" length="64" type="string" />
+		<property name="json" type="text" />
+
+		<property name="comment" type="string" />
+		<property name="encounterUid" type="string" />
+		<property name="facilityCode" type="string" />
+		<property name="facilityName" type="string" />
+		<property name="kind" type="string" />
+		<property name="localId" type="string" />
+		<property name="name" type="string" />
+		<!-- patient -->
+		<property name="recorded" type="string" />
+		<property name="summary" type="string" />
+		<property name="version" type="string" />
+	</class>
+</hibernate-mapping>

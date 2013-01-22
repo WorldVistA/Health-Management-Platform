@@ -1,0 +1,67 @@
+{
+    "dosages": [
+        {
+            "dose": "500 MG",
+            "relativeStart": "0",
+            "relativeStop": 129600,
+            "route": "PO",
+            "schedule": "BID",
+            "start": 20100227,
+            "stop": 20100528,
+            "units": "MG"
+        }
+    ],
+    "facilityCode": "500D",
+    "facilityName": "SLC-FO HMP DEV",
+    "lastFilled": 20100227,
+    "localId": "403838;O",
+    "medStatus": "urn:sct:392521001",
+    "medStatusName": "historical",
+    "medType": "urn:sct:73639000",
+    "name": "METFORMIN TAB,SA",
+    "orders": [
+        {
+            "daysSupply": 90,
+            "fillCost": 90,
+            "fillsAllowed": "0",
+            "fillsRemaining": "0",
+            "locationName":"GENERAL MEDICINE",
+            "locationUid":"urn:va:location:500D:23",
+            "orderUid": "urn:va:F484:151:order:27844",
+            "ordered": "20100227090342-0700",
+            "pharmacist": {
+                "name": "PHARMACIST,ONE",
+                "uid": "urn:va:user:F484:10000000056"
+            },
+            "prescriptionId": 500616,
+            "provider": {
+                "name": "PROVIDER,ONE",
+                "uid": "urn:va:user:F484:983"
+            },
+            "quantityOrdered": 180,
+            "vaRouting": "W"
+        }
+    ],
+    "overallStart": 20100227,
+    "overallStop": 20100528,
+    "productFormName": "TAB,SA",
+    "products": [
+        {
+            "drugClassCode": "urn:vadc:HS502",
+            "drugClassName": "ORAL HYPOGLYCEMIC AGENTS,ORAL",
+            "ingredientCode": "urn:vuid:4023979",
+            "ingredientName": "METFORMIN",
+            "ingredientRole": "urn:sct:410942007",
+            "strength": "500 MG",
+            "suppliedCode": "urn:vuid:4014984",
+            "suppliedName": "METFORMIN HCL 500MG TAB,SA"
+        }
+    ],
+    "qualifiedName": "METFORMIN",
+    "sig": "TAKE ONE TABLET MOUTH TWICE A DAY",
+    "stopped": 20100528,
+    "type": "Prescription",
+    "uid": "urn:va:F484:229:medication:27844",
+    "vaStatus": "EXPIRED",
+    "vaType": "O"
+}

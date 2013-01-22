@@ -1,0 +1,10 @@
+VPRJDMT ;SLC/KCM -- Meta data for JSON templates
+ ;;1.0;JSON DATA STORE;;Sep 01, 2012
+ ;
+EN ;
+ Q
+TEMPLATE ;;
+ ;;coll,type,name,fields
+ ;;test,include,test-summary,uid,name
+ ;;zzzzz
+ ;

@@ -1,0 +1,28 @@
+{
+	"case" : 53,
+	"category" : "RA",
+	"dateTime" : "201111191130",
+	"results" : [ {
+		"uid" : "urn:va:F484:100847:tiu:6888880.8869-1"
+	} ],
+	"encounterUid" : "urn:va:F484:100847:visit:7289",
+	"facilityName" : "SLC-FO HMP DEV",
+	"facilityCode" : "SLC",
+	"hasImages" : false,
+	"imageLocation" : "RADIOLOGY MAIN FLOOR",
+	"imagingTypeUid" : "urn:va:imaging-Type:GENERAL RADIOLOGY",
+	"interpretation" : "ABNORMAL",
+	"kind" : "Radiology",
+	"localId" : "6888880.8869-1",
+	"locationUid" : "urn:va:location:40",
+	"name" : "CHEST 2 VIEWS PA&LAT",
+	"orderUid" : "urn:va:F484:100847:order:34937",
+	"providers" : [ {
+		"uid" : "urn:va:user:F484:1122"
+	} ],
+	"status" : "COMPLETE",
+	"summary" : "RADIOLOGIC EXAMINATION, CHEST, 2 VIEWS, FRONTAL AND LATERAL;",
+	"typeName" : "RADIOLOGIC EXAMINATION, CHEST, 2 VIEWS, FRONTAL AND LATERAL;",
+	"uid" : "urn:va:F484:100847:rad:6888880.8869-1",
+	"verified" : true
+}

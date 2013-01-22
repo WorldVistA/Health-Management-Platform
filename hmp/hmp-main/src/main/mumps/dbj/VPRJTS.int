@@ -1,0 +1,63 @@
+VPRJTS ;SLC/KCM -- Unit tests for saving objects
+ ;;1.0;JSON DATA STORE;;Sep 01, 2012
+ ;
+STARTUP  ; Run once before all tests
+ N DATA
+ S VPRJTPID=$O(^VPRPT("PID","DFN","93EF:-7",""))
+ I VPRJTPID D CLEARPT^VPRJP(VPRJTPID)
+ D SETUP^VPRJM
+ Q
+SHUTDOWN ; Run once after all tests
+ S VPRJTPID=$O(^VPRPT("PID","DFN","93EF:-7",""))
+ D CLEARPT^VPRJP(VPRJTPID)
+ K VPRJTPID
+ K ^TMP($J),^TMP("HTTPERR",$J)
+ Q
+ASSERT(EXPECT,ACTUAL,MSG) ; for convenience
+ D EQ^VPRJT(EXPECT,ACTUAL,$G(MSG))
+ Q
+ ;
+GETDATA(TAG,DATA) ;
+ N I,X
+ F I=1:1 S X=$P($T(@TAG+I^VPRJTPD),";;",2,999) Q:X="zzz"  S DATA(I)=X
+ Q
+COLLATE ;; @TEST collation function
+ N X
+ S X=$$COLLATE^VPRJPX("","S",1)        D ASSERT("0 ",X)
+ S X=$$COLLATE^VPRJPX(20120919,"V",0)  D ASSERT("79879080=",X)
+ S X=$$COLLATE^VPRJPX("ASPIRIN","S",0) D ASSERT("ASPIRIN ",X)
+ S X=$$COLLATE^VPRJPX("","S",0)        D ASSERT("",X)
+ S X=$$COLLATE^VPRJPX(3.1416,"N",0)    D ASSERT(3.1416,X)
+ S X=$$COLLATE^VPRJPX("DIGOXIN","P",0) D ASSERT("DIGOXIN",X)
+ Q
+ADDPT ;; @TEST adding a patient
+ N DATA
+ D GETDATA("DEMOG7",.DATA)
+ S VPRJTPID=$P($$PUTPT^VPRJPR("",.DATA),"/",3)
+ D ASSERT(1,VPRJTPID>0)
+ D ASSERT(10,$D(^VPRPT(VPRJTPID,"urn:va:93EF:-7:pat:-7")))
+ D ASSERT(666000007,^VPRPT(VPRJTPID,"urn:va:93EF:-7:pat:-7","ssn"))
+ D ASSERT(1,$D(^VPRPT("PID",VPRJTPID,"ICN",-10107)))
+ D ASSERT(1,$D(^VPRPT("PID","DFN","93EF:-7",VPRJTPID)))
+ D ASSERT(1,$D(^VPRPT("JSON",VPRJTPID,"urn:va:93EF:-7:pat:-7",1)))
+ Q
+ADDOBJ ;; @TEST adding an object
+ N DATA,LOC
+ D GETDATA("MED1",.DATA)
+ S LOC=$$SAVE^VPRJP(VPRJTPID,.DATA)
+ D ASSERT(10,$D(^VPRPT(VPRJTPID,"urn:va:93EF:-7:med:16982")))
+ D ASSERT("urn:vuid:4023979",^VPRPT(VPRJTPID,"urn:va:93EF:-7:med:16982","products",1,"ingredientCode"))
+ D ASSERT(1,$D(^VPRPT("JSON",VPRJTPID,"urn:va:93EF:-7:med:16982",1)))
+ D ASSERT(19350407,+$P(^VPRPT("TEMPLATE",VPRJTPID,"urn:va:93EF:-7:pat:-7","summary",1),":",2))
+ D ASSERT(1,^VPRPTI(VPRJTPID,"tally","collection","med"))
+ Q
+CHKIDX ;; @TEST indexes that were built after adding object
+ D ASSERT(1,$D(^VPRPTI(VPRJTPID,"attr","med-class-code","urn:vadc:hs502 ","79939681=","urn:va:93EF:-7:med:16982","products.1")))
+ D ASSERT(1,$D(^VPRPTI(VPRJTPID,"attr","med-provider","labtech,special ","79939681=","urn:va:93EF:-7:med:16982","orders.1")))
+ D ASSERT(1,$D(^VPRPTI(VPRJTPID,"attr","med-qualified-name","metformin ","79939681=","urn:va:93EF:-7:med:16982",0)))
+ D ASSERT(1,$D(^VPRPTI(VPRJTPID,"attr","medication","79939681=","urn:va:93EF:-7:med:16982",0)))
+ D ASSERT("79939681=",^VPRPTI(VPRJTPID,"time","med-time","79949682=","urn:va:93EF:-7:med:16982",0))
+ D ASSERT("79949682=",^VPRPTI(VPRJTPID,"stop","med-time","79939681=","urn:va:93EF:-7:med:16982",0))
+ D ASSERT(1,^VPRPTI(VPRJTPID,"tally","kind","medication, outpatient"))
+ D ASSERT(1,$D(^VPRPTI(VPRJTPID,"attr","med-active-outpt","79939681=","urn:va:93EF:-7:med:16982",0)))
+ Q

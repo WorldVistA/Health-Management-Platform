@@ -1,0 +1,15 @@
+description = 'CPE Health-Time Library'
+//description = '''A package of Java classes that implement imprecise dates and times. Concrete date/time type is based on
+//    HL7's "point in time" data type. Classes implementing different date/time format strings, including conversion
+//    to and from VA FileMan dates are included.'''
+
+dependencies {
+	compile 'joda-time:joda-time:1.6'
+
+	testCompile "junit:junit:${junitVersion}"
+}
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'CPE Health-Time Library'
+    }
+}

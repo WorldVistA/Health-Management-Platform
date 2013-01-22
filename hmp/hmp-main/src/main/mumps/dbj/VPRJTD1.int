@@ -1,0 +1,208 @@
+VPRJTD1 ;SLC/KCM -- Unit tests for RESTful queries
+ ;;1.0;JSON DATA STORE;;Sep 01, 2012
+ ;
+STARTUP  ; Run once before all tests
+ N DATA,I,LOC
+ D DELCTN^VPRJD("test")  ; clear the collections
+ D DELCTN^VPRJD("testb")
+ D SETUP^VPRJDMD
+ F I=1:1:6 D GETDATA("TEST"_I,.DATA) S LOC=$$SAVE^VPRJD(.DATA) K DATA
+ Q
+SHUTDOWN ; Run once after all tests
+ D DELCTN^VPRJD("test")
+ D DELCTN^VPRJD("testb")
+ K ^TMP($J),^TMP("HTTPERR",$J)
+ Q
+SETUP    ; Run before each test
+ K HTTPREQ,HTTPERR,HTTPRSP
+ Q
+TEARDOWN ; Run after each test
+ K HTTPREQ,HTTPERR,HTTPRSP
+ Q
+ASSERT(EXPECT,ACTUAL) ; convenience
+ D EQ^VPRJT(EXPECT,ACTUAL)
+ Q
+ ;
+GETDATA(TAG,DATA) ;
+ N I,X
+ F I=1:1 S X=$P($T(@TAG+I^VPRJTDD),";;",2,999) Q:X="zzzzz"  S DATA(I)=X
+ Q
+DATA2ARY(ARY) ; call SENDATA to write out response and read back into ARY
+ ; cause TCP data to be written to file
+ D WR4HTTP^VPRJRUT
+ D SENDATA^VPRJRSP
+ D C4HTTP^VPRJRUT
+ ;
+ ; read TCP data from file into variable and delete file
+ N X,ERR
+ S X=$$RD4HTTP^VPRJRUT
+ D DECODE^VPRJSON("X","ARY","ERR")
+ D ASSERT(0,$D(ERR))
+ Q
+SETGET(URL) ; set up a request (to emulate HTTP call)
+ S HTTPREQ("method")="GET"
+ S HTTPREQ("path")=$P(URL,"?")
+ S HTTPREQ("query")=$P(URL,"?",2,999)
+ Q
+SETPUT(URL,SRC) ; set up a PUT request
+ N DATA
+ S HTTPREQ("method")="PUT"
+ S HTTPREQ("path")=$P(URL,"?")
+ S HTTPREQ("query")=$P(URL,"?",2,999)
+ D GETDATA(SRC,.DATA)
+ M HTTPREQ("body")=DATA
+ Q
+SETDEL(URL) ; set up a delete request
+ S HTTPREQ("method")="DELETE"
+ S HTTPREQ("path")=$P(URL,"?")
+ S HTTPREQ("query")=$P(URL,"?",2,999)
+ Q
+ ;
+INDEX ;; @TEST query using an index
+ N ROOT,JSON,ERR,HTTPERR
+ D SETGET("/data/index/test-name?range=alpha..delta")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT(4,JSON("data","totalItems"))
+ D ASSERT(201110201857,JSON("data","items",4,"updated")) ; sorted reverse updated date
+ Q
+LAST ;; @TEST query for last instance of items in list
+ N ROOT,JSON,ERR,HTTPERR
+ D SETGET("/data/last/test-name?range=alpha..delta")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT(3,JSON("data","totalItems"))
+ D ASSERT("urn:va:test:6",JSON("data","items",1,"uid"))
+ Q
+ORDASC ;; @TEST query to return in different order
+ N ROOT,JSON,ERR,HTTPERR
+ D SETGET("/data/index/test-name?order=name asc")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT("gamma",JSON("data","items",6,"name"))
+ Q
+ORDDESC ;; @TEST query to return in different order
+ N ROOT,JSON,ERR,HTTPERR
+ D SETGET("/data/index/test-name?order=name DESC")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT("gamma",JSON("data","items",1,"name"))
+ Q
+FILTER ;; @TEST filter to return based on criteria
+ N ROOT,JSON,ERR,HTTPERR
+ D SETGET("/data/index/test-name?filter=eq(""color"",""orange"")")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT(2,JSON("data","totalItems"))
+ D ASSERT("epsilon",JSON("data","items",1,"name"))
+ Q
+GETUID ;; @TEST getting an object by UID only
+ N JSON,ERR,HTTPERR
+ D SETGET("/data/urn:va:test:5")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT("epsilon",JSON("data","items",1,"name"))
+ Q
+GETNONE ;; @TEST getting an object that does not exist
+ N JSON,ERR,HTTPERR
+ D SETGET("/data/urn:test:bogus:54321")
+ D RESPOND^VPRJRSP
+ D ASSERT(1,$D(HTTPERR)>0)
+ D ASSERT(404,$G(^TMP("HTTPERR",$J,1,"error","code")))
+ K ^TMP("HTTPERR",$J)
+ Q
+EVERY ;; TEST retrieving every object in a collection
+ N JSON,ERR,HTTPERR
+ D SETGET("/vpr/"_VPRJTPID_"/index/every")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT(6,JSON("data","totalItems"))
+ D ASSERT(0,$D(^TMP($J,$J)))
+ D ASSERT(10,$D(^VPRTMP($$HASH^VPRJRUT("vpr/index/"_VPRJTPID_"/every////"))))
+ D ASSERT(0,$D(^VPRTMP($$HASH^VPRJRUT("vpr/index/"_VPRJTPID_"/every////"),$J)))
+ K JSON
+ D SETGET("/vpr/"_VPRJTPID_"/index/every?start=3&limit=3")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT(3,JSON("data","currentItemCount"))
+ D ASSERT(10,$D(^VPRTMP($$HASH^VPRJRUT("vpr/index/"_VPRJTPID_"/every////"))))
+ D ASSERT(0,$D(^VPRTMP($$HASH^VPRJRUT("vpr/index/"_VPRJTPID_"/every////"),$J)))
+ Q
+FINDALL ;; @TEST finding every object in collection
+ N JSON,ERR,HTTPERR
+ D SETGET("/data/find/test")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT(6,JSON("data","totalItems"))
+ Q
+FINDPAR ;; @TEST finding with parameters
+ N JSON,ERR,HTTPERR
+ D SETGET("/data/find/test?filter=eq(""color"",""orange"")&order=name")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D DATA2ARY(.JSON)
+ D ASSERT(2,JSON("data","totalItems"))
+ D ASSERT("urn:va:test:5",JSON("data","items",1,"uid"))
+ Q 
+ADDOBJ ;; @TEST adding object to store
+ N HTTPERR
+ D SETPUT("/data","TEST7")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D ASSERT("/data/urn:va:test:7",HTTPREQ("location"))
+ D ASSERT(10,$D(^VPRJD("urn:va:test:7")))
+ D ASSERT(7,$G(^VPRJDX("count","collection","test")))
+ D ASSERT(1,$D(^VPRJDX("attr","test-name","omega ","798789768244=","urn:va:test:7",0)))
+ Q
+DELOBJ ;; @TEST remove object from store
+ N HTTPERR
+ D SETDEL("/data/urn:va:test:7")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D ASSERT(0,$D(^VPRJD("urn:va:test:7")))
+ D ASSERT(6,$G(^VPRJDX("count","collection","test")))
+ D ASSERT(0,$D(^VPRJDX("attr","test-name","omega ","798789768244=","urn:va:test:7",0)))
+ Q
+ ;
+NEWOBJ ;; @TEST add a new object, returning a new UID
+ N HTTPERR,LASTID
+ S LASTID=$G(^VPRJD("COLLECTION","testb"))
+ D SETPUT("/data/testb","NOUID1")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D ASSERT("/data/urn:va:testb:"_$G(^VPRJMETA("system"))_":"_(LASTID+1),HTTPREQ("location"))
+ D SETPUT("/data/testb","NOUID2")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D ASSERT("/data/urn:va:testb:"_$G(^VPRJMETA("system"))_":"_(LASTID+2),HTTPREQ("location"))
+ D SETPUT("/data/testb","HASUID")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D ASSERT("/data/urn:va:testb:42",HTTPREQ("location"))
+ Q
+DELCTN ;; @TEST delete collection
+ N HTTPERR
+ D SETPUT("/data","OTHER") ; add something from another collection
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D ASSERT(4,$G(^VPRJDX("count","collection","testb")))
+ D ASSERT(6,$G(^VPRJDX("count","collection","test")))
+ D SETDEL("/data/collection/test")
+ D RESPOND^VPRJRSP
+ D ASSERT(0,$D(HTTPERR))
+ D ASSERT(4,$G(^VPRJDX("count","collection","testb")))
+ D ASSERT(10,$D(^VPRJD("urn:va:testb:29")))
+ D ASSERT(0,$D(^VPRJDX("count","collection","test")))
+ Q
+1 ; run just one test
+ D STARTUP,SETUP,GETNONE,TEARDOWN,SHUTDOWN
+ Q

@@ -1,0 +1,107 @@
+{
+    "addresses":[
+        {
+            "city":"Any Town",
+            "postalCode":"99998-0071",
+            "stateProvince":"WEST VIRGINIA",
+            "streetLine1":"Any Street"
+        }
+    ],
+    "aliases":[
+        {
+            "fullName":"P4"
+        }
+    ],
+    "briefId":"A0004",
+    "dateOfBirth":19350407,
+    "ethnicity":[
+        "0000-0"
+    ],
+    "exposures":[
+        {
+            "name":"No",
+            "uid":"urn:va:N"
+        },
+        {
+            "name":"No",
+            "uid":"urn:va:N"
+        },
+        {
+            "name":"No",
+            "uid":"urn:va:N"
+        },
+        {
+            "name":"Unknown",
+            "uid":"urn:va:U"
+        },
+        {
+            "name":"Unknown",
+            "uid":"urn:va:U"
+        },
+        {
+            "name":"No",
+            "uid":"urn:va:N"
+        }
+    ],
+    "facilities":[
+        {
+            "code":500,
+            "homeSite":false,
+            "latestDate":20110701,
+            "localPatientId":229,
+            "name":"CAMP MASTER",
+            "systemId":"F484"
+        }
+    ],
+    "familyName":"AVIVAPATIENT",
+    "flags":[
+        {
+            "name":"WANDERER",
+            "text":"patient has a history of wandering off and getting lost"
+        }
+    ],
+    "fullName":"AVIVAPATIENT,TWENTYFOUR",
+    "genderCode":"urn:va:pat-gender:M",
+    "genderName":"Male",
+    "givenNames":"TWENTYFOUR",
+    "icn":10104,
+    "localId":229,
+    "maritalStatuses":[
+        {
+            "code":"urn:va:pat-maritalStatus:D",
+            "name":"Divorced"
+        }
+    ],
+    "race":[
+        "0000-0"
+    ],
+    "religionCode":"urn:va:pat-religion:4",
+    "religionName":"METHODIST",
+    "sensitive":true,
+    "ssn":666000004,
+    "supports":[
+        {
+            "contactTypeCode":"urn:va:pat-contact:NOK",
+            "contactTypeName":"Next of Kin",
+            "name":"VETERAN,BROTHER"
+        }
+    ],
+    "telecoms":[
+        {
+            "telecom":"(222)555-8235",
+            "usageCode":"H",
+            "usageName":"home address"
+        },
+        {
+            "telecom":"(222)555-7720",
+            "usageCode":"WP",
+            "usageName":"work place"
+        }
+    ],
+    "uid":"urn:va:F484:229:pat:229",
+    "veteran":{
+        "lrdfn":177,
+        "serviceConnected":true,
+        "serviceConnectionPercent":10
+    }
+}

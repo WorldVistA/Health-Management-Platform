@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-cascade="all,delete-orphan">
+
+	 <class table="immunization" entity-name="immunization">
+    	<id name="uid" length="64" type="string"/>
+        <property name="pid" length="64" type="string"/>
+        <property name="json" type="text"/>
+        
+		<property name="administeredDateTime" type="string"/>
+		<property name="comments" type="string"/>
+		<property name="contraindicated" type="boolean"/>
+		<property name="cptName" type="string"/>
+		<property name="cptCode" type="string"/>
+		<property name="encounterUid" type="string" column="encounter_id"/>
+		<property name="encounterName" type="string"/>
+		<property name="facilityName" type="string"/>
+		<property name="facilityCode" type="string"/>
+		<property name="localId" type="string"/>
+		<property name="location" type="string"/>
+		<property name="name" type="string"/>
+		<property name="performerUid" type="string"/>
+		<property name="performerName" type="string"/>
+		<property name="reactionUid" type="string"/>
+		<property name="reactionName" type="string"/>
+		<property name="seriesUid" type="string"/>
+		<property name="seriesName" type="string"/>
+		<property name="summary" type="string"/>
+    </class>
+</hibernate-mapping>

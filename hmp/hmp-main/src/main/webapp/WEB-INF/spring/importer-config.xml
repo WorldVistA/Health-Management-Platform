@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd"
+       default-lazy-init="true">
+
+    <util:map id="jsonImporters">
+    	<entry key="observation">
+    		<bean class="EXT.DOMAIN.cpe.vpr.sync.vista.json.ObservationImporter"/>
+    	</entry>
+        <!--<entry key="accession">-->
+            <!--<bean class="EXT.DOMAIN.cpe.vpr.sync.vista.json.AccessionImporter"/>-->
+        <!--</entry>-->
+        <entry key="lab">
+            <bean class="EXT.DOMAIN.cpe.vpr.sync.vista.json.ResultImporter"/>
+        </entry>
+        <entry key="allergy">
+            <bean class="EXT.DOMAIN.cpe.vpr.sync.vista.json.AllergyImporter"/>
+        </entry>
+        <entry key="appointment" value-ref="jsonEncounterImporter"/>
+        <entry key="document">
+            <bean class="EXT.DOMAIN.cpe.vpr.sync.vista.json.DocumentImporter"/>
+        </entry>
+        <entry key="immunization">
+            <bean class="EXT.DOMAIN.cpe.vpr.sync.vista.json.ImmunizationImporter"/>
+        </entry>
+        <entry key="pharmacy">
+            <bean class="EXT.DOMAIN.cpe.vpr.sync.vista.json.MedicationImporter"/>
+        </entry>
+        <entry key="visit">
+            <bean class="EXT.DOMAIN.cpe.vpr.sync.vista.json.EncounterImporter"/>
+        </entry>
+        <entry key="surgery" value-ref="jsonProcedureImporter"/>
+        <entry key="radiology" value-ref="jsonProcedureImporter"/>
+        <entry key="consult" value-ref="jsonProcedureImporter"/>
+        <entry key="order">
+            <bean class="EXT.DOMAIN.cpe.vpr.sync.vista.json.OrderImporter"/>
+        </entry>
+        <entry key="problem">
+            <bean class="EXT.DOMAIN.cpe.vpr.sync.vista.json.ProblemImporter"/>
+        </entry>
+        <entry key="vital">
+            <bean class="EXT.DOMAIN.cpe.vpr.sync.vista.json.VitalSignImporter"/>
+        </entry>
+        <entry key="visit" value-ref="jsonEncounterImporter"/>
+        <entry key="factor">
+            <bean class="EXT.DOMAIN.cpe.vpr.sync.vista.json.HealthFactorImporter"/>
+        </entry>
+        <entry key="task">
+            <bean class="EXT.DOMAIN.cpe.vpr.sync.vista.json.TaskImporter"/>
+        </entry>
+        <entry key="patient">
+            <bean id="jsonPatientImporter" class="EXT.DOMAIN.cpe.vpr.sync.vista.json.PatientImporter"/>
+        </entry>
+    </util:map>
+    <bean id="jsonProcedureImporter" class="EXT.DOMAIN.cpe.vpr.sync.vista.json.ProcedureImporter"/>
+    <bean id="jsonEncounterImporter" class="EXT.DOMAIN.cpe.vpr.sync.vista.json.EncounterImporter"/>
+
+    <bean id="centralImporter" class="EXT.DOMAIN.cpe.vpr.sync.vista.CentralImporter" p:importers-ref="jsonImporters"/>
+</beans>

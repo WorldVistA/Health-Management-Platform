@@ -1,0 +1,185 @@
+VPRJPM ;SLC/KCM -- Management utilities for JSON patient objects
+ ;;1.0;JSON DATA STORE;;Sep 01, 2012
+ ;
+RIDXALL ; Reindex all patients
+ W !!,"Re-indexing VPR for ALL patients",!
+ N OK
+ D CLRINDEX(.OK) Q:'OK
+ N PID,KEY
+ S PID=0 F  S PID=$O(^VPRPT(PID)) Q:'PID  D
+ . W "."
+ . S KEY="" F  S KEY=$O(^VPRPT(PID,KEY)) Q:KEY=""  D RIDXOBJ(PID,KEY)
+ Q
+RIDXPID(PID) ; Reindex a single patient
+ W !!,"Re-index VPR for a single patient",!
+ Q:'$G(PID)
+ ;
+ L +^VPRPT(PID):5 E  W !,"Unable to lock patient data",! Q
+ D CLRCODES(PID),CLREVIEW(PID),CLRCOUNT(PID)
+ K ^VPRPTI(PID)
+ D SETUP^VPRJM
+ N KEY
+ S KEY="" F  S KEY=$O(^VPRPT(PID,KEY)) Q:KEY=""  D RIDXOBJ(PID,KEY)
+ L -^VPRPT(PID)
+ Q
+RBLDALL ; Rebuild all patients (includes templates)
+ W !!,"Re-build VPR (including templates) for ALL patients",!
+ N OK
+ D CLRINDEX(.OK) Q:'OK
+ N PID,KEY
+ S PID=0 F  S PID=$O(^VPRPT(PID)) Q:'PID  D
+ . W "."
+ . S KEY="" F  S KEY=$O(^VPRPT(PID,KEY)) Q:KEY=""  D RBLDOBJ(PID,KEY)
+ Q
+RBLDPID(PID) ; Rebuild single patient (includes templates)
+ W !!,"Re-build VPR (including templates) for a single patient",!
+ Q:'$G(PID)
+ ;
+ L +^VPRPT(PID):5 E  W !,"Unable to lock patient data",! Q
+ D CLRCODES(PID),CLREVIEW(PID),CLRCOUNT(PID)
+ K ^VPRPTI(PID)
+ D SETUP^VPRJM
+ N KEY
+ S KEY="" F  S KEY=$O(^VPRPT(PID,KEY)) Q:KEY=""  D RBLDOBJ(PID,KEY)
+ L -^VPRPT(PID)
+ Q
+RIDXOBJ(PID,KEY) ; Re-index a single object
+ L +^VPRPT(PID,KEY):2 E  W !,"Unable to obtain lock for "_KEY QUIT
+ N OBJECT
+ M OBJECT=^VPRPT(PID,KEY)
+ TSTART
+ D INDEX^VPRJPX(PID,KEY,"",.OBJECT)
+ TCOMMIT
+ L -^VPRPT(PID,KEY)
+ Q
+RBLDOBJ(PID,KEY) ; Re-build a single object
+ L +^VPRPT(PID,KEY):2 E  W !,"Unable to obtain lock for "_KEY QUIT
+ N LINE,JSON
+ ; get the original JSON object without the templates
+ S LINE=0 F  S LINE=$O(^VPRPT("JSON",PID,KEY,LINE)) Q:'LINE  D
+ . S JSON(LINE)=^VPRPT("JSON",PID,KEY,LINE)
+ ; indexes have been killed for whole patient, so remove the original object
+ K ^VPRPT(PID,KEY)
+ K ^VPRPT("JSON",PID,KEY)
+ K ^VPRPT("TEMPLATE",PID,KEY)
+ K ^VPRPT("KEY",KEY,PID)
+ ; call save the replace the object & reset indexes
+ D SAVE^VPRJP(PID,.JSON)
+ L -^VPRPT(PID,KEY)
+ Q
+CLRINDEX(OK) ; Clear all the indexes, preserving the "put patient" part
+ ; since that is not redone with a rebuild or reindex
+ N PCNT
+ L +^VPRPT("PID"):2 E  W !,"Unable to get lock.",! S OK=0 Q
+ S PCNT=$G(^VPRPTX("count","patient","patient"),0)
+ K ^VPRPTI,^VPRPTX,^VPRTMP
+ S ^VPRPTX("count","patient","patient")=PCNT
+ L -^VPRPT("PID")
+ D SETUP^VPRJM
+ S OK=1
+ Q
+CLRCODES(PID) ; Clear the cross patient indexes for coded values
+ ;remove ^VPRPTX("allCodes",code,field,PID)
+ ;remove ^VPRPTX("pidCodes",PID)
+ N FLD,CODE,KEY
+ S FLD="" F  S FLD=$O(^VPRPTX("pidCodes",PID,FLD)) Q:FLD=""  D
+ . S CODE="" F  S CODE=$O(^VPRPTX("pidCodes",PID,FLD,CODE)) Q:CODE=""  D
+ . . S KEY="" F  S KEY=$O(^VPRPTX("pidCodes",PID,FLD,CODE,KEY)) Q:KEY=""  D
+ . . . K ^VPRPTX("allCodes",CODE,FLD,PID,KEY)
+ K ^VPRPTX("pidCodes",PID)
+ Q
+CLREVIEW(PID) ; Clear the cross patient indexes for re-evaluation times
+ ;remove ^VPRPTX("review",reviewTime,PID)
+ ;remove ^VPRPTX("pidReview",PID)
+ N REVTM
+ S REVTM="" F  S REVTM=$O(^VPRPTX("pidReview",PID,REVTM)) Q:REVTM=""  D
+ . K ^VPRPTX("review",REVTM,PID)
+ K ^VPRPTX("pidReview",PID)
+ Q
+CLRCOUNT(PID) ; Decrement the cross-patient totals for a patient
+ ;reduce ^VPRPTX("count","collection",topic)
+ ;    by ^VPRPTI(PID,"tally","collection",topic)
+ ;reduce ^VPRPTX("count","domain",topic)
+ ;    by ^VPRPTI(PID,"tally","domain",topic)
+ N GROUP,TOPIC,CNT4PID,CNT4ALL ; decrement the relevant counts
+ F GROUP="collection","domain" I $D(^VPRPTI(PID,"tally",GROUP)) D
+ . S TOPIC="" F  S TOPIC=$O(^VPRPTI(PID,"tally",GROUP,TOPIC)) Q:TOPIC=""  D
+ . . S CNT4PID=+$G(^VPRPTI(PID,"tally",GROUP,TOPIC))
+ . . L +^VPRPTX("count",GROUP,TOPIC):1 E  D SETERROR^VPRJRUT(502,GROUP_" "_NAME) QUIT
+ . . S CNT4ALL=+$G(^VPRPTX("count",GROUP,TOPIC))
+ . . S ^VPRPTX("count",GROUP,TOPIC)=CNT4ALL-CNT4PID ; decr count across patients
+ . . L -^VPRPTX("count",GROUP,TOPIC)
+ Q
+STATUS(PID) ; Show VPR status for a patient
+ I $G(PID) D
+ . W !,"For PID ",PID," --"
+ . W !,?4,"Index Nodes: ",$$NODECNT("^VPRPTI("_PID_")")
+ . W !,?4," Data Nodes: ",$$NODECNT("^VPRPT("_PID_")")
+ . W !,?4,"Object Counts --"
+ . W !,?8,"    Domain: ",$$ITEMCNT("domain",PID)
+ . W !,?8,"Collection: ",$$ITEMCNT("collection",PID)
+ . W !,?8,"     UID's: ",$$OBJCNT(PID)
+ . W !,?4,"Code Refs: ",$$NODECNT("^VPRPTX(""pidCodes"","_PID_")")
+ E  D
+ . W !,"VPR Totals --"
+ . W !,?4,"Patients: ",$$PTCNT()
+ . W !,?4,"Index Nodes: ",$$NODECNT("^VPRPTI")
+ . W !,?4," Data Nodes: ",$$NODECNT("^VPRPT")
+ . W !,?4,"Object Counts --"
+ . W !,?8,"    Domain: ",$$ITEMCNT("domain")
+ . W !,?8,"Collection: ",$$ITEMCNT("collection")
+ . W !,?8,"     UID's: ",$$OBJCNT()
+ . W !,?4,"  Code Refs: ",$$NODECNT("^VPRPTX(""allCodes"")")
+ . W !,?4,"Review Refs: ",$$NODECNT("^VPRPTX(""review"")")
+ Q
+PTCNT() ; Return the number of patients in the VPR
+ N PID,COUNT
+ S PID=0,COUNT=0
+ F  S PID=$O(^VPRPT(PID)) Q:'PID  S COUNT=COUNT+1
+ Q COUNT
+ ;
+NODECNT(ROOT) ; Return the number of nodes for ROOT
+ N X,COUNT
+ S X=ROOT,COUNT=0
+ I $E(ROOT,$L(ROOT))=")" S ROOT=$E(ROOT,1,$L(ROOT)-1)
+ F  S X=$Q(@X) Q:$E(X,1,$L(ROOT))'=ROOT  S COUNT=COUNT+1
+ Q COUNT
+ ;
+ITEMCNT(GROUP,PID) ; Return the item count for a group
+ ; PID is optional, if absent, entire VPR is counted
+ N COUNT,TOPIC
+ S COUNT=0
+ I $G(PID) D
+ . S TOPIC="" F  S TOPIC=$O(^VPRPTI(PID,"tally",GROUP,TOPIC)) Q:TOPIC=""  D
+ . . S COUNT=COUNT+^VPRPTI(PID,"tally",GROUP,TOPIC)
+ E  D
+ . S TOPIC="" F  S TOPIC=$O(^VPRPTX("count",GROUP,TOPIC)) Q:TOPIC=""  D
+ . . S COUNT=COUNT+^VPRPTX("count",GROUP,TOPIC)
+ Q COUNT
+ ;
+OBJCNT(PID) ; Return a count of objects by UID
+ ; PID is optional, if absent, entire VPR is counted
+ N COUNT,UID
+ S COUNT=0
+ I $G(PID) D
+ . S UID="" F  S UID=$O(^VPRPT(PID,UID)) Q:UID=""  S COUNT=COUNT+1
+ E  D
+ . S PID=0 F  S PID=$O(^VPRPT(PID)) Q:'PID  D
+ . . S UID="" F  S UID=$O(^VPRPT(PID,UID)) Q:UID=""  S COUNT=COUNT+1
+ Q COUNT
+ ;
+KILLDB ; -- Delete and reset the globals for the database
+ K ^VPRHTTP("log")
+ K ^VPRPT
+ K ^VPRPTI
+ K ^VPRPTX
+ K ^VPRTMP
+ K ^VPRMETA
+ D SETUP^VPRJM
+ Q
+ASKPID() ; Return PID after prompting for it
+ N PID,KEY
+ S PID=$$PROMPT^VPRJ1("PID","","N","Enter the PID for a patient.")
+ I '$D(^VPRPT(PID)) W !,"PID "_PID_" not found." S PID=0
+ Q PID
+ ;

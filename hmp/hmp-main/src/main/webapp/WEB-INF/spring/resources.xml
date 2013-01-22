@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+    <context:property-placeholder location="classpath:hmp-defaults.properties"/>
+
+    <context:annotation-config/>
+
+    <context:component-scan 
+            base-package="EXT.DOMAIN.cpe.auth,EXT.DOMAIN.cpe.param,EXT.DOMAIN.cpe.vpr,EXT.DOMAIN.cpe.hub,EXT.DOMAIN.cpe.vpr.service,EXT.DOMAIN.cpe.vpr.sync,EXT.DOMAIN.cpe.vpr.sync.vista,EXT.DOMAIN.cpe.grails.plugins,EXT.DOMAIN.cpe.vpr.queryeng,EXT.DOMAIN.cpe.vpr.frameeng"/>
+
+    <bean id="messageSource"
+          class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
+          p:fallbackToSystemLocale="true"
+          p:basename="/WEB-INF/i18n/messages"/>
+
+    <bean id="grailsApplication" class="org.codehaus.groovy.grails.commons.DefaultGrailsApplication"
+          init-method="initialise">
+        <constructor-arg index="0">
+            <array>
+                <value>org.codehaus.groovy.grails.plugins.codecs.HTMLCodec</value>
+                <value>org.codehaus.groovy.grails.plugins.codecs.JavaScriptCodec</value>
+                <value>org.codehaus.groovy.grails.plugins.codecs.URLCodec</value>
+                <value>org.codehaus.groovy.grails.plugins.codecs.Base64Codec</value>
+                <value>org.codehaus.groovy.grails.plugins.codecs.MD5Codec</value>
+                <value>org.codehaus.groovy.grails.plugins.codecs.MD5BytesCodec</value>
+                <value>org.codehaus.groovy.grails.plugins.codecs.HexCodec</value>
+                <value>org.codehaus.groovy.grails.plugins.codecs.SHA1Codec</value>
+                <value>org.codehaus.groovy.grails.plugins.codecs.SHA1BytesCodec</value>
+                <value>org.codehaus.groovy.grails.plugins.codecs.SHA256Codec</value>
+                <value>org.codehaus.groovy.grails.plugins.codecs.SHA256BytesCodec</value>
+                <value>org.codehaus.groovy.grails.plugins.web.taglib.ApplicationTagLib</value>
+                <value>org.codehaus.groovy.grails.plugins.web.taglib.CountryTagLib</value>
+                <value>org.codehaus.groovy.grails.plugins.web.taglib.FormatTagLib</value>
+                <value>org.codehaus.groovy.grails.plugins.web.taglib.FormTagLib</value>
+                <value>org.codehaus.groovy.grails.plugins.web.taglib.JavascriptTagLib</value>
+                <value>org.codehaus.groovy.grails.plugins.web.taglib.RenderTagLib</value>
+                <value>org.codehaus.groovy.grails.plugins.web.taglib.ValidationTagLib</value>
+                <value>org.codehaus.groovy.grails.plugins.web.taglib.PluginTagLib</value>
+                <value>org.codehaus.groovy.grails.plugins.web.taglib.SitemeshTagLib</value>
+                <value>org.codehaus.groovy.grails.web.filters.JavascriptLibraryFilters</value>
+                <value>EXT.DOMAIN.cpe.auth.AuthTagLib</value>
+                <value>EXT.DOMAIN.cpe.vpr.web.converter.dateTime.PointInTimeTagLib</value>
+                <value>EXT.DOMAIN.cpe.vpr.web.taglib.ParamTagLib</value>
+                <value>EXT.DOMAIN.cpe.vpr.web.taglib.DetailTagLib</value>
+                <value>EXT.DOMAIN.cpe.vpr.web.taglib.MedDetailTagLib</value>
+            </array>
+        </constructor-arg>
+        <constructor-arg index="1">
+            <bean class="groovy.lang.GroovyClassLoader"/>
+        </constructor-arg>
+    </bean>
+
+    <bean id="grailsMetaClassEnhancer" class="EXT.DOMAIN.cpe.grails.plugins.GrailsMetaClassEnhancer"/>
+
+    <bean class="org.codehaus.groovy.grails.plugins.support.aware.GrailsApplicationAwareBeanPostProcessor">
+        <constructor-arg ref="grailsApplication"/>
+    </bean>
+
+    <bean id="infoButtonLinkGenerator" class="EXT.DOMAIN.cpe.vpr.ws.link.OpenInfoButtonLinkGenerator"/>
+<!--     
+	//Took it off as it is annotated.
+	<bean id="selfLinkGenerator" class="EXT.DOMAIN.cpe.vpr.ws.link.PatientRelatedSelfLinkGenerator"/>
+ -->    
+ 	<bean id="patientLinkGenerator" class="EXT.DOMAIN.cpe.vpr.ws.link.DomainClassPatientLinkGenerator"
+          p:linkService-ref="linkService">
+        <property name="omitClasses">
+            <list value-type="java.lang.Class">
+                <value>EXT.DOMAIN.cpe.vpr.PatientDisability</value>
+                <value>EXT.DOMAIN.cpe.vpr.PatientEthnicity</value>
+                <value>EXT.DOMAIN.cpe.vpr.PatientExposure</value>
+                <value>EXT.DOMAIN.cpe.vpr.PatientFacility</value>
+                <value>EXT.DOMAIN.cpe.vpr.PatientFlag</value>
+                <value>EXT.DOMAIN.cpe.vpr.PatientLanguage</value>
+                <value>EXT.DOMAIN.cpe.vpr.PatientMaritalStatus</value>
+                <value>EXT.DOMAIN.cpe.vpr.PatientRace</value>
+                <value>EXT.DOMAIN.cpe.vpr.Veteran</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="nextPageLinkGenerator" class="EXT.DOMAIN.cpe.vpr.ws.link.NextPageLinkGenerator"/>
+    <bean id="previousPageLinkGenerator" class="EXT.DOMAIN.cpe.vpr.ws.link.PreviousPageLinkGenerator"/>
+
+    <bean id="resultTrendLinkGenerator" class="EXT.DOMAIN.cpe.vpr.ws.link.ResultTrendLinkGenerator"
+          p:linkService-ref="linkService"/>
+    <bean id="vitalSignTrendLinkGenerator" class="EXT.DOMAIN.cpe.vpr.ws.link.VitalSignTrendLinkGenerator"
+          p:linkService-ref="linkService"/>
+    <bean id="medDoseHistoryTrendLinkGenerator" class="EXT.DOMAIN.cpe.vpr.ws.link.MedicationDoseHistoryTrendLinkGenerator"
+          p:linkService-ref="linkService"/>
+
+    <bean id="hl7DateTimePropertyEditorRegistrar"
+          class="EXT.DOMAIN.cpe.grails.plugins.datetime.HL7DateTimePropertyEditorRegistrar"/>
+
+    <bean id="viewDefRenderer" class="EXT.DOMAIN.cpe.vpr.viewdef.ViewDefRenderer2.JSONViewRenderer2">
+    	<constructor-arg value="5000"/>
+    	<constructor-arg value="0"/>
+   	</bean>
+   	
+    <bean id="vistaAccountDao" class="EXT.DOMAIN.cpe.hub.dao.json.JsonVistaAccountDao"/>
+
+    <import resource="solr-config.xml"/>
+    <import resource="vista-rpc-config.xml"/>
+    <import resource="security-config.xml"/>
+    <import resource="messaging-config.xml"/>
+    <import resource="conversion-config.xml"/>
+    <import resource="ws-marshalling-config.xml"/>
+    <import resource="datasource-config.xml"/>
+    <import resource="importer-config.xml"/>
+    <import resource="scheduling-config.xml"/>
+    <import resource="frame-config.xml"/>
+</beans>

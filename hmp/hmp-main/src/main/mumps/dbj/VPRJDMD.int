@@ -1,0 +1,79 @@
+VPRJDMD ;SLC/KCM -- Set up Meta Data for Indexing
+ ;;1.0;JSON DATA STORE;;Sep 01, 2012
+ ;
+SETUP ;
+ K ^VPRJMETA
+ S ^VPRJMETA("system")=$$SYSID^VPRJRUT()
+ S ^VPRJMETA("version")="1.0 Build 26"
+ ;
+ D INDEXES
+ D TEMPLTS
+ Q
+INDEXES ; -- build meta data for all indexes
+ K ^VPRJMETA("index")
+ K ^VPRJMETA("collection")
+ D BLDIDXS("IDXTALLY","tally")
+ D BLDIDXS("IDXATTR","attr")
+ Q
+BLDIDXS(TAG,IDXTYPE) ; build meta data for all indexes of a given type
+ N I,X
+ S I=0 F  S I=I+1,X=$P($T(@TAG+I^VPRJDMX),";;",2,99) Q:X="zzzzz"  I $E(X)]" " D BLDIDX(TAG,I,IDXTYPE)
+ Q
+BLDIDX(TAG,LINE,IDXTYPE) ; place information for single index into ^VPRJMETA
+ N INDEX,IDXNAME,GROUP,I,X,C,VAL,COLL,SORT,SETIF,FIELDS,SUBFLDS,FTYPE,MATCH,ERROR
+ S IDXNAME=$$TRIM^XLFSTR($P($P($T(@TAG+LINE^VPRJDMX),";;",2,99)," "))
+ S SUBFLDS=0,FIELDS=0,SORT="",SETIF="",COLL=0,ERROR=0
+ F  S LINE=LINE+1,X=$P($T(@TAG+LINE^VPRJDMX),";;",2,99) Q:X="zzzzz"  Q:$E(X)]" "  D
+ . S GROUP=$$TRIM^XLFSTR($P(X,":")),X=$P(X,":",2,99)
+ . I GROUP="collections" D  Q
+ . . F I=1:1:$L(X,",") S VAL=$$TRIM^XLFSTR($P(X,",",I)) I $L(VAL) S COLL(VAL)=""
+ . I GROUP="sort" S SORT=$$TRIM^XLFSTR(X) Q
+ . I GROUP="setif" S SETIF=$$TRIM^XLFSTR(X) Q
+ . I GROUP="values" D  Q
+ . .  F I=1:1:$L(X,",") S VAL=VAL=$$TRIM^XLFSTR($P(X,",",I)) I $L(VAL) S MATCH(VAL)=""
+ . I GROUP="fields" D  Q
+ . . F I=1:1:$L(X,",") S VAL=$$TRIM^XLFSTR($P(X,",",I)) I $L(VAL) D
+ . . . Q:VAL="<none>"
+ . . . S FIELDS=FIELDS+1
+ . . . S FIELDS(I)=$$TRIM^XLFSTR($P(VAL,"/")) ; name
+ . . . I '$L(FIELDS(I)) S ERROR=1 W !,"Error: field name in ",IDXNAME
+ . . . S FIELDS(I,"collate")=$$TRIM^XLFSTR($P(VAL,"/",2))
+ . . . I '$L(FIELDS(I,"collate")) S FIELDS(I,"collate")=$S(IDXTYPE="tally":"p",1:"s")
+ . . . S FIELDS(I,"ifNull")=$$TRIM^XLFSTR($P(VAL,"/",3))
+ . . . I VAL["[]" S VAL=$P(VAL,"[]") I $L(VAL),'$D(SUBFLDS(VAL)) D
+ . . . . S SUBFLDS=SUBFLDS+1,SUBFLDS(SUBFLDS)=VAL,SUBFLDS(VAL)=""
+ . I $E(GROUP,1,7)="fields." D  Q
+ . . S C=$P(GROUP,".",2)
+ . . F I=1:1:$L(X,",") S VAL=$$TRIM^XLFSTR($P(X,",",I)) I $L(VAL) S FIELDS(C,I)=VAL
+ ;
+ S INDEX(IDXNAME)=IDXNAME
+ F I=1:1:FIELDS S INDEX(IDXNAME,"common","collate",I)=FIELDS(I,"collate")
+ F I=1:1:FIELDS S INDEX(IDXNAME,"common","field",FIELDS(I))=I
+ F I=1:1:FIELDS S INDEX(IDXNAME,"common","ifNull",I)=FIELDS(I,"ifNull")
+ S INDEX(IDXNAME,"common","method")=IDXTYPE
+ S INDEX(IDXNAME,"common","levels")=FIELDS
+ I $L($G(SORT)),(SORT'="<none>") S INDEX(IDXNAME,"common","order")=SORT
+ I $L($G(SETIF)) S INDEX(IDXNAME,"common","setif")=SETIF
+ F I=1:1:SUBFLDS S INDEX(IDXNAME,"common","subkey",SUBFLDS(I))=I
+ ;
+ S C="" F  S C=$O(COLL(C)) Q:C=""  D
+ . S ^VPRJMETA("collection",C,"index",IDXNAME)=""
+ . F I=1:1:FIELDS D
+ . . K FTYPE
+ . . I $D(FIELDS(C))>1 D:$D(FIELDS(C,I)) BLDFTYP^VPRJPQU(FIELDS(C,I),.FTYPE) I 1
+ . . E  D BLDFTYP^VPRJPQU(FIELDS(I),.FTYPE)
+ . . I $D(FTYPE) M INDEX(IDXNAME,"collection",C,I,"ftype")=FTYPE
+ . . S INDEX(IDXNAME,"collection",C,I,"collate")=FIELDS(I,"collate")
+ . . S INDEX(IDXNAME,"collection",C,I,"field")=$S($D(FIELDS(C))>1:$G(FIELDS(C,I)),1:FIELDS(I))
+ . . S INDEX(IDXNAME,"collection",C,I,"ifNull")=$S($D(FIELDS(C))>1:$S($D(FIELDS(C,I)):FIELDS(I,"ifNull"),1:""),1:FIELDS(I,"ifNull"))
+ . . S MATCH="" F  S MATCH=$O(MATCH(MATCH)) Q:MATCH=""  S ^VPRJMETA("match",C,FIELDS(I),MATCH,IDXNAME)=""
+ M ^VPRJMETA("index")=INDEX
+ Q
+TEMPLTS ; -- Set the meta-information for the templates
+ N I,J,X,COLL,TYPE,NAME,FIELDS
+ K ^VPRJMETA("template")
+ S I=1 F  S I=I+1,X=$P($T(TEMPLATE+I^VPRJDMT),";",3,99) Q:X="zzzzz"  D
+ . S COLL=$P(X,","),TYPE=$P(X,",",2),NAME=$P(X,",",3),FIELDS=$P(X,",",4,99)
+ . S ^VPRJMETA("template",COLL,NAME,"exclude")=+(TYPE="exclude")
+ . F J=1:1:$L(FIELDS,",") S ^VPRJMETA("template",COLL,NAME,"fields",$P(FIELDS,",",J))=""
+ Q

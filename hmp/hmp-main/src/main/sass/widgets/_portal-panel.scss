@@ -1,0 +1,83 @@
+#app-header {
+    color: $secondary-color;
+    font-size: 22px;
+    font-weight: 200;
+    padding: 8px 15px;
+    text-shadow: 0 1px 0 #fff;
+}
+#app-msg {
+    background: #D1DDEF;
+    border: 1px solid #ACC3E4;
+    padding: 3px 15px;
+    font-weight: bold;
+    font-size: 13px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.x-panel-ghost {
+    z-index: 1;
+}
+.x-portal-body {
+    padding: 0 0 0 2px;
+}
+.x-portal .x-portal-column {
+    /* columns must have vertical padding to avoid losing dimensions when empty */
+    padding: 2px 2px 0 0;
+}
+.x-portal .x-panel-dd-spacer {
+    border: 2px dashed $base-color;
+    background: $neutral-color;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    margin-bottom: 10px;
+}
+.x-gbpanel .x-panel-dd-spacer {
+    border: 2px dashed $base-color;
+    background: $neutral-color;
+    @include border-radius(4px);
+    margin-bottom: 0px;
+}
+.x-portlet {
+    margin-bottom:2px;
+    padding: 1px;
+}
+.x-portlet .x-panel-body {
+    background: $background-color;
+}
+.portlet-content {
+    padding: 10px;
+    font-size: $font-size;
+}
+
+#app-options .portlet-content {
+    padding: 6px;
+    font-size: $font-size;
+}
+
+/*** Buttons for Roster Manager ****/
+.upBtn {
+	border: 1px solid $secondary-color;
+	height: 16px;
+	width: 16px;
+	background: transparent url(../images/skin/sorted_asc.gif) no-repeat scroll center center;
+}
+
+.downBtn {
+	border: 1px solid $secondary-color;
+	height: 16px;
+	width: 16px;
+	background: transparent url(../images/skin/sorted_desc.gif) no-repeat scroll center center;
+}
+
+.insertBtn {
+	height: 16px;
+	width: 16px;
+	background: transparent url(../images/skin/database_add.png) no-repeat scroll center center;
+}
+
+.deleteBtn {
+	height: 16px;
+	width: 16px;
+	background: transparent url(../images/skin/database_delete.png) no-repeat scroll center center;
+}

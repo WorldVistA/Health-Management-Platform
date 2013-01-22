@@ -1,0 +1,1 @@
+java -Xmx1024M -cp lib/postgresql-9.1-901.jdbc4.jar;lib/mongo-java-driver-2.7.2.jar;target\classes UMLS2Mongo jdbc:postgresql://localhost:5432/postgres umls2012aa umls2012aa umls2012aa LNC 100

@@ -1,0 +1,64 @@
+{
+    "categoryName":"Admission",
+    "categoryCode":"AD",
+    "dateTime":"201107011000",
+    "documentUids":[
+        {
+            "uid":"urn:va:F484:229:document:4191"
+        },
+        {
+            "uid":"urn:va:F484:229:document:4232"
+        },
+        {
+            "uid":"urn:va:F484:229:document:4236"
+        },
+        {
+            "uid":"urn:va:F484:229:document:4248"
+        },
+        {
+            "uid":"urn:va:F484:229:document:4277"
+        },
+        {
+            "uid":"urn:va:F484:229:document:4297"
+        },
+        {
+            "uid":"urn:va:F484:229:document:4308"
+        },
+        {
+            "uid":"urn:va:F484:229:document:4309"
+        },
+        {
+            "uid":"urn:va:F484:229:document:4310"
+        },
+        {
+            "uid":"urn:va:F484:229:document:4311"
+        }
+    ],
+    "facilityName":"SLC-FO HMP DEV",
+    "localId":7193,
+    "location":"7A GEN MED",
+    "patientClassCode":"IMP",
+    "stay":{
+        "arrivalDateTime":"201107011000",
+        "dischargeDateTime":"201107021000"
+    },
+    "providers":[
+        {
+            "primary":true,
+            "role":"P",
+            "name":"John",
+            "uid":"urn:va:user:F484:20001"
+        },
+        {
+            "role":"A",
+			"name":"",
+            "uid":"urn:va:user:F484:20006"
+        }
+    ],
+    "roomBed":"",
+    "service":"MEDICINE",
+    "specialty":"CARDIOLOGY",
+    "summary":"7A GEN MED",
+    "typeName":"HOSPITALIZATION",
+    "uid":"urn:va:F484:229:visit:7193"
+}

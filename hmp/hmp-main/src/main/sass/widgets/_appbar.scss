@@ -1,0 +1,47 @@
+@include extjs-toolbar-ui(
+'hmp-appbar',
+$background-color: $secondary-color !important,
+$background-gradient: null,
+$border-color: $secondary-color
+);
+
+.x-toolbar-hmp-appbar {
+  border: 0;
+
+  .x-toolbar-separator-horizontal {
+    border-left-color: lighten($secondary-color, 10%) !important;
+    border-right-color: $secondary-color !important;
+  }
+
+  .x-btn {
+    @include border-radius(0);
+    .x-btn-inner {
+      color: color-by-background($secondary-color, $default-text-contrast);
+    }
+    .x-btn-arrow {
+      background-image: url('/images/themes/hi2/button/arrow-white.gif');
+    }
+    .x-btn-split-right {
+      background-image: theme-background-image('gray', 'button/s-arrow-light.gif');
+    }
+  }
+
+  .x-btn-over,.x-btn-menu-active {
+    background-image: none;
+    background-color: $background-color;
+
+    .x-btn-inner {
+      color: $color;
+    }
+    .x-btn-arrow {
+      background-image: theme-background-image('gray', 'button/arrow.gif');
+    }
+    .x-btn-split-right {
+      background-image: theme-background-image('gray', 'button/s-arrow.gif');
+    }
+  }
+
+  .x-btn-menu-active {
+     border-bottom-color: $background-color;
+  }
+}

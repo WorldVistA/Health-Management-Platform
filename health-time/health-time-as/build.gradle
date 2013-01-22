@@ -1,0 +1,4 @@
+description = 'CPE Health-Time ActionScript Library'
+type = 'swc'
+
+srcDirs << '/src/main/locales/{locale}'

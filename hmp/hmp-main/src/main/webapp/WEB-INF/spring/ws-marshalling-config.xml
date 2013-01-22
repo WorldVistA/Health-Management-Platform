@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+    <!-- grails marshallers -->
+    <bean id="xmlParsingParameterCreationListener"
+          class="org.codehaus.groovy.grails.web.converters.XMLParsingParameterCreationListener"/>
+    <bean id="jsonParsingParameterCreationListener"
+          class="org.codehaus.groovy.grails.web.converters.JSONParsingParameterCreationListener"/>
+
+    <bean id="jsonErrorsMarshaller"
+          class="org.codehaus.groovy.grails.web.converters.marshaller.json.ValidationErrorsMarshaller"/>
+    <bean id="xmlErrorsMarshaller"
+          class="org.codehaus.groovy.grails.web.converters.marshaller.xml.ValidationErrorsMarshaller"/>
+    <bean id="convertersConfigurationInitializer"
+          class="org.codehaus.groovy.grails.web.converters.configuration.ConvertersConfigurationInitializer"
+          init-method="initialize"/>
+    <bean id="errorsXmlMarshallerRegisterer"
+          class="org.codehaus.groovy.grails.web.converters.configuration.ObjectMarshallerRegisterer"
+          p:converterClass="grails.converters.XML"
+          p:marshaller-ref="xmlErrorsMarshaller"/>
+    <bean id="errorsJsonMarshallerRegisterer"
+          class="org.codehaus.groovy.grails.web.converters.configuration.ObjectMarshallerRegisterer"
+          p:converterClass="grails.converters.JSON"
+          p:marshaller-ref="jsonErrorsMarshaller"/>
+
+    <!-- PointInTime/Joda DateTime marshallers -->
+    <bean id="hl7DateTimeMarshaller" class="EXT.DOMAIN.cpe.vpr.ws.HL7DateTimeMarshaller"/>
+    <bean id="jsonHL7DateTimeMarshallerRegisterer"
+          class="org.codehaus.groovy.grails.web.converters.configuration.ObjectMarshallerRegisterer"
+          p:converterClass="grails.converters.JSON"
+          p:marshaller-ref="hl7DateTimeMarshaller"/>
+    <bean id="xmlHL7DateTimeMarshallerRegisterer"
+          class="org.codehaus.groovy.grails.web.converters.configuration.ObjectMarshallerRegisterer"
+          p:converterClass="grails.converters.XML"
+          p:marshaller-ref="hl7DateTimeMarshaller"/>
+
+    <!-- atom marshallers -->
+    <bean id="atomTextMarshaller"
+          class="org.codehaus.groovy.grails.web.converters.configuration.ObjectMarshallerRegisterer"
+          p:converterClass="grails.converters.XML"
+          p:priority="1">
+        <property name="marshaller">
+            <bean class="EXT.DOMAIN.cpe.feed.atom.xml.TextMarshaller"/>
+        </property>
+    </bean>
+    <bean id="atomLinkXmlMarshaller"
+          class="org.codehaus.groovy.grails.web.converters.configuration.ObjectMarshallerRegisterer"
+          p:converterClass="grails.converters.XML"
+          p:priority="1">
+        <property name="marshaller">
+            <bean class="EXT.DOMAIN.cpe.feed.atom.xml.LinkMarshaller"/>
+        </property>
+    </bean>
+    <bean id="atomLinkJsonMarshaller"
+          class="org.codehaus.groovy.grails.web.converters.configuration.ObjectMarshallerRegisterer"
+          p:converterClass="grails.converters.JSON"
+          p:priority="1">
+        <property name="marshaller">
+            <bean class="EXT.DOMAIN.cpe.feed.atom.json.LinkMarshaller"/>
+        </property>
+    </bean>
+    <bean id="atomPersonMarshaller"
+          class="org.codehaus.groovy.grails.web.converters.configuration.ObjectMarshallerRegisterer"
+          p:converterClass="grails.converters.XML"
+          p:priority="1">
+        <property name="marshaller">
+            <bean class="EXT.DOMAIN.cpe.feed.atom.xml.PersonMarshaller"/>
+        </property>
+    </bean>
+    <bean id="atomCategoryMarshaller"
+          class="org.codehaus.groovy.grails.web.converters.configuration.ObjectMarshallerRegisterer"
+          p:converterClass="grails.converters.XML"
+          p:priority="1">
+        <property name="marshaller">
+            <bean class="EXT.DOMAIN.cpe.feed.atom.xml.CategoryMarshaller"/>
+        </property>
+    </bean>
+    <bean id="atomEntryMarshaller"
+          class="org.codehaus.groovy.grails.web.converters.configuration.ObjectMarshallerRegisterer"
+          p:converterClass="grails.converters.XML"
+          p:priority="1">
+        <property name="marshaller">
+            <bean class="EXT.DOMAIN.cpe.feed.atom.xml.EntryMarshaller"/>
+        </property>
+    </bean>
+    <bean id="atomFeedMarshaller"
+          class="org.codehaus.groovy.grails.web.converters.configuration.ObjectMarshallerRegisterer"
+          p:converterClass="grails.converters.XML"
+          p:priority="1">
+        <property name="marshaller">
+            <bean class="EXT.DOMAIN.cpe.feed.atom.xml.FeedMarshaller"/>
+        </property>
+    </bean>
+
+    <bean id="xmlVitalSignMarshallerRegistrar"
+          class="org.codehaus.groovy.grails.web.converters.configuration.ObjectMarshallerRegisterer"
+          p:converterClass="grails.converters.XML"
+          p:priority="2">
+        <property name="marshaller">
+            <bean class="EXT.DOMAIN.cpe.vpr.ws.xml.VitalSignMarshaller"
+                  p:proxyHandler-ref="proxyHandler"
+                  p:linkService-ref="linkService"/>
+        </property>
+    </bean>
+
+    <bean id="xmlResultMarshallerRegistrar"
+          class="org.codehaus.groovy.grails.web.converters.configuration.ObjectMarshallerRegisterer"
+          p:converterClass="grails.converters.XML"
+          p:priority="2">
+        <property name="marshaller">
+            <bean class="EXT.DOMAIN.cpe.vpr.ws.xml.ResultMarshaller"
+                  p:proxyHandler-ref="proxyHandler"
+                  p:linkService-ref="linkService"/>
+        </property>
+    </bean>
+
+    <bean id="xmlResultOrganizerMarshallerRegistrar"
+          class="org.codehaus.groovy.grails.web.converters.configuration.ObjectMarshallerRegisterer"
+          p:converterClass="grails.converters.XML"
+          p:priority="2">
+        <property name="marshaller">
+            <bean class="EXT.DOMAIN.cpe.vpr.ws.xml.ResultOrganizerMarshaller"
+                  p:proxyHandler-ref="proxyHandler"
+                  p:linkService-ref="linkService"/>
+        </property>
+    </bean>
+
+    <!-- because we inserted a high priority domain class marshaller, we need a higher priority proxy unwrapping one also -->
+    <bean id="proxyUnwrappingMarshallerRegistrar"
+          class="org.codehaus.groovy.grails.web.converters.configuration.ObjectMarshallerRegisterer"
+          p:converterClass="grails.converters.XML"
+          p:priority="2">
+        <property name="marshaller">
+            <bean class="org.codehaus.groovy.grails.web.converters.marshaller.ProxyUnwrappingMarshaller"/>
+        </property>
+    </bean>
+
+    <bean id="xmlMapMarshallerRegistrar"
+          class="org.codehaus.groovy.grails.web.converters.configuration.ObjectMarshallerRegisterer"
+          p:converterClass="grails.converters.XML">
+        <property name="marshaller">
+            <bean class="EXT.DOMAIN.cpe.vpr.ws.xml.MapMarshaller"/>
+        </property>
+    </bean>
+
+    <bean id="xmlClinicianMarshallerRegistrar"
+          class="org.codehaus.groovy.grails.web.converters.configuration.ObjectMarshallerRegisterer"
+          p:converterClass="grails.converters.XML">
+        <property name="marshaller">
+            <bean class="EXT.DOMAIN.cpe.vpr.ws.xml.ClinicianMarshaller"/>
+        </property>
+    </bean>
+
+    <bean id="xmlDomainClassMarshallerRegistrar"
+          class="org.codehaus.groovy.grails.web.converters.configuration.ObjectMarshallerRegisterer"
+          p:converterClass="grails.converters.XML"
+          p:priority="1">
+        <property name="marshaller">
+            <bean class="EXT.DOMAIN.cpe.vpr.ws.xml.DomainClassMarshaller"
+                  p:proxyHandler-ref="proxyHandler"
+                  p:linkService-ref="linkService"/>
+        </property>
+    </bean>
+
+    <bean id="jsonJsonCResponseMarshallerRegistrar"
+          class="org.codehaus.groovy.grails.web.converters.configuration.ObjectMarshallerRegisterer"
+          p:converterClass="grails.converters.JSON"
+          p:priority="1">
+        <property name="marshaller">
+            <bean class="EXT.DOMAIN.cpe.vpr.ws.json.JsonCResponseMarshaller"/>
+        </property>
+    </bean>
+    <bean id="jsonDomainClassMarshallerRegistrar"
+          class="org.codehaus.groovy.grails.web.converters.configuration.ObjectMarshallerRegisterer"
+          p:converterClass="grails.converters.JSON"
+          p:priority="1">
+        <property name="marshaller">
+            <bean class="EXT.DOMAIN.cpe.vpr.ws.json.DomainClassMarshaller"
+                  p:proxyHandler-ref="proxyHandler"
+                  p:linkService-ref="linkService"/>
+        </property>
+    </bean>
+    <bean id="jsonResultMarshallerRegistrar"
+          class="org.codehaus.groovy.grails.web.converters.configuration.ObjectMarshallerRegisterer"
+          p:converterClass="grails.converters.JSON"
+          p:priority="2">
+        <property name="marshaller">
+            <bean class="EXT.DOMAIN.cpe.vpr.ws.json.ResultMarshaller"
+                  p:proxyHandler-ref="proxyHandler"
+                  p:linkService-ref="linkService"/>
+        </property>
+    </bean>
+    <bean id="jsonResultOrganizerMarshallerRegistrar"
+          class="org.codehaus.groovy.grails.web.converters.configuration.ObjectMarshallerRegisterer"
+          p:converterClass="grails.converters.JSON"
+          p:priority="2">
+        <property name="marshaller">
+            <bean class="EXT.DOMAIN.cpe.vpr.ws.json.ResultOrganizerMarshaller"
+                  p:proxyHandler-ref="proxyHandler"
+                  p:linkService-ref="linkService"/>
+        </property>
+    </bean>
+</beans>

@@ -1,0 +1,7 @@
+.project
+.classpath
+.settings/
+stats.log
+/atlassian-ide-plugin.xml
+/hmp-dev.properties
+/data

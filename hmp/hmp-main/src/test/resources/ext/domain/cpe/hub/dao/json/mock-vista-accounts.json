@@ -1,0 +1,39 @@
+{
+    "apiVersion":"2.3-foo-bar",
+    "data":{
+        "totalItems":3,
+        "items":[
+            {
+            	"encrypted":"false",
+                "name":"MOCK ONE",
+                "vistaId":"ABCD",
+                "division": "500",
+                "host":"localhost",
+                "port":9000,
+                "production":false,
+                "vprUserCredentials":"abcdef",
+                "vprAutoUpdate":true
+            },
+            {
+            	"encrypted":"false",
+                "name":"MOCK TWO",
+                "vistaId":"DCBA",
+                "division": "500",
+                "host":"localhost",
+                "port":9001,
+                "production":false,
+                "vprAutoUpdate":true
+            },
+            {
+            	"encrypted":"false",
+                "name":"MOCK THREE",
+                "vistaId":"BADC",
+                "division": "500",
+                "host":"localhost",
+                "port":9002,
+                "production":false,
+                "vprAutoUpdate":true
+            }
+        ]
+    }
+}

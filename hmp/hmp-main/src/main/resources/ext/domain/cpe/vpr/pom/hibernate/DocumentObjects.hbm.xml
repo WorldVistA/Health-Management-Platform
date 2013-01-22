@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-cascade="all,delete-orphan">
+
+	 <class table="document" entity-name="document">
+    	<id name="uid" length="64" type="string"/>
+        <property name="pid" length="64" type="string"/>
+        <property name="json" type="text"/>
+        <property name="content" type="text" column="content"/>
+		<property name="documentClass" type="string" column="document_class"/>
+		<property name="encounterUid" type="string" column="encounter_id"/>
+		<property name="encounterName" type="string" column="encounter_name"/>
+		<property name="referenceDateTime" type="string" column="reference_date_time"/>
+		<property name="documentTypeName" type="string" column="document_type_name"/>
+		<property name="documentTypeCode" type="string" column="document_type_code"/>
+		<property name="localId" type="string" column="local_id"/>
+		<property name="localTitle" type="string" column="local_title"/>
+		<property name="status" type="string"/>
+		<property name="facilityName" type="string" column="facility_name"/>
+		<property name="facilityCode" type="string" column="facility_code"/>
+		
+        <list name="clinicians">
+            <key column="document_id" not-null="true" />
+            <index column="clinicians_idx" />
+            <one-to-many entity-name="DocumentClinicianMap" />
+        </list>
+    </class>
+    
+    <union-subclass table="document_clinician" entity-name="DocumentClinicianMap" extends="POMObjectMap">
+		<property name="name" type="string"/>
+		<property name="uid" type="string"/>
+		<property name="role" type="string" column="user_role"/>
+		<property name="signedDateTime" type="string" column="signed_date_time"/>
+		<property name="signature" type="string"/>
+    </union-subclass>
+    
+</hibernate-mapping>

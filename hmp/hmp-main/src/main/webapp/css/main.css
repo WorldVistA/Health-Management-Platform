@@ -1,0 +1,596 @@
+/* GENERAL */
+
+.spinner {
+    padding: 5px;
+    position: absolute;
+    right: 0;
+}
+
+.x-body {
+    background: #fff;
+    color: #333;
+    font: 13px verdana, arial, helvetica, sans-serif;
+}
+
+div.main-toolbar {
+    color: white;
+    background-color: #505963;
+    background-image: none;
+}
+
+div.main-toolbar a {
+    color: white;
+}
+
+div.main-toolbar a:hover {
+    color: #009DDF;
+}
+
+div.main-toolbar .x-btn-default-toolbar-small .x-btn-inner {
+    color: white;
+}
+
+div.main-toolbar .x-btn-default-toolbar-small-over .x-btn-inner {
+    color: black;
+}
+
+div.main-toolbar .x-btn-default-toolbar-small-menu-active .x-btn-inner {
+    color: black;
+}
+
+#hi2Logo {
+    padding: 20px;
+    font-size: 24;
+}
+
+#hi2Logo > a > img {
+    border: none;
+    vertical-align: middle;
+}
+
+a:link, a:visited {
+    color: #009DDF;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #009DDF;
+    text-decoration: underline;
+}
+
+h1 {
+    color: #505963;
+    font-weight: normal;
+    font-size: 20px;
+    margin: .8em 0 .3em 0;
+}
+
+h2 {
+    color: #505963;
+    font-weight: normal;
+    font-size: 16px;
+    margin: .8em 0 .3em 0;
+}
+
+h3 {
+    color: #505963;
+    font-weight: normal;
+    font-size: 14px;
+    margin: .8em 0 .3em 0;
+}
+
+ul {
+    padding-left: 15px;
+}
+
+input, select, textarea {
+    background-color: #fcfcfc;
+    border: 1px solid #B8B8B8;
+    font: 13px verdana, arial, helvetica, sans-serif;
+    margin: 2px 0;
+    padding: 2px 4px;
+}
+
+select {
+    padding: 2px 2px 2px 0;
+}
+
+textarea {
+    width: 250px;
+    height: 150px;
+    vertical-align: top;
+}
+
+input:focus, select:focus, textarea:focus {
+    border: 1px solid #b2d1ff;
+}
+
+.body {
+    /*float: left;*/
+    /*padding: 0 15px 10px 15px;*/
+    margin: 0 15px 10px 15px; /*width: 100%;*/
+}
+
+/* NAVIGATION MENU */
+
+.nav {
+    background: #fff url(../images/skin/shadow.jpg) bottom repeat-x;
+    border: 1px solid #B8B8B8;
+    border-style: solid none solid none;
+    margin-top: 5px;
+    padding: 7px 12px;
+}
+
+.menuButton {
+    font-size: 10px;
+    padding: 0 5px;
+}
+
+.menuButton a {
+    color: #009DDF;
+    padding: 4px 6px;
+}
+
+.menuButton a.home {
+    background: url(../images/skin/house.png) center left no-repeat;
+    color: #009DDF;
+    padding-left: 25px;
+}
+
+.menuButton a.list {
+    background: url(../images/skin/database_table.png) center left no-repeat;
+    color: #009DDF;
+    padding-left: 25px;
+}
+
+.menuButton a.create {
+    background: url(../images/skin/database_add.png) center left no-repeat;
+    color: #009DDF;
+    padding-left: 25px;
+}
+
+.menuButton a.edit {
+    background: url(../images/skin/database_edit.png) center left no-repeat;
+    color: #009DDF;
+    padding-left: 25px;
+}
+
+.homeIcon {
+    background-image: url('../images/tri-16a.png') ;
+    height: 16 !important;
+    width: 16 !important;
+}
+
+.listIcon {
+    background-image: url(../images/skin/database_table.png);
+}
+
+.createIcon {
+    background-image: url(../images/skin/database_add.png);
+}
+
+.editIcon {
+    background-image: url(../images/skin/database_edit.png);
+}
+
+.deleteIcon {
+    background-image: url(../images/skin/database_delete.png);
+}
+
+.saveIcon {
+    background-image: url(../images/skin/database_save.png);
+}
+
+.groupIcon {
+    background-image: url(../images/icons/group.png);
+}
+
+.userIcon {
+    background-image: url(../images/icons/user.png);
+}
+/* MESSAGES AND ERRORS */
+
+.message {
+    background: #f3f8fc url(../images/skin/information.png) 8px 50% no-repeat;
+    border: 1px solid #b2d1ff;
+    color: #006dba;
+    margin: 10px 0 5px 0;
+    padding: 5px 5px 5px 30px
+}
+
+div.errors {
+    background: #fff3f3;
+    border: 1px solid red;
+    color: #cc0000;
+    margin: 10px 0 5px 0;
+    padding: 5px 0 5px 0;
+}
+
+div.errors ul {
+    list-style: none;
+    padding: 0;
+}
+
+div.errors li {
+    background: url(../images/skin/exclamation.png) 8px 0% no-repeat;
+    line-height: 16px;
+    padding-left: 30px;
+}
+
+td.errors select {
+    border: 1px solid red;
+}
+
+td.errors input {
+    border: 1px solid red;
+}
+
+/* TABLES */
+
+/*table {*/
+/*border: 1px;*/
+/*}*/
+
+/*tr {*/
+/*border: 0;*/
+/*}*/
+
+/*td, th {*/
+/*font: 13px verdana, arial, helvetica, sans-serif;*/
+/*line-height: 12px;*/
+/*padding: 5px 6px;*/
+/*text-align: left;*/
+/*vertical-align: top;*/
+/*}*/
+
+/*th {*/
+/*background: #fff url(../images/skin/shadow.jpg);*/
+/*color: #999;*/
+/*font-size: 13px;*/
+/*font-weight: bold;*/
+/*line-height: 17px;*/
+/*padding: 2px 6px;*/
+/*}*/
+
+/*th a:link, th a:visited {*/
+/*color: #999;*/
+/*display: block;*/
+/*font-size: 13px;*/
+/*text-decoration: none;*/
+/*width: 100%;*/
+/*}*/
+
+/*th a:hover {*/
+/*text-decoration: underline;*/
+/*}*/
+
+/*th.asc a, th.desc a {*/
+/*background-position: right;*/
+/*background-repeat: no-repeat;*/
+/*}*/
+
+/*th.asc a {*/
+/*background-image: url(../images/skin/sorted_asc.gif);*/
+/*}*/
+
+/*th.desc a {*/
+/*background-image: url(../images/skin/sorted_desc.gif);*/
+/*}*/
+
+/*.odd {*/
+/*background: #f7f7f7;*/
+/*}*/
+
+/*.even {*/
+/*background: #fff;*/
+/*}*/
+
+/* LIST */
+
+.list table {
+    border-collapse: collapse;
+}
+
+.list th, .list td {
+    border-left: 1px solid #ddd;
+}
+
+.list th {
+    border-top: 1px solid #ddd;
+}
+
+.list th:hover, .list tr:hover {
+    background: #e3f9ff;
+}
+
+/* PROPERTY LIST */
+
+/*.propertyList table {*/
+/*border-top: 1px solid #ddd;*/
+/*border-left: 1px solid #ddd;*/
+/*border-collapse: collapse;*/
+/*}*/
+
+/*.propertyList th {*/
+/*background: #F0F0F0;*/
+/*border-bottom: 1px solid #ddd;*/
+/*border-right: 1px solid #ddd;*/
+/*}*/
+
+/*.propertyList td {*/
+/*border-bottom: 1px solid #ddd;*/
+/*border-right: 1px solid #ddd;*/
+/*}*/
+
+/*.propertyList td ul {*/
+/*padding-left: 40px;*/
+/*}*/
+
+/*.propertyList td ul li {*/
+/*padding-bottom: 5px;*/
+/*}*/
+
+/*.propertyList td ul li ul {*/
+/*padding-top: 5px;*/
+/*padding-bottom: 5px;*/
+/*list-style-type: none;*/
+/*}*/
+
+/* PAGINATION */
+
+.paginateButtons {
+    background: #fff url(../images/skin/shadow.jpg) bottom repeat-x;
+    border: 1px solid #ccc;
+    border-top: 0;
+    color: #666;
+    font-size: 10px;
+    overflow: hidden;
+    padding: 10px 3px;
+}
+
+.paginateButtons a {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-color: #ccc #aaa #aaa #ccc;
+    color: #666;
+    margin: 0 3px;
+    padding: 2px 6px;
+}
+
+.paginateButtons span {
+    padding: 2px 3px;
+}
+
+/* DIALOG */
+
+.dialog table {
+    padding: 5px 0;
+}
+
+.prop {
+    padding: 5px;
+}
+
+.prop .name {
+    color: #999;
+    text-align: right;
+    width: 15%;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.prop .value {
+    text-align: left;
+    width: 85%;
+}
+
+/* ACTION BUTTONS */
+
+.buttons {
+    background: #fff url(../images/skin/shadow.jpg) bottom repeat-x;
+    border: 1px solid #ccc;
+    color: #666;
+    font-size: 10px;
+    margin-top: 5px;
+    overflow: hidden;
+    padding: 0;
+}
+
+.buttons input {
+    /*background: #fff ;*/
+    border: 1;
+    color: #666;
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: bold;
+    margin-left: 3px;
+    overflow: visible;
+    padding: 2px 6px;
+}
+
+input.delete {
+    background: transparent url(../images/skin/database_delete.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+
+input.edit {
+    background: transparent url(../images/skin/database_edit.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+
+input.save {
+    background: transparent url(../images/skin/database_save.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+
+/* API DOCUMENTATION */
+
+.resource {
+    margin-top: 5px;
+    margin-left: 40px;
+    margin-bottom: 5px;
+}
+
+.code {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 10px;
+    border: 1px dashed #B8B8B8;
+    -moz-border-radius: 5px 5px 5px 5px;
+}
+
+.code-panel {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border: 1px dashed #B8B8B8;
+    -moz-border-radius: 5px 5px 5px 5px;
+}
+
+/*
+	hi2 logo approximate colors:
+	blue: #008BD1
+	silver: #BDBDBD
+
+	grey: #4A4A4A
+*/
+
+/* Styles for the patient banner */
+.patient-banner {
+	padding:5px; 
+	border: 1px solid grey; 
+	background-color: #CCFFCC;
+}
+
+.patient-banner-frame {
+	padding: 5px;
+	border: 0px; 
+	background-color: #CCFFCC;
+}
+
+.patient-banner-img {
+	height: 64px;
+	width: 64px;
+	padding: 5px; 
+	background: transparent url('data:image/png;base64,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') no-repeat scroll left top;
+}
+
+
+/* OLD, Unused styles 
+.toolbar {
+	height: 30px;
+	background-color: #BDBDBD;
+	padding: 3px 0px 3px 5px;
+	font-size: 14px;
+}
+.roster-menu {
+	float: left;
+}
+.search-menu {
+	float: right;
+}
+*/
+
+/* THIS IS ALL FOR PortalPanel */
+#app-header {
+    color: #596F8F;
+    font-size: 22px;
+    font-weight: 200;
+    padding: 8px 15px;
+    text-shadow: 0 1px 0 #fff;
+}
+#app-msg {
+    background: #D1DDEF;
+    border: 1px solid #ACC3E4;
+    padding: 3px 15px;
+    font-weight: bold;
+    font-size: 13px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.x-panel-ghost {
+    z-index: 1;
+}
+.x-border-layout-ct {
+    background: #DFE8F6;
+}
+.x-portal-body {
+    padding: 0 0 0 2px;
+}
+.x-portal .x-portal-column {
+    /* columns must have vertical padding to avoid losing dimensions when empty */
+    padding: 2px 2px 0 0;
+}
+.x-portal .x-panel-dd-spacer {
+    border: 2px dashed #99bbe8;
+    background: #f6f6f6;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    margin-bottom: 10px;
+}
+.x-gbpanel .x-panel-dd-spacer {
+    border: 2px dashed #99bbe8;
+    background: #f6f6f6;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    margin-bottom: 0px;
+}
+.x-portlet {
+    margin-bottom:2px;
+    padding: 1px;
+}
+.x-portlet .x-panel-body {
+    background: #fff;
+}
+.portlet-content {
+    padding: 10px;
+    font-size: 11px;
+}
+
+#app-options .portlet-content {
+    padding: 5px;
+    font-size: 12px;
+}
+.settings {
+    background-image:url(../shared/icons/fam/folder_wrench.png);
+}
+.nav {
+    background-image:url(../shared/icons/fam/folder_go.png);
+}
+.info {
+    background-image:url(../shared/icons/fam/information.png);
+}
+
+.infoBtnCell {
+	background: transparent url(../images/skin/information.png) no-repeat scroll left top;
+}
+
+/*** Buttons for Roster Manager ****/
+.upBtn {
+	border: 1px solid grey;
+	height: 16px;
+	width: 16px;
+	background: transparent url(../images/skin/sorted_asc.gif) no-repeat scroll center center;
+}
+
+.downBtn {
+	border: 1px solid grey;
+	height: 16px;
+	width: 16px;
+	background: transparent url(../images/skin/sorted_desc.gif) no-repeat scroll center center;
+}
+
+.insertBtn {
+	height: 16px;
+	width: 16px;
+	background: transparent url(../images/skin/database_add.png) no-repeat scroll center center;
+}
+
+.deleteBtn {
+	height: 16px;
+	width: 16px;
+	background: transparent url(../images/skin/database_delete.png) no-repeat scroll center center;
+}
+
+
+

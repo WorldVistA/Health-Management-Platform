@@ -1,0 +1,36 @@
+VPRJTD2 ;SLC/KCM -- Unit tests for management tools
+ ;;1.0;JSON DATA STORE;;Sep 01, 2012
+ ;
+STARTUP  ; Run once before all tests
+ N DATA,I,LOC
+ D DELCTN^VPRJD("test")  ; clear the collections
+ D DELCTN^VPRJD("testb")
+ D SETUP^VPRJDMD
+ F I=1:1:6 D GETDATA("TEST"_I,.DATA) S LOC=$$SAVE^VPRJD(.DATA) K DATA
+ D GETDATA("OTHER",.DATA) S LOC=$$SAVE^VPRJD(.DATA) K DATA
+ Q
+SHUTDOWN ; Run once after all tests
+ D DELCTN^VPRJD("test")
+ D DELCTN^VPRJD("testb")
+ K ^TMP($J),^TMP("HTTPERR",$J)
+ Q
+SETUP    ; Run before each test
+ K HTTPREQ,HTTPERR,HTTPRSP
+ Q
+TEARDOWN ; Run after each test
+ K HTTPREQ,HTTPERR,HTTPRSP
+ Q
+ASSERT(EXPECT,ACTUAL) ; convenience
+ D EQ^VPRJT(EXPECT,ACTUAL)
+ Q
+ ;
+GETDATA(TAG,DATA) ;
+ N I,X
+ F I=1:1 S X=$P($T(@TAG+I^VPRJTDD),";;",2,999) Q:X="zzzzz"  S DATA(I)=X
+ Q
+ ;
+OBJCTN ;; @TEST count objects in collection
+ N COUNT
+ S COUNT=$$OBJCTN^VPRJDM("test")
+ D ASSERT(6,COUNT)
+ Q

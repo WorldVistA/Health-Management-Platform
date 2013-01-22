@@ -1,0 +1,42 @@
+
+.cpe-search-result {
+  padding-left: 4;
+  padding-right: 4;
+}
+
+.cpe-search-result-summary {
+  //font-size: 0.9em;
+}
+
+.cpe-search-result-over {
+  background-color: #EFEFEF;
+  border-color: #DDDDDD;
+}
+
+.cpe-search-result-selected {
+  background-color: #DFE8F6 !important;
+  border-color: #A3BAE9;
+}
+
+.cpe-search-result-count {
+  font-weight: normal;
+  margin-left: 6px;
+}
+
+.cpe-search-result-highlight {
+  font-size: $font-size-small;
+  color: #505963;
+}
+
+.cpe-search-result-highlight em {
+  font-weight: bold;
+}
+
+.cpe-search-result-attributes {
+  font-size: $font-size-small;
+  color: #4595c1;
+}
+
+.cpe-search-term-match {
+  background-color: yellow !important;
+}

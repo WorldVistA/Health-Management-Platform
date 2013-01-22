@@ -1,0 +1,35 @@
+$theme-name: 'gray';
+
+$color: #000;
+$base-color: #009DDF !default;
+$base-over-color: lighten($base-color, 40%);
+$secondary-color: #505963;
+$secondary-light-color: lighten($secondary-color, 18%);
+$secondary-lighter-color: lighten($secondary-color, 40%);
+$background-color: #fff;
+
+$neutral-color: #e6e6e6; // #aca899
+$neutral-dark-color: darken($neutral-color, 18%);
+$neutral-darker-color: darken($neutral-color, 50%);
+$neutral-light-color: lighten($neutral-color, 8%);
+
+$link-color: $base-color !default;
+
+$confirm-color: #94ae0a;
+$bright-color: red;
+
+$drastic-color: #a61120;
+
+$content-color: color-offset($neutral-color, 30%);
+$stroke-color: color-offset($neutral-color, 20%, dark);
+
+$default-text-contrast: 90%;
+
+$font-family: Helmet, Freesans, sans-serif; // sans-serif selects Arial on Windows, Helvetica on OS X, Arial on Android, Helvetica on iOS, Helmet and Freesans are here for Linux browsers
+$font-size: 12px;
+$font-size-small: ceil($font-size * .9);
+$font-size-large: 15px;
+
+$monospaed-font-family: 'Droid Sans Mono', 'Lucidatypewriter', Fixed, monospace;
+
+$base-gradient: 'flat';

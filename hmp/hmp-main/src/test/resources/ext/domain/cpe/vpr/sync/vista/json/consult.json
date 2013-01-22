@@ -1,0 +1,16 @@
+{
+      "category" : "C",
+		"results" : [
+			{"uid" : "urn:va:6273:229:tiu:3108"}
+		],
+      "facilityName" : "CAMP MASTER",
+      "facilityCode" : "CM",
+      "localId" : 373,
+      "typeName" : "AUDIOLOGY OUTPATIENT Cons",
+      "orderUid" : "urn:va:6273:229:order:15471",
+      "consultProcedure" : "Consult",
+      "dateTime" : "20010101010101",
+      "service" : "AUDIOLOGY OUTPATIENT",
+      "status" : "COMPLETE",
+      "uid" : "urn:va:6273:229:procedure:373"
+    }

@@ -1,0 +1,50 @@
+VPRJT ;SLC/KCM -- Unit test driver
+ ;;1.0;JSON DATA STORE;;Sep 01, 2012
+ ;
+ ;with acknowlegements to XTMUNIT, Imitation is the sincerest form of flattery
+ ;
+1 ; Run one specific test
+ D EN("VPRJTR") ;
+ ; D EN("VPRJTQF") ;"VPRJTJE,VPRJTJD,VPRJTQU,VPRJTU")
+ Q
+ALL ; Run all the tests
+ ;D EN("VPRJTJE,VPRJTJD")
+ D EN("VPRJTJE,VPRJTJD,VPRJTU,VPRJTS,VPRJTQU,VPRJTQF,VPRJTQX,VPRJTR,VPRJTRP,VPRJTD0,VPRJTD1,VPRJTD2")
+ Q
+EN(ZZRSET) ; Run tests for set of routines passed in
+ N ZZFAILED,ZZROU,ZZPIECE
+ F ZZPIECE=1:1:$L(ZZRSET,",") D TEST($P(ZZRSET,",",ZZPIECE))
+ W !,$S($G(ZZFAILED):"Tests FAILED",1:"Tests PASSED")
+ Q
+TEST(ZZROU) ; Run tests in a specific routine
+ W !!,">> "_ZZROU,?10,$P($T(@(ZZROU_"^"_ZZROU)),"--",2,99)
+ N ZZI,ZZK,ZZX,ZZLABEL,ZZCODE,ZZCMT,ZZSET,ZZTEAR
+ S ZZK=$T(@("STARTUP^"_ZZROU)) I $L(ZZK) D @("STARTUP^"_ZZROU)
+ ;
+ F ZZI=1:1 S ZZX=$T(@("+"_ZZI_"^"_ZZROU)) Q:ZZX=""  D
+ . S ZZLABEL=$P(ZZX," "),ZZCODE=$$LTRIM($P(ZZX," ",2,99))
+ . I $L(ZZLABEL),($E(ZZCODE,1,2)=";;"),($$UP($E(ZZCODE,1,9))["@TEST") D
+ . . S ZZCMT=$E($P(ZZCODE,"@",2,99),5,$L(ZZCODE))
+ . . W !,"Testing"_ZZCMT_" ["_ZZLABEL_"^"_ZZROU_"]"
+ . . S ZZK=$T(@("SETUP^"_ZZROU)) I $L(ZZK) D @("SETUP^"_ZZROU)
+ . . D @(ZZLABEL_"^"_ZZROU) ; run the unit test
+ . . S ZZK=$T(@("TEARDOWN^"_ZZROU)) I $L(ZZK) D @("TEARDOWN^"_ZZROU)
+ ;
+ S ZZK=$T(@("SHUTDOWN^"_ZZROU)) I $L(ZZK) D @("SHUTDOWN^"_ZZROU)
+ Q
+EQ(EXPECT,ACTUAL,MSG) ;
+ I EXPECT=ACTUAL W "." Q
+ S ZZFAILED=1
+ W:$X>1 ! W "expected: ",EXPECT,"  actual: ",ACTUAL,"  ",$G(MSG),!
+ Q
+NE(EXPECT,ACTUAL,MSG) ;
+ I EXPECT'=ACTUAL W "." Q
+ S ZZFAILED=1
+ W:$X>1 ! W "not equal failed, value: ",ACTUAL,"  ",$G(MSG),!
+ Q
+UP(X) ; return uppercase for X
+ Q $TR(X,"abcdefghijklmnopqrstuvwxyz","ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+ ;
+LTRIM(X) ; remove spaces from left side
+ N POS F POS=1:1:$L(X) Q:$E(X,POS)'=" "
+ Q $E(X,POS,$L(X))

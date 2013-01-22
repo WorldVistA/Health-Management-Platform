@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Example LOGBACK Configuration File
+  http://logback.qos.ch/manual/configuration.html
+  -->
+<configuration>
+	<!--
+      This default ConsoleAppender is used to log all NON perf4j messages
+      to System.out
+    -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+	<!-- Perf4J appenders -->
+    <!-- This file appender is used to output aggregated performance statistics -->
+    <!--<appender name="perf4jFileAppender" class="ch.qos.logback.core.FileAppender">-->
+        <!--<file>${logs.dir}/stats.log</file>-->
+        <!--<encoder>-->
+            <!--<pattern>%m%n</pattern>-->
+        <!--</encoder>-->
+    <!--</appender>-->
+
+
+    <logger name="org.springframework" level="warn"/>
+    <logger name="org.apache.solr" level="warn"/>
+    <logger name="org.codehaus.groovy.grails.web.servlet.DefaultGrailsApplicationAttributes" level="error"/>
+
+    <logger name="EXT.DOMAIN.cpe.Bootstrap" level="debug"/>
+
+    <!-- VPR automatic updates -->
+    <logger name="EXT.DOMAIN.cpe.vpr.sync.VprUpdateJob" level="error"/>
+    <logger name="EXT.DOMAIN.cpe.vpr.sync.msg.VprUpdateCompleteMessageHandler" level="info"/>
+
+    <!-- VistA RPC logging -->
+    <logger name="EXT.DOMAIN.cpe.vista.rpc.RpcTemplate" level="error"/>
+    <!--<logger name="EXT.DOMAIN.cpe.vista.rpc.RpcTemplate" level="debug"/>-->
+    <!--<logger name="EXT.DOMAIN.cpe.vista.rpc.wire" level="debug"/>-->
+
+    <!-- JDS logging -->
+    <logger name="EXT.DOMAIN.cpe.vpr.pom.jds.JdsTemplate" level="error"/>
+    <logger name="org.springframework.web.client.RestTemplate" level="error"/>
+
+    <!-- HTTP logging (JDS and Solr) -->
+    <!--<logger name="org.apache.http" level="debug"/>-->
+    <!--<logger name="org.apache.http.wire" level="error"/>-->
+
+    <!--
+      The Perf4J logger. Note that org.perf4j.TimingLogger is the value of the
+      org.perf4j.StopWatch.DEFAULT_LOGGER_NAME constant. Also, note that
+      additivity is set to false, which is usually what is desired - this means
+      that timing statements will only be sent to this logger and NOT to
+      upstream loggers.
+    -->
+    <!--<logger name="org.perf4j.TimingLogger" additivity="false" level="info">-->
+        <!--<appender-ref ref="CoalescingStatistics"/>-->
+    <!--</logger>-->
+
+    <root level="warn">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>

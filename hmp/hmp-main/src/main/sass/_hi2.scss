@@ -1,0 +1,917 @@
+@import 'accessories/all';
+
+// from ExtJS 4.1 Neptune
+
+$theme-name: 'gray';
+
+$color: #000;
+$base-color: #009DDF ! default;
+$base-over-color: lighten($base-color, 40%);
+$base-light-color: lighten($base-color, 18%);
+$base-dark-color: darken($base-color, 18);
+
+$secondary-color: #505963;
+$secondary-light-color: lighten($secondary-color, 18%);
+$secondary-lighter-color: lighten($secondary-color, 40%);
+$background-color: #fff;
+
+$neutral-color: #e6e6e6;
+// #aca899
+$neutral-dark-color: darken($neutral-color, 18%);
+$neutral-darker-color: darken($neutral-color, 50%);
+$neutral-light-color: lighten($neutral-color, 8%);
+
+$link-color: $base-color ! default;
+
+$confirm-color: #94ae0a;
+$bright-color: red;
+
+$drastic-color: #a61120;
+
+//$pt-banner-background-color: #AAFFAA;//$background-color;
+//$multipt-banner-background-color: #80baff;//$background-color;
+$pt-banner-background-color: $base-color;
+$pt-banner-text-color: color-by-background($pt-banner-background-color, $default-text-contrast);
+$multipt-banner-background-color: $secondary-light-color;
+$multipt-banner-text-color: white;
+
+$content-color: color-offset($neutral-color, 30%);
+$stroke-color: color-offset($neutral-color, 20%, dark);
+
+$default-text-contrast: 90%;
+
+$font-family: Helmet, Freesans, sans-serif;
+// sans-serif selects Arial on Windows, Helvetica on OS X, Arial on Android, Helvetica on iOS, Helmet and Freesans are here for Linux browsers
+$font-size: 12px;
+$font-size-small: ceil($font-size * .9);
+$font-size-large: 15px;
+
+$monospaed-font-family: 'Droid Sans Mono', 'Lucidatypewriter', Fixed, monospace;
+
+$base-gradient: 'matte';
+
+//loadmask
+$loadmask-backgorund: #ccc;
+$loadmask-msg-border: none;
+$loadmask-msg-padding: 0px;
+$loadmask-msg-border-color: transparent;
+$loadmask-msg-background-color: transparent;
+$loadmask-msg-background-gradient: null;
+$loadmask-msg-inner-border: none;
+$loadmask-msg-inner-border-color: transparent;
+$loadmask-msg-inner-background-color: transparent;
+
+//panel
+$panel-base-color: $base-color;
+
+$panel-border-radius: null;
+$panel-border-width: 0px;
+$panel-border-color: $base-color;
+
+$panel-header-color: color-by-background($panel-base-color, $default-text-contrast);
+$panel-header-border-color: $panel-base-color;
+$panel-header-background-color: $panel-base-color;
+$panel-header-background-gradient: $base-gradient;
+$panel-header-padding: 4px 4px 4px 4px;
+$panel-header-font-size: 13px;
+$panel-header-inner-border: false;
+$panel-header-line-height: 16px;
+
+$panel-body-border-color: $panel-base-color;
+$panel-body-border-style: none;
+
+//framed panel
+$panel-frame-border-radius: 1px;
+$panel-frame-padding: 0px;
+
+$panel-frame-background-color: $background-color;
+$panel-frame-border-color: $panel-border-color;
+
+// override default and default-framed panel UIs
+$include-panel-uis: false;
+
+//window
+$window-background-color: $neutral-color;
+$window-header-padding: 5px;
+$window-header-color: $secondary-color;
+$window-header-background-color: $base-color;
+$window-header-font-size: 13px;
+$window-border-radius: 0px;
+$window-border-color: $neutral-dark-color;
+$window-body-background-color: $background-color;
+$window-body-border-color: $neutral-color;
+$window-inner-border-color: null;
+
+//menu
+$menu-background-color: $background-color;
+//$menu-item-active-background-image: null;
+$menu-item-active-background-color: $base-over-color;
+$menu-separator-border-color: $neutral-color;
+$menu-separator-background-color: $background-color;
+$menu-text-color: $color;
+$menu-active-text-color: white;
+$menu-padding: 0;
+//$menu-item-active-background-color: darken(#f3f3f3, 5);
+//$menu-item-active-border-color: #9d9d9d;
+
+//datepicker
+$datepicker-header-background-color: $base-color;
+$datepicker-border-color: $base-color;
+$datepicker-th-background-color: $neutral-color;
+$datepicker-selected-item-color: #fff;
+$datepicker-selected-item-background-color: $base-color;
+//$datepicker-item-hover-background-color: transparent;
+$datepicker-footer-background-color: $neutral-color;
+$datepicker-footer-background-gradient: null;
+
+//progress bar
+$progress-bar-background-color: $secondary-color;
+$progress-text-color-front: #fff;
+$progress-text-color-back: $secondary-color;
+
+//tips
+$tip-base-color: $background-color;
+$tip-body-color: $secondary-color;
+$tip-border-color: $base-color;
+
+//grid
+$grid-header-color: $neutral-darker-color;
+$grid-header-background-color: $background-color;
+$grid-header-background-gradient: flat;
+$grid-header-border-color: $neutral-dark-color;
+$grid-header-over-border-color: $neutral-color;
+$grid-header-over-background-color: $background-color;
+$grid-header-over-background-gradient: flat;
+$grid-header-font: normal $font-size $font-family;
+
+$grid-row-cell-border-width: 0;
+$grid-row-cell-over-background-color: $base-over-color;
+$grid-row-cell-selected-border-style: solid;
+$grid-row-cell-selected-border-color: $base-color;
+$grid-row-cell-selected-background-color: $base-color;
+
+//grouped grid
+$grid-grouped-header-border-color: $base-color;
+$grid-grouped-title-font: $font-size-small;
+
+//toolbar
+$toolbar-background-color: $background-color;
+$toolbar-border-color: $background-color;
+$toolbar-inner-border-width: 0px 0px 0px 0px;
+$toolbar-inner-border-color: $background-color;
+$toolbar-background-gradient: null;
+$toolbar-separator-color: $neutral-dark-color;
+$toolbar-separator-highlight-color: $neutral-color;
+$toolbar-text-color: $color;
+
+//btn group
+$btn-group-background-color: $neutral-color;
+//$btn-group-header-background-color: #dfdfdf;
+//$btn-group-border-color: #d0d0d0;
+
+$btn-group-border-color: $neutral-color;
+$btn-group-border-radius: 2px ! default;
+$btn-group-border-width: 1px ! default;
+
+$btn-group-inner-border-width: 1px ! default;
+$btn-group-inner-border-color: $neutral-color ! default;
+
+$btn-group-header-color: #fff;
+$btn-group-header-background-color: $secondary-color;
+
+//form
+$form-field-background-image: null;
+$form-field-border-color: $neutral-dark-color;
+$form-field-empty-color: $neutral-darker-color;
+$form-field-focus-border-color: $base-color;
+$form-trigger-border-bottom-color-focus: $form-field-focus-border-color;
+$form-trigger-border-bottom-color-over: $form-field-border-color;
+$fieldset-header-color: $secondary-color;
+
+//boundlist
+$boundlist-border-color: $neutral-dark-color;
+
+$boundlist-item-padding: 3px 4px 2px 4px;
+$boundlist-item-border-width: 0px;
+$boundlist-item-border-style: none;
+$boundlist-item-border-color: $background-color;
+
+$boundlist-item-over-background-color: $base-over-color;
+$boundlist-item-selected-background-color: $base-color;
+$boundlist-item-selected-color: color-by-background($boundlist-item-selected-background-color, $default-text-contrast);
+
+//accordion
+$accordion-header-color: $secondary-color;
+$accordion-header-background-color: $background-color;
+
+//tabs
+$tabbar-background-color: $background-color;
+$tabbar-strip-border-color: $base-color;
+$tabbar-border-color: $neutral-dark-color;
+$tab-color: $neutral-dark-color;
+$tab-color-over: $base-color;
+$tab-bottom-border-radius: 1px;
+$tabbar-top-strip-border-width: 1px;
+
+//buttons
+$button-default-base-color: #f8f8f8;
+$button-default-base-color-over: #f3f3f3;
+$button-default-base-color-focus: $button-default-base-color-over;
+$button-default-base-color-pressed: #d6d6d6;
+$button-default-base-color-disabled: adjust-color($base-color, $hue: 0deg, $saturation: -55.556%, $lightness: 12.745%) ! default;
+//F7F7F7
+
+$button-default-border-color: #bbbbbb;
+$button-default-border-color-over: #9d9d9d;
+$button-default-border-color-focus: $button-default-border-color-over;
+$button-default-border-color-pressed: $button-default-border-color-over;
+$button-default-border-color-disabled: adjust-color($button-default-base-color-disabled, $hue: 0deg, $saturation: 0%, $lightness: -8.627%) ! default;
+
+$button-border-radius: 3px;
+$button-small-border-radius: $button-border-radius;
+$button-medium-border-radius: $button-border-radius;
+$button-large-border-radius: $button-border-radius;
+
+$button-default-background-gradient: 'matte';
+$button-default-background-gradient-over: 'matte';
+$button-default-background-gradient-focus: 'matte';
+$button-default-background-gradient-pressed: 'matte-reverse';
+$button-default-background-gradient-disabled: 'matte';
+
+$button-default-background-gradient-color-stops: null;
+$button-default-background-gradient-color-stops-over: null;
+$button-default-background-gradient-color-stops-focus: null;
+$button-default-background-gradient-color-stops-pressed: null;
+$button-default-background-gradient-color-stops-disabled: null;
+
+$button-toolbar-base-color: $button-default-base-color;
+
+$button-toolbar-border-color: transparent ! default;
+$button-toolbar-border-color-over: $button-default-border-color-over;
+$button-toolbar-border-color-focus: $button-default-border-color-focus;
+$button-toolbar-border-color-pressed: $button-default-border-color-pressed;
+$button-toolbar-border-color-disabled: $button-default-border-color-disabled;
+
+$button-toolbar-background-color: transparent ! default;
+$button-toolbar-background-color-over: $button-default-base-color-over;
+$button-toolbar-background-color-focus: $button-default-base-color-focus;
+$button-toolbar-background-color-pressed: $button-default-base-color-pressed;
+$button-toolbar-background-color-disabled: transparent;
+
+$button-toolbar-background-gradient: null;
+$button-toolbar-background-gradient-over: 'matte';
+$button-toolbar-background-gradient-focus: 'matte';
+$button-toolbar-background-gradient-pressed: 'matte-reverse';
+$button-toolbar-background-gradient-disabled: null;
+
+$button-toolbar-background-gradient-color-stops: null;
+$button-toolbar-background-gradient-color-stops-over: null;
+$button-toolbar-background-gradient-color-stops-focus: null;
+$button-toolbar-background-gradient-color-stops-pressed: null;
+$button-toolbar-background-gradient-color-stops-disabled: null;
+
+// plain buttons
+$button-plain-border-color: $background-color;
+$button-plain-border-color-over: $button-default-border-color-over;
+$button-plain-border-color-focus: $button-default-border-color-over;
+$button-plain-border-color-pressed: $button-default-border-color-over;
+$button-plain-border-color-disabled: $button-default-base-color;
+
+$button-plain-background-color: $button-default-base-color;
+$button-plain-background-color-over: $button-default-base-color-over;
+$button-plain-background-color-focus: $button-default-base-color-over;
+$button-plain-background-color-pressed: $button-default-base-color-pressed;
+$button-plain-background-color-disabled: $button-default-base-color-disabled;
+
+$button-plain-background-gradient: null;
+$button-plain-background-gradient-over: 'matte';
+$button-plain-background-gradient-focus: 'matte';
+$button-plain-background-gradient-pressed: 'matte-reverse';
+$button-plain-background-gradient-disabled: null;
+
+$button-plain-color: $button-default-base-color;
+$button-plain-color-over: $button-default-base-color-over;
+$button-plain-color-focus: $button-default-base-color-focus;
+$button-plain-color-pressed: $button-default-base-color-pressed;
+$button-plain-color-disabled: $button-default-base-color-disabled;
+
+// theme-colored buttons
+$button-theme-colored-base-color: $base-color;
+$button-theme-colored-base-color-over: lighten($base-color, 18%);
+$button-theme-colored-base-color-focus: $button-default-base-color-over;
+$button-theme-colored-base-color-pressed: adjust-color($base-color, $hue: -0.725deg, $saturation: -9.556%, $lightness: -3.725%);
+$button-theme-colored-base-color-disabled: adjust-color($base-color, $hue: 0deg, $saturation: -55.556%, $lightness: 12.745%);
+
+$button-theme-colored-border-color: adjust-color($button-theme-colored-base-color, $hue: 0deg, $saturation: 0%, $lightness: -18.039%);
+$button-theme-colored-border-color-over: adjust-color($button-theme-colored-base-color-over, $hue: 8.177deg, $saturation: -28.283%, $lightness: -12.745%);
+$button-theme-colored-border-color-focus: $button-theme-colored-border-color-over;
+$button-theme-colored-border-color-pressed: adjust-color($button-theme-colored-base-color-pressed, $hue: 2.317deg, $saturation: 6.756%, $lightness: -5.294%);
+$button-theme-colored-border-color-disabled: adjust-color($button-theme-colored-base-color-disabled, $hue: 0deg, $saturation: 0%, $lightness: -8.627%);
+
+$button-theme-colored-background-color: $button-theme-colored-base-color;
+$button-theme-colored-background-color-over: $button-theme-colored-base-color-over;
+$button-theme-colored-background-color-focus: $button-theme-colored-background-color-over;
+$button-theme-colored-background-color-pressed: $button-theme-colored-base-color-pressed;
+$button-theme-colored-background-color-disabled: $button-theme-colored-base-color-disabled;
+
+$button-theme-colored-background-gradient: 'matte';
+$button-theme-colored-background-gradient-over: 'matte';
+$button-theme-colored-background-gradient-focus: $button-default-background-gradient-over;
+$button-theme-colored-background-gradient-pressed: 'matte-reversed';
+$button-theme-colored-background-gradient-disabled: 'matte';
+
+$button-theme-colored-background-gradient-color-stops: null;
+$button-theme-colored-background-gradient-color-stops-over: $button-default-background-gradient-color-stops;
+$button-theme-colored-background-gradient-color-stops-focus: $button-default-background-gradient-color-stops-over;
+$button-theme-colored-background-gradient-color-stops-pressed: $button-default-background-gradient-color-stops;
+$button-theme-colored-background-gradient-color-stops-disabled: $button-default-background-gradient-color-stops;
+
+$button-theme-colored-color: color-offset($base-color);
+$button-theme-colored-color-over: $button-theme-colored-color;
+$button-theme-colored-color-focus: $button-theme-colored-color-over;
+$button-theme-colored-color-pressed: $button-theme-colored-color;
+$button-theme-colored-color-disabled: lighten($button-theme-colored-color, 35);
+
+$button-theme-colored-font-weight: bold;
+$button-theme-colored-font-weight-over: $button-theme-colored-font-weight;
+$button-theme-colored-font-weight-focus: $button-theme-colored-font-weight;
+$button-theme-colored-font-weight-pressed: $button-theme-colored-font-weight;
+$button-theme-colored-font-weight-disabled: $button-theme-colored-font-weight;
+
+// pill buttons
+$button-pill-border-radius: 10px;
+$button-pill-small-border-radius: $button-pill-border-radius;
+$button-pill-medium-border-radius: $button-pill-border-radius;
+$button-pill-large-border-radius: $button-pill-border-radius;
+
+$button-pill-small-padding: 0px;
+$button-pill-small-text-padding: 4px;
+
+$button-pill-border-color: $background-color;
+$button-pill-border-color-over: $base-color !important;
+$button-pill-border-color-focus: $base-color;
+$button-pill-border-color-pressed: $secondary-light-color;
+$button-pill-border-color-disabled: $button-default-base-color;
+
+$button-pill-background-color: $background-color;
+$button-pill-background-color-over: $base-color !important;
+$button-pill-background-color-focus: $base-color;
+$button-pill-background-color-pressed: $secondary-light-color;
+$button-pill-background-color-disabled: $button-default-base-color-disabled;
+
+$button-pill-color: $color;
+$button-pill-color-over: white;
+$button-pill-color-focus: white;
+$button-pill-color-pressed: white;
+$button-pill-color-disabled: $button-default-base-color-disabled;
+
+// border layout
+$border-layout-ct-background: $neutral-color;
+
+// Unless you want to include all components, you must set $include-default to false
+// IF you set this to true, you can also remove lines 10 to 38 of this file
+//$include-default: false;
+
+@import 'all';
+
+// This line changes the location of your images when creating UIs to be relative instead of within the ExtJS directory.
+// You MUST set this to true/string value if you are creating new UIs + supporting legacy browsers.
+// This only applies to new UIs. It does not apply to default component images (i.e. when changing $base-color)
+// The value can either be true, in which case the image path will be "../images/"
+// or a string, of where the path is
+$relative-image-path-for-uis: true;
+// defaults to "../images/" when true
+
+.x-body {
+  background: $neutral-color;
+}
+
+// custom styles
+@import 'widgets/appbar';
+@import 'widgets/portal-panel';
+@import 'widgets/search';
+
+//.x-form-invalid-icon {
+//  height: 16px;
+//  width: 16px;
+//  background-image: url('/images/themes/hi2/invalid.gif');
+//}
+
+@mixin monospaced {
+  font-family: $monospaed-font-family;
+  font-size: $font-size-small;
+  white-space: pre;
+}
+
+.hmp-preformatted {
+  @include monospaced;
+}
+
+.hmp-monospaced {
+  @include monospaced;
+}
+
+.hmp-monospaced textarea {
+  @include monospaced;
+}
+
+.x-panel-body pre {
+  @include monospaced;
+}
+
+.hmp-error {
+  color: red;
+}
+
+.hmp-success {
+  color: green;
+}
+
+.hmp-unknown {
+  color: color-by-background($background-color, 65%);
+}
+
+.hmp-error .x-grid-cell {
+  color:red;
+}
+
+// popup buttons
+.hmp-popupbutton-menu {
+  background-color: $background-color;
+  border-style: solid;
+  border-radius: $button-large-border-radius;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-top-width: 1px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-color: $button-plain-border-color-pressed;
+
+  .x-toolbar-footer {
+    padding-bottom: 6px;
+  }
+}
+
+
+.hmp-pt-banner-ct {
+  @include border-top-left-radius(12px);
+  @include border-top-right-radius(12px);
+
+  @include background-gradient($pt-banner-background-color);
+  //background-color: $pt-banner-background-color;
+  color: $pt-banner-text-color;
+
+  .x-panel-body {
+    padding: 4px;
+  }
+}
+
+.hmp-pt-banner-item {
+  background-color: transparent;
+  //background-color: $pt-banner-background-color;
+  border-color: transparent;
+  //:hover : lighten($base-color, 15%);
+  margin: 0px 3px;
+  color: $pt-banner-text-color;
+  font-size: $font-size;
+
+  .hmp-labeled-values {
+    td:first-child {
+      color: color-by-background($pt-banner-background-color, 50%);
+      font-weight: normal;
+    }
+
+    td {
+      color: $pt-banner-text-color;
+      padding: 1px 4px 4px 1px;
+    }
+  }
+
+  .hmp-label {
+    color: color-by-background($pt-banner-background-color, 50%);;
+  }
+}
+
+@each $style in x-btn-over,x-btn-menu-active {
+  .hmp-pt-banner-item.#{$style} {
+    background-color: $background-color;
+    color: $color;
+
+    .hmp-labeled-values {
+      td:first-child {
+        color: $neutral-darker-color;
+      }
+
+      td {
+        color: $color;
+      }
+    }
+  }
+}
+
+.hmp-multipt-banner-ct {
+  @include border-top-left-radius(12px);
+  @include border-top-right-radius(12px);
+
+  @include background-gradient($multipt-banner-background-color);
+  //background-color: $multipt-banner-background-color;
+
+  .x-panel-body {
+    padding: 4px;
+    color: $multipt-banner-text-color;
+  }
+}
+
+.hmp-multipt-banner-item {
+  background-color: transparent;
+  //:hover : lighten($base-color, 15%);
+  margin: 0px 3px;
+
+  tr, td {
+    color:  $multipt-banner-text-color;
+    font-size: $font-size;
+  }
+
+  .x-btn-default-toolbar-small .x-btn-inner {
+    color:  $multipt-banner-text-color;:hover: $multipt-banner-text-color;
+  }
+
+  .x-btn-inner {
+    color:  $multipt-banner-text-color;
+  }
+}
+
+.hmp-pt-view-ct {
+  background-color: $background-color;
+  padding: 0px;
+
+  @include border-top-left-radius(12px);
+  @include border-top-right-radius(12px);
+  @include border-bottom-left-radius(12px);
+  @include border-bottom-right-radius(12px);
+
+  .x-panel-body {
+    background-color: transparent;
+  }
+}
+
+.hmp-cpe-panel {
+  border: none;
+  padding: 0px 6px 6px 6px;
+  background-color: $neutral-color;
+
+  //.x-border-layout-ct {
+  //  background-color: $background-color;
+  //}
+}
+
+.hmp-tristate-toolbar {
+  border: none;
+  background-color: $neutral-color;
+}
+
+.hmp-label {
+  color: $neutral-darker-color;
+}
+
+.hmp-labeled-values {
+  font-family: $font-family;
+  font-size: $font-size-small;
+
+  td {
+    margin: 0;
+    padding: 2px 4px;
+  }
+
+  td:nth-child(odd) {
+    color: $neutral-darker-color;
+    text-align: right;
+  }
+}
+
+//link button
+@each $size in small, medium, large {
+  .x-btn-link-#{$size} {
+    .x-btn-inner {
+      color: $base-color;
+      text-decoration: none;
+    }
+  }
+
+  .x-btn-link-#{$size}-over {
+    .x-btn-inner {
+      color: $base-color;
+      text-decoration: underline;
+    }
+  }
+
+  .x-btn-link-toolbar-#{$size} {
+    .x-btn-inner {
+      color: $base-color;
+      text-decoration: none;
+    }
+  }
+
+  .x-btn-link-toolbar-#{$size}-over {
+    .x-btn-inner {
+      color: $base-color;
+      text-decoration: underline;
+    }
+  }
+}
+
+//link
+a:link, a:visited {
+  color: $link-color;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $link-color;
+  text-decoration: underline;
+}
+
+/* headers */
+
+h1 {
+  color: $secondary-color;
+  font-weight: normal;
+  font-size: 20px;
+  margin: .8em 0 .3em 0;
+}
+
+h2 {
+  color: $secondary-color;
+  font-weight: normal;
+  font-size: 16px;
+  margin: .8em 0 .3em 0;
+}
+
+h3 {
+  color: $secondary-color;
+  font-weight: normal;
+  font-size: 14px;
+  margin: .8em 0 .3em 0;
+}
+
+.settings {
+  background-image: url(../shared/icons/fam/folder_wrench.png);
+}
+
+.nav {
+  background-image: url(../shared/icons/fam/folder_go.png);
+}
+
+.info {
+  background-image: url(../shared/icons/fam/information.png);
+}
+
+.hmp-info-btn-cell {
+  width: 16px;
+  height: 16px;
+  background-image: none;
+}
+
+.x-grid-row-over .hmp-info-btn-cell {
+  width: 16px;
+  height: 16px;
+  background: $grid-row-cell-over-background-color url('/images/icons/Circle-Info.png') no-repeat scroll center center !important;
+}
+
+.hmp-action-btn-cell {
+  width: 16px;
+  height: 16px;
+}
+
+.x-grid-row-over .hmp-action-btn-cell {
+  width: 16px;
+  height: 16px;
+  background: $grid-row-cell-over-background-color url('/images/icons/action.png') no-repeat scroll center center !important;
+  //background-origin: center center;
+  //background-position: center center;
+  //background-repeat: no-repeat;
+  //background:  no-repeat scroll center center !important;
+}
+
+.x-grid-row .hmp-pt-loaded {
+  table {
+    color: $color;
+    font-size: $font-size;
+  }
+}
+
+.x-grid-row-selected .hmp-pt-loaded {
+  table {
+    color: color-by-background($grid-row-cell-selected-background-color);
+    font-size: $font-size;
+  }
+}
+
+.x-grid-row .hmp-pt-not-loaded {
+  color: $neutral-dark-color;
+  //text-decoration: line-through;
+
+  table {
+    color: $neutral-dark-color;
+    font-size: $font-size;
+  }
+}
+
+.hmp-panel-detail-right {
+  margin-left: 6px;
+}
+
+.hmp-panel-detail-bottom {
+  margin-top: 6px;
+}
+
+.hmp-add-page {
+  border: none;
+  background-image: none;
+  //background: transparent url('/images/icons/ic_plus.png') no-repeat center center;
+}
+
+.hmp-pphotspot {
+  background-color: $base-color;
+  stroke: $background-color;
+  fill: $background-color;
+}
+
+.hmp-pphotspot-title {
+  background-color: $base-color;
+  stroke: $background-color;
+  fill: $background-color;
+}
+
+.hmp-warning-window {
+   background-color: #F9EDBE;
+}
+
+.hmp-error-window {
+   background-color: #efefef;
+}
+
+/* person picker */
+
+.hmp-person-list-ct {
+  background-color: white;
+  border: 1px solid #a9a9a9;
+}
+
+.hmp-person-list-item {
+  padding: 3px 6px 3px 6px;
+}
+
+/*.#{$prefix}boundlist-selected {*/
+/*background: $boundlist-item-selected-background-color;*/
+/*border-color: $boundlist-item-selected-border-color;*/
+/*color: $boundlist-item-selected-color;*/
+/*}*/
+
+/*.#{$prefix}boundlist-item-over {*/
+/*background: $boundlist-item-over-background-color;*/
+/*border-color: $boundlist-item-over-border-color;*/
+/*}*/
+
+.hmp-person-list-item img {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+
+.hmp-person-list-item span {
+  margin-left: 4px;
+  line-height: 24px;
+  text-overflow: ellipsis;
+}
+
+/* staff assignment panel */
+
+.hmp-team-position-tile {
+  height: 36px;
+  padding: 4px;
+  margin: 2px 6px 6px 6px;
+  font-size: $font-size-large;
+}
+
+.hmp-team-position-tile img {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+
+.hmp-team-position-tile span {
+  margin-left: 4px;
+  line-height: 24px;
+}
+
+.hmp-team-position-tile .x-form-clear-trigger {
+  width: 16px;
+  height: 16px;
+}
+
+.hmp-team-position-tile-over {
+  border-radius: 12px;
+  border: 1px solid $form-field-border-color;
+  background-color: $base-over-color !important;
+}
+
+.hmp-team-position-tile-unassigned {
+  border-radius: 12px;
+  border: 1px solid $form-field-border-color;
+  background-color: $neutral-color;
+  text-align: center;
+}
+
+.x-grid-row-selected .hmp-team-position-tile-unassigned {
+  background-color: transparent;
+}
+
+/* circle */
+.circleCenter {
+  height: 1px;
+  width: 1px;
+  left: 50%;
+  position: absolute;
+  top: 45%;
+
+  .circlePerson {
+    position: absolute;
+    opacity: 0;
+    z-index: 30;
+
+    img {
+      border-radius: 50%;
+      box-shadow: 0px 2px 0px #B2B2B2;
+      height: 30px;
+      width: 30px;
+    }
+  }
+
+  .outerCircle {
+    background-color: #d5d5d5;
+    border-radius: 50%;
+    box-shadow: 0px 2px 0px #b2b2b2 inset;
+    height: 122px;
+    margin: -61px 0 0 -61px;
+    width: 122px;
+    z-index: 10;
+  }
+
+  .innerCircle {
+    background-color: $base-color;
+    border-radius: 50%;
+    box-shadow: 0px 2px 2px #fff;
+    color: #fff;
+    font-size: 12;
+    font-weight: bold;
+    margin: -50px 0 0 -50px;
+    padding-top: 38px;
+    position: absolute;
+    text-align: center;
+    text-shadow: 0px 1px 0px #31aab2;
+    vertical-align: middle;
+    height: 100px;
+    width: 100px;
+    z-index: 20;
+  }
+
+  .circleDragOver {
+    box-shadow: 0px 2px 2px white, 0px -2px 2px #325a0a;
+    color: #fff;
+    text-shadow: 0px 1px 3px #31aab2;
+    background-color: $secondary-color;
+  }
+}
+
+// SegmentedButtons
+.x-segmentedbutton .x-btn {
+  margin: 0;
+
+  @if $supports-border-radius {
+    @include border-radius(0);
+
+    &.x-first {
+      @include border-top-left-radius($button-border-radius);
+      @include border-bottom-left-radius($button-border-radius);
+    }
+    &.x-last {
+      @include border-top-right-radius($button-border-radius);
+      @include border-bottom-right-radius($button-border-radius);
+    }
+  }
+
+  &:not(.x-first) {
+    border-left: 0;
+  }
+}
+
+// bubbles
+.hmp-bubble {
+  border: none;
+  padding: 6px;
+  background-color: $background-color;
+
+  @include border-radius(12px);
+}

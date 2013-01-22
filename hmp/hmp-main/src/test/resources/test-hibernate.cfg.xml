@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- database settings -->
+		<property name="connection.url">jdbc:Cache://127.0.0.1:1972/USER</property> 
+		<property name="connection.driver_class">com.intersys.jdbc.CacheDriver</property> 
+		<property name="connection.username">_SYSTEM</property> 
+		<property name="connection.password">SYS</property> 
+		<property name="dialect">org.hibernate.dialect.Cache71Dialect</property> 
+
+		<!-- cache settings -->
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+		<property name="hibernate.cache.use_query_cache">true</property>
+		<property name="hibernate.cache.provider_class">net.sf.ehcache.hibernate.EhCacheProvider</property>
+		<!--  
+		<property name="show_sql">true</property>
+		-->
+		
+		<!-- DB schema will be updated if needed -->
+		<!-- <property name="hbm2ddl.auto">update</property> -->
+
+		<!-- mapping files -->
+ 		<mapping resource="ext/domain/cpe/codes/CodedValues.hbm.xml" />
+ 
+<!-- 		<mapping resource="ext/domain/cpe/hub/ServiceEndpoint.hbm.xml" />
+		<mapping resource="ext/domain/cpe/hub/VistaAccount.hbm.xml" />
+ -->
+
+ 		<mapping resource="ext/domain/cpe/vpr/Address.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/Alias.hbm.xml" />
+
+		<mapping resource="ext/domain/cpe/vpr/Allergy.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/AllergyComment.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/AllergyProduct.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/AllergyReaction.hbm.xml" />
+
+		<mapping resource="ext/domain/cpe/vpr/ClinicalResultDocument.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/Clinician.hbm.xml" />
+
+		<mapping resource="ext/domain/cpe/vpr/Document.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/DocumentClinician.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/DocumentLink.hbm.xml" />
+
+		<mapping resource="ext/domain/cpe/vpr/Encounter.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/EncounterProvider.hbm.xml" />
+
+		<mapping resource="ext/domain/cpe/vpr/HealthFactor.hbm.xml" />
+
+		<mapping resource="ext/domain/cpe/vpr/Immunization.hbm.xml" />
+
+		<mapping resource="ext/domain/cpe/vpr/Medication.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/MedicationDose.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/MedicationFill.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/MedicationIndication.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/MedicationOrder.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/MedicationProduct.hbm.xml" />
+
+		<mapping resource="ext/domain/cpe/vpr/Modifier.hbm.xml" />
+
+		<mapping resource="ext/domain/cpe/vpr/Observation.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/ObservationQualifier.hbm.xml" />
+
+		<mapping resource="ext/domain/cpe/vpr/Order.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/Param.hbm.xml" />
+
+		<mapping resource="ext/domain/cpe/vpr/Patient.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/PatientDisability.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/PatientEthnicity.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/PatientExposure.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/PatientFacility.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/PatientFlag.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/PatientLanguage.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/PatientMaritalStatus.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/PatientRace.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/PatientStay.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/PatientSupport.hbm.xml" />
+
+		<mapping resource="ext/domain/cpe/vpr/Problem.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/ProblemComment.hbm.xml" />
+
+		<mapping resource="ext/domain/cpe/vpr/Procedure.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/ProcedureLink.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/ProcedureProvider.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/ProcedureResult.hbm.xml" />
+
+		<mapping resource="ext/domain/cpe/vpr/Result.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/ResultOrganizer.hbm.xml" />
+
+		<mapping resource="ext/domain/cpe/vpr/SyncError.hbm.xml" />
+
+		<mapping resource="ext/domain/cpe/vpr/Tag.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/Tagger.hbm.xml" />
+
+		<mapping resource="ext/domain/cpe/vpr/Telecom.hbm.xml" />
+
+		<mapping resource="ext/domain/cpe/vpr/Veteran.hbm.xml" />
+
+		<mapping resource="ext/domain/cpe/vpr/VitalSign.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/VitalSignOrganizer.hbm.xml" />
+		<mapping resource="ext/domain/cpe/vpr/VistaPatientDem.hbm.xml" />
+
+<!--		<class-cache class="EXT.DOMAIN.cpe.codes.AbstractCodedValue"
+			usage="read-only" />
+		<class-cache class="EXT.DOMAIN.cpe.vpr.Patient" usage="read-write" />
+		<class-cache class="EXT.DOMAIN.cpe.vpr.Clinician" usage="read-write" />
+
+ 		<listener type="pre-insert"
+			class="EXT.DOMAIN.cpe.hibernate.DateCreatedPreInsertListener" /> -->
+	</session-factory>
+</hibernate-configuration>

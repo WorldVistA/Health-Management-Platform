@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+    <bean id="domainObjectToSolrInputDocument" class="EXT.DOMAIN.cpe.vpr.dao.solr.DomainObjectToSolrInputDocument">
+        <constructor-arg index="0">
+            <util:constant static-field="EXT.DOMAIN.cpe.vpr.dao.solr.SolrDomainMappings.MAPPINGS"/>
+        </constructor-arg>
+    </bean>
+
+    <bean id="defaultSolrDao" class="EXT.DOMAIN.cpe.vpr.dao.solr.DefaultSolrDao"/>
+
+    <bean id="solrServer" class="org.apache.solr.client.solrj.impl.HttpSolrServer"
+            c:baseURL="${solr.url}"
+            c:client-ref="solrHttpClient"/>
+
+    <bean id="solrHttpClient" class="org.apache.http.impl.client.DefaultHttpClient"
+            c:conman-ref="solrHttpConnectionManager"/>
+
+    <bean id="solrHttpConnectionManager" class="org.apache.http.impl.conn.PoolingClientConnectionManager" destroy-method="shutdown"/>
+
+</beans>

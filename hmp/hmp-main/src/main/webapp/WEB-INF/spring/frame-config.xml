@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jms="http://www.springframework.org/schema/jms" xmlns:drools="http://drools.org/schema/drools-spring"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://drools.org/schema/drools-spring http://anonsvn.jboss.org/repos/labs/labs/jbossrules/trunk/drools-container/drools-spring/src/main/resources/org/drools/container/spring/drools-spring-1.0.0.xsd http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-3.1.xsd">
+
+	<!-- Drools Setup/Config 
+	<drools:kbase id="kbase1">
+		<drools:resources>
+			<drools:resource source="classpath:ext/domain/cpe/vpr/frames/HelloWorldAlert.drl"/>
+		</drools:resources>
+
+		<drools:configuration>
+			<drools:mbeans enabled="true" />
+		</drools:configuration>
+	</drools:kbase>
+	-->
+	
+	<!-- Terminology Config -->
+	<bean id="termEng" class="EXT.DOMAIN.cpe.vpr.termeng.TermEng" factory-method="createInstance">
+   		<constructor-arg index="0">
+            <array>
+            	<bean class="EXT.DOMAIN.cpe.vpr.termeng.H2TermDataSource" c:jdbcurl="jdbc:h2:split:zip:${termdb.dir}/termdb-${termdb.version}-drugdb.zip!/termdb"/>
+            	<bean class="EXT.DOMAIN.cpe.vpr.termeng.H2TermDataSource" c:jdbcurl="jdbc:h2:split:zip:${termdb.dir}/termdb-${termdb.version}-loincdb.zip!/termdb"/>
+            	<bean class="EXT.DOMAIN.cpe.vpr.termeng.H2TermDataSource" c:jdbcurl="jdbc:h2:split:zip:${termdb.dir}/termdb-${termdb.version}-sctdb.zip!/termdb"/>
+            </array>
+        </constructor-arg>
+   	</bean>
+   	
+   	<!-- Frame Registry -->
+   	<bean id="frameRegistry" class="EXT.DOMAIN.cpe.vpr.frameeng.FrameRegistry" init-method="load">
+   		<constructor-arg index="0">
+   			<array>
+	   			<bean class="EXT.DOMAIN.cpe.vpr.frameeng.FrameRegistry.SpringFrameLoader"/>
+	   			<!-- Not ready yet:
+	   			<bean class="EXT.DOMAIN.cpe.vpr.frameeng.FrameRegistry.DroolsFrameLoader" c:kb-ref="kbase1"/>
+	   			<bean class="EXT.DOMAIN.cpe.vpr.frameeng.FrameRegistry.RemindersFrameLoader" c:tpl-ref="synchronizationRpcTemplate"/>
+	   			 -->
+	   			<bean class="EXT.DOMAIN.cpe.vpr.frameeng.FrameRegistry.ProtocolFileFrameLoader" c:dir="classpath:ext/domain/cpe/vpr/frames/"/>
+   			</array>
+ 		</constructor-arg>
+   	</bean>
+
+	<!-- Frame engine that runs async (listens to events) and saves generated alerts -->   	
+	<bean id="frameEng" class="EXT.DOMAIN.cpe.vpr.frameeng.FrameEng"/>
+    <jms:listener-container  connection-factory="pooledJmsConnectionFactory" concurrency="2" >
+        <jms:listener destination="vpr.events" ref="frameEng" />
+    </jms:listener-container>
+
+   	<!--  Sync frame runner that can be called by web services, viewdefs, etc. -->
+   	<bean id="jdsSaveActionRunner" class="EXT.DOMAIN.cpe.vpr.frameeng.FrameRunner.JDSSaveActionRunner" c:tpl-ref="jdsTemplate"/>
+	<bean id="frameRunner" class="EXT.DOMAIN.cpe.vpr.frameeng.FrameRunner">
+		<constructor-arg><ref bean="frameRegistry"/></constructor-arg>
+		<constructor-arg><null/></constructor-arg>
+	</bean>
+	
+	
+    <!-- Grails TagLibs -->
+    <bean id="org.codehaus.groovy.grails.plugins.web.taglib.ApplicationTagLib"
+          class="org.codehaus.groovy.grails.plugins.web.taglib.ApplicationTagLib" lazy-init="true" autowire="byName"/>
+    <bean id="org.codehaus.groovy.grails.plugins.web.taglib.CountryTagLib"
+          class="org.codehaus.groovy.grails.plugins.web.taglib.CountryTagLib" lazy-init="true" autowire="byName"/>
+    <bean id="org.codehaus.groovy.grails.plugins.web.taglib.FormatTagLib"
+          class="org.codehaus.groovy.grails.plugins.web.taglib.FormatTagLib" lazy-init="true" autowire="byName"/>
+    <bean id="org.codehaus.groovy.grails.plugins.web.taglib.FormTagLib"
+          class="org.codehaus.groovy.grails.plugins.web.taglib.FormTagLib" lazy-init="true" autowire="byName"/>
+    <bean id="org.codehaus.groovy.grails.plugins.web.taglib.JavascriptTagLib"
+          class="org.codehaus.groovy.grails.plugins.web.taglib.JavascriptTagLib" lazy-init="true" autowire="byName"/>
+    <bean id="org.codehaus.groovy.grails.plugins.web.taglib.RenderTagLib"
+          class="org.codehaus.groovy.grails.plugins.web.taglib.RenderTagLib" lazy-init="true" autowire="byName"/>
+    <bean id="org.codehaus.groovy.grails.plugins.web.taglib.ValidationTagLib"
+          class="org.codehaus.groovy.grails.plugins.web.taglib.ValidationTagLib" lazy-init="true" autowire="byName"/>
+    <bean id="org.codehaus.groovy.grails.plugins.web.taglib.PluginTagLib"
+          class="org.codehaus.groovy.grails.plugins.web.taglib.PluginTagLib" lazy-init="true" autowire="byName"/>
+    <bean id="org.codehaus.groovy.grails.plugins.web.taglib.SitemeshTagLib"
+          class="org.codehaus.groovy.grails.plugins.web.taglib.SitemeshTagLib" lazy-init="true" autowire="byName"/>
+    <bean id="org.codehaus.groovy.grails.web.filters.JavascriptLibraryFilters"
+          class="org.codehaus.groovy.grails.web.filters.JavascriptLibraryFilters" lazy-init="true" autowire="byName"/>
+	
+	<bean id="jspTagLibraryResolver" class="org.codehaus.groovy.grails.web.pages.ext.jsp.TagLibraryResolver"/>
+    <bean id="gspTagLibraryLookup" class="org.codehaus.groovy.grails.web.pages.TagLibraryLookup"/>
+	<bean id="groovyPagesTemplateEngine2" class="org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine"
+	     lazy-init="false"
+	     p:reloadEnabled="true"
+	     p:tagLibraryLookup-ref="gspTagLibraryLookup"
+	     p:jspTagLibraryResolver-ref="jspTagLibraryResolver"
+	     p:cacheResources="true"/>
+	   		
+	
+</beans>

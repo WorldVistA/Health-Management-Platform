@@ -1,0 +1,72 @@
+<configuration>
+    <!--
+      This default ConsoleAppender is used to log all NON perf4j messages
+      to System.out
+    -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are assigned the type
+     ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.springframework" level="warn"/>
+
+    <logger name="EXT.DOMAIN.cpe.Bootstrap" level="debug"/>
+    <logger name="EXT.DOMAIN.cpe.vpr.sync.VprUpdateJob" level="error"/>
+
+    <!-- VistA RPC logging -->
+    <logger name="EXT.DOMAIN.cpe.vista.rpc.RpcTemplate" level="error"/>
+    <!--<logger name="EXT.DOMAIN.cpe.vista.rpc.RpcTemplate" level="debug"/>-->
+    <!--<logger name="EXT.DOMAIN.cpe.vista.rpc.wire" level="debug"/>-->
+
+    <!-- JDS logging -->
+    <logger name="EXT.DOMAIN.cpe.vpr.pom.jds.JdsTemplate" level="error"/>
+    <logger name="org.springframework.web.client.RestTemplate" level="error"/>
+
+    <!-- HTTP logging (JDS and Solr) -->
+    <!--<logger name="org.apache.http" level="debug"/>-->
+    <!--<logger name="org.apache.http.wire" level="error"/>-->
+    
+    <appender name="perf4jJmxAppender" class="org.perf4j.logback.JmxAttributeStatisticsAppender">
+        <!--
+          You must specify the tag names whose statistics should be exposed as
+          MBean attributes.
+        -->
+        <param name="TagNamesToExpose" value="frame.task,frame.job,job.init,view.render"/>
+        <!--
+          The NotificationThresholds param configures the sending of JMX notifications
+          when statistic values exceed specified thresholds. This config states that
+          the firstBlock max value should be between 0 and 800ms, and the secondBlock max
+          value should be less than 1500 ms. You can also set thresholds on the Min,
+          Mean, StdDev, Count and TPS statistics - e.g. firstBlockMean(<600).
+        <param name="NotificationThresholds" value="firstBlockMax(0-800),secondBlockMax(&lt;1500)"/>
+        -->
+        <!--
+          You can also specify an optional MBeanName param, which overrides
+          the default MBean name of org.perf4j:type=StatisticsExposingMBean,name=Perf4J
+        -->
+    </appender>
+    
+    <appender name="CoalescingStatistics"
+              class="org.perf4j.logback.AsyncCoalescingStatisticsAppender">
+		<!--      
+		  The TimeSlice option is used to determine the time window for which
+          all received StopWatch logs are aggregated to create a single
+          GroupedTimingStatistics log. Here we set it to 10 seconds, overriding
+          the default of 30000 ms 
+        -->
+        <param name="TimeSlice" value="60000"/>
+        <appender-ref ref="perf4jJmxAppender"/>
+    </appender>
+    
+    <logger name="org.perf4j.TimingLogger" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="CoalescingStatistics"/>
+    </logger>
+
+    <root level="warn">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<VistaLink messageType="EXT.DOMAIN.foundations.rpc.response" version="1.5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="rpcResponse.xsd"><Response type="array"><![CDATA[12345
+Bar,Foo
+Foo Bar
+BAR
+FOO
+^
+^
+^
+^
+982
+0^no parent associated with input station number
+982
+3080311.14052001
+1
+982^CHEYENNE VAMROC^982^1
+]]></Response></VistaLink>

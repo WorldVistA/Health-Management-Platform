@@ -1,0 +1,27 @@
+dependencies {
+	compile project(':vista-auth')
+	
+	compile "net.sf.ehcache:ehcache-core:1.7.2"
+	compile "org.springframework:org.springframework.web.servlet:${springVersion}"
+	
+	['vljFoundationsLib','vljConnector'].each {
+		compile group:'EXT.DOMAIN.vistalink', name:it, version:'1.5.0.026'
+	}
+	runtime 'jaxen:jaxen:1.1.1' // required by vistaLink
+	
+	['org.springframework.security.core','org.springframework.security.config','org.springframework.security.web'].each {
+		compile group:'org.springframework.security', name: it, version: springSecurityVersion
+	}
+	
+	compile "javax.servlet:servlet-api:${servletVersion}"
+	compile "org.apache.geronimo.specs:geronimo-j2ee-connector_1.5_spec:2.0.0"
+	
+	runtime "org.slf4j:jcl-over-slf4j:${slf4jVersion}"
+	runtime "org.slf4j:log4j-over-slf4j:${slf4jVersion}"
+	
+	testCompile "org.springframework:org.springframework.test:${springVersion}"
+	testCompile "org.easymock:easymock:${easymockVersion}"
+	testCompile "junit:junit:${junitVersion}"
+	
+	testRuntime "org.slf4j:slf4j-nop:${slf4jVersion}"
+}

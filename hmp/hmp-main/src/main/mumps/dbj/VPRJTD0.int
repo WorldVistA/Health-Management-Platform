@@ -1,0 +1,54 @@
+VPRJTD0 ;SLC/KCM -- Unit tests for saving objects
+ ;;1.0;JSON DATA STORE;;Sep 01, 2012
+ ;
+STARTUP  ; Run once before all tests
+ N DATA
+ D DELCTN^VPRJD("test")  ; clear the collections
+ D SETUP^VPRJDMD
+ Q
+SHUTDOWN ; Run once after all tests
+ D DELCTN^VPRJD("test")
+ K ^TMP($J),^TMP("HTTPERR",$J)
+ Q
+ASSERT(EXPECT,ACTUAL,MSG) ; for convenience
+ D EQ^VPRJT(EXPECT,ACTUAL,$G(MSG))
+ Q
+ ;
+GETDATA(TAG,DATA) ;
+ N I,X
+ F I=1:1 S X=$P($T(@TAG+I^VPRJTDD),";;",2,999) Q:X="zzzzz"  S DATA(I)=X
+ Q
+ADDOBJ ;; @TEST adding an object
+ N DATA,LOC
+ D GETDATA("TEST1",.DATA)
+ S LOC=$$SAVE^VPRJD(.DATA)
+ D ASSERT(10,$D(^VPRJD("urn:va:test:1")))
+ D ASSERT("blue",^VPRJD("urn:va:test:1","color"))
+ D ASSERT(1,$D(^VPRJD("JSON","urn:va:test:1",1)))
+ ;D ASSERT(19350407,+$P(^VPRPT("TEMPLATE",VPRJTPID,"urn:va:F484:-7:pat:-7","summary",1),":",2))
+ Q
+CHKIDX ;; @TEST indexes that were built after adding object
+ D ASSERT(1,$D(^VPRJDX("attr","test-name","alpha ","798789799542=","urn:va:test:1",0)))
+ D ASSERT(1,^VPRJDX("tally","test-name-count","alpha"))
+ D ASSERT(1,^VPRJDX("count","collection","test"))
+ Q
+GETOBJ ;; @TEST getting an object
+ D QKEY^VPRJDQ("urn:va:test:1")
+ D ASSERT(1,$D(^TMP($J,"data",0,"urn:va:test:1",0)))
+ D ASSERT(1,$G(^TMP($J,"total")))
+ Q
+DELOBJ ;; @TEST deletion of object
+ D DELETE^VPRJD("urn:va:test:1")
+ D ASSERT(0,$D(^VPRJD("urn:va:test:1")))
+ D ASSERT(0,$D(^VPRJD("JSON","urn:va:test:1")))
+ D ASSERT(0,$D(^VPRJDX("attr","test-name","alpha")))
+ D ASSERT(0,$G(^VPRJDX("count","collection","test")))
+ Q
+ ;
+BUILD ;; Builds a set of test objects for interactive testing
+ ; should delete the object collection when done
+ F I=1:1:6 D GETDATA("TEST"_I,.DATA) S LOC=$$SAVE^VPRJD(.DATA) K DATA
+ Q
+DELBUILD ; Deletes the collection that was built
+ D DELCTN^VPRJD("test")
+ Q

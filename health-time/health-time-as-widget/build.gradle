@@ -1,0 +1,6 @@
+description = 'CPE Health-Time Flex Components'
+type = 'swc'
+
+dependencies {
+    external project(':health-time-as')
+}

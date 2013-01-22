@@ -1,0 +1,672 @@
+{"apiVersion":"1.0", "data":{
+    "updated":20120925105626,
+    "totalItems":21,
+    "items":[
+        {
+            "uid":"urn:va:F484:100846:appt:A;3121119.09;23",
+            "summary":"${MEDICINE}:GENERAL MEDICINE",
+            "pid":"119",
+            "kind":"Unknown",
+            "facilityCode":"500D",
+            "facilityName":"SLC-FO HMP DEV",
+            "localId":"A;3121119.09;23",
+            "typeName":"REGULAR",
+            "typeCode":"9",
+            "patientClassCode":"AMB",
+            "patientClassName":"Ambulatory",
+            "dateTime":"201211190900",
+            "categoryCode":"urn:va:encounter-category:OV",
+            "categoryName":"Outpatient Visit",
+            "service":"MEDICINE",
+            "stopCode":"301",
+            "stopCodeName":"GENERAL INTERNAL MEDICINE",
+            "appointmentStatus":"SCHEDULED/KEPT",
+            "locationUid":"urn:va:location:500D:23",
+            "locationName":"GENERAL MEDICINE",
+            "idx":[]
+        },
+        {
+            "uid":"urn:va:F484:100846:appt:H;3120105.1",
+            "pid":"119",
+            "kind":"Unknown",
+            "facilityCode":"500",
+            "facilityName":"CAMP MASTER",
+            "localId":"H;3120105.1",
+            "patientClassCode":"IMP",
+            "patientClassName":"Inpatient",
+            "dateTime":"201201051000",
+            "categoryCode":"urn:va:encounter-category:AD",
+            "categoryName":"Admission",
+            "appointmentStatus":"SCHEDULED",
+            "providers":[
+                {
+                    "summary":"EXT.DOMAIN.cpe.vpr.EncounterProvider@257db901",
+                    "providerUid":"urn:va:user:F484:1091",
+                    "providerName":"AVIVAUSER,SEVEN"
+                }
+            ],
+            "idx":[]
+        },
+        {
+            "uid":"urn:va:F484:100846:visit:7240",
+            "summary":"${MEDICINE}:COMP AND PEN",
+            "pid":"119",
+            "kind":"Unknown",
+            "facilityCode":"500",
+            "facilityName":"CAMP MASTER",
+            "localId":"7240",
+            "typeName":"COMP AND PEN VISIT",
+            "patientClassCode":"AMB",
+            "dateTime":"201112070830",
+            "categoryCode":"urn:va:encounter-category:OV",
+            "categoryName":"Outpatient Visit",
+            "service":"MEDICINE",
+            "stopCodeName":"AUDIOLOGY",
+            "locationUid":"urn:va:location:500:137",
+            "locationName":"COMP AND PEN",
+            "idx":[],
+            "documents":[
+                {
+                    "localTitle":"C&P HEART",
+                    "uid":"urn:va:F484:100846:tiu:4262"
+                }
+            ],
+            "stopCodeUid":"urn:va:stop-code:203"
+        },
+        {
+            "uid":"urn:va:F484:100846:visit:7239",
+            "summary":"${MEDICINE}:3E NORTH",
+            "pid":"119",
+            "kind":"Unknown",
+            "facilityCode":"500D",
+            "facilityName":"SLC-FO HMP DEV",
+            "localId":"7239",
+            "typeName":"HOSPITALIZATION",
+            "patientClassCode":"IMP",
+            "dateTime":"20111116171505",
+            "categoryCode":"urn:va:encounter-category:AD",
+            "categoryName":"Admission",
+            "service":"MEDICINE",
+            "specialty":"GENERAL MEDICINE",
+            "locationUid":"urn:va:location:500D:129",
+            "locationName":"3E NORTH",
+            "providers":[
+                {
+                    "summary":"EXT.DOMAIN.cpe.vpr.EncounterProvider@4d6e441f",
+                    "role":"A",
+                    "providerUid":"urn:va:user:F484:1091",
+                    "providerName":"AVIVAUSER,SEVEN"
+                },
+                {
+                    "summary":"EXT.DOMAIN.cpe.vpr.EncounterProvider@19137905",
+                    "primary":true,
+                    "role":"P",
+                    "providerUid":"urn:va:user:F484:1091",
+                    "providerName":"AVIVAUSER,SEVEN"
+                }
+            ],
+            "stay":{
+                "arrivalDateTime":"20111116171505",
+                "dischargeDateTime":"201111171230"
+            },
+            "primaryProvider":{
+                "summary":"EXT.DOMAIN.cpe.vpr.EncounterProvider@19137905",
+                "primary":true,
+                "role":"P",
+                "providerUid":"urn:va:user:F484:1091",
+                "providerName":"AVIVAUSER,SEVEN"
+            },
+            "idx":[],
+            "documents":[
+                {
+                    "localTitle":"H&P",
+                    "uid":"urn:va:F484:100846:tiu:4259"
+                },
+                {
+                    "localTitle":"GENERAL MEDICINE NOTE",
+                    "nationalTitle":"GENERAL MEDICINE NOTE",
+                    "uid":"urn:va:F484:100846:tiu:4260"
+                },
+                {
+                    "localTitle":"Discharge Summary",
+                    "nationalTitle":"DISCHARGE SUMMARY",
+                    "uid":"urn:va:F484:100846:tiu:4261"
+                },
+                {
+                    "localTitle":"NURSING DISCHARGE INSTRUCTIONS ",
+                    "nationalTitle":"NURSING DISCHARGE NOTE",
+                    "uid":"urn:va:F484:100846:tiu:4274"
+                },
+                {
+                    "localTitle":"NURSING ADMISSION ASSESSMENT ",
+                    "nationalTitle":"NURSING ADMISSION EVALUATION NOTE",
+                    "uid":"urn:va:F484:100846:tiu:4275"
+                },
+                {
+                    "localTitle":"NURSING NOTE",
+                    "nationalTitle":"RN CLINICAL NOTE",
+                    "uid":"urn:va:F484:100846:tiu:4276"
+                }
+            ]
+        },
+        {
+            "uid":"urn:va:F484:100846:visit:7246",
+            "summary":"${MEDICINE}:EMERGENCY DEPARTMENT",
+            "pid":"119",
+            "kind":"Unknown",
+            "facilityCode":"500",
+            "facilityName":"CAMP MASTER",
+            "localId":"7246",
+            "typeName":"EMERGENCY DEPARTMENT VISIT",
+            "patientClassCode":"AMB",
+            "dateTime":"201111161607",
+            "categoryCode":"urn:va:encounter-category:OV",
+            "categoryName":"Outpatient Visit",
+            "service":"MEDICINE",
+            "stopCodeName":"EMERGENCY DEPT",
+            "locationUid":"urn:va:location:500:426",
+            "locationName":"EMERGENCY DEPARTMENT",
+            "idx":[],
+            "documents":[
+                {
+                    "localTitle":"NURSING NOTE",
+                    "nationalTitle":"RN CLINICAL NOTE",
+                    "uid":"urn:va:F484:100846:tiu:4272"
+                },
+                {
+                    "localTitle":"EMERGENCY DEPARTMENT NOTE",
+                    "nationalTitle":"EMERGENCY DEPT NOTE",
+                    "uid":"urn:va:F484:100846:tiu:4273"
+                }
+            ],
+            "stopCodeUid":"urn:va:stop-code:130"
+        },
+        {
+            "uid":"urn:va:F484:100846:visit:7230",
+            "summary":"${MEDICINE}:CARDIOLOGY",
+            "pid":"119",
+            "kind":"Unknown",
+            "facilityCode":"500",
+            "facilityName":"CAMP MASTER",
+            "localId":"7230",
+            "typeName":"CARDIOLOGY VISIT",
+            "patientClassCode":"AMB",
+            "dateTime":"20111116141333",
+            "categoryCode":"urn:va:encounter-category:OV",
+            "categoryName":"Outpatient Visit",
+            "service":"MEDICINE",
+            "stopCodeName":"CARDIOLOGY",
+            "locationUid":"urn:va:location:500:195",
+            "locationName":"CARDIOLOGY",
+            "idx":[],
+            "documents":[
+                {
+                    "localTitle":"CRISIS NOTE",
+                    "uid":"urn:va:F484:100846:tiu:4209"
+                },
+                {
+                    "localTitle":"CLINICAL WARNING",
+                    "uid":"urn:va:F484:100846:tiu:4210"
+                },
+                {
+                    "localTitle":"ADVANCE DIRECTIVE",
+                    "uid":"urn:va:F484:100846:tiu:4211"
+                }
+            ],
+            "stopCodeUid":"urn:va:stop-code:303"
+        },
+        {
+            "uid":"urn:va:F484:100846:visit:7171",
+            "summary":"${MEDICINE}:CARDIOLOGY",
+            "pid":"119",
+            "kind":"Unknown",
+            "facilityCode":"500D",
+            "facilityName":"SLC-FO HMP DEV",
+            "localId":"7171",
+            "typeName":"CARDIOLOGY VISIT",
+            "patientClassCode":"AMB",
+            "dateTime":"20110722145541",
+            "categoryCode":"urn:va:encounter-category:OV",
+            "categoryName":"Outpatient Visit",
+            "service":"MEDICINE",
+            "stopCodeName":"CARDIOLOGY",
+            "locationUid":"urn:va:location:21788:195",
+            "locationName":"CARDIOLOGY",
+            "idx":[],
+            "documents":[
+                {
+                    "localTitle":"GENERIC CONSULT NOTE",
+                    "nationalTitle":"REFERRAL CONSULT",
+                    "uid":"urn:va:F484:100846:tiu:4172"
+                }
+            ],
+            "stopCodeUid":"urn:va:stop-code:303"
+        },
+        {
+            "uid":"urn:va:F484:100846:visit:7142",
+            "summary":"${MEDICINE}:GENERAL MEDICINE",
+            "pid":"119",
+            "kind":"Unknown",
+            "facilityCode":"500",
+            "facilityName":"CAMP MASTER",
+            "localId":"7142",
+            "typeName":"GENERAL MEDICINE VISIT",
+            "patientClassCode":"AMB",
+            "dateTime":"201006041300",
+            "categoryCode":"urn:va:encounter-category:OV",
+            "categoryName":"Outpatient Visit",
+            "service":"MEDICINE",
+            "stopCodeName":"GENERAL INTERNAL MEDICINE",
+            "locationUid":"urn:va:location:500:23",
+            "locationName":"GENERAL MEDICINE",
+            "providers":[
+                {
+                    "summary":"EXT.DOMAIN.cpe.vpr.EncounterProvider@68405fe1",
+                    "primary":true,
+                    "role":"P",
+                    "providerUid":"urn:va:user:F484:983",
+                    "providerName":"PROVIDER,ONE"
+                }
+            ],
+            "primaryProvider":{
+                "summary":"EXT.DOMAIN.cpe.vpr.EncounterProvider@68405fe1",
+                "primary":true,
+                "role":"P",
+                "providerUid":"urn:va:user:F484:983",
+                "providerName":"PROVIDER,ONE"
+            },
+            "idx":[],
+            "documents":[
+                {
+                    "localTitle":"PRIMARY CARE GENERAL NOTE",
+                    "nationalTitle":"PRIMARY CARE NOTE",
+                    "uid":"urn:va:F484:100846:tiu:4154"
+                }
+            ],
+            "stopCodeUid":"urn:va:stop-code:301"
+        },
+        {
+            "uid":"urn:va:F484:100846:visit:7141",
+            "summary":"${MEDICINE}:GENERAL MEDICINE",
+            "pid":"119",
+            "kind":"Unknown",
+            "facilityCode":"500",
+            "facilityName":"CAMP MASTER",
+            "localId":"7141",
+            "typeName":"GENERAL MEDICINE VISIT",
+            "patientClassCode":"AMB",
+            "dateTime":"201005280800",
+            "categoryCode":"urn:va:encounter-category:OV",
+            "categoryName":"Outpatient Visit",
+            "service":"MEDICINE",
+            "stopCodeName":"GENERAL INTERNAL MEDICINE",
+            "locationUid":"urn:va:location:500:23",
+            "locationName":"GENERAL MEDICINE",
+            "idx":[],
+            "documents":[
+                {
+                    "localTitle":"PRIMARY CARE TELEPHONE",
+                    "nationalTitle":"PRIMARY CARE TELEPHONE ENCOUNTER NOTE",
+                    "uid":"urn:va:F484:100846:tiu:4153"
+                }
+            ],
+            "stopCodeUid":"urn:va:stop-code:301"
+        },
+        {
+            "uid":"urn:va:F484:100846:visit:7140",
+            "summary":"${MEDICINE}:GENERAL MEDICINE",
+            "pid":"119",
+            "kind":"Unknown",
+            "facilityCode":"500",
+            "facilityName":"CAMP MASTER",
+            "localId":"7140",
+            "typeName":"GENERAL MEDICINE VISIT",
+            "patientClassCode":"AMB",
+            "dateTime":"200911031400",
+            "categoryCode":"urn:va:encounter-category:OV",
+            "categoryName":"Outpatient Visit",
+            "service":"MEDICINE",
+            "stopCodeName":"GENERAL INTERNAL MEDICINE",
+            "locationUid":"urn:va:location:500:23",
+            "locationName":"GENERAL MEDICINE",
+            "idx":[],
+            "documents":[
+                {
+                    "localTitle":"PRIMARY CARE TELEPHONE",
+                    "nationalTitle":"PRIMARY CARE TELEPHONE ENCOUNTER NOTE",
+                    "uid":"urn:va:F484:100846:tiu:4152"
+                }
+            ],
+            "stopCodeUid":"urn:va:stop-code:301"
+        },
+        {
+            "uid":"urn:va:F484:100846:visit:7139",
+            "summary":"${MEDICINE}:OPTHAMOLOGY",
+            "pid":"119",
+            "kind":"Unknown",
+            "facilityCode":"500",
+            "facilityName":"CAMP MASTER",
+            "localId":"7139",
+            "typeName":"OPTHAMOLOGY VISIT",
+            "patientClassCode":"AMB",
+            "dateTime":"200906241300",
+            "categoryCode":"urn:va:encounter-category:OV",
+            "categoryName":"Outpatient Visit",
+            "service":"MEDICINE",
+            "stopCodeName":"OPHTHALMOLOGY",
+            "locationUid":"urn:va:location:500:427",
+            "locationName":"OPTHAMOLOGY",
+            "providers":[
+                {
+                    "summary":"EXT.DOMAIN.cpe.vpr.EncounterProvider@1e5c30b7",
+                    "primary":true,
+                    "role":"P",
+                    "providerUid":"urn:va:user:F484:983",
+                    "providerName":"PROVIDER,ONE"
+                }
+            ],
+            "primaryProvider":{
+                "summary":"EXT.DOMAIN.cpe.vpr.EncounterProvider@1e5c30b7",
+                "primary":true,
+                "role":"P",
+                "providerUid":"urn:va:user:F484:983",
+                "providerName":"PROVIDER,ONE"
+            },
+            "idx":[],
+            "documents":[
+                {
+                    "localTitle":"OPHTHALMOLOGY NOTE",
+                    "nationalTitle":"OPHTHALMOLOGY NOTE",
+                    "uid":"urn:va:F484:100846:tiu:4151"
+                }
+            ],
+            "stopCodeUid":"urn:va:stop-code:407"
+        },
+        {
+            "uid":"urn:va:F484:100846:visit:7138",
+            "summary":"${MEDICINE}:GENERAL MEDICINE",
+            "pid":"119",
+            "kind":"Unknown",
+            "facilityCode":"500",
+            "facilityName":"CAMP MASTER",
+            "localId":"7138",
+            "typeName":"GENERAL MEDICINE VISIT",
+            "patientClassCode":"AMB",
+            "dateTime":"200906101300",
+            "categoryCode":"urn:va:encounter-category:OV",
+            "categoryName":"Outpatient Visit",
+            "service":"MEDICINE",
+            "stopCodeName":"GENERAL INTERNAL MEDICINE",
+            "locationUid":"urn:va:location:500:23",
+            "locationName":"GENERAL MEDICINE",
+            "idx":[],
+            "documents":[
+                {
+                    "localTitle":"PRIMARY CARE GENERAL NOTE",
+                    "nationalTitle":"PRIMARY CARE NOTE",
+                    "uid":"urn:va:F484:100846:tiu:4150"
+                }
+            ],
+            "stopCodeUid":"urn:va:stop-code:301"
+        },
+        {
+            "uid":"urn:va:F484:100846:visit:7137",
+            "summary":"${MEDICINE}:GENERAL MEDICINE",
+            "pid":"119",
+            "kind":"Unknown",
+            "facilityCode":"500",
+            "facilityName":"CAMP MASTER",
+            "localId":"7137",
+            "typeName":"GENERAL MEDICINE VISIT",
+            "patientClassCode":"AMB",
+            "dateTime":"200906030800",
+            "categoryCode":"urn:va:encounter-category:OV",
+            "categoryName":"Outpatient Visit",
+            "service":"MEDICINE",
+            "stopCodeName":"GENERAL INTERNAL MEDICINE",
+            "locationUid":"urn:va:location:500:23",
+            "locationName":"GENERAL MEDICINE",
+            "idx":[],
+            "documents":[
+                {
+                    "localTitle":"PRIMARY CARE TELEPHONE",
+                    "nationalTitle":"PRIMARY CARE TELEPHONE ENCOUNTER NOTE",
+                    "uid":"urn:va:F484:100846:tiu:4149"
+                }
+            ],
+            "stopCodeUid":"urn:va:stop-code:301"
+        },
+        {
+            "uid":"urn:va:F484:100846:visit:7136",
+            "summary":"${MEDICINE}:GENERAL MEDICINE",
+            "pid":"119",
+            "kind":"Unknown",
+            "facilityCode":"500",
+            "facilityName":"CAMP MASTER",
+            "localId":"7136",
+            "typeName":"GENERAL MEDICINE VISIT",
+            "patientClassCode":"AMB",
+            "dateTime":"200903121300",
+            "categoryCode":"urn:va:encounter-category:OV",
+            "categoryName":"Outpatient Visit",
+            "service":"MEDICINE",
+            "stopCodeName":"GENERAL INTERNAL MEDICINE",
+            "locationUid":"urn:va:location:500:23",
+            "locationName":"GENERAL MEDICINE",
+            "idx":[],
+            "documents":[
+                {
+                    "localTitle":"PRIMARY CARE GENERAL NOTE",
+                    "nationalTitle":"PRIMARY CARE NOTE",
+                    "uid":"urn:va:F484:100846:tiu:4148"
+                }
+            ],
+            "stopCodeUid":"urn:va:stop-code:301"
+        },
+        {
+            "uid":"urn:va:F484:100846:visit:7135",
+            "summary":"${MEDICINE}:GENERAL MEDICINE",
+            "pid":"119",
+            "kind":"Unknown",
+            "facilityCode":"500",
+            "facilityName":"CAMP MASTER",
+            "localId":"7135",
+            "typeName":"GENERAL MEDICINE VISIT",
+            "patientClassCode":"AMB",
+            "dateTime":"200812081300",
+            "categoryCode":"urn:va:encounter-category:OV",
+            "categoryName":"Outpatient Visit",
+            "service":"MEDICINE",
+            "stopCodeName":"GENERAL INTERNAL MEDICINE",
+            "locationUid":"urn:va:location:500:23",
+            "locationName":"GENERAL MEDICINE",
+            "providers":[
+                {
+                    "summary":"EXT.DOMAIN.cpe.vpr.EncounterProvider@1142a33d",
+                    "primary":true,
+                    "role":"P",
+                    "providerUid":"urn:va:user:F484:983",
+                    "providerName":"PROVIDER,ONE"
+                }
+            ],
+            "primaryProvider":{
+                "summary":"EXT.DOMAIN.cpe.vpr.EncounterProvider@1142a33d",
+                "primary":true,
+                "role":"P",
+                "providerUid":"urn:va:user:F484:983",
+                "providerName":"PROVIDER,ONE"
+            },
+            "idx":[],
+            "documents":[
+                {
+                    "localTitle":"PRIMARY CARE GENERAL NOTE",
+                    "nationalTitle":"PRIMARY CARE NOTE",
+                    "uid":"urn:va:F484:100846:tiu:4147"
+                }
+            ],
+            "stopCodeUid":"urn:va:stop-code:301"
+        },
+        {
+            "uid":"urn:va:F484:100846:visit:7134",
+            "summary":"${MEDICINE}:GENERAL MEDICINE",
+            "pid":"119",
+            "kind":"Unknown",
+            "facilityCode":"500",
+            "facilityName":"CAMP MASTER",
+            "localId":"7134",
+            "typeName":"GENERAL MEDICINE VISIT",
+            "patientClassCode":"AMB",
+            "dateTime":"200811191700",
+            "categoryCode":"urn:va:encounter-category:OV",
+            "categoryName":"Outpatient Visit",
+            "service":"MEDICINE",
+            "stopCodeName":"GENERAL INTERNAL MEDICINE",
+            "locationUid":"urn:va:location:500:23",
+            "locationName":"GENERAL MEDICINE",
+            "idx":[],
+            "documents":[
+                {
+                    "localTitle":"PRIMARY CARE TELEPHONE",
+                    "nationalTitle":"PRIMARY CARE TELEPHONE ENCOUNTER NOTE",
+                    "uid":"urn:va:F484:100846:tiu:4146"
+                }
+            ],
+            "stopCodeUid":"urn:va:stop-code:301"
+        },
+        {
+            "uid":"urn:va:F484:100846:visit:7133",
+            "summary":"${MEDICINE}:GENERAL MEDICINE",
+            "pid":"119",
+            "kind":"Unknown",
+            "facilityCode":"500",
+            "facilityName":"CAMP MASTER",
+            "localId":"7133",
+            "typeName":"GENERAL MEDICINE VISIT",
+            "patientClassCode":"AMB",
+            "dateTime":"200811051300",
+            "categoryCode":"urn:va:encounter-category:OV",
+            "categoryName":"Outpatient Visit",
+            "service":"MEDICINE",
+            "stopCodeName":"GENERAL INTERNAL MEDICINE",
+            "locationUid":"urn:va:location:500:23",
+            "locationName":"GENERAL MEDICINE",
+            "idx":[],
+            "documents":[
+                {
+                    "localTitle":"PRIMARY CARE GENERAL NOTE",
+                    "nationalTitle":"PRIMARY CARE NOTE",
+                    "uid":"urn:va:F484:100846:tiu:4145"
+                }
+            ],
+            "stopCodeUid":"urn:va:stop-code:301"
+        },
+        {
+            "uid":"urn:va:F484:100846:visit:7132",
+            "summary":"${MEDICINE}:GENERAL MEDICINE",
+            "pid":"119",
+            "kind":"Unknown",
+            "facilityCode":"500",
+            "facilityName":"CAMP MASTER",
+            "localId":"7132",
+            "typeName":"GENERAL MEDICINE VISIT",
+            "patientClassCode":"AMB",
+            "dateTime":"200810300800",
+            "categoryCode":"urn:va:encounter-category:OV",
+            "categoryName":"Outpatient Visit",
+            "service":"MEDICINE",
+            "stopCodeName":"GENERAL INTERNAL MEDICINE",
+            "locationUid":"urn:va:location:500:23",
+            "locationName":"GENERAL MEDICINE",
+            "idx":[],
+            "documents":[
+                {
+                    "localTitle":"PRIMARY CARE TELEPHONE",
+                    "nationalTitle":"PRIMARY CARE TELEPHONE ENCOUNTER NOTE",
+                    "uid":"urn:va:F484:100846:tiu:4144"
+                }
+            ],
+            "stopCodeUid":"urn:va:stop-code:301"
+        },
+        {
+            "uid":"urn:va:F484:100846:visit:7131",
+            "summary":"${MEDICINE}:GENERAL MEDICINE",
+            "pid":"119",
+            "kind":"Unknown",
+            "facilityCode":"500",
+            "facilityName":"CAMP MASTER",
+            "localId":"7131",
+            "typeName":"GENERAL MEDICINE VISIT",
+            "patientClassCode":"AMB",
+            "dateTime":"200801041300",
+            "categoryCode":"urn:va:encounter-category:OV",
+            "categoryName":"Outpatient Visit",
+            "service":"MEDICINE",
+            "stopCodeName":"GENERAL INTERNAL MEDICINE",
+            "locationUid":"urn:va:location:500:23",
+            "locationName":"GENERAL MEDICINE",
+            "idx":[],
+            "documents":[
+                {
+                    "localTitle":"PRIMARY CARE GENERAL NOTE",
+                    "nationalTitle":"PRIMARY CARE NOTE",
+                    "uid":"urn:va:F484:100846:tiu:4143"
+                }
+            ],
+            "stopCodeUid":"urn:va:stop-code:301"
+        },
+        {
+            "uid":"urn:va:F484:100846:visit:7130",
+            "summary":"${MEDICINE}:GENERAL MEDICINE",
+            "pid":"119",
+            "kind":"Unknown",
+            "facilityCode":"500",
+            "facilityName":"CAMP MASTER",
+            "localId":"7130",
+            "typeName":"GENERAL MEDICINE VISIT",
+            "patientClassCode":"AMB",
+            "dateTime":"200711061700",
+            "categoryCode":"urn:va:encounter-category:OV",
+            "categoryName":"Outpatient Visit",
+            "service":"MEDICINE",
+            "stopCodeName":"GENERAL INTERNAL MEDICINE",
+            "locationUid":"urn:va:location:500:23",
+            "locationName":"GENERAL MEDICINE",
+            "idx":[],
+            "documents":[
+                {
+                    "localTitle":"PRIMARY CARE TELEPHONE",
+                    "nationalTitle":"PRIMARY CARE TELEPHONE ENCOUNTER NOTE",
+                    "uid":"urn:va:F484:100846:tiu:4142"
+                }
+            ],
+            "stopCodeUid":"urn:va:stop-code:301"
+        },
+        {
+            "uid":"urn:va:F484:100846:visit:7129",
+            "summary":"${MEDICINE}:GENERAL MEDICINE",
+            "pid":"119",
+            "kind":"Unknown",
+            "facilityCode":"500",
+            "facilityName":"CAMP MASTER",
+            "localId":"7129",
+            "typeName":"GENERAL MEDICINE VISIT",
+            "patientClassCode":"AMB",
+            "dateTime":"200710311300",
+            "categoryCode":"urn:va:encounter-category:OV",
+            "categoryName":"Outpatient Visit",
+            "service":"MEDICINE",
+            "stopCodeName":"GENERAL INTERNAL MEDICINE",
+            "locationUid":"urn:va:location:500:23",
+            "locationName":"GENERAL MEDICINE",
+            "idx":[],
+            "documents":[
+                {
+                    "localTitle":"PRIMARY CARE GENERAL NOTE",
+                    "nationalTitle":"PRIMARY CARE NOTE",
+                    "uid":"urn:va:F484:100846:tiu:4141"
+                }
+            ],
+            "stopCodeUid":"urn:va:stop-code:301"
+        }
+    ]
+}}

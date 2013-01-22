@@ -1,0 +1,2 @@
+rootProject.name = 'vista-support'
+include 'vista-rpc-client', 'vista-auth', 'spring-vistalink'

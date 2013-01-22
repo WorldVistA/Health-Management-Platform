@@ -1,0 +1,275 @@
+VPRJTQF ;SLC/KCM -- Unit tests for query filters
+ ;;1.0;JSON DATA STORE;;Sep 01, 2012
+ ;
+STARTUP  ; Run once before all tests
+ N DATA,I,LOC
+ S VPRJTPID=$O(^VPRPT("PID","DFN","93EF:-7",""))
+ I VPRJTPID D CLEARPT^VPRJP(VPRJTPID)
+ D SETUP^VPRJM
+ D GETDATA("DEMOG7",.DATA)
+ S VPRJTPID=$P($$PUTPT^VPRJPR("",.DATA),"/",3)
+ D MOCK1
+ Q
+SHUTDOWN ; Run once after all tests
+ S VPRJTPID=$O(^VPRPT("PID","DFN","93EF:-7",""))
+ D CLEARPT^VPRJP(VPRJTPID)
+ K VPRJTPID
+ K ^TMP($J),^TMP("HTTPERR",$J)
+ Q
+GETDATA(TAG,DATA) ;
+ N I,X
+ F I=1:1 S X=$P($T(@TAG+I^VPRJTPD),";;",2,999) Q:X="zzz"  S DATA(I)=X
+ Q
+MOCK1 ; Create mock data to test filter against
+ N PID,UID
+ S PID=VPRJTPID,UID="urn:va:93EF:-7:test:1"
+ S ^VPRPT(PID,UID,"topValue")=1
+ S ^VPRPT(PID,UID,"strValue")="quick brown fox"
+ S ^VPRPT(PID,UID,"valueA")="red"
+ S ^VPRPT(PID,UID,"result")=7.6
+ S ^VPRPT(PID,UID,"observed")=20110919
+ S ^VPRPT(PID,UID,"facility","name")="VAMC"
+ S ^VPRPT(PID,UID,"products",1,"ingredient")="aspirin"
+ S ^VPRPT(PID,UID,"products",2,"ingredient")="codeine"
+ S ^VPRPT(PID,UID,"orders",1,"clinician","name")="Welby"
+ Q
+ASSERT(EXPECT,ACTUAL,MSG) ; for convenience
+ D EQ^VPRJT(EXPECT,ACTUAL,$G(MSG))
+ Q
+EVAL(LINE) ; return evaluation of statement
+ N PID,UID,STMT,CLAUSES,HTTPERR
+ S STMT=$P($T(@LINE),";;",2,99)
+ D PARSE^VPRJPQF(STMT,.CLAUSES)
+ D ASSERT(0,$D(HTTPERR),"HTTP error:"_$G(HTTPERR))
+ S PID=VPRJTPID,UID="urn:va:93EF:-7:test:1"
+ K HTTPERR
+ Q $$EVALAND^VPRJPQF(.CLAUSES,UID)
+ D ASSERT(0,$D(HTTPERR),"HTTP error:"_$G(HTTPERR))
+ ;
+SIMPLE ;; @TEST simple match
+ ;; eq(topValue,1)
+ ;; eq(topValue,42)
+ ;; eq(missingValue,27)
+ ;; eq("products[].ingredient","codeine")
+ ;; eq("products[].ingredient","acetaminphen")
+ ;; eq("facility.name","VAMC")
+ ;; eq("facility.name","other") 
+ D ASSERT(1,$$EVAL("SIMPLE+1"))
+ D ASSERT(0,$$EVAL("SIMPLE+2"))
+ D ASSERT(0,$$EVAL("SIMPLE+3"))
+ D ASSERT(1,$$EVAL("SIMPLE+4"))
+ D ASSERT(0,$$EVAL("SIMPLE+5"))
+ D ASSERT(1,$$EVAL("SIMPLE+6"))
+ D ASSERT(0,$$EVAL("SIMPLE+7"))
+ Q
+FLTAND ;; @TEST filter with ands
+ ;; eq(topValue,1) eq(strValue,"quick brown fox")
+ ;; eq(topValue,1) eq(strValue,"wrong")
+ ;; ne(topValue,2) eq("products[].ingredient","aspirin")
+ ;; eq(topValue,1) ne("products[].ingredient","acetaminophen")
+ ;; eq(topValue,1) eq("products[].ingredient","acetaminophen")
+ D ASSERT(1,$$EVAL("FLTAND+1"))
+ D ASSERT(0,$$EVAL("FLTAND+2"))
+ D ASSERT(1,$$EVAL("FLTAND+3"))
+ D ASSERT(1,$$EVAL("FLTAND+4"))
+ D ASSERT(0,$$EVAL("FLTAND+5"))
+ Q
+FLTOR ;; @TEST filter with or's
+ ;; eq(topValue,1) or{eq(valueA,"red") eq(valueA,"green")}
+ ;; eq(topValue,1) or{eq(valueA,"blue") eq(valueA,"yellow")}
+ D ASSERT(1,$$EVAL("FLTOR+1"))
+ D ASSERT(0,$$EVAL("FLTOR+2"))
+ Q
+FLTNOT ;; @TEST filter with not's
+ ;; eq(topValue,1) not{eq(valueA,"yellow") eq(valueA,"green") eq(valueA,"blue")}
+ ;; eq(topValue,1) not{eq(valueA,"red") eq(valueA,"green") eq(valueA,"blue")}
+ D ASSERT(1,$$EVAL("FLTNOT+1"))
+ D ASSERT(0,$$EVAL("FLTNOT+2"))
+ Q
+FLTIN ;; @TEST filter in property
+ ;; in(valueA,["red","green","blue"])
+ ;; in(valueA,["orange","banana","peach"])
+ D ASSERT(1,$$EVAL("FLTIN+1"))
+ D ASSERT(0,$$EVAL("FLTIN+2"))
+ Q
+FLTNIN ;; @TEST filter not in array
+ ;; nin(valueA,["red","green","blue"])
+ ;; nin(valueA,["orange","banana","peach"])
+ ;; nin("products[].ingredient",["acetiminophen","ibuprofin"])
+ ;; nin("products[].ingredient",["aspirin","codeine"])
+ D ASSERT(0,$$EVAL("FLTNIN+1"))
+ D ASSERT(1,$$EVAL("FLTNIN+2"))
+ D ASSERT(1,$$EVAL("FLTNIN+3"))
+ D ASSERT(0,$$EVAL("FLTNIN+4"))
+ Q
+FLTGTLT ;; @TEST filter gt and lt (value of result is 7.6)
+ ;; gt(result,7.0)
+ ;; gt(result,8)
+ ;; gte(result,7.5)
+ ;; gte(result,7.6)
+ ;; gte(result,7.7)
+ ;; lt(result,8)
+ ;; lte(result,6)
+ ;; lte(result,7.6)
+ ;; lte(result,7.5)
+ ;; lt(result,5)
+ D ASSERT(1,$$EVAL("FLTGTLT+1"))
+ D ASSERT(0,$$EVAL("FLTGTLT+2"))
+ D ASSERT(1,$$EVAL("FLTGTLT+3"))
+ D ASSERT(1,$$EVAL("FLTGTLT+4"))
+ D ASSERT(0,$$EVAL("FLTGTLT+5"))
+ D ASSERT(1,$$EVAL("FLTGTLT+6"))
+ D ASSERT(0,$$EVAL("FLTGTLT+7"))
+ D ASSERT(1,$$EVAL("FLTGTLT+8"))
+ D ASSERT(0,$$EVAL("FLTGTLT+9"))
+ D ASSERT(0,$$EVAL("FLTGTLT+10"))
+ Q
+FLTGTLTS ;; @TEST filter gt and lt with strings
+ ;; gt(valueA,"blue")
+ ;; gt(valueA,"TAN")
+ ;; gte(valueA,"record")
+ ;; gte(valueA,"red")
+ ;; gte(valueA,"reddish")
+ ;; lt(valueA,"TAN")
+ ;; lte(valueA,"reddish")
+ ;; lte(valueA,"red")
+ ;; lte(valueA,"blue")
+ ;; lt(valueA,"brown")
+ D ASSERT(1,$$EVAL("FLTGTLTS+1"))
+ D ASSERT(1,$$EVAL("FLTGTLTS+2")) ; lowercase sorts after upper
+ D ASSERT(1,$$EVAL("FLTGTLTS+3"))
+ D ASSERT(1,$$EVAL("FLTGTLTS+4"))
+ D ASSERT(0,$$EVAL("FLTGTLTS+5"))
+ D ASSERT(0,$$EVAL("FLTGTLTS+6")) ; uppercase is less than lowercase
+ D ASSERT(1,$$EVAL("FLTGTLTS+7"))
+ D ASSERT(1,$$EVAL("FLTGTLTS+8"))
+ D ASSERT(0,$$EVAL("FLTGTLTS+9"))
+ D ASSERT(0,$$EVAL("FLTGTLTS+10"))
+ Q
+FLTWEEN ;; @TEST between for numerics
+ ;; between(result,7,8)
+ ;; between(result,6,7)
+ ;; between(result,8,9)
+ D ASSERT(1,$$EVAL("FLTWEEN+1"))
+ D ASSERT(0,$$EVAL("FLTWEEN+2"))
+ D ASSERT(0,$$EVAL("FLTWEEN+3"))
+ Q
+FLTWEENS ;; @TEST between for strings
+ ;; between(valueA,"rat","rot")
+ ;; between(valueA,"RAT","ROT")
+ ;; between(valueA,"reddish","tan")
+ D ASSERT(1,$$EVAL("FLTWEENS+1"))
+ D ASSERT(0,$$EVAL("FLTWEENS+2"))
+ D ASSERT(0,$$EVAL("FLTWEENS+3"))
+ Q
+FLTLIKE ;; @TEST like for strings
+ ;; like(strValue,"%brown%")
+ ;; like(strValue,"%red%")
+ ;; like(strValue,"%fox")
+ ;; like("products[].ingredient","asp%")
+ ;; like("products[].ingredient","ace%")
+ ;; like("products[].ingredient","%C%")
+ D ASSERT(1,$$EVAL("FLTLIKE+1"))
+ D ASSERT(0,$$EVAL("FLTLIKE+2"))
+ D ASSERT(1,$$EVAL("FLTLIKE+3"))
+ D ASSERT(1,$$EVAL("FLTLIKE+4"))
+ D ASSERT(0,$$EVAL("FLTLIKE+5"))
+ D ASSERT(0,$$EVAL("FLTLIKE+5"))
+ Q
+FLTILIKE ;; @TEST ilike (case insensitive) for string
+ ;; ilike("products[].ingredient","ACE%")
+ ;; ilike("products[].ingredient","%C%")
+ D ASSERT(0,$$EVAL("FLTILIKE+1"))
+ D ASSERT(1,$$EVAL("FLTILIKE+2"))
+ Q
+FLTEXIST ;; @TEST exist for values
+ ;; exists(result)
+ ;; exists(absent)
+ ;; exists("orders[].clinician.name")
+ ;; exists(absent,false)
+ D ASSERT(1,$$EVAL("FLTEXIST+1"))
+ D ASSERT(0,$$EVAL("FLTEXIST+2"))
+ D ASSERT(1,$$EVAL("FLTEXIST+3"))
+ D ASSERT(1,$$EVAL("FLTEXIST+4"))
+ Q
+FLTDATES ;; @TEST dates represented as strings
+ ;; between(observed,"2008","2012")
+ ;; lt(observed,"201110")
+ ;; gte(observed,"20110919")
+ ;; lt(observed,"20080919103426")
+ D ASSERT(1,$$EVAL("FLTDATES+1"))
+ D ASSERT(1,$$EVAL("FLTDATES+2"))
+ D ASSERT(1,$$EVAL("FLTDATES+3"))
+ D ASSERT(0,$$EVAL("FLTDATES+4"))
+ Q 
+FLDTYP ;; @TEST filter with various field types
+ ;;eq("summary", 1) eq(facility.name, 2) eq("products[].ingredient", 3) eq("products[].ingredient.name", 4) eq(noquote, 0)
+ ;;NOTE: fields with [] must be quoted
+ N FILTER,CLAUSES
+ S FILTER=$P($T(FLDTYP+1),";;",2,99)
+ D PARSE^VPRJPQF(FILTER,.CLAUSES)
+ D ASSERT(1,CLAUSES(1,"type"))
+ D ASSERT(2,CLAUSES(2,"type"))
+ D ASSERT(3,CLAUSES(3,"type"))
+ D ASSERT(4,CLAUSES(4,"type"))
+ D ASSERT("summary",CLAUSES(1,"field"))
+ D ASSERT("ingredient",CLAUSES(3,"field"))
+ D ASSERT("products",CLAUSES(4,"mult"))
+ D ASSERT("name",CLAUSES(4,"sub"))
+ Q
+CONJ ;; @TEST nested conjunctions
+ ;;or{ eq(tobe, 1) eq(notobe, 2) and{eq(unrelated, 3), eq(another, 4)}}
+ ;;eq(status,7) gt(observed,"2011") in("products[].code",[20,30,40]) or{eq(a,7) eq(b,8) lt(c,500)} and{eq(w,200) gt(x,7) eq(z,50)} eq(milk,"fresh") and{eq(h,1) eq(j,2)}
+ N FILTER,CLAUSES
+ S FILTER=$P($T(CONJ+1),";;",2,99)
+ D PARSE^VPRJPQF(FILTER,.CLAUSES)
+ D ASSERT(0,$D(HTTPERR))
+ D ASSERT("tobe",CLAUSES(1,2,"field"))
+ D ASSERT("and",CLAUSES(1,4))
+ D ASSERT("another",CLAUSES(1,4,2,"field"))
+ K CLAUSES
+ S FILTER=$P($T(CONJ+2),";;",2,99)
+ D PARSE^VPRJPQF(FILTER,.CLAUSES)
+ D ASSERT(0,$D(HTTPERR))
+ D ASSERT(1,$D(CLAUSES(2,"asString")))
+ Q
+VALUES ;; @TEST types of values
+ ;; eq(astr, "this is a string") gt(anum, 123) in(alist, ["alpha","beta","gamma"]) eq(funnyStr, "123")
+ N FILTER,CLAUSES
+ S FILTER=$P($T(VALUES+1),";;",2,99)
+ D PARSE^VPRJPQF(FILTER,.CLAUSES)
+ D ASSERT("this is a string",CLAUSES(2,"value"))
+ D ASSERT(123,+CLAUSES(3,"value"))
+ D ASSERT(1,$D(CLAUSES(4,"list","gamma")))
+ D ASSERT(1,$D(CLAUSES(5,"asString")))
+ Q
+MAKEPAT ; @TEST converting SQL Like statements into M patterns
+ N X,TV ; TV = test value -- to get around XINDEX problem
+ S X=$$MAKEPAT^VPRJPQF("%ing")
+ D ASSERT(".E1""ing""",X)
+ S TV="reindexing" D ASSERT(1,TV?@X)
+ S TV="indexing" D ASSERT(1,TV?@X)
+ S X=$$MAKEPAT^VPRJPQF("re%ing")
+ D ASSERT("1""re"".E1""ing""",X)
+ S TV="reindexing" D ASSERT(1,TV?@X)
+ S TV="indexing" D ASSERT(0,TV?@X)
+ S X=$$MAKEPAT^VPRJPQF("re%")
+ D ASSERT("1""re"".E",X)
+ S X=$$MAKEPAT^VPRJPQF("%ING")
+ D ASSERT(".E1""ING""",X)
+ S TV="reindexing" D ASSERT(0,TV?@X)
+ S X=$$MAKEPAT^VPRJPQF("RE%")
+ D ASSERT("1""RE"".E",X)
+ S X=$$MAKEPAT^VPRJPQF("%ING",1)
+ D ASSERT(".E1""ing""",X)
+ S X=$$MAKEPAT^VPRJPQF("RE%",1)
+ D ASSERT("1""re"".E",X)
+ S TV="reindexing" D ASSERT(1,TV?@X)
+ S TV="indexing" D ASSERT(0,TV?@X)
+ S X=$$MAKEPAT^VPRJPQF("%")
+ D ASSERT(".E",X)
+ S X=$$MAKEPAT^VPRJPQF("REINDEXING",1)
+ D ASSERT("1""reindexing""",X)
+ S TV="reindexing" D ASSERT(1,TV?@X)
+ S TV="indexing" D ASSERT(0,TV?@X)
+ Q

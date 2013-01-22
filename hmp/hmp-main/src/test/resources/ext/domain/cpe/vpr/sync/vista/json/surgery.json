@@ -1,0 +1,22 @@
+{
+	"category" : "SR",
+	"dateTime" : "200612080730",
+	"results" : [ {
+		"uid" : "urn:va:F484:229:tiu:3557"
+	}, {
+		"uid" : "urn:va:F484:229:tiu:3514"
+	}, {
+		"uid" : "urn:va:F484:229:tiu:3513"
+	} ],
+	"encounterUid" : "",
+	"facilityName" : "CAMP MASTER",
+	"facilityCode" : "???",
+	"kind" : "Surgery",
+	"localId" : 10010,
+	"name" : "LEFT INGUINAL HERNIA REPAIR WITH MESH",
+	"providers": [{
+		"uid" : "urn:va:user:F484:983"
+	}],
+	"status" : "COMPLETE",
+	"uid" : "urn:va:F484:229:surgery:10010"
+}

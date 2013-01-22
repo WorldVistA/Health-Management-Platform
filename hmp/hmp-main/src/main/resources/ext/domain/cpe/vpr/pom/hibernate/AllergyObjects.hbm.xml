@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-cascade="all,delete-orphan">
+
+    <class table="allergy" entity-name="allergy">
+        <id name="uid" length="64" type="string"/>
+        <property name="pid" length="64" type="string"/>
+        <property name="json" type="text"/>
+        <property name="adverseEventTypeCode" column="adverse_event_type_code" type="string"/>
+        <property name="adverseEventTypeName" column="adverse_event_type_name" type="string"/>
+        <property name="entered" column="entered" type="string"/>
+        <property name="enteredByUid" column="entered_by_uid" type="string"/>
+        <property name="enteredByName" column="entered_by_name" type="string"/>
+        <property name="facilityCode" column="facility_code" type="string"/>
+        <property name="facilityName" column="facility_name" type="string"/>
+        <property name="historical" column="historical" type="boolean"/>
+        <property name="kind" column="kind" type="string"/>
+        <property name="localId" column="local_id" type="string"/>
+
+        <property name="reference" type="string" column="reference" not-null="true"/>
+        <property name="severityCode" column="severity_code" type="string"/>
+        <property name="severityName" column="severity_name" type="string"/>
+        <property name="summary" column="summary" type="string"/>
+        <property name="verified" column="verified" type="string"/>
+        <property name="verifiedByUid" column="verified_by_uid" type="string"/>
+        <property name="verifiedByName" column="verified_by_name" type="string"/>
+        <list name="products">
+            <key column="allergy_id" not-null="true"/>
+            <index column="products_idx"/>
+            <one-to-many entity-name="AllergyProductMap"/>
+        </list>
+        <list name="reactions">
+            <key column="allergy_id" not-null="true"/>
+            <index column="reactions_idx"/>
+            <one-to-many entity-name="AllergyReactionMap"/>
+        </list>
+        <list name="comments">
+            <key column="allergy_id" not-null="true"/>
+            <index column="comments_idx"/>
+            <one-to-many entity-name="AllergyCommentMap"/>
+        </list>
+    </class>
+
+    <union-subclass table="allergy_comment" entity-name="AllergyCommentMap" extends="POMObjectMap">
+        <property name="comment" column="comment" not-null="true" type="string"/>
+        <property name="entered" column="entered" type="string"/>
+        <property name="enteredByName" column="entered_by_name" type="string"/>
+    </union-subclass>
+
+    <union-subclass table="allergy_product" entity-name="AllergyProductMap" extends="POMObjectMap">
+        <property name="code" column="code" type="string"/>
+        <property name="codeSource" column="code_source" type="string"/>
+        <property name="name" column="name" type="string" not-null="true"/>
+        <property name="vuid" column="vuid" type="string"/>
+    </union-subclass>
+
+    <union-subclass table="allergy_reaction" entity-name="AllergyReactionMap" extends="POMObjectMap">
+        <property name="code" column="code" type="string"/>
+        <property name="name" column="name" type="string" not-null="true"/>
+        <property name="vuid" column="vuid" type="string"/>
+    </union-subclass>
+</hibernate-mapping>

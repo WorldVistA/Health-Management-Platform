@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="rpcTemplate" class="EXT.DOMAIN.cpe.vista.rpc.RpcTemplate"
+          p:connectionFactory-ref="vistaConnectionManager"
+          p:hostResolver-ref="securityContextHostResolverAndCredentialsProvider"
+          p:credentialsProvider-ref="securityContextHostResolverAndCredentialsProvider"
+          p:rpcListener-ref="rpcLog"/>
+
+    <bean id="vistaConnectionManager" class="EXT.DOMAIN.cpe.vista.rpc.pool.DefaultConnectionManager"/>
+
+    <bean id="securityContextHostResolverAndCredentialsProvider"
+          class="EXT.DOMAIN.cpe.vista.springframework.security.userdetails.rpc.SecurityContextHostResolverAndCredentialsProvider"/>
+
+    <bean id="vistaAccountRpcHostResolver"
+          class="EXT.DOMAIN.cpe.hub.rpc.VistaAccountRpcHostResolver"/>
+
+    <bean id="synchronizationConnectionManager" class="EXT.DOMAIN.cpe.vista.rpc.pool.DefaultConnectionManager">
+        <constructor-arg index="0">
+            <bean class="EXT.DOMAIN.cpe.vista.rpc.broker.conn.BrokerConnectionFactory"/>
+        </constructor-arg>
+        <constructor-arg index="1" value="3" type="int"/>
+    </bean>
+
+    <bean id="synchronizationRpcTemplate" class="EXT.DOMAIN.cpe.vista.rpc.RpcTemplate"
+          p:connectionFactory-ref="synchronizationConnectionManager"
+          p:hostResolver-ref="vistaAccountRpcHostResolver"
+          p:credentialsProvider-ref="synchronizationCredentialsProvider"
+          p:timeout="300"
+          p:rpcListener-ref="rpcLog"/>
+
+    <bean id="synchronizationCredentialsProvider" class="EXT.DOMAIN.cpe.vpr.sync.vista.SynchronizationCredentialsProvider"
+          p:vistaAccountDao-ref="vistaAccountDao"/>
+
+    <bean id="rpcLog" class="EXT.DOMAIN.cpe.vista.rpc.support.InMemoryRpcLog"
+          p:allEnabled="${hmp.rpc.log}"
+          p:filters-ref="rpcLogFilters"/>
+
+    <util:list id="rpcLogFilters" value-type="EXT.DOMAIN.cpe.vista.rpc.support.RpcLogFilter">
+        <bean class="EXT.DOMAIN.cpe.vpr.sync.vista.VprUpdateRpcLogFilter"/>
+    </util:list>
+</beans>

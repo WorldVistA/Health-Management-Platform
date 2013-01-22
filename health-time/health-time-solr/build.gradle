@@ -1,0 +1,13 @@
+description = 'CPE Health-Time Solr Support'
+//description = '''Custom field type for solr implementing support for HL7's "point in time"/"timestamp" data type.'''
+dependencies {
+    compile project(':health-time-core')
+	compile "org.apache.solr:solr-core:${solrVersion}"
+	testCompile "junit:junit:${junitVersion}"
+	testRuntime "org.slf4j:slf4j-nop:${slf4jVersion}"
+}
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Solr Health-Time Support'
+    }
+}

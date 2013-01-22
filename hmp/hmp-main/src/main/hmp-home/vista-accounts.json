@@ -1,0 +1,46 @@
+{
+    "apiVersion":"${project.version}",
+    "data":{
+        "totalItems":4,
+        "items":[
+            {
+                "name":"HMP BUILD",
+                "vistaId":"7EAF",
+                "division":"500",
+                "host":"localhost",
+                "port":29064,
+                "production":false,
+                "vprUserCredentials":"vpruser1;verifycode1&",
+                "vprAutoUpdate":false
+            },
+            {
+                "name":"HMP DEV",
+                "vistaId":"F484",
+                "division":"500",
+                "host":"localhost",
+                "port":29060,
+                "production":false,
+                "vprUserCredentials":"vpruser1;verifycode1&",
+                "vprAutoUpdate":true
+            },
+            {
+                "name":"HMP REMA",
+                "vistaId":"43C3",
+                "division":"500A",
+                "host":"localhost",
+                "port":29071,
+                "production":false,
+                "vprAutoUpdate":false
+            },
+            {
+                "name":"HMP REMB",
+                "vistaId":"787",
+                "division":"500B",
+                "host":"localhost",
+                "port":29072,
+                "production":false,
+                "vprAutoUpdate":false
+            }
+        ]
+    }
+}

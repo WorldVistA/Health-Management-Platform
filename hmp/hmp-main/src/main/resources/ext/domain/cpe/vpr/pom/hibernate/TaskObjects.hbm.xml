@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-cascade="all,delete-orphan">
+	<class  entity-name="task" table="task">
+		<id name="uid" length="64" type="string" />
+		<property name="pid" length="64" type="string" />
+		<property name="json" type="text" />
+
+		<property name="taskName" type="string" />
+		<property name="type" type="string" />
+		<property name="dueDate"  type="string" />
+		<property name="facilityCode" type="string" />
+		<property name="facilityName" type="string" />
+		<property name="assignToName" type="string" />
+		<property name="assignToCode" type="string" />
+		<property name="ownerName" type="string" />
+		<property name="kind" type="string" />
+		<property name="ownerCode" type="string" />
+		<property name="description" type="text" />
+		<property name="completed" type="boolean" />
+		<property name="version" type="string" />
+	</class>
+
+
+</hibernate-mapping>

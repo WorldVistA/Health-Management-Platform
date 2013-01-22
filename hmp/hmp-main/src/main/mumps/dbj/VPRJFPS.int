@@ -1,0 +1,50 @@
+VPRJFPS ;SLC/KCM -- Set/Kill Indexes for Medications
+ ;;1.0;JSON DATA STORE;;Sep 01, 2012
+ ;
+VALID(MED) ; Return true if required fields for indexing are present
+ I '$L($G(MED("facility"))) Q 0
+ Q 1
+ ;
+IACT(MED) ; Return true if active inpatient med
+ Q:'$L($G(MED("medStatus"))) 0
+ Q:MED("medStatus")'=VPRCONST("SCT_MED_STATUS_ACTIVE") 0
+ Q:$G(MED("IMO")) 0 ; inpatient med for outpatient
+ Q:$G(MED("medType"))'=VPRCONST("SCT_MED_TYPE_GENERAL") 0
+ Q 1
+ ;
+OACT(MED) ; Return true if active outpatient med
+ Q:'$L($G(MED("medStatus"))) 0
+ Q:MED("medStatus")'=VPRCONST("SCT_MED_STATUS_ACTIVE") 0
+ Q:$G(MED("IMO"))!($G(MED("medType"))=VPRCONST("SCT_MED_TYPE_GENERAL")) 0
+ Q 1
+ ;
+MICRO(LAB) ; Return true if microbiology test
+ ;Q:$G(LAB("kind"))="Microbiology" 1  ; can't do this easily -- kind is buried in result
+ Q:$E($G(LAB("localId")),1,2)="MI" 1  ; need to change since this is VA-specific
+ Q 0
+ ;
+PATH(LAB) ; Return true if pathology test
+ N X S X=$E($G(LAB("localId")),1,2)
+ I (X'="CH"),(X'="MI") Q 1            ; temporary work-around -- this is VA-specific
+ Q 0
+RSLT(LAB) ; Return true if lab result
+ I $D(LAB("typeName")) Q 1
+ Q 0
+ACC(LAB) ; Return true if accession
+ I $G(LAB("organizerType"))="accession" Q 1
+ Q 0
+VS(VITAL) ; Return true if vital sign result
+ I $D(VITAL("typeName")) Q 1
+ Q 0
+CWAD(DOC) ; Return true if CWAD document
+ ;Advance Directive,Crisis Note,Allergy/Adverse Reaction,Clinical Warning,ALERT
+ N X,DOCFLD
+ S X=$P($T(CWAD+1),";",2,99)
+ S DOCFLD=$G(DOC("documentTypeName"))
+ I $G(DOCFLD)="" S DOCFLD=$G(DOC("kind"))
+ I $G(DOCFLD)="" Q 0
+ I X[DOCFLD Q 1
+ Q 0
+CURVISIT(VISIT) ; Return true if checked-in, and not checked-out.
+ I $G(VISIT("current"))="true" Q 1
+ Q 0

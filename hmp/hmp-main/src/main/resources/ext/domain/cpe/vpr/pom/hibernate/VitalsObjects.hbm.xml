@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-cascade="all,delete-orphan">
+    <class entity-name="vitalSignOrganizer" table="vital_sign_organizer">
+        <id name="uid" length="64" type="string"/>
+        <property name="pid" length="64" type="string"/>
+        <property name="json" type="text"/>
+        <property name="encounterUid" type="string"/>
+        <property name="facilityCode" type="string"/>
+        <property name="facilityName" type="string"/>
+        <property name="localId" type="string"/>
+        <property name="locationCode" type="string" />
+        <property name="locationName" type="string" />
+        <property name="observed" type="string"/>
+        <property name="resulted" type="string"/>
+        <property name="resultStatusCode" type="string"/>
+        <property name="resultStatusName" type="string"/>
+        <list name="vitalSigns">
+            <key column="organizer_uid" not-null="true"/>
+            <index column="vital_signs_idx"/>
+            <one-to-many entity-name="vitalSign"/>
+        </list>
+    </class>
+
+    <class entity-name="vitalSign" table="vital_sign">
+        <id name="uid" length="64" type="string"/>
+        <property name="pid" length="64" type="string"/>
+        <property name="json" type="text"/>
+        <property name="encounterUid" type="string"/>
+        <property name="facilityCode" type="string"/>
+        <property name="facilityName" type="string"/>
+        <property name="localId" type="string"/>
+        <property name="locationCode" type="string" />
+        <property name="locationName" type="string" />
+        <property name="observed" type="string"/>
+        <property name="resulted" type="string"/>
+        <property name="resultStatusCode" type="string"/>
+        <property name="resultStatusName" type="string"/>
+        <property name="bodySite" type="string"/>
+        <property name="document" type="text"/>
+        <property name="high" type="string"/>
+        <property name="kind" type="string"/>
+        <property name="low" type="string"/>
+        <property name="method" type="string"/>
+        <property name="metricResult" type="string"/>
+        <property name="metricUnits" type="string"/>
+        <property name="result" type="string" not-null="true"/>
+        <property name="summary" type="string"/>
+        <property name="typeCode" type="string" not-null="true"/>
+        <property name="typeName" type="string" not-null="true"/>
+        <property name="units" type="string"/>
+        <property name="interpretationCode" type="string"/>
+        <property name="interpretationName" type="string"/>
+    </class>
+</hibernate-mapping>

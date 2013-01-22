@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-cascade="all,delete-orphan">
+	<!-- 
+		Things I did to cleanup Medication:
+		1) Copied the existing medication class mappings, extends PatientObjectMap
+		2) removed uid, pid, id, version, bi-directional mappings, etc.
+		3) convert properties to a single line defintion, column only need to be specified if 
+		different from name. Don't need to specify lazy, cascade
+		4) shortened string to string, and PointInTime to string
+		5) Not all properties need to be mapped, only what we need to
+		6) unordered sets must be <bags>, lists can remain as <list>
+		7) use mvn hibernate3:hbm2ddl to test schema generation/hbm syntax
+		8) Add a test to HibMapTests (or create your own test suite)
+	 -->
+	
+    <class table="medication"  entity-name="medication"> <!-- class="EXT.DOMAIN.cpe.vpr.Medication" -->
+        <id name="uid" length="64" type="string"/>
+        <property name="pid" length="64" type="string"/>
+        <property name="json" type="text"/>
+        <!-- <property name="bodySite" type="string" column="body_site"/> -->
+		<property name="IMO" column="imo" type="boolean"/>
+        <property name="kind" type="string"/>
+        <property name="localId" column="local_id" not-null="true" type="string"/>
+        <property name="medStatus" column="med_status" type="string"/>
+        <property name="medStatusName" column="med_status_name" not-null="true" type="string"/>
+        <property name="medType" column="med_type" type="string"/>
+        <property name="overallStart" column="overall_start" type="string"/>
+        <property name="overallStop" column="overall_stop" type="string"/>
+        <property name="patientInstruction" column="patient_instruction" type="string"/>
+        <property name="predecessor" type="string"/>
+        <property name="productFormCode" column="product_form_code" type="string"/>
+        <property name="productFormName" column="product_form_name" type="string"/>
+        <property name="qualifiedName" column="qualified_name" type="string"/>
+        <property name="sig" type="text"/>
+        <property name="stopped" type="string"/>
+        <property name="successor" type="string"/>
+        <property name="summary" type="text"/>
+        <property name="vaStatus" column="va_status" type="string"/>
+        <property name="vaType" column="va_type" type="string"/>
+        <property name="facilityCode" column="facility_code" type="string"/>
+        <property name="facilityName" column="facility_name" type="string"/>
+        
+        <list name="dosages">
+            <key column="med_id" not-null="true" />
+            <index column="dosages_idx" />
+            <one-to-many entity-name="MedicationDoseMap" />
+        </list>
+        
+
+        <!--<many-to-one name="facility" class="EXT.DOMAIN.cpe.vpr.PatientFacility">-->
+            <!--<column name="facility_id" not-null="true" />-->
+        <!--</many-to-one>-->
+        <list name="fills" >
+            <key column="med_id" not-null="true" />
+            <index column="fills_idx" />
+            <one-to-many entity-name="MedicationFillMap" />
+        </list>
+        <list name="indications">
+            <key column="med_id" not-null="true" />
+            <list-index column="indications_idx" />
+            <one-to-many entity-name="MedicationIndicationMap" />
+        </list>
+        <list name="orders">
+            <key column="med_id" not-null="true" />
+            <list-index column="orders_idx" />
+            <one-to-many entity-name="MedicationOrderMap" />
+        </list>
+        <list name="products">
+            <key column="med_id" not-null="true" />
+            <list-index column="products_idx" />
+            <one-to-many entity-name="MedicationProductMap" />
+        </list>
+
+    </class>
+    
+    <union-subclass table="medication_dose" entity-name="MedicationDoseMap" extends="POMObjectMap">
+        <property name="bodySite" column="body_site" type="string"/>
+        <property name="complexConjunction" column="complex_conjunction" type="string"/>
+        <property name="complexDuration" column="complex_duration" type="string"/>
+        <property name="dose" type="string"/>
+        <property name="duration" type="string"/>
+        <property name="ivRate" column="iv_rate" type="string"/>
+        <property name="precondition" type="string"/>
+        <property name="relatedOrder" column="related_order" type="string"/>
+        <property name="relativeStart" column="relative_start" type="int"/>
+        <property name="relativeStop" column="relative_stop" type="int"/>
+        <property name="restriction" type="string"/>
+        <property name="routeCode" column="route_code" type="string"/>
+        <property name="routeName" column="route_name" type="string"/>
+        <property name="scheduleName" column="schedule_name" type="string"/>
+        <property name="start" type="string"/>
+        <property name="stop" type="string"/>
+        <property name="timingExpression" column="timing_expression" type="string"/>
+        <property name="units" type="string"/>
+    </union-subclass>
+
+    <union-subclass table="medication_order" entity-name="MedicationOrderMap" extends="POMObjectMap">
+        <property name="daysSupply" column="days_supply" type="int"/>
+        <property name="expiration" type="string"/>
+        <property name="fillCost" column="fill_cost" type="string"/>
+        <property name="fillsAllowed" column="fills_allowed" type="int"/>
+        <property name="fillsRemaining" column="fills_remaining" type="int"/>
+        <property name="fulfillmentInstructions" column="fulfillment_instructions" type="string"/>
+        <property name="locationUid" column="location_uid" type="string"/>
+        <property name="locationName" column="location_name" type="string"/>
+        <!--<many-to-one name="med" class="EXT.DOMAIN.cpe.vpr.Medication" column="med_id" not-null="true" insert="false" update="false"/>-->
+        <property name="orderUid" column="order_uid" type="string"/>
+        <property name="ordered" column="ordered" type="string"/>
+        <property name="pharmacistUid" column="pharmacist_uid" type="string"/>
+        <property name="pharmacistName" column="pharmacist_name" type="string"/>
+        <property name="prescriptionId" column="prescription_id" type="string"/>
+        <property name="providerUid" column="provider_uid" type="string"/>
+        <property name="providerName" column="provider_name" type="string"/>
+        <property name="quantityOrdered" column="quantity_ordered" type="string"/>
+        <property name="vaDispensed" column="va_dispensed" type="boolean"/>
+        <property name="vaOrderStatus" column="va_order_status" type="string"/>
+        <property name="vaRouting" column="va_routing" type="string"/>
+    </union-subclass>
+
+     <union-subclass table="medication_product" entity-name="MedicationProductMap" extends="POMObjectMap">
+        <property name="drugClassCode" column="drug_class_code" type="string"/>
+        <property name="drugClassName" column="drug_class_name" type="string" />
+        <property name="ingredientCode" column="ingredient_code" type="string" />
+        <property name="ingredientName" column="ingredient_name" type="string" />
+        <property name="ingredientRole" column="ingredient_role" type="string" />
+        <property name="ivBag" column="iv_bag" type="string" />
+        <!--<many-to-one name="med" class="EXT.DOMAIN.cpe.vpr.Medication" column="med_id" not-null="true" insert="false" update="false"/>-->
+        <property name="relatedOrder" column="related_order" type="string" />
+        <property name="strength" type="string" />
+        <property name="suppliedCode" column="supplied_code" type="string" />
+        <property name="suppliedName" column="supplied_name" type="string" />
+        <property name="volume" type="string" />
+    </union-subclass>
+
+    <union-subclass table="medication_fill" entity-name="MedicationFillMap" extends="POMObjectMap">
+        <property name="daysSupplyDispensed" column="days_supply_dispensed" type="int"/>
+        <property name="dispenseDate" column="dispense_date" type="string"/>
+        <property name="dispensingPharmacy" column="dispensing_pharmacy" type="string"/>
+        <property name="fillStatus" column="fill_status" type="string"/>
+        <!--<many-to-one name="med" class="EXT.DOMAIN.cpe.vpr.Medication" column="med_id" not-null="true" insert="false" update="false"/>-->
+        <property name="quantityDispensed" column="quantity_dispensed" type="string"/>
+        <property name="routing" type="string"/>
+    </union-subclass>
+
+    <union-subclass table="medication_indication" entity-name="MedicationIndicationMap" extends="POMObjectMap">
+        <property name="code" type="string"/>
+        <property name="narrative" type="string"/>
+    </union-subclass>
+    
+</hibernate-mapping>

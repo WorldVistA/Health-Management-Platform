@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-cascade="all,delete-orphan">
+
+    <class table="observation" entity-name="observation">
+ 		<id name="uid" length="64" type="string"/>
+        <property name="pid" length="64" type="string"/>
+        <property name="json" type="text"/>
+        <property name="bodySiteCode" type="string"/>
+        <property name="bodySiteName" type="string"/>
+        <property name="comment" type="string"/>
+        <property name="facilityCode" type="string"/>
+        <property name="facilityName" type="string"/>
+        <property name="interpretation" type="string"/>
+        <property name="kind" type="string"/>
+        <property name="localId" type="string"/>
+        <property name="location" type="string"/>
+        <property name="methodCode" type="string"/>
+        <property name="methodName" type="string"/>
+        <property name="observed" type="string"/>
+        <property name="result" type="string"/>
+        <property name="resultStatus" type="string"/>
+        <property name="resulted" type="string"/>
+        <property name="typeCode" type="string"/>
+        <property name="typeName" type="string"/>
+        <property name="units" type="string"/>
+        <property name="vaStatus" type="string"/>
+        <property name="qualifierText" type="string"/>
+
+        <list name="qualifiers" table="observation_qualifier">
+            <key column="observation_id"/>
+            <list-index column="qualifiers_idx"/>
+            <one-to-many entity-name="ObservationQualifierMap"/>
+        </list>        
+    </class>
+    
+    <union-subclass table="observation_qualifier" entity-name="ObservationQualifierMap" extends="POMObjectMap">
+        <property name="code" type="string"/>
+        <property name="name" type="string"/>
+        <property name="type" type="string"/>
+    </union-subclass>
+    
+</hibernate-mapping>

@@ -1,0 +1,2 @@
+rootProject.name = 'health-time'
+include 'health-time-core', 'health-time-hibernate', 'health-time-solr', 'health-time-as'

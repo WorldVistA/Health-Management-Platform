@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-cascade="all,delete-orphan">
+
+	<class entity-name="POMObjectMap" abstract="true">
+	    <id type="java.lang.Integer" column="id">
+            <generator class="increment"></generator>
+        </id>
+	</class>
+	
+	<class entity-name="PatientObjectMap" abstract="true">
+        <id name="uid" length="64" type="string"/>
+        <property name="pid" length="64" type="string"/>
+        <property name="json" type="text"/>
+	</class>
+	
+	<class table="vpr_index" entity-name="VPRIndexEntry">
+    	<composite-id>
+    		<key-property name="pid" type="string"/>
+    		<key-property name="index_name" type="string"/>
+    		<key-property name="idx" type="integer"/> <!-- Shouldn't need to be here... -->
+    	</composite-id>
+    	<property name="uid" type="string" not-null="true" index="vpr_index_idx1"/> <!-- Needs an index... -->
+    	<property name="index_value" type="string"/>
+	</class>
+	
+	<class table="patient_ids" entity-name="VPRPatientIDs">
+    	<id name="pid" type="int"><generator class="native"/></id>
+	</class>
+	
+	<!-- 
+		TODO: Rename Address to PatientAddress?
+		TODO: Rename Alias to PatientAlias?
+		TODO: Extract some of this into a base class
+	 -->
+    <class table="patient" entity-name="patient"> <!-- class="EXT.DOMAIN.cpe.vpr.Patient" -->
+        <!-- patient is a slightly special case and doesn't need to extend PatientObjectMap -->
+    	<id name="pid" length="64" type="string"/>
+    	<property name="uid" length="64" unique="true" not-null="true" type="string"/>
+        <property name="json" type="text"/>
+        <property name="dateOfBirth" column="born" type="string"/>
+        <property name="died" type="string"/>
+        <property name="domainUpdated" column="domain_updated" type="string"/>
+        <property name="familyName" column="family_name" type="string"/>
+        <property name="givenNames" column="given_names" type="string"/>
+        <property name="icn" type="string" length="18" unique="true"/>
+		<property name="genderCode" column="gender_code" type="string"/>
+		<property name="genderName" column="gender_name" type="string"/>
+		<property name="lastUpdated" column="last_updated" type="string"/>
+        <property name="religionCode" column="religion_code" type="string"/>
+        <property name="religionName" column="religion_name" type="string"/>
+        
+        <!-- Having some issues with H2, direct query and boolean mappings.  Commenting out temporarily
+        <property name="sensitive" column="sensitive" type="boolean" not-null="true"/>
+          -->
+        <property name="ssn" column="ssn" length="9" type="string"/>
+        
+        <map name="properties" table="patient_prop">
+        	<key column="pid" not-null="true"/>
+        	<map-key column="prop_key" type="string"/>
+        	<element column="prop_value" type="string"/>
+        </map>
+                
+         <!-- I really wish this worked, but composite-element lacks entity-name
+        <bag name="addresses" table="patient_address">
+            <key column="pid" not-null="true"/>
+            <one-to-many entity-name="AddressMap"/>
+         	<composite-element class="EXT.DOMAIN.cpe.vpr.Address">
+		        <property name="city" type="string"/>
+		        <property name="country" type="string"/>
+		        <property name="postalCode" column="postal_code" type="string"/>
+		        <property name="stateProvince" column="state_province" type="string"/>
+		        <property name="streetLine1" column="street_line1" type="string"/>
+		        <property name="streetLine2" column="street_line2" type="string"/>
+         	</composite-element>
+        </bag> 
+         -->
+         
+        <bag name="addresses">
+            <key column="pid" not-null="true"/>
+            <one-to-many entity-name="AddressMap"/>
+        </bag>
+        
+        <bag name="aliases">
+            <key column="pid" not-null="true"/>
+            <one-to-many entity-name="AliasMap" />
+        </bag>
+        
+        <bag name="telecoms">
+        	<key column="pid" not-null="true"/>
+            <one-to-many class="TelcomMap" />
+        </bag>
+        <bag name="facilities">
+            <key column="pid" not-null="true"/>
+            <one-to-many class="PatientFacilityMap" />
+        </bag>
+    </class>    
+    
+    <union-subclass table="patient_address" entity-name="AddressMap" extends="POMObjectMap">
+        <property name="city" type="string"/>
+        <property name="country" type="string"/>
+        <property name="postalCode" column="postal_code" type="string"/>
+        <property name="stateProvince" column="state_province" type="string"/>
+        <property name="streetLine1" column="street_line1" type="string"/>
+        <property name="streetLine2" column="street_line2" type="string"/>
+    </union-subclass>
+    
+    <union-subclass table="patient_alias" entity-name="AliasMap" extends="POMObjectMap">
+        <property name="familyName" column="family_name" type="string"/>
+        <property name="fullName" column="full_name" type="string"/>
+        <property name="givenNames" column="given_names" type="string"/>
+    </union-subclass>
+    
+    <union-subclass table="patient_disability" entity-name="PatientDisabilityMap" extends="POMObjectMap">
+        <property name="printName" column="print_name" length="45" not-null="true" type="string"/>
+        <property name="serviceConnected" column="service_connected" not-null="true" type="boolean"/>
+        <property name="serviceConnectionPercent" column="service_connection_percent" not-null="true" type="int"/>
+        <property name="vaCode" column="va_code" not-null="true" type="int"/>
+    </union-subclass>
+    
+    <union-subclass table="patient_facility" entity-name="PatientFacilityMap" extends="POMObjectMap">
+        <property name="code" column="code" type="string"/>
+        <property name="earliestDate" column="earliest_date" type="string"/>
+        <property name="homeSite" column="home_site" type="boolean"/>
+        <property name="latestDate" column="latest_date" type="string"/>
+        <property name="localPatientId" column="local_patient_id" type="string"/>
+        <property name="name" column="name" type="string"/>
+        <property name="systemId" column="system_id" type="string"/>
+    </union-subclass>  
+    
+    <union-subclass table="patient_language" entity-name="PatientLanguageMap" extends="POMObjectMap">
+        <property name="code" type="string"/>
+        <property name="name" type="string"/>
+        <property name="vuid" type="string"/>
+    </union-subclass> 
+
+    <union-subclass table="patient_marital_status" entity-name="PatientMaritalStatusMap" extends="POMObjectMap">
+        <property name="fromDate" column="from_date" type="string"/>
+        <property name="code" type="string"/>
+        <property name="name" type="string"/>
+        <property name="thruDate" column="thru_date" type="string"/>
+    </union-subclass>
+    
+    <union-subclass table="patient_race" entity-name="PatientRaceMap" extends="POMObjectMap">
+         <property name="code" type="string"/>
+        <property name="name" type="string"/>
+        <property name="vuid" type="string"/>
+    </union-subclass>
+    
+    <union-subclass table="patient_telecom" entity-name="TelcomMap" extends="POMObjectMap">
+        <property name="telecom" column="telecom" type="string"/>
+        <property name="usageCode" column="usage_code" type="string"/>
+        <property name="usageName" column="usage_name" type="string"/>
+    </union-subclass>
+
+    <!--  TODO: Figure these one out
+    <union-subclass name="EXT.DOMAIN.cpe.vpr.PatientEthnicity" table="patient_ethnicity">
+        <many-to-one name="ethnicity" class="EXT.DOMAIN.cpe.codes.Ethnicity">
+            <column name="ethnicity_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="patient" class="EXT.DOMAIN.cpe.vpr.Patient">
+            <column name="patient_id" not-null="true" />
+        </many-to-one>
+    </union-subclass>        
+     
+    <class name="EXT.DOMAIN.cpe.vpr.PatientExposure" table="patient_exposure">
+        <many-to-one name="exposure" class="EXT.DOMAIN.cpe.codes.VAExposure">
+            <column name="exposure_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="patient" class="EXT.DOMAIN.cpe.vpr.Patient">
+            <column name="patient_id" not-null="true" />
+        </many-to-one>
+    </class>     
+    <union-subclass name="EXT.DOMAIN.cpe.vpr.PatientSupport" table="patient_support" extends="POMObjectMap">
+        <many-to-one name="address" class="EXT.DOMAIN.cpe.vpr.Address">
+            <column name="address_id" />
+        </many-to-one>
+        <property name="contactTypeCode" type="string">
+            <column name="contact_type_code" />
+        </property>
+        <property name="contactTypeName" type="string">
+            <column name="contact_type_name" />
+        </property>
+        <property name="relationshipCode" type="string">
+            <column name="relationship_code" />
+        </property>
+        <property name="relationshipName" type="string">
+            <column name="relationship_name" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" not-null="true" />
+        </property>
+        <set name="telecoms" inverse="false"  table="patient_support_telecom" cascade="save-update">
+            <key>
+                <column name="patient_support_telecoms_id" />
+            </key>
+            <many-to-many entity-name="EXT.DOMAIN.cpe.vpr.Telecom">
+                <column name="telecom_id" />
+            </many-to-many>
+        </set>
+    </union-subclass>
+     -->
+</hibernate-mapping>

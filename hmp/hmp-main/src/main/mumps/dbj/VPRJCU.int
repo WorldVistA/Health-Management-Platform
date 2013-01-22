@@ -1,0 +1,128 @@
+VPRJCU ;SLC/KCM -- Common Utilities for Patient and Non-Patient Stores
+ ;;1.0;JSON DATA STORE;;Sep 01, 2012
+ ;
+SETORDER(ORDER) ; set up the order subscripts
+ ; expects INDEX to be defined
+ ; returned structure:
+ ;   ORDER(0)=#                ; sort levels
+ ;   ORDER(#)=#|name           ; level # or field name
+ ;   ORDER(#,"dir")=1 or -1    ; asc or desc
+ ;   ; if the field is not part of the subscripts
+ ;   ORDER(#,"ftype")=1|2|3|4  ; field name structure
+ ;   ORDER(#,"field")=name     ; field name
+ ;   ORDER(#,"mult")=name      ; multiple name
+ ;   ORDER(#,"sub")=name       ; subfield name
+ ;   ORDER(#,"instance")=level ; which field to use for multiple instance
+ ;
+ N I,X,F,D,T,S                           ; F=field, D=direction, T=type
+ S S=0                                   ; S=number of sort levels
+ S X=$$LOW^XLFSTR($$TRIM^XLFSTR(ORDER))  ; if only "asc" or "desc" passed
+ I X="asc"!(X="desc") S ORDER=$P($G(INDEX("order"))," ")_" "_X
+ I '$L(ORDER) S ORDER=$G(INDEX("order")) ; use default if no ORDER parameter
+ I '$L(ORDER) S ORDER(0)=0 Q             ; no sorting
+ F I=1:1:$L(ORDER,",") S X=$P(ORDER,",",I) Q:'$L(X)  D  Q:$G(HTTPERR)
+ . S S=S+1
+ . S F=$$TRIM^XLFSTR($P(X," "))
+ . S D=$$LOW^XLFSTR($$TRIM^XLFSTR($P(X," ",2))) S:'$L(D) D="asc"
+ . S ORDER(I)=$S($D(INDEX("field",F)):INDEX("field",F),1:F)
+ . I +ORDER(I),$G(INDEX("collate",ORDER(I)))="V" S D=$S(D="asc":"desc",1:"asc")
+ . S ORDER(I,"dir")=$S(D="desc":-1,1:1)
+ . I $D(INDEX("key",ORDER(I))) S ORDER(I,"instance")=INDEX("key",ORDER(I))
+ . Q:+ORDER(I)
+ . N FTYPE
+ . D BLDFTYP^VPRJPQU(F,.FTYPE) M ORDER(I,"ftype")=FTYPE
+ . I '$D(FTYPE) D SETERROR^VPRJRUT(108,ORDER(I)) Q  ; unknown type
+ S ORDER(0)=S
+ Q
+SETORDF(ORDER) ; set up order subscripts without index
+ N I,X,F,D,T,S                           ; F=field, D=direction, T=type
+ S S=0                                   ; S=number of sort levels
+ S X=$$LOW^XLFSTR($$TRIM^XLFSTR(ORDER))  ; if only "asc" or "desc" passed
+ I X="asc"!(X="desc") D SETERROR^VPRJRUT(110) Q  ; missing order field
+ I '$L(ORDER) S ORDER(0)=0 Q             ; no sorting
+ F I=1:1:$L(ORDER,",") S X=$P(ORDER,",",I) Q:'$L(X)  D  Q:$G(HTTPERR)
+ . S S=S+1
+ . S F=$$TRIM^XLFSTR($P(X," "))
+ . S D=$$LOW^XLFSTR($$TRIM^XLFSTR($P(X," ",2))) S:'$L(D) D="asc"
+ . S ORDER(I)=F,ORDER(I,"dir")=$S(D="desc":-1,1:1)
+ . N FTYPE
+ . D BLDFTYP^VPRJPQU(F,.FTYPE) M ORDER(I,"ftype")=FTYPE
+ . I '$D(FTYPE) D SETERROR^VPRJRUT(108,ORDER(I)) Q  ; unknown type
+ S ORDER(0)=S
+ Q
+UNKARGS(ARGS,LIST) ; returns true if any argument is unknown
+ N X,UNKNOWN
+ S UNKNOWN=0,LIST=","_LIST_",start,limit,"
+ S X="" F  S X=$O(ARGS(X)) Q:X=""  I LIST'[(","_X_",") D
+ . S UNKNOWN=1
+ . D SETERROR^VPRJRUT(111,X)
+ Q UNKNOWN
+ ;
+BUILD ; Build the return records in the proper sort order
+ ; Expects:  ORDER, TEMPLATE
+ Q:+$G(HTTPERR)>0
+ N KEY,KINST,SORT,RECNUM
+ ;
+ S RECNUM=-1
+ ; case
+ I ORDER(0)=0 D  G X0
+ . S KEY="" F  S KEY=$O(^TMP("VPRDATA",$J,KEY)) Q:KEY=""  D
+ . . S KINST="" F  S KINST=$O(^TMP("VPRDATA",$J,KEY,KINST)) Q:KINST=""  D ADDOBJ(^(KINST))
+ I ORDER(0)=1 D  G X0
+ . S SORT(1)="" F  S SORT(1)=$O(^TMP("VPRDATA",$J,SORT(1)),ORDER(1,"dir")) Q:SORT(1)=""  D
+ . . S KEY="" F  S KEY=$O(^TMP("VPRDATA",$J,SORT(1),KEY)) Q:KEY=""  D
+ . . . S KINST="" F  S KINST=$O(^TMP("VPRDATA",$J,SORT(1),KEY,KINST)) Q:KINST=""  D ADDOBJ(^(KINST))
+ I ORDER(0)=2 D  G X0
+ . S SORT(1)="" F  S SORT(1)=$O(^TMP("VPRDATA",$J,SORT(1)),ORDER(1,"dir")) Q:SORT(1)=""  D
+ . . S SORT(2)="" F  S SORT(2)=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2)),ORDER(2,"dir")) Q:SORT(2)=""  D
+ . . . S KEY="" F  S KEY=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2),KEY)) Q:KEY=""  D
+ . . . . S KINST="" F  S KINST=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2),KEY,KINST)) Q:KINST=""  D ADDOBJ(^(KINST))
+ I ORDER(0)=3 D  G X0
+ . S SORT(1)="" F  S SORT(1)=$O(^TMP("VPRDATA",$J,SORT(1)),ORDER(1,"dir")) Q:SORT(1)=""  D
+ . . S SORT(2)="" F  S SORT(2)=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2)),ORDER(2,"dir")) Q:SORT(2)=""  D
+ . . . S SORT(3)="" F  S SORT(3)=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2),SORT(3)),ORDER(3,"dir")) Q:SORT(3)=""  D
+ . . . . S KEY="" F  S KEY=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2),SORT(3),KEY)) Q:KEY=""  D
+ . . . . . S KINST="" F  S KINST=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2),SORT(3),KEY,KINST)) Q:KINST=""  D ADDOBJ(^(KINST))
+ I ORDER(0)=4 D  G X0
+ . S SORT(1)="" F  S SORT(1)=$O(^TMP("VPRDATA",$J,SORT(1)),ORDER(1,"dir")) Q:SORT(1)=""  D
+ . . S SORT(2)="" F  S SORT(2)=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2)),ORDER(2,"dir")) Q:SORT(2)=""  D
+ . . . S SORT(3)="" F  S SORT(3)=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2),SORT(3)),ORDER(3,"dir")) Q:SORT(3)=""  D
+ . . . . S SORT(4)="" F  S SORT(4)=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2),SORT(3),SORT(4)),ORDER(4,"dir")) Q:SORT(4)=""  D
+ . . . . . S KEY="" F  S KEY=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2),SORT(3),SORT(4),KEY)) Q:KEY=""  D
+ . . . . . . S KINST="" F  S KINST=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2),SORT(3),SORT(4),KEY,KINST)) Q:KINST=""  D ADDOBJ(^(KINST))
+ I ORDER(0)=5 D  G X0
+ . S SORT(1)="" F  S SORT(1)=$O(^TMP("VPRDATA",$J,SORT(1)),ORDER(1,"dir")) Q:SORT(1)=""  D
+ . . S SORT(2)="" F  S SORT(2)=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2)),ORDER(2,"dir")) Q:SORT(2)=""  D
+ . . . S SORT(3)="" F  S SORT(3)=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2),SORT(3)),ORDER(3,"dir")) Q:SORT(3)=""  D
+ . . . . S SORT(4)="" F  S SORT(4)=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2),SORT(3),SORT(4)),ORDER(4,"dir")) Q:SORT(4)=""  D
+ . . . . . S SORT(5)="" F  S SORT(5)=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2),SORT(3),SORT(4),SORT(5)),ORDER(5,"dir")) Q:SORT(5)=""  D
+ . . . . . . S KEY="" F  S KEY=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2),SORT(3),SORT(4),SORT(5),KEY)) Q:KEY=""  D
+ . . . . . . . S KINST="" F  S KINST=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2),SORT(3),SORT(4),SORT(5),KEY,KINST)) Q:KINST=""  D ADDOBJ(^(KINST))
+ I ORDER(0)=6 D  G X0
+ . S SORT(1)="" F  S SORT(1)=$O(^TMP("VPRDATA",$J,SORT(1)),ORDER(1,"dir")) Q:SORT(1)=""  D
+ . . S SORT(2)="" F  S SORT(2)=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2)),ORDER(2,"dir")) Q:SORT(2)=""  D
+ . . . S SORT(3)="" F  S SORT(3)=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2),SORT(3)),ORDER(3,"dir")) Q:SORT(3)=""  D
+ . . . . S SORT(4)="" F  S SORT(4)=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2),SORT(3),SORT(4)),ORDER(4,"dir")) Q:SORT(4)=""  D
+ . . . . . S SORT(5)="" F  S SORT(5)=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2),SORT(3),SORT(4),SORT(5)),ORDER(5,"dir")) Q:SORT(5)=""  D
+ . . . . . . S SORT(6)="" F  S SORT(6)=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2),SORT(3),SORT(4),SORT(5),SORT(6)),ORDER(6,"dir")) Q:SORT(6)=""  D
+ . . . . . . . S KEY="" F  S KEY=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2),SORT(3),SORT(4),SORT(5),SORT(6),KEY)) Q:KEY=""  D
+ . . . . . . . . S KINST="" F  S KINST=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2),SORT(3),SORT(4),SORT(5),SORT(6),KEY,KINST)) Q:KINST=""  D ADDOBJ(^(KINST))
+ I ORDER(0)=7 D  G X0
+ . S SORT(1)="" F  S SORT(1)=$O(^TMP("VPRDATA",$J,SORT(1)),ORDER(1,"dir")) Q:SORT(1)=""  D
+ . . S SORT(2)="" F  S SORT(2)=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2)),ORDER(2,"dir")) Q:SORT(2)=""  D
+ . . . S SORT(3)="" F  S SORT(3)=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2),SORT(3)),ORDER(3,"dir")) Q:SORT(3)=""  D
+ . . . . S SORT(4)="" F  S SORT(4)=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2),SORT(3),SORT(4)),ORDER(4,"dir")) Q:SORT(4)=""  D
+ . . . . . S SORT(5)="" F  S SORT(5)=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2),SORT(3),SORT(4),SORT(5)),ORDER(5,"dir")) Q:SORT(5)=""  D
+ . . . . . . S SORT(6)="" F  S SORT(6)=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2),SORT(3),SORT(4),SORT(5),SORT(6)),ORDER(6,"dir")) Q:SORT(6)=""  D
+ . . . . . . . S SORT(7)="" F  S SORT(7)=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2),SORT(3),SORT(4),SORT(5),SORT(6),SORT(7)),ORDER(7,"dir")) Q:SORT(7)=""  D
+ . . . . . . . . S KEY="" F  S KEY=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2),SORT(3),SORT(4),SORT(5),SORT(6),SORT(7),KEY)) Q:KEY=""  D
+ . . . . . . . . . S KINST="" F  S KINST=$O(^TMP("VPRDATA",$J,SORT(1),SORT(2),SORT(3),SORT(4),SORT(5),SORT(6),SORT(7),KEY,KINST)) Q:KINST=""  D ADDOBJ(^(KINST))
+X0 ; end case
+ S ^TMP($J,"total")=RECNUM+1 ; add 1 since RECNUM is 0 based
+ S ^TMP($J,"template")=TEMPLATE
+ Q
+ADDOBJ(VAL) ; add object/template in sequence to the return list
+ S RECNUM=RECNUM+1
+ S ^TMP($J,"data",RECNUM,KEY,KINST)=VAL ; right now the VAL is just the PID
+ Q
+ ;

@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-cascade="all,delete-orphan">
+
+	 <class table="clinical_procedure" entity-name="procedure">
+    	<id name="uid" length="64" type="string"/>
+        <property name="pid" length="64" type="string"/>
+        <property name="json" type="text"/>
+		<property name="category" type="string"/>
+		<property name="consultProcedure" type="string" column="consult_procedure"/>
+		<property name="dateTime" type="string" column="date_time"/>
+		<property name="kind" type="string"/>
+		<property name="localId" type="string" column="local_id"/>
+		<property name="orderId" type="string" column="order_id"/>
+		<property name="reason" type="string"/>
+		<property name="service" type="string"/>
+		<property name="status" type="string"/>
+		<property name="summary" type="text"/>
+		<property name="typeCode" type="string" column="type_code"/>
+		<property name="typeName" type="text" column="type_name"/>
+		<property name="encounterUid" type="string" column="encounter_uid"/>
+		<property name="facilityName" type="string" column="facility_name"/>
+		<property name="facilityCode" type="string" column="facility_code"/>
+		
+		<!-- I did not see any use of modifiers in any of the domains coming over, nor did I see modifiers used in viewdefs anywhere... so... 
+		<set name="modifiers" inverse="false" lazy="true" table="clinical_procedure_modifier" cascade="all">
+            <key>
+                <column name="procedure_modifiers_id" />
+            </key>
+            <many-to-many entity-name="EXT.DOMAIN.cpe.vpr.Modifier">
+                <column name="modifier_id" />
+            </many-to-many>
+        </set> -->
+        <!-- Replaced by pid in default fields (the ones that should be extended via extends but apparently don't work via extends so we have to copy them to all these mappings...) 
+        <many-to-one name="patient" class="EXT.DOMAIN.cpe.vpr.Patient">
+            <column name="patient_id" not-null="true" />
+        </many-to-one> -->
+        <list name="providers">
+            <key column="procedure_id" not-null="true" />
+            <index column="providers_idx" />
+            <one-to-many entity-name="ProcedureProviderMap" />
+        </list>
+        <list name="results">
+            <key column="procedure_id" not-null="true" />
+            <index column="results_idx" />
+            <one-to-many entity-name="ProcedureResultMap"/>
+        </list>
+    </class>
+    
+    <union-subclass table="procedure_provider" entity-name="ProcedureProviderMap" extends="POMObjectMap">
+		<property name="name" type="string"/>
+		<property name="uid" type="string"/>
+    </union-subclass>
+    
+    <union-subclass table="procedure_result" entity-name="ProcedureResultMap" extends="POMObjectMap">
+		<property name="localTitle" type="string" column="local_title"/>
+		<property name="uid" type="string"/>
+    </union-subclass>
+    
+</hibernate-mapping>

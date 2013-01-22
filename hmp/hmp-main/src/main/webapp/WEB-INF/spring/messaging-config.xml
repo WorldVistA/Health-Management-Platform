@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jms="http://www.springframework.org/schema/jms"
+       xmlns:amq="http://activemq.apache.org/schema/core"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+        http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-3.1.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
+        http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd">
+
+    <context:component-scan base-package="EXT.DOMAIN.cpe.vpr.sync.msg"/>
+
+    <amq:broker id="broker" brokerName="hmp-${hmp.server.id}" useJmx="true" persistent="true"
+                dataDirectory="${activemq.data.dir}"/>
+
+    <!--     <amq:connectionFactory id="amqConnectionFactory" brokerURL="${activemq.broker.url}" depends-on="broker"/> -->
+    <bean id="amqConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory"
+          p:brokerURL="${activemq.broker.url}" depends-on="broker"/>
+
+    <bean id="pooledJmsConnectionFactory" class="org.apache.activemq.pool.PooledConnectionFactory" lazy-init="true"
+          destroy-method="stop"
+          p:connectionFactory-ref="amqConnectionFactory"/>
+
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate" lazy-init="true"
+          p:connectionFactory-ref="pooledJmsConnectionFactory"/>
+
+    <bean id="jmsSyncErrorDao" class="EXT.DOMAIN.cpe.vpr.dao.jms.JmsSyncErrorDao"
+          p:jmsTemplate-ref="jmsTemplate"
+          p:conversionService-ref="vprConversionService"
+          p:errorQueueMBean-ref="vprErrorQueueMBean"/>
+
+    <!-- The Hibernate interceptor, which takes care of opening and closing hibernate session around method calls. -->
+    <bean id="hibernateInterceptor" class="org.springframework.orm.hibernate3.HibernateInterceptor"
+          p:sessionFactory-ref="sessionFactory"/>
+
+    <bean id="syncMessageDispatcherProxy" class="org.springframework.aop.framework.ProxyFactoryBean"
+          p:target-ref="syncMessageDispatcher"
+          p:proxyInterfaces="EXT.DOMAIN.cpe.vpr.sync.msg.IMapMessageHandler"
+          p:interceptorNames="hibernateInterceptor"/>
+
+    <bean id="loadPatientMessageHandler" class="EXT.DOMAIN.cpe.vpr.sync.msg.LoadPatientMessageHandler"
+          p:centralImporter-ref="centralImporter"/>
+
+    <bean id="syncMessageDispatcher" class="EXT.DOMAIN.cpe.vpr.sync.msg.SyncMessageDispatcher" lazy-init="true">
+        <property name="actionToProcessorMap">
+            <map>
+                <entry>
+                    <key>
+                        <util:constant static-field="EXT.DOMAIN.cpe.vpr.sync.SyncAction.PATIENT_LOAD"/>
+                    </key>
+                    <ref bean="loadPatientMessageHandler"/>
+                </entry>
+                <entry>
+                    <key>
+                        <util:constant static-field="EXT.DOMAIN.cpe.vpr.sync.SyncAction.PATIENT_LOAD_COMPLETE"/>
+                    </key>
+                    <ref bean="loadPatientCompleteMessageHandler"/>
+                </entry>
+                <entry>
+                    <key>
+                        <util:constant static-field="EXT.DOMAIN.cpe.vpr.sync.SyncAction.PATIENT_REINDEX"/>
+                    </key>
+                    <ref bean="reindexPatientMessageHandler"/>
+                </entry>
+                <entry>
+                    <key>
+                        <util:constant static-field="EXT.DOMAIN.cpe.vpr.sync.SyncAction.PATIENT_CLEAR"/>
+                    </key>
+                    <ref bean="clearPatientMessageHandler"/>
+                </entry>
+                <entry>
+                    <key>
+                        <util:constant static-field="EXT.DOMAIN.cpe.vpr.sync.SyncAction.ITEM_CLEAR"/>
+                    </key>
+                    <ref bean="clearItemMessageHandler"/>
+                </entry>
+                <entry>
+                    <key>
+                        <util:constant static-field="EXT.DOMAIN.cpe.vpr.sync.SyncAction.IMPORT_CHUNK"/>
+                    </key>
+                    <ref bean="importChunkMessageHandler"/>
+                </entry>
+                <entry>
+                    <key>
+                        <util:constant static-field="EXT.DOMAIN.cpe.vpr.sync.SyncAction.VPR_UPDATE_COMPLETE"/>
+                    </key>
+                    <ref bean="vprUpdateCompleteMessageHandler"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="syncMessageErrorHandler" class="EXT.DOMAIN.cpe.vpr.sync.msg.SyncMessageErrorHandler"/>
+
+    <jms:listener-container
+            error-handler="syncMessageErrorHandler"
+            connection-factory="pooledJmsConnectionFactory"
+            concurrency="100">
+        <jms:listener destination="vpr.work" ref="syncMessageDispatcherProxy" method="onMessage"/>
+        <!--<jms:listener destination="vpr.error" ref="syncErrorMessageHandler" method="onMessage"/>-->
+    </jms:listener-container>
+
+    <!--
+        -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false
+         Add this line to MAVEN_OPTS, to start the app with maven jetty plugin. This options have to be set on VM to enable the JMX agent.
+         Default port is 1099. For development on Tomcat port is different from default and set to 8189 in setEnv.sh and setEvn.bat.
+         Override the port in hmp.properties to set the remote agent port other then default 1099
+         hmp.jmx.rmi.port=8189 for innovation lab Tomcat servers
+    -->
+    <bean id="registry" class="org.springframework.remoting.rmi.RmiRegistryFactoryBean" p:port="${hmp.jmx.rmi.port}"/>
+
+    <bean id="mBeanServerConnection" class="org.springframework.jmx.support.MBeanServerConnectionFactoryBean"
+          p:serviceUrl="service:jmx:rmi:///jndi/rmi://localhost:${hmp.jmx.rmi.port}/jmxrmi"/>
+
+    <bean id="vprWorkQueueMBean" class="org.springframework.jmx.access.MBeanProxyFactoryBean"
+          p:proxyInterface="org.apache.activemq.broker.jmx.QueueViewMBean"
+          p:objectName="org.apache.activemq:BrokerName=hmp-${hmp.server.id},Type=Queue,Destination=vpr.work"/>
+
+    <bean id="vprErrorQueueMBean" class="org.springframework.jmx.access.MBeanProxyFactoryBean"
+          p:proxyInterface="org.apache.activemq.broker.jmx.QueueViewMBean"
+          p:objectName="org.apache.activemq:BrokerName=hmp-${hmp.server.id},Type=Queue,Destination=vpr.error"/>
+
+</beans>

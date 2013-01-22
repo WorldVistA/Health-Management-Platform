@@ -1,0 +1,182 @@
+VPRJPR ;SLC/KCM -- Handle RESTful operations for patient objects
+ ;;1.0;JSON DATA STORE;;Sep 01, 2012
+ ;
+PUTPT(ARGS,BODY) ; PUTs patient demographics into the database
+ N DEMOG,ERR,PID
+ D DECODE^VPRJSON("BODY","DEMOG","ERR") I $D(ERR) D SETERROR^VPRJRUT(202) QUIT ""
+ I $G(DEMOG("uid"))="" D SETERROR^VPRJRUT(211) QUIT ""
+ S PID=$$GETPID(.DEMOG) I 'PID QUIT ""
+ S DEMOG("pid")=PID
+ K BODY
+ D ENCODE^VPRJSON("DEMOG","BODY","ERR") I $D(ERR) D SETERROR^VPRJRUT(202) QUIT ""
+ Q "/vpr/"_PID_"/"_$$SAVE^VPRJP(PID,.BODY)
+ ;
+GETPID(PD) ; returns matching PID or new PID
+ N PID,ICN,DFN
+ S ICN=$G(PD("icn")),DFN=$P($G(PD("uid")),":",3,4),PID=0
+ I $L(ICN) S PID=$O(^VPRPT("PID","ICN",ICN,"")) QUIT:PID $$VALPID(PID,.PD)
+ I $L(DFN) S PID=$O(^VPRPT("PID","DFN",DFN,"")) QUIT:PID $$VALPID(PID,.PD)
+ ; no PID found, so we need to create one
+ N PCNT
+ L +^VPRPT("PID"):2 E  D SETERROR^VPRJRUT(502) Q 0
+ S ^VPRPT("PID")=$G(^VPRPT("PID"))+1,PID=^VPRPT("PID")
+ S PCNT=$G(^VPRPTX("count","patient","patient"),0)
+ S ^VPRPTX("count","patient","patient")=PCNT+1
+ L -^VPRPT("PID")
+ TSTART
+ I $L(ICN) S ^VPRPT("PID","ICN",ICN,PID)="",^VPRPT("PID",PID,"ICN",ICN)=""
+ I $L(DFN) S ^VPRPT("PID","DFN",DFN,PID)="",^VPRPT("PID",PID,"DFN",DFN)=""
+ TCOMMIT
+ Q PID
+ ;
+VALPID(PID,PD) ; Returns PID if validated, 0 otherwise
+ N UID S UID=PD("uid")
+ I $G(PD("ssn"))'=$G(^VPRPT(PID,UID,"ssn")) D SETERROR^VPRJRUT(212) QUIT 0
+ I $G(PD("dateOfBirth"))'=$G(^VPRPT(PID,UID,"dateOfBirth")) D SETERROR^VPRJRUT(212) QUIT 0
+ Q PID
+ ;
+PID(RESULT,ARGS) ; Returns patient demographics for dfn or icn
+   N ICNDFN,PID
+   S ICNDFN=$G(ARGS("icndfn"),0)
+   S ICNDFN=$TR(ICNDFN,";",":")
+   S TYPE=$S(ICNDFN[":":"DFN",1:"ICN") ; if there is a colon in there, its a qualified DFN, otherwise an ICN
+   S PID=$O(^VPRPT("PID",TYPE,ICNDFN,""))
+   I 'PID S PID=ICNDFN ; try it as a PID if there was no entry for qualified DFN or ICN
+   S ARGS("pid")=PID
+   D GETPT^VPRJPR(.RESULT,.ARGS)
+   Q
+   ;
+GETPT(RESULT,ARGS) ; Returns patient demographics
+ I $$UNKARGS^VPRJCU(.ARGS,"pid,template,icndfn") Q
+ N UID
+ S UID=$O(^VPRPT("PID",$G(ARGS("pid"),0),"DFN",""))
+ I '$L(UID) D SETERROR^VPRJRUT(211) Q
+ S UID="urn:va:"_UID_":pat:"_$P(UID,":",2)
+ D QKEY^VPRJPQ(ARGS("pid"),UID)
+ S RESULT=$NA(^TMP($J)),RESULT("pageable")=""
+ Q
+PUTOBJ(ARGS,BODY) ; PUTs an object for a patient into the database
+ Q "/vpr/"_ARGS("pid")_"/"_$$SAVE^VPRJP(ARGS("pid"),.BODY)
+ ;
+GETOBJ(RESULT,ARGS) ; gets an object given a UID
+ I $$UNKARGS^VPRJCU(.ARGS,"pid,uid,template") Q
+ D QKEY^VPRJPQ($G(ARGS("pid")),$G(ARGS("uid")),$G(ARGS("template")))
+ S RESULT=$NA(^TMP($J)),RESULT("pageable")=""
+ Q
+GETUID(RESULT,ARGS) ; gets an object given a UID only (no PID)
+ I $$UNKARGS^VPRJCU(.ARGS,"pid,uid,template") Q
+ I '$L(ARGS("uid")) D SETERROR^VPRJRUT(207) Q
+ N PID S PID=$O(^VPRPT("KEY",ARGS("uid"),0))
+ I 'PID D SETERROR^VPRJRUT(203) Q
+ D QKEY^VPRJPQ(PID,ARGS("uid"),$G(ARGS("template")))
+ S RESULT=$NA(^TMP($J)),RESULT("pageable")=""
+ Q
+INDEX(RESULT,ARGS) ; GET for objects by index
+ I $$UNKARGS^VPRJCU(.ARGS,"pid,indexName,range,order,bail,template,filter") Q
+ N PID,INDEX,RANGE,ORDER,BAIL,TEMPLATE,FILTER
+ S PID=$G(ARGS("pid"))
+ S INDEX=$G(ARGS("indexName"))
+ S RANGE=$G(ARGS("range"))
+ S ORDER=$G(ARGS("order"))
+ S BAIL=$G(ARGS("bail"))
+ S TEMPLATE=$G(ARGS("template"))
+ S FILTER=$G(ARGS("filter"))
+ ;
+ ; check to see if we can return a cached result
+ N HASHSTR,HASHTS,HASH
+ S HASHSTR="vpr/index/"_PID_"/"_INDEX_"/"_RANGE_"/"_ORDER_"/"_TEMPLATE_"/"_FILTER
+ I $$CACHED(PID,INDEX,HASHSTR,.HASH,.HASHTS) D  Q
+ . S RESULT=$NA(^VPRTMP(HASH)),RESULT("pageable")=""
+ ;
+ ; otherwise prepare cache and do the regular query
+ S ^TMP($J,"query")=HASHSTR,^TMP($J,"timestamp")=HASHTS
+ S ^TMP($J,"pid")=PID,^TMP($J,"index")=INDEX,^TMP($J,"hash")=HASH
+ D QINDEX^VPRJPQ(PID,INDEX,RANGE,ORDER,BAIL,TEMPLATE,FILTER)
+ S RESULT=$NA(^TMP($J)),RESULT("pageable")=""
+ Q
+CACHED(PID,INDEX,HASHSTR,HASH,HASHTS) ; return TRUE if query cached and the cache is current
+ ; .HASH returns the hashed value of HASHSTR
+ ; .HASHTS returns the current $H of the index used
+ Q:'$L(INDEX) 0  Q:'$L(PID) 0
+ N MTHD
+ S MTHD=$G(^VPRMETA("index",INDEX,"common","method"))
+ S HASHTS=$G(^VPRPTI(PID,MTHD,INDEX))
+ S HASH=$$HASH^VPRJRUT(HASHSTR)
+ I '$D(^VPRTMP(HASH,"query")) Q 0        ; no cached data
+ I ^VPRTMP(HASH,"query")'=HASHSTR Q 0    ; hash matched, but not original string
+ I ^VPRTMP(HASH,"timestamp")=HASHTS Q 1  ; timestamps match, quit true
+ Q 0                                     ; default to no cached data
+ ;
+LAST(RESULT,ARGS) ; GET for objects by index
+ I $$UNKARGS^VPRJCU(.ARGS,"pid,indexName,range,order,bail,template,filter") Q
+ N PID,INDEX,RANGE,ORDER,BAIL,TEMPLATE,FILTER
+ S PID=$G(ARGS("pid"))
+ S INDEX=$G(ARGS("indexName"))
+ S RANGE=$G(ARGS("range"))
+ S ORDER=$G(ARGS("order"))
+ S BAIL=$G(ARGS("bail"))
+ S TEMPLATE=$G(ARGS("template"))
+ S FILTER=$G(ARGS("filter"))
+ D QLAST^VPRJPQ(PID,INDEX,RANGE,ORDER,BAIL,TEMPLATE,FILTER)
+ S RESULT=$NA(^TMP($J)),RESULT("pageable")=""
+ Q
+FIND(RESULT,ARGS) ; GET for objects using 'where' criteria
+ I $$UNKARGS^VPRJCU(.ARGS,"pid,collection,order,bail,template,filter") Q
+ N PID,COLL,ORDER,BAIL,TEMPLATE,FILTER
+ S PID=$G(ARGS("pid"))
+ S COLL=$G(ARGS("collection"))
+ S ORDER=$G(ARGS("order"))
+ S BAIL=$G(ARGS("bail"))
+ S TEMPLATE=$G(ARGS("template"))
+ S FILTER=$G(ARGS("filter"))
+ D QFIND^VPRJPQ(PID,COLL,ORDER,BAIL,TEMPLATE,FILTER)
+ S RESULT=$NA(^TMP($J)),RESULT("pageable")=""
+ Q
+COUNT(RESULT,ARGS) ; GET for count of domain objects
+ I $$UNKARGS^VPRJCU(.ARGS,"pid,countName") Q
+ D QTALLY^VPRJPQ(ARGS("pid"),ARGS("countName"))
+ S RESULT=$NA(^TMP($J))
+ Q
+ALLCOUNT(RESULT,ARGS) ; GET for count of objects across patients
+ I $$UNKARGS^VPRJCU(.ARGS,"countName") Q
+ D QCOUNT^VPRJAQ(ARGS("countName"))
+ S RESULT=$NA(^TMP($J))
+ Q
+ALLINDEX(RESULT,ARGS) ; GET for index across patients
+ I $$UNKARGS^VPRJCU(.ARGS,"indexName,template") Q
+ D QINDEX^VPRJAQ(ARGS("indexName"),ARGS("template"))
+ S RESULT=$NA(^TMP($J))
+ Q
+ALLFIND(RESULT,ARGS) ; GET using filter across all patients
+ I $$UNKARGS^VPRJCU(.ARGS,"collection,order,bail,template,filter") Q
+ N COLL,ORDER,BAIL,TEMPLATE,FILTER
+ S COLL=$G(ARGS("collection"))
+ S ORDER=$G(ARGS("order"))
+ S BAIL=$G(ARGS("bail"))
+ S TEMPLATE=$G(ARGS("template"))
+ S FILTER=$G(ARGS("filter"))
+ I '$L(FILTER) D SETERROR^VPRJRUT(112) Q
+ D QFIND^VPRJAQ(COLL,ORDER,BAIL,TEMPLATE,FILTER)
+ S RESULT=$NA(^TMP($J)),RESULT("pageable")=""
+ Q
+DELUID(RESULT,ARGS) ; DELETE an object
+ I $$UNKARGS^VPRJCU(.ARGS,"pid,uid") Q
+ N PID
+ S PID=$G(ARGS("pid"))
+ I 'PID S PID=$O(^VPRPT("KEY",ARGS("uid"),0))
+ I 'PID D SETERROR^VPRJRUT(404) QUIT ""
+ D DELETE^VPRJP(PID,ARGS("uid"))
+ S RESULT=$NA(^TMP($J))
+ Q
+DELPT(RESULT,ARGS) ; DELETE a patient
+ I $$UNKARGS^VPRJCU(.ARGS,"pid") Q
+ I '$G(ARGS("pid")) D SETERROR^VPRJRUT(211) Q
+ D CLEARPT^VPRJP(ARGS("pid"))
+ S RESULT=""
+ Q
+DELALL(RESULT,ARGS) ; DELETE the entire VPR store
+ I $$UNKARGS^VPRJCU(.ARGS,"confirm") Q
+ I $G(ARGS("confirm"))'="true" D SETERROR^VPRJRUT(405) Q
+ D KILLDB^VPRJPM
+ S RESULT=""
+ Q

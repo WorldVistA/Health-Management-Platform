@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure.dtd">
+<Configure class="org.eclipse.jetty.webapp.WebAppContext">
+    <Call name="setAttribute">
+        <Arg>org.eclipse.jetty.server.webapp.WebInfIncludeJarPattern</Arg>
+        <Arg>.*/.*foo-[^/]\.jar$</Arg>
+    </Call>
+	<Set name="sessionHandler">
+	  <New class="org.eclipse.jetty.server.session.SessionHandler">
+	    <Arg>
+	      <New class="org.eclipse.jetty.server.session.HashSessionManager">
+	        <Set name="storeDirectory">data/sessions</Set>
+	      </New>
+	    </Arg>
+	  </New>
+	</Set>    
+</Configure>

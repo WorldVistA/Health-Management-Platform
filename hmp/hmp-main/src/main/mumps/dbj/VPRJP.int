@@ -1,0 +1,148 @@
+VPRJP ;SLC/KCM -- Save / Retrieve Patient-Related JSON objects
+ ;;1.0;JSON DATA STORE;;Sep 01, 2012
+ ;
+SAVE(PID,JSON) ; Save a JSON encoded object
+ N UID,COLL,KEY,OBJECT,OLDOBJ,VPRJERR,INDEXER,TLTARY
+ ;
+ ; decode JSON into object and extract required fields
+ D DECODE^VPRJSON("JSON","OBJECT","VPRJERR")
+ I $L($G(VPRJERR)) D SETERROR^VPRJRUT(202,VPRJERR) QUIT ""
+ ;I PID'=$G(OBJECT("patient")) D SETERROR^VPRJRUT(205,$G(OBJECT("patient"))) QUIT ""
+ S UID=$G(OBJECT("uid")) I '$L(UID) D SETERROR^VPRJRUT(207) QUIT ""
+ ;
+ ; Parse out the collection, and key from the UID
+ ; Currently assuming UID is urn:va:vistaAccount:localId:type...
+ ; For example:  urn:va:93EF:34014:medication
+ N COLL S COLL=$P(UID,":",5)
+ I '$L(COLL) D SETERROR^VPRJRUT(210,UID) QUIT ""
+ ;
+ L +^VPRPT(PID,UID):2 E  D SETERROR^VPRJRUT(502) QUIT ""
+ ; kill the old indexes and object
+ S OLDOBJ="" M OLDOBJ=^VPRPT(PID,UID)
+ D BLDTLT(COLL,.OBJECT,.TLTARY)
+ TSTART
+ K ^VPRPT(PID,UID)
+ K ^VPRPT("JSON",PID,UID)
+ ;
+ S ^VPRPT("KEY",UID,PID)=""
+ M ^VPRPT("JSON",PID,UID)=JSON
+ M ^VPRPT("TEMPLATE",PID,UID)=TLTARY
+ M ^VPRPT(PID,UID)=OBJECT
+ D INDEX^VPRJPX(PID,UID,.OLDOBJ,.OBJECT)
+ TCOMMIT
+ L -^VPRPT(PID,UID)
+ S ^VPRPTI(PID,"every","every")=$H  ; timestamps latest update for this PID
+ ;
+ Q $$URLENC^VPRJRUT(UID)  ; no errors
+ ;
+BLDTLT(COLL,OBJECT,TLTARY) ; Build JSON objects for associated templates
+ ; COLL identifies the collection
+ ; OBJECT is the decoded JSON object as a MUMPS array
+ ; TLTARY is the array of JSON objects that get built based on templates
+ N TNAME,TOBJ,TJSON,TERR,EXCLUDE,FIELD
+ S TNAME="" F  S TNAME=$O(^VPRMETA("template",COLL,TNAME)) Q:TNAME=""  D
+ . S EXCLUDE=$G(^VPRMETA("template",COLL,TNAME,"exclude"))
+ . K TOBJ,TJSON,TERR
+ . I EXCLUDE M TOBJ=OBJECT
+ . S FIELD="" F  S FIELD=$O(^VPRMETA("template",COLL,TNAME,"fields",FIELD)) Q:FIELD=""  D
+ . . I EXCLUDE D DELFLD(FIELD,.TOBJ) Q
+ . . D ADDFLD(FIELD,.OBJECT,.TOBJ)
+ . D ENCODE^VPRJSON("TOBJ","TJSON","TERR")
+ . I '$D(TERR) M TLTARY(TNAME)=TJSON
+ Q
+DELFLD(FIELD,TOBJ) ; exclude fields
+ ; if the field is in an array
+ I FIELD["[]" D  QUIT
+ . N TOP,SUB,NUM,REF
+ . S TOP=$P(FIELD,"[]"),SUB=$P(FIELD,"[].",2),REF=""
+ . I SUB="*" K TOBJ(TOP) Q        ; remove all fields of the array
+ . I $L(SUB,".")>1 S REF=$$BLDREF(FIELD)
+ . S NUM="" F  S NUM=$O(TOBJ(TOP,NUM)) Q:'NUM  D
+ . . I $L(REF) K @("TOBJ"_REF) Q  ; remove specific subfield of array (complex)
+ . . K TOBJ(TOP,NUM,SUB)          ; remove specific subfield of array (simple)
+ ;
+ ; if the field is top level
+ I $L(FIELD,".")=1 K TOBJ(FIELD) QUIT  ; remove top level field (simple)
+ ;
+ ; if the field is complex
+ N REF S REF=$$BLDREF(FIELD)
+ K @("TOBJ"_REF)                  ; remove top level field (complex)
+ Q
+ADDFLD(FIELD,OBJECT,TOBJ) ; include fields
+ ; if the field is in an array
+ I FIELD["[]" D  QUIT
+ . N TOP,SUB,NUM,REF,OREF,TREF
+ . S TOP=$P(FIELD,"[]"),SUB=$P(FIELD,"[].",2),REF=""
+ . I SUB="*" M TOBJ(TOP)=OBJECT(TOP) Q  ; merge full array
+ . I $L(SUB,".")>1 S REF=$$BLDREF(FIELD)
+ . S NUM="" F  S NUM=$O(OBJECT(TOP,NUM)) Q:'NUM  D
+ . . I $L(REF),$D(@("OBJECT"_REF)) S @("TOBJ"_REF)=@("OBJECT"_REF) Q   ; complex sub-field
+ . . I $D(OBJECT(TOP,NUM,SUB)) S TOBJ(TOP,NUM,SUB)=OBJECT(TOP,NUM,SUB) ; simple sub-field
+ ;
+ ; if the field is top level
+ I $L(FIELD,".")=1,$D(OBJECT(FIELD)) S TOBJ(FIELD)=OBJECT(FIELD) QUIT  ; simple field
+ ;
+ ; if the field is complex
+ N REF S REF=$$BLDREF(FIELD)
+ I $D(@("OBJECT"_REF)) S @("TOBJ"_REF)=@("OBJECT"_REF)                 ; complex field
+ Q
+BLDREF(FIELD) ; build a node given a field name
+ N I,REF,TOP
+ S TOP="",REF=""
+ I FIELD["[]" S TOP=""""_$P(FIELD,"[]")_""",NUM,",FIELD=$P(FIELD,"[].",2)
+ F I=1:1:$L(FIELD,".") S REF=REF_$S(I=1:"",1:",")_""""_$P(FIELD,".",I)_""""
+ Q "("_TOP_REF_")"
+ ;
+DELETE(PID,KEY) ; Delete an object given its UID
+ N OLDOBJ,OBJECT,COLL
+ S COLL=$P(KEY,":",5)
+ I '$L(COLL) D SETERROR^VPRJRUT(210,KEY) QUIT ""
+ I COLL="pat" D SETERROR^VPRJRUT(413,KEY) QUIT "" ; must delete entire patient instead 
+ ;
+ L +^VPRPT(PID,KEY):2 E  D SETERROR^VPRJRUT(502) QUIT ""
+ ; kill the old indexes and object
+ S OBJECT=""
+ S OLDOBJ="" M OLDOBJ=^VPRPT(PID,KEY)
+ TSTART
+ K ^VPRPT(PID,KEY)
+ K ^VPRPT("KEY",KEY,PID)
+ K ^VPRPT("JSON",PID,KEY)
+ K ^VPRPT("TEMPLATE",PID,KEY)
+ D INDEX^VPRJPX(PID,KEY,.OLDOBJ,.OBJECT)
+ TCOMMIT
+ L -^VPRPT(PID,KEY)
+ S ^VPRPT(PID,"every","every")=$H ; timestamps latest update for the PID
+ Q
+UPPER(X) ; return uppercase for X
+ Q $TR(X,"abcdefghijklmnopqrstuvwxyz","ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+ ;
+CLEARPT(PID) ; -- Clear data for patient
+ I '$D(^VPRPT(PID)) D SETERROR^VPRJRUT(214) QUIT ""
+ L +^VPRPT(PID):5 E  D SETERROR^VPRJRUT(502) QUIT ""
+ ;
+ N HASH ; remove cached queries
+ S HASH="" F  S HASH=$O(^VPRTMP("PID",PID,HASH)) Q:HASH=""  K ^VPRTMP(HASH)
+ K ^VPRTMP("PID",PID)
+ ;
+ N KEY ; remove the xref for UID's
+ S KEY="" F  S KEY=$O(^VPRPT(PID,KEY)) Q:KEY=""  K ^VPRPT("KEY",KEY,PID)
+ ;
+ D CLRCODES^VPRJPM(PID),CLREVIEW^VPRJPM(PID),CLRCOUNT^VPRJPM(PID)
+ ;
+ N ID,IDX ; remove the patient identifier indexes
+ F IDX="ICN","DFN" D
+ . S ID="" F  S ID=$O(^VPRPT("PID",PID,IDX,ID)) Q:ID=""  I $L(ID) D
+ . . K ^VPRPT("PID",IDX,ID,PID),^VPRPT("PID",PID,IDX,ID)
+ ;
+ N PCNT ; decrement the count of patients
+ L +^VPRPT("PID"):2 E  D SETERROR^VPRJRUT(502,"patient") QUIT
+ S PCNT=$G(^VPRPTX("count","patient","patient"),0)
+ S ^VPRPTX("count","patient","patient")=PCNT-1
+ L -^VPRPT("PID")
+ ;
+ K ^VPRPTI(PID)           ; kill all indexes for the patient
+ K ^VPRPT(PID)            ; kill all the data for the patient
+ K ^VPRPT("JSON",PID)     ; kill original JSON objects for the patient
+ K ^VPRPT("TEMPLATE",PID) ; kill the pre-compiled JSON objects for the patient
+ L -^VPRPT(PID)
+ Q

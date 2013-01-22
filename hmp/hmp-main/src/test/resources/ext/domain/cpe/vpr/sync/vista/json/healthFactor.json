@@ -1,0 +1,17 @@
+{
+    "category":{
+        "name":"TOBACCO",
+        "uid":"urn:va:factor-category:TOBACCO"
+    },
+    "comment":"THESE ARE COMMENTS FOR A HEALTH FACTOR",
+    "encounterUid":"urn:va:F484:100846:visit:7142",
+    "facilityCode":500,
+    "facilityName":"CAMP MASTER",
+    "kind":"Health Factor",
+    "localId":112,
+    "name":"PREVIOUS SMOKER",
+    "recorded":201006041300,
+    "severity":"",
+    "summary":"PREVIOUS SMOKER",
+    "uid":"urn:va:F484:100846:hf:112"
+}

@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-cascade="all,delete-orphan">
+	<class  entity-name="problem" table="problem">
+		<id name="uid" length="64" type="string" />
+		<property name="pid" length="64" type="string" />
+		<property name="json" type="text" />
+
+		<property name="acuityCode" type="string" />
+		<property name="acuityName" type="string" />
+		<property name="code" type="string" />
+		<!-- comments -->
+		<list name="comments">
+			<key column="problem_id" not-null="true" />
+			<index column="comments_idx" />
+			<one-to-many entity-name="problemComment" />
+		</list>
+		<property name="entered"  type="string" />
+		<property name="facilityCode" type="string" />
+		<property name="facilityName" type="string" />
+		<property name="history" type="string" />
+		<property name="icdCode" type="string" />
+		<property name="icdName" type="string" />
+		<property name="kind" type="string" />
+		<property name="localId" type="string" />
+		<property name="locationCode" type="string" />
+		<property name="locationName" type="string" />
+		<property name="onset" type="string" />
+		<!-- patient -->
+		<property name="predecessor" type="string" />
+		<property name="problemText" type="string" />
+		<property name="problemType" type="string" />
+		<property name="providerCode" type="string" />
+		<property name="providerName" type="string" />
+		<!-- provider -->
+		<property name="removed" type="boolean" />
+		<property name="resolved" type="string" />
+		<property name="service" type="string" />
+		<property name="serviceConnected" type="boolean" />
+		<property name="statusCode" type="string" />
+		<property name="statusName" type="string" />
+		<property name="successor" type="string" />
+		<property name="unverified" type="boolean" />
+		<property name="updated" type="string" />
+		<property name="version" type="string" />
+	</class>
+
+	<union-subclass table="problem_comment" entity-name="problemComment" extends="POMObjectMap">
+		<property name="comment" not-null="true" type="string" />
+		<property name="entered" type="string" />
+		<property name="enteredByName" type="string" />
+		<property name="enteredByCode" type="string" />
+		<property name="version" type="string" />
+	</union-subclass>
+
+</hibernate-mapping>

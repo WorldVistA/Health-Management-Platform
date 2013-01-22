@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.1.xsd"
+       default-lazy-init="true">
+    <!-- JDS template and connection manager -->
+    <bean id="jdsRestTemplate" class="org.springframework.web.client.RestTemplate"
+          c:requestFactory-ref="jdsHttpRequestFactory"/>
+    <bean id="jdsHttpRequestFactory" class="org.springframework.http.client.HttpComponentsClientHttpRequestFactory"
+          c:httpClient-ref="jdsHttpClient"/>
+    <bean id="jdsHttpClient" class="org.apache.http.impl.client.DefaultHttpClient"
+          c:conman-ref="jdsHttpConnectionManager"/>
+    <bean id="jdsHttpConnectionManager" class="org.apache.http.impl.conn.PoolingClientConnectionManager"
+          destroy-method="shutdown"/>
+    <bean id="jdsTemplate" class="EXT.DOMAIN.cpe.vpr.pom.jds.JdsTemplate"
+          p:restTemplate-ref="jdsRestTemplate"
+          p:jdsUrl="${jds.url}"
+          p:connectOnInitialization="false"/>
+
+    <!-- Exception translation bean post processor -->
+    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+
+    <!-- Hibernate SessionFactory -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"
+          p:dataSource-ref="dataSource"
+          p:namingStrategy-ref="namingStrategy"
+          p:configLocation="classpath:ext/domain/cpe/vpr/pom/hibernate/hibernate.cfg.xml">
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+            </props>
+        </property>
+        <!--<property name="eventListeners">-->
+        <!--<map>-->
+        <!--<entry key="merge">-->
+        <!--<bean class="org.springframework.orm.hibernate3.support.IdTransferringMergeEventListener"/>-->
+        <!--</entry>-->
+        <!--</map>-->
+        <!--</property>-->
+    </bean>
+
+    <bean id="namingStrategy" class="org.hibernate.cfg.ImprovedNamingStrategy"/>
+
+    <bean id="proxyHandler" class="org.codehaus.groovy.grails.orm.hibernate.proxy.HibernateProxyHandler"/>
+
+    <!-- Transaction manager for a single Hibernate SessionFactory (alternative to JTA) -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"
+          p:sessionFactory-ref="sessionFactory"/>
+
+    <!--
+		Exporter that exposes the Hibernate statistics service via JMX. Autodetects the
+		service MBean, using its bean name as JMX object name.
+	-->
+    <!--<context:mbean-export/>-->
+
+
+    <!--
+		Instruct Spring to perform declarative transaction management
+		automatically on annotated classes.
+	-->
+    <tx:annotation-driven/>
+
+    <!-- Hibernate's JMX statistics service -->
+    <!--<bean name="petclinic:type=HibernateStatistics" class="org.hibernate.jmx.StatisticsService">-->
+    <!--<property name="sessionFactory" ref="sessionFactory"/>-->
+    <!--</bean>-->
+
+    <!-- DAO layer configuration TODO: any way to DRY these out, maybe with BeanFactory?)-->
+    <bean id="routingDao" class="EXT.DOMAIN.cpe.vpr.dao.multi.DefaultRoutingDataStore"
+          p:dataStores-ref="dataStores"/>
+
+    <beans profile="properties-datasource">
+        <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+              destroy-method="close"
+              p:driverClassName="${database.driverClassName}"
+              p:url="${database.url}"
+              p:username="${database.username}"
+              p:password="${database.password}"
+              p:maxActive="150"
+              p:maxIdle="10"
+              p:minIdle="1"
+              p:initialSize="1"
+              p:minEvictableIdleTimeMillis="60000"
+              p:timeBetweenEvictionRunsMillis="60000"
+              p:maxWait="10000"/>
+    </beans>
+    <beans profile="jndi-datasource">
+        <jee:jndi-lookup id="dataSource" jndi-name="${datasource.name}"/>
+    </beans>
+
+    <beans profile="vpr-datastore-relational">
+        <bean id="hibernateGenericDao" class="EXT.DOMAIN.cpe.vpr.pom.hibernate.GenericHibMapDAO"
+              c:sessionFactory-ref="sessionFactory"
+              c:enableIndexTable="true"
+              c:enablePropertiesTable="true"/>
+
+        <bean id="hibernatePatientDao" class="EXT.DOMAIN.cpe.vpr.pom.hibernate.PatientHibMapDAO"
+              c:sessionFactory-ref="sessionFactory"/>
+
+        <util:map id="dataStores" key-type="java.lang.String" value-type="EXT.DOMAIN.cpe.vpr.pom.IDataStoreDAO"
+                  map-class="java.util.TreeMap">
+            <entry key="vpr-datastore-relational" value-ref="hibernateGenericDao"/>
+            <entry key="vpr-datastore-solr" value-ref="defaultSolrDao"/>
+        </util:map>
+    </beans>
+
+    <!-- JDS data source config -->
+    <beans profile="vpr-datastore-json">
+
+        <bean id="jdsGenericPOMObjectDao" class="EXT.DOMAIN.cpe.vpr.pom.jds.JdsGenericPOMObjectDAO"
+              p:jdsTemplate-ref="jdsTemplate"/>
+
+        <bean id="jdsGenericDao" class="EXT.DOMAIN.cpe.vpr.pom.jds.JdsGenericPatientObjectDAO"
+              p:jdsTemplate-ref="jdsTemplate"/>
+
+
+        <bean id="jdsPatientDao" class="EXT.DOMAIN.cpe.vpr.pom.jds.JdsPatientDAO"
+              p:jdsTemplate-ref="jdsTemplate"
+              p:genericDao-ref="jdsGenericDao"/>
+              
+        <bean id="jdsViewDefDefDao" class="EXT.DOMAIN.cpe.vpr.dao.jms.ViewDefDefJdsDAO"
+        		p:jdsTemplate-ref="jdsTemplate"/>
+
+        <bean id="jdsVprUpdateDao" class="EXT.DOMAIN.cpe.vpr.dao.jds.JdsVprUpdateDao"
+                c:genericDao-ref="jdsGenericPOMObjectDao"
+                p:jdsTemplate-ref="jdsTemplate"/>
+
+        <bean id="jdsLastViewedDao" class="EXT.DOMAIN.cpe.vpr.dao.jds.JdsLastViewedDao"
+              c:genericDao-ref="jdsGenericPOMObjectDao"
+              p:jdsTemplate-ref="jdsTemplate"/>
+
+        <bean class="EXT.DOMAIN.cpe.vpr.sync.vista.VistaVprPatientObjectDao"
+                p:jdsGenericDao-ref="jdsGenericDao"
+                p:jdsPatientDao-ref="jdsPatientDao"
+                p:rpcTemplate-ref="rpcTemplate"/>
+
+        <bean class="EXT.DOMAIN.cpe.vpr.sync.vista.VistaVprObjectDao"
+              p:jdsDao-ref="jdsGenericPOMObjectDao"
+              p:rpcTemplate-ref="rpcTemplate"/>
+
+        <util:map id="dataStores" key-type="java.lang.String" value-type="EXT.DOMAIN.cpe.vpr.pom.IDataStoreDAO"
+                  map-class="java.util.TreeMap">
+            <entry key="vpr-datastore-json" value-ref="jdsGenericDao"/>
+            <entry key="vpr-datastore-solr" value-ref="defaultSolrDao"/>
+        </util:map>
+    </beans>
+
+    <!-- Mongo data source config -->
+    <beans profile="vpr-datastore-mongo">
+        <bean id="mongo" class="com.mongodb.Mongo" c:host="${mongo.host}"/>
+        <bean id="mongodb" class="com.mongodb.DB" factory-bean="mongo" factory-method="getDB">
+            <constructor-arg><value>${mongo.db}</value></constructor-arg>
+        </bean>
+
+        <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate"
+              c:mongo-ref="mongo" c:databaseName="${mongo.db}"/>
+
+        <bean id="mongoGenericDao" class="EXT.DOMAIN.cpe.vpr.pom.mongo.GenericMongoDAO" c:db-ref="mongodb"/>
+        <bean id="mongoPatientDao" class="EXT.DOMAIN.cpe.vpr.pom.mongo.PatientMongoDAO" c:dao-ref="mongoGenericDao"/>
+
+        <util:map id="dataStores" key-type="java.lang.String" value-type="EXT.DOMAIN.cpe.vpr.pom.IDataStoreDAO"
+                  map-class="java.util.TreeMap">
+            <entry key="vpr-datastore-mongo" value-ref="mongoGenericDao"/>
+            <entry key="vpr-datastore-solr" value-ref="defaultSolrDao"/>
+        </util:map>
+    </beans>
+
+</beans>

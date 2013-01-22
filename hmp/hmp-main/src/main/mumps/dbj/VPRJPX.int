@@ -1,0 +1,296 @@
+VPRJPX ;SLC/KCM -- Index a JSON object
+ ;;1.0;JSON DATA STORE;;Sep 01, 2012
+ ;
+INDEX(PID,KEY,OLDOBJ,NEWOBJ) ; Index this object identified by its KEY
+ N IDXCOLL,IDXNAME
+ ; Currently assuming UID is urn:va:vistaAccount:localId:tdype...
+ ; For example:  urn:va:93EF:34014:med
+ N VPRCONST D CONST
+ S IDXCOLL=$P(KEY,":",5)
+ S IDXNAME="" F  S IDXNAME=$O(^VPRMETA("collection",IDXCOLL,"index",IDXNAME)) Q:IDXNAME=""  D
+ . N IDXMETA
+ . M IDXMETA=^VPRMETA("index",IDXNAME,"collection",IDXCOLL)
+ . S IDXMETA("setif")=$G(^VPRMETA("index",IDXNAME,"common","setif"))
+ . S IDXMETA("review")=$G(^VPRMETA("index",IDXNAME,"common","review"))
+ . S IDXMETA("levels")=$G(^VPRMETA("index",IDXNAME,"common","levels"))
+ . S IDXMETA("method")=^VPRMETA("index",IDXNAME,"common","method")
+ . I IDXMETA("method")="tally" D TALLY Q
+ . I IDXMETA("method")="time"  D TIME Q
+ . I IDXMETA("method")="attr"  D ATTRIB Q
+ ;D CODES (do this later -- when we add in support for matches)
+ D COUNTS
+ Q
+ ;
+ ; ----- Extract Values from Object -----
+ ;
+SETVALS(OBJECT,VALUES) ; extract values from OBJECT based on info in IDXMETA
+ ; Expects IDXMETA
+ ; .OBJECT, .VALUES both passed by reference, results in .VALUES
+ N LVL,NOVAL,MULTS,USED,X
+ K VALUES
+ S NOVAL=0 ; set if top level value is absent
+ S LVL=0 F  S LVL=$O(IDXMETA(LVL)) Q:'LVL  D  Q:NOVAL
+ . I IDXMETA(LVL,"field")="" Q  ; no field defined (in all-time labs, for example)
+ . I IDXMETA(LVL,"ftype")<3 S X=$$GETVAL(0) D:$L(X) ADDVAL(X,0) S:'$L(X) NOVAL=1 Q
+ . I IDXMETA(LVL,"ftype")>2 D MULTVAL(LVL)
+ Q:NOVAL   ; missing top level value
+ M VALUES=MULTS(IDXMETA("levels"))
+ Q
+ADDVAL(X,INAME) ; add values to MULTS as unique instances, copying previous level
+ ; expects:  LVL, MULTS
+ ; build MULTS in format MULTS(level#,instanceString,field#)=value
+ ; instanceString is 0 if no multiples, inst&inst&... if there are multiples
+ S INAME=$G(INAME,0)
+ I LVL=1 S MULTS(LVL,INAME,LVL)=X,USED(INAME)="" Q
+ ; for subscripts beyond the first
+ N OLD,NEW,I
+ S OLD="" F  S OLD=$O(MULTS(LVL-1,OLD)) Q:OLD=""  D
+ . S NEW=$S(INAME=0:OLD,$D(USED(INAME)):OLD,1:OLD_"&"_INAME),USED(NEW)=""
+ . S I=0 F  S I=$O(MULTS(LVL-1,OLD,I)) Q:'I  S MULTS(LVL,NEW,I)=MULTS(LVL-1,OLD,I)
+ . I INAME=0!(("&"_NEW)[("&"_INAME)) S MULTS(LVL,NEW,LVL)=X  ; make sure this is INAME instance
+ Q
+DELVAL(INAME) ; removes matching instances if value is empty
+ N OLD S OLD=""
+ F  S OLD=$O(MULTS(LVL-1,OLD)) Q:OLD=""  I ("&"_OLD)[("&"_INAME) K MULTS(LVL-1,OLD)
+ Q
+MULTVAL(LVL,NOVAL) ; adds to VALUES if field is multiple
+ ; Expects IDXMETA, OBJECT  /  used by SETVAL
+ N MULT,INST
+ S MULT=IDXMETA(LVL,"ftype","mult")
+ S INST="" F  S INST=$O(OBJECT(MULT,INST)) Q:'INST  D
+ . S X=$$GETVAL(INST)
+ . I $L(X) D ADDVAL(X,MULT_"."_INST) Q
+ . D DELVAL(MULT_"."_INST) ; otherwise remove previous level with this instance
+ Q
+GETVAL(INST) ; return field value or "" if no value -and- no default
+ ; Expects IDXMETA, LVL, OBJECT  /  used by SETVAL, MLTVAL
+ N X
+ S X=$$FLDVAL($G(INST))
+ I '$L(X) S X=IDXMETA(LVL,"ifNull")
+ S X=$$COLLATE(X,IDXMETA(LVL,"collate"),0)
+ Q X
+ ;
+FLDVAL(INST) ; return the field values
+ ; Expects IDXMETA, LVL, OBJECT  /  used by ONEVAL
+ N FTYPE M FTYPE=IDXMETA(LVL,"ftype")
+ I FTYPE=1 Q:'$L(FTYPE("field")) "" Q $G(OBJECT(FTYPE("field")))
+ I FTYPE=2 Q:'$L(FTYPE("field")) "" Q:'$L(FTYPE("sub")) "" Q $G(OBJECT(FTYPE("field"),FTYPE("sub")))
+ I FTYPE=3 Q:'$L(FTYPE("field")) "" Q $G(OBJECT(FTYPE("mult"),INST,FTYPE("field")))
+ I FTYPE=4 Q:'$L(FTYPE("field")) "" Q:'$L(FTYPE("sub")) "" Q $G(OBJECT(FTYPE("mult"),INST,FTYPE("field"),FTYPE("sub")))
+ Q ""
+ ;
+COLLATE(VALUE,CTYPE,REQUIRE) ; return value of field for collation
+ ; Used by ONEVAL
+ ; force times to always be a string rather than a numeric
+ ; terminate inverse time with "=" so ":" can used to avoid endpoints when going backwards
+ ; terminate strings with "!" so space can be used to include initial string
+ ; ASCII order is " ","!",numerals,":","="
+ I VALUE="" Q:'REQUIRE "" S VALUE=0
+ I CTYPE="P" Q VALUE
+ I CTYPE="p" Q $$LOW^XLFSTR(VALUE)
+ I CTYPE="V" Q $TR(VALUE,"0123456789","9876543210")_"="
+ I CTYPE="S" Q VALUE_" "
+ I CTYPE="s" Q $$LOW^XLFSTR(VALUE)_" "
+ I CTYPE="T" Q VALUE_" "
+ I CTYPE="N" Q +VALUE
+ Q VALUE_" "  ; default to string
+ ;
+ ; ----- Maintain counts of objects -----
+ ;
+COUNTS ; set counts for different collection types
+ N DOMAIN
+ D KCOUNT("collection",IDXCOLL,.OLDOBJ)
+ D SCOUNT("collection",IDXCOLL,.NEWOBJ)
+ S DOMAIN=$G(^VPRMETA("collection",IDXCOLL,"domain")) Q:DOMAIN=""
+ D KCOUNT("domain",DOMAIN,.OLDOBJ)
+ D SCOUNT("domain",DOMAIN,.NEWOBJ)
+ Q
+SCOUNT(GROUP,TOPIC,OBJECT) ; Increment a count index
+ Q:$D(OBJECT)<10
+ N TALLY
+ S TALLY=+$G(^VPRPTI(PID,"tally",GROUP,TOPIC))
+ S ^VPRPTI(PID,"tally",GROUP,TOPIC)=TALLY+1 ; incr count for patient
+ ;
+ L +^VPRPTX("count",GROUP,TOPIC):1 E  D SETERROR^VPRJRUT(502,GROUP_" "_TOPIC) QUIT
+ S TALLY=+$G(^VPRPTX("count",GROUP,TOPIC))
+ S ^VPRPTX("count",GROUP,TOPIC)=TALLY+1 ; incr count across patients
+ L -^VPRPTX("count",GROUP,TOPIC)
+ Q
+KCOUNT(GROUP,TOPIC,OBJECT) ; Decrement a count index
+ Q:$D(OBJECT)<10
+ N TALLY
+ S TALLY=+$G(^VPRPTI(PID,"tally",GROUP,TOPIC))
+ S ^VPRPTI(PID,"tally",GROUP,TOPIC)=TALLY-1 ; decr count for patient
+ ;
+ L +^VPRPTX("count",GROUP,TOPIC):1 E  D SETERROR^VPRJRUT(502,GROUP_" "_TOPIC) QUIT
+ S TALLY=+$G(^VPRPTX("count",GROUP,TOPIC))
+ S ^VPRPTX("count",GROUP,TOPIC)=TALLY-1 ; decr count across patients
+ L -^VPRPTX("count",GROUP,TOPIC)
+ Q
+ ;
+ ; ----- Index Logic: tally by attribute value -----
+ ;
+TALLY ; TALLY index (PID,"tally",group,value)=tally
+ ; if FIELD has no value, count is not changed
+ D KTALLY(.OLDOBJ)
+ D STALLY(.NEWOBJ)
+ S ^VPRPTI(PID,"tally",IDXNAME)=$H
+ Q
+STALLY(OBJECT) ; Increment a tally index
+ Q:$D(OBJECT)<10
+ N VALUES,I,TALLY
+ D SETVALS(.OBJECT,.VALUES) Q:'$D(VALUES)
+ S I="" F  S I=$O(VALUES(I)) Q:I=""  D
+ . S TALLY=+$G(^VPRPTI(PID,"tally",IDXNAME,VALUES(I,1)))
+ . S ^VPRPTI(PID,"tally",IDXNAME,VALUES(I,1))=TALLY+1
+ Q
+KTALLY(OBJECT) ; Decrement a tally index
+ Q:$D(OBJECT)<10
+ N VALUES,I,TALLY
+ D SETVALS(.OBJECT,.VALUES) Q:'$D(VALUES)
+ S I="" F  S I=$O(VALUES(I)) Q:I=""  D
+ . S TALLY=+$G(^VPRPTI(PID,"tally",IDXNAME,VALUES(I,1)))
+ . S ^VPRPTI(PID,"tally",IDXNAME,VALUES(I,1))=TALLY-1
+ . I ^VPRPTI(PID,"tally",IDXNAME,VALUES(I,1))=0 K ^VPRPTI(PID,"tally",IDXNAME,VALUES(I,1))
+ Q
+ ;
+ ; ----- Index Logic: time ranges -----
+ ;
+TIME ; TIME index   (PID,"time",group,start,key)=stop
+ ; -- if time range (PID,"stop",group,stop,key)=start
+ ; expects start to always be something (0 if null), stop is optional
+ D KTIME(.OLDOBJ)
+ D STIME(.NEWOBJ)
+ S ^VPRPTI(PID,"time",IDXNAME)=$H
+ Q
+STIME(OBJECT) ; Set a time based index
+ Q:$D(OBJECT)<10
+ N VALUES,I
+ D SETVALS(.OBJECT,.VALUES) Q:'$D(VALUES)
+ S I="" F  S I=$O(VALUES(I)) Q:I=""  D
+ . S ^VPRPTI(PID,"time",IDXNAME,VALUES(I,1),KEY,I)=$G(VALUES(I,2))
+ . Q:'$L($G(VALUES(I,2)))
+ . S ^VPRPTI(PID,"stop",IDXNAME,VALUES(I,2),KEY,I)=VALUES(I,1)
+ Q
+KTIME(OBJECT) ; Kill a time based index
+ Q:$D(OBJECT)<10
+ N VALUES,I
+ D SETVALS(.OBJECT,.VALUES) Q:'$D(VALUES)
+ S I="" F  S I=$O(VALUES(I)) Q:I=""  D
+ . K ^VPRPTI(PID,"time",IDXNAME,VALUES(I,1),KEY,I)
+ . Q:'$L($G(VALUES(I,2)))
+ . K ^VPRPTI(PID,"stop",IDXNAME,VALUES(I,2),KEY,I)
+ Q
+ ;
+ ; ----- Index Logic: attributes -----
+ ;
+ATTRIB ; ATTRIBUTE index (PID,"attr",group,value,sort,key)
+ D KATTRIB(.OLDOBJ)
+ D SATTRIB(.NEWOBJ)
+ S ^VPRPTI(PID,"attr",IDXNAME)=$H
+ Q
+SATTRIB(OBJECT) ; Set attribute based index
+ Q:$D(OBJECT)<10
+ ; SETIF conditional statement is in format "$$TAG^ROUTINE"
+ N OK,SETIF
+ S OK=1
+ I $L(IDXMETA("setif")) S OK=0,SETIF=IDXMETA("setif")_"(.OBJECT)" I @SETIF S OK=1
+ Q:'OK
+ I $L(IDXMETA("review")) D
+ . N REVIEW,REVTM
+ . S REVIEW="S REVTM="_REVIEW_"(.OBJECT)" X REVIEW
+ . S ^VPRPTI(PID,"review",KEY,IDXNAME)=REVTM
+ . S ^VPRPTX("review",REVTM,PID,KEY,IDXNAME)=""
+ . S ^VPRPTX("pidReview",PID,REVTM)=""
+ ;
+ I IDXMETA("levels")=0  D SA0  Q
+ ;
+ N VALUES,I
+ D SETVALS(.OBJECT,.VALUES)
+ Q:'$D(VALUES)
+ I IDXMETA("levels")=1  D SA1  Q
+ I IDXMETA("levels")=2  D SA2  Q
+ I IDXMETA("levels")=3  D SA3  Q
+ Q
+KATTRIB(OBJECT) ; Set attribute based index
+ Q:$D(OBJECT)<10
+ ;
+ I $L(IDXMETA("review")) D
+ . N REVTM
+ . S REVTM=$G(^VPRPTI(PID,"review",KEY,IDXNAME)) Q:'$L(REVTM)
+ . K ^VPRPTI(PID,"review",KEY,IDXNAME)
+ . K ^VPRPTX("review",REVTM,PID,KEY,IDXNAME)
+ . K ^VPRPTX("pidReview",PID,REVTM)
+ ;
+ I IDXMETA("levels")=0  D KA0  Q
+ ;
+ N VALUES,I
+ D SETVALS(.OBJECT,.VALUES)
+ Q:'$D(VALUES)
+ I IDXMETA("levels")=1  D KA1  Q
+ I IDXMETA("levels")=2  D KA2  Q
+ I IDXMETA("levels")=3  D KA3  Q
+ Q
+SA0 ; unsorted list set logic
+ S ^VPRPTI(PID,"attr",IDXNAME,KEY)=""
+ Q
+KA0 ; unsorted list kill logic
+ K ^VPRPTI(PID,"attr",IDXNAME,KEY)
+ Q
+SA1 ; one attribute set logic
+ S I="" F  S I=$O(VALUES(I)) Q:I=""  S ^VPRPTI(PID,"attr",IDXNAME,VALUES(I,1),KEY,I)=""
+ Q
+KA1 ; one attribute kill logic
+ S I="" F  S I=$O(VALUES(I)) Q:I=""  K ^VPRPTI(PID,"attr",IDXNAME,VALUES(I,1),KEY,I)
+ Q
+SA2 ; two attributes set logic
+ S I="" F  S I=$O(VALUES(I)) Q:I=""  S ^VPRPTI(PID,"attr",IDXNAME,VALUES(I,1),VALUES(I,2),KEY,I)=""
+ Q
+KA2 ; two attributes kill logic
+ S I="" F  S I=$O(VALUES(I)) Q:I=""  K ^VPRPTI(PID,"attr",IDXNAME,VALUES(I,1),VALUES(I,2),KEY,I)
+ Q
+SA3 ; three attributes set logic
+ S I="" F  S I=$O(VALUES(I)) Q:I=""  S ^VPRPTI(PID,"attr",IDXNAME,VALUES(I,1),VALUES(I,2),VALUES(I,3),KEY,I)=""
+ Q
+KA3 ; three attributes kill logic
+ S I="" F  S I=$O(VALUES(I)) Q:I=""  K ^VPRPTI(PID,"attr",IDXNAME,VALUES(I,1),VALUES(I,2),VALUES(I,3),KEY,I)
+ Q
+ ;
+CODES ; code indexes
+ D KCODES(.OLDOBJ)
+ D SCODES(.NEWOBJ)
+ Q
+SCODES(OBJECT) ; set indexed codes
+ Q:$D(OBJECT)<10
+ N FIELD,SUB,LIST,I  ; assume max of 2 levels for now
+ S FIELD="" F  S FIELD=$O(^VPRMETA("codes",IDXCOLL,FIELD)) Q:FIELD=""  D
+ . I FIELD'["[]" D SETCODE(PID,KEY,$G(OBJECT(FIELD)),FIELD) Q
+ . S LIST=$P(FIELD,"[]")
+ . S I=0 F  S I=$O(OBJECT(LIST,I)) Q:'I  D
+ . . S SUB="" F  S SUB=$O(^VPRMETA("codes",IDXCOLL,LIST,SUB)) Q:SUB=""  D SETCODE(PID,KEY,$G(OBJECT(LIST,I,SUB)),SUB)
+ Q
+KCODES(OBJECT) ; kill indexed codes
+ Q:$D(OBJECT)<10
+ N FIELD,SUB,LIST,I  ; assume max of 2 levels for now
+ S FIELD="" F  S FIELD=$O(^VPRMETA("codes",IDXCOLL,FIELD)) Q:FIELD=""  D
+ . I FIELD'["[]" D KILLCODE(PID,KEY,$G(OBJECT(FIELD)),FIELD) Q
+ . S LIST=$P(FIELD,"[]")
+ . S I=0 F  S I=$O(OBJECT(LIST,I)) Q:'I  D
+ . . S SUB="" F  S SUB=$O(^VPRMETA("codes",IDXCOLL,LIST,SUB)) Q:SUB=""  D KILLCODE(PID,KEY,$G(OBJECT(LIST,I,SUB)),SUB)
+ Q
+SETCODE(PID,KEY,CODE,FIELD) ; Set index of all codes
+ Q:'$L($G(CODE))
+ S ^VPRPTX("allCodes",CODE,FIELD,PID,KEY)=""
+ S ^VPRPTX("pidCodes",PID,FIELD,CODE,KEY)=""
+ Q
+KILLCODE(PID,KEY,CODE,FIELD) ; Kill index of all codes
+ Q:'$L($G(CODE))
+ K ^VPRPTX("allCodes",CODE,FIELD,PID,KEY)
+ K ^VPRPTX("pidCodes",PID,FIELD,CODE,KEY)
+ Q
+CONST ; Set up constants for use
+ S VPRCONST("SCT_MED_STATUS_ACTIVE")="urn:sct:55561003"
+ S VPRCONST("SCT_MED_TYPE_OTC")="urn:sct:329505003"
+ S VPRCONST("SCT_MED_TYPE_PRESCRIBED")="urn:sct:73639000"
+ S VPRCONST("SCT_MED_TYPE_GENERAL")="urn:sct:105903003"
+ Q

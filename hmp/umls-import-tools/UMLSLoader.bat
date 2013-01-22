@@ -1,0 +1,1 @@
+java -cp lib\postgresql-9.1-901.jdbc4.jar;target\classes UMLSLoader jdbc:postgresql://localhost:5432/postgres umls2012aa umls2012aa umls2012aa d:\Data\2012AA\META\MRRANK.RRF d:\Data\2012AA\META\MRCONSO.RRF d:\Data\2012AA\META\MRREL.RRF d:\Data\2012AA\META\MRHIER.RRF d:\Data\2012AA\META\MRSAT.RRF

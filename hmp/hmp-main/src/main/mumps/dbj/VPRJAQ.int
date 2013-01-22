@@ -1,0 +1,49 @@
+VPRJAQ ;SLC/KCM -- Query for JSON objects across patients
+ ;;1.0;JSON DATA STORE;;Sep 01, 2012
+ ;
+QCOUNT(CNTNM) ; Return a set of counts across patients
+ ; return tallies as data:{items:[{"topic":"med","count":4}
+ I '$L(CNTNM) D SETERROR^VPRJRUT(101) Q
+ N BUFFER S BUFFER=""
+ K ^TMP($J)
+ ;
+ N TOPIC,DATA,COUNT,X
+ S DATA=0,TOPIC=""
+ F  S TOPIC=$O(^VPRPTX("count",CNTNM,TOPIC)) Q:TOPIC=""  D
+ . S COUNT=+^VPRPTX("count",CNTNM,TOPIC)
+ . S X=$S('DATA:"",1:",")_"{""topic"":"""_TOPIC_""",""count"":"_COUNT_"}"
+ . S DATA=DATA+1,DATA(DATA)=X
+ S X=$$BLDHEAD^VPRJPQ(DATA) D STAGE^VPRJPQ(X)
+ S DATA=0 F  S DATA=$O(DATA(DATA)) Q:'DATA  D STAGE^VPRJPQ(DATA(DATA))
+ D STAGE^VPRJPQ("]}}"),OUT^VPRJPQ
+ Q
+QINDEX(INDEX,TEMPLATE) ; Query across patients by index
+ ; only supporting /vpr/all/index/pid/pid to return all PIDs for now
+ I $G(INDEX)'="pid" D SETERROR^VPRJRUT(102) Q
+ I $G(TEMPLATE)'="pid" D SETERROR^VPRJRUT(105) Q
+ ;
+ K ^TMP($J)
+ N COUNT,PID,LINE,BUFFER
+ S COUNT=0,PID=0,LINE=2,BUFFER=""
+ F  S PID=$O(^VPRPT(PID)) Q:'PID  D
+ . S COUNT=COUNT+1
+ . I $L(BUFFER)>4000 S ^TMP($J,LINE)=BUFFER,LINE=LINE+1,BUFFER=""
+ . S BUFFER=BUFFER_$S(COUNT>1:",",1:"")_PID
+ S ^TMP($J,LINE)=BUFFER_"]}}"
+ S ^TMP($J,1)=$$BLDHEAD^VPRJPQ(COUNT)
+ Q
+QFIND(COLL,ORDER,BAIL,TEMPLATE,FILTER) ; Query across patients using filter criteria
+ N VPRDATA,CLAUSES,PREFIX,PID,DFN,KEY
+ S ORDER=$G(ORDER),BAIL=$G(BAIL),TEMPLATE=$G(TEMPLATE),FILTER=$G(FILTER)
+ S VPRDATA=0 S:'BAIL BAIL=999999
+ I $L(FILTER) D PARSE^VPRJPQF(FILTER,.CLAUSES) Q:$G(HTTPERR)
+ D SETORDF^VPRJCU(.ORDER) Q:$G(HTTPERR)
+ K ^TMP("VPRDATA",$J)
+ S PID=0 F  S PID=$O(^VPRPT(PID)) Q:'PID  D
+ . S DFN="" F  S DFN=$O(^VPRPT("PID",PID,"DFN",DFN)) Q:DFN=""  D
+ . . S PREFIX="urn:va:"_DFN_":"_COLL_":",KEY=PREFIX
+ . . F  S KEY=$O(^VPRPT(PID,KEY)) Q:$E(KEY,1,$L(PREFIX))'=PREFIX  D ADDONE^VPRJPQA(KEY,0)
+ D BUILD^VPRJCU
+ K ^TMP("VPRDATA",$J)
+ Q
+ Q

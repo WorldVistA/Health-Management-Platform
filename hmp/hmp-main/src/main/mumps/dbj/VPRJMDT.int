@@ -1,0 +1,28 @@
+VPRJMDT ;SLC/KCM -- Meta data for JSON templates
+ ;;1.0;JSON DATA STORE;;Sep 01, 2012
+ ;
+EN ;
+ Q
+TEMPLATE ;;
+ ;;coll,type,name,fields
+ ;;art,include,summary,uid,facilityName,summary
+ ;;cons,include,summary,uid,typeName,dateTime,facilityName
+ ;;tiu,include,summary,uid,facilityName,referenceDateTime,localTitle,subject
+ ;;visit,include,summary,uid,kind,facilityName,locationName,specialty
+ ;;appt,include,summary,uid,kind,facilityName,locationName,specialty
+ ;;hf,include,summary,uid,recorded,summary,facilityName
+ ;;imm,include,summary,uid,summary,administeredDateTime,facilityName
+ ;;med,include,summary,uid,summary,overallStart,overallStop,medStatusName,facilityName
+ ;;obs,include,summary,uid,observed,summary,facilityName
+ ;;order,include,summary,uid,summary,start,stop,facilityName
+ ;;prob,include,summary,uid,summary,statusName,facilityName
+ ;;pat,include,summary,uid,dateOfBirth,familyName,givenNames,genderName,ssn,icn
+ ;;proc,include,summary,uid,typeName,dateTime,facilityName
+ ;;surgery,include,summary,uid,typeName,dateTime,facilityName
+ ;;rad,include,summary,uid,typeName,dateTime,facilityName
+ ;;lab,include,summary,uid,facilityName,observed,typeName,specimen,result,units,interpretationName,low,high
+ ;;vs,include,summary,uid,facilityName,observed,typeName,result,units,interpretationName,low,high
+ ;;tiu,exclude,notext,content,text
+ ;;med,include,dose,uid,qualifiedName,kind,medStatusName,facilityName,lastFilled,vaStatus,vaType,overallStart,overallStop,dosages[].dose,dosages[].start,dosages[].stop,dosages[].relativeStop,dosages[].relativeStart,orders[].fillsRemaining,orders[].daysSupply,orders[].quantityOrdered,orders[].predecessor,orders[].successor
+ ;;zzzzz
+ ;

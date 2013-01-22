@@ -1,0 +1,38 @@
+VPRJDMX ;SLC/KCM -- Meta data for JSON indexes
+ ;;1.0;JSON DATA STORE;;Sep 01, 2012
+ ;
+ ; Types of collation:
+ ;       V: Inverse HL7 Time (appends "=" after complementing time)
+ ;       T: Forward HL7 Time (appends " " to time)
+ ;       N: Numeric          (+value)
+ ;       S: String           (appends " " to ensure string)
+ ;       s: String           (case insensitive, appends " " to ensure string)
+ ;       P: Plain            (uses value as is)
+ ;       p: Plain            (case insensitive, use value as is)
+ ;
+ ; --------------------------------------------------------
+ ; Tally time indexes maintain counts of each value a field takes on
+ ; The definition structure is:
+ ;
+ ;;indexName
+ ;;    fields.{collection}: {tallyField}
+IDXTALLY ; tally type indexes
+ ;;test-name-count
+ ;;    collections: test
+ ;;    fields: name
+ ;;zzzzz
+ ;
+ ; --------------------------------------------------------
+ ; Attribute type indexes index first by field, then by sort
+ ; The first collation is the field collation, followed by the sort collation.
+ ; The default is s,s (both case-insensitive strings) if no other collation
+ ; is defined.
+IDXATTR ;
+ ;;test-name
+ ;;    collections: test
+ ;;    fields: name/s, updated/V/0
+ ;;    sort: updated desc
+ ;;vprupdate
+ ;;    collections: vprupdate
+ ;;zzzzz
+ ;

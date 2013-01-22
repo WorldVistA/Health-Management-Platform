@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-cascade="all,delete-orphan">
+
+	<!-- 
+		Things I did to cleanup Medication:
+		1) Copied the existing medication class mappings, extends PatientObjectMap
+		2) removed uid, pid, id, version, bi-directional mappings, etc.
+		3) convert properties to a single line defintion, column only need to be specified if 
+		different from name. Don't need to specify lazy, cascade
+		4) shortened string to string, and PointInTime to string
+		5) Not all properties need to be mapped, only what we need to
+		6) unordered sets must be <bags>, lists can remain as <list>
+		7) use mvn hibernate3:hbm2ddl to test schema generation/hbm syntax
+		8) Add a test to HibMapTests (or create your own test suite)
+	 -->
+	
+    <class table="clinical_order"  entity-name="order">
+        <id name="uid" length="64" type="string"/>
+        <property name="pid" length="64" type="string"/>
+        <property name="json" type="text"/>
+        <property name="content" type="text" />
+        <property name="displayGroup" column="display_group" type="string" />
+        <property name="entered" type="string" />
+        <property name="kind" type="string" />
+        <property name="localId" column="local_id" type="string" />
+        <property name="locationCode" column="location_code" type="string" />
+        <property name="locationName" column="location_name" type="string" />
+        <property name="name" type="string" />
+        <property name="oiCode" column="oi_code" type="string" />
+        <property name="oiName" column="oi_name" type="string" />
+        <property name="oiPackageRef" column="oi_package_ref" type="string" />
+        <property name="providerUid" column="provider_uid" type="string" />
+        <property name="providerName" column="provider_name" type="string" />
+        <property name="start" type="string" />
+        <property name="statusCode" column="status_code" type="string"/>
+        <property name="statusName" column="status_name" type="string"/>
+        <property name="statusVuid" column="status_vuid" type="string"/>
+        <property name="stop" type="string" />
+        <property name="summary" type="text" />
+        <property name="facilityCode" column="facility_code" type="string"/>
+        <property name="facilityName" column="facility_name" type="string"/>
+
+    </class>
+
+
+    
+</hibernate-mapping>

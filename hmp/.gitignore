@@ -1,0 +1,10 @@
+.DS_Store
+.sass-cache
+.gradle
+.idea
+*.iml
+*.ipr
+*.iws
+target
+out
+activemq-data

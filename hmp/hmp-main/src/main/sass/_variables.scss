@@ -1,0 +1,22 @@
+@import 'ext4/default/variables/core';
+
+$mix-color: desaturate(lighten($base-color, 37), 5) !default;
+
+@import 'ext4/default/variables/focus';
+@import 'ext4/default/variables/panel';
+@import 'variables/grid'; //@import 'ext4/default/variables/grid';
+@import 'ext4/default/variables/button';
+@import 'ext4/default/variables/pickers';
+@import 'ext4/default/variables/toolbar';
+@import 'variables/form'; //@import 'ext4/default/variables/form';
+@import 'variables/menu'; //@import 'ext4/default/variables/menu';
+@import 'ext4/default/variables/window';
+@import 'variables/tabs'; //@import 'ext4/default/variables/tabs';
+@import 'ext4/default/variables/qtip';
+@import 'ext4/default/variables/progress-bar';
+@import 'ext4/default/variables/btn-group';
+@import 'ext4/default/variables/boundlist';
+@import 'ext4/default/variables/tree';
+@import 'ext4/default/variables/layout';
+@import 'ext4/default/variables/loadmask';
+@import 'ext4/default/variables/htmleditor';

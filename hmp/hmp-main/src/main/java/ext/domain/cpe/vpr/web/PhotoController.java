@@ -1,13 +1,13 @@
-package EXT.DOMAIN.cpe.vpr.web;
+package org.osehra.cpe.vpr.web;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import EXT.DOMAIN.cpe.Bootstrap;
-import EXT.DOMAIN.cpe.jsonc.JsonCResponse;
-import EXT.DOMAIN.cpe.vpr.PatientPhoto;
-import EXT.DOMAIN.cpe.vpr.PersonPhoto;
-import EXT.DOMAIN.cpe.vpr.sync.vista.IVistaVprObjectDao;
-import EXT.DOMAIN.cpe.vpr.sync.vista.IVistaVprPatientObjectDao;
-import EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory;
+import org.osehra.cpe.Bootstrap;
+import org.osehra.cpe.jsonc.JsonCResponse;
+import org.osehra.cpe.vpr.PatientPhoto;
+import org.osehra.cpe.vpr.PersonPhoto;
+import org.osehra.cpe.vpr.sync.vista.IVistaVprObjectDao;
+import org.osehra.cpe.vpr.sync.vista.IVistaVprPatientObjectDao;
+import org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -26,8 +26,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView;
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.resourceModelAndView;
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView;
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.resourceModelAndView;
 
 @Controller
 public class PhotoController {

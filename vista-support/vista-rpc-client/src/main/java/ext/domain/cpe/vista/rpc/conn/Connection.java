@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vista.rpc.conn;
+package org.osehra.cpe.vista.rpc.conn;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcException;
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
-import EXT.DOMAIN.cpe.vista.rpc.RpcRequest;
-import EXT.DOMAIN.cpe.vista.rpc.RpcResponse;
+import org.osehra.cpe.vista.rpc.RpcException;
+import org.osehra.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.rpc.RpcRequest;
+import org.osehra.cpe.vista.rpc.RpcResponse;
 
 /**
  * A <code>Connection</code> represents an application-level handle that is used by a client to access the underlying

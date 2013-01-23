@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.web.servlet.filter;
+package org.osehra.cpe.vpr.web.servlet.filter;
 
 import junit.framework.Assert;
 import junit.framework.TestCase;

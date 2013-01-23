@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.web;
+package org.osehra.cpe.vpr.web;
 
 import org.springframework.core.MethodParameter;
 import org.springframework.data.domain.PageRequest;

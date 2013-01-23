@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vpr.sync.convert;
+package org.osehra.cpe.vpr.sync.convert;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcRequest;
-import EXT.DOMAIN.cpe.vista.util.RpcUriUtils;
-import EXT.DOMAIN.cpe.vpr.Patient;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO;
-import EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants;
-import EXT.DOMAIN.cpe.vpr.sync.vista.VistaDataChunk;
+import org.osehra.cpe.vista.rpc.RpcRequest;
+import org.osehra.cpe.vista.util.RpcUriUtils;
+import org.osehra.cpe.vpr.Patient;
+import org.osehra.cpe.vpr.pom.IPatientDAO;
+import org.osehra.cpe.vpr.sync.SyncMessageConstants;
+import org.osehra.cpe.vpr.sync.vista.VistaDataChunk;
 import org.junit.Before;
 import org.junit.Test;
 import org.xml.sax.SAXException;

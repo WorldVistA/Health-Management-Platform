@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vpr.pom;
+package org.osehra.cpe.vpr.pom;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
 
-import EXT.DOMAIN.cpe.vpr.pom.PatientEvent.Change;
+import org.osehra.cpe.vpr.pom.PatientEvent.Change;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.dao;
+package org.osehra.cpe.vpr.dao;
 
-import EXT.DOMAIN.cpe.dao.HmpRepository;
-import EXT.DOMAIN.cpe.vpr.SyncError;
+import org.osehra.cpe.dao.HmpRepository;
+import org.osehra.cpe.vpr.SyncError;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;

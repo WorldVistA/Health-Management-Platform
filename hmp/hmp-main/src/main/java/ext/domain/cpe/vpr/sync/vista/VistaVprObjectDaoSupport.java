@@ -1,12 +1,12 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista;
+package org.osehra.cpe.vpr.sync.vista;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import EXT.DOMAIN.cpe.vista.rpc.JacksonRpcResponseExtractor;
-import EXT.DOMAIN.cpe.vista.rpc.RpcOperations;
-import EXT.DOMAIN.cpe.vista.rpc.RpcResponse;
-import EXT.DOMAIN.cpe.vista.util.VistaStringUtils;
-import EXT.DOMAIN.cpe.vpr.pom.DefaultNamingStrategy;
-import EXT.DOMAIN.cpe.vpr.pom.INamingStrategy;
+import org.osehra.cpe.vista.rpc.JacksonRpcResponseExtractor;
+import org.osehra.cpe.vista.rpc.RpcOperations;
+import org.osehra.cpe.vista.rpc.RpcResponse;
+import org.osehra.cpe.vista.util.VistaStringUtils;
+import org.osehra.cpe.vpr.pom.DefaultNamingStrategy;
+import org.osehra.cpe.vpr.pom.INamingStrategy;
 import org.springframework.beans.factory.annotation.Required;
 
 public class VistaVprObjectDaoSupport {

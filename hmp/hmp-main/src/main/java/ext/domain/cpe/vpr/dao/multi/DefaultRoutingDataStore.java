@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.vpr.dao.multi;
+package org.osehra.cpe.vpr.dao.multi;
 
-import EXT.DOMAIN.cpe.vpr.pom.IDataStoreDAO;
-import EXT.DOMAIN.cpe.vpr.dao.RoutingDataStore;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject;
+import org.osehra.cpe.vpr.pom.IDataStoreDAO;
+import org.osehra.cpe.vpr.dao.RoutingDataStore;
+import org.osehra.cpe.vpr.pom.IPatientObject;
 import org.perf4j.StopWatch;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.context.EnvironmentAware;

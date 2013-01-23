@@ -1,12 +1,12 @@
-package EXT.DOMAIN.cpe.vpr.pom.hibernate;
+package org.osehra.cpe.vpr.pom.hibernate;
 
-import EXT.DOMAIN.cpe.dao.hibernate.PaginationUtils;
-import EXT.DOMAIN.cpe.vpr.Patient;
-import EXT.DOMAIN.cpe.vpr.Result;
-import EXT.DOMAIN.cpe.vpr.UidUtils;
-import EXT.DOMAIN.cpe.vpr.pom.*;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDefWalker.MatchQueryWalker;
+import org.osehra.cpe.dao.hibernate.PaginationUtils;
+import org.osehra.cpe.vpr.Patient;
+import org.osehra.cpe.vpr.Result;
+import org.osehra.cpe.vpr.UidUtils;
+import org.osehra.cpe.vpr.pom.*;
+import org.osehra.cpe.vpr.queryeng.query.QueryDef;
+import org.osehra.cpe.vpr.queryeng.query.QueryDefWalker.MatchQueryWalker;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.protocol;
+package org.osehra.cpe.vista.rpc.broker.protocol;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import EXT.DOMAIN.cpe.vista.rpc.jackson.RpcParamSerializer;
+import org.osehra.cpe.vista.rpc.jackson.RpcParamSerializer;
 import org.springframework.util.ObjectUtils;
 
 import java.util.Arrays;

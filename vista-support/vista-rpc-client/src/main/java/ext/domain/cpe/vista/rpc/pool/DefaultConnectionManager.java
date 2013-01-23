@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vista.rpc.pool;
+package org.osehra.cpe.vista.rpc.pool;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcException;
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
-import EXT.DOMAIN.cpe.vista.rpc.broker.conn.BrokerConnectionFactory;
-import EXT.DOMAIN.cpe.vista.rpc.conn.*;
+import org.osehra.cpe.vista.rpc.RpcException;
+import org.osehra.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.rpc.broker.conn.BrokerConnectionFactory;
+import org.osehra.cpe.vista.rpc.conn.*;
 import org.apache.commons.pool.impl.GenericKeyedObjectPool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr;
+package org.osehra.cpe.vpr;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -6,9 +6,9 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import EXT.DOMAIN.cpe.vista.rpc.RpcOperations;
-import EXT.DOMAIN.cpe.vpr.vistasvc.CacheMgrTests;
-import EXT.DOMAIN.cpe.vpr.vistasvc.EhCacheTestUtils;
+import org.osehra.cpe.vista.rpc.RpcOperations;
+import org.osehra.cpe.vpr.vistasvc.CacheMgrTests;
+import org.osehra.cpe.vpr.vistasvc.EhCacheTestUtils;
 
 import java.io.IOException;
 import java.io.InputStreamReader;

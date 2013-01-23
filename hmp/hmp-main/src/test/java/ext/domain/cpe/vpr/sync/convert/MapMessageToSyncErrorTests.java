@@ -1,12 +1,12 @@
-package EXT.DOMAIN.cpe.vpr.sync.convert;
+package org.osehra.cpe.vpr.sync.convert;
 
-import EXT.DOMAIN.cpe.hub.dao.json.JsonAssert;
-import EXT.DOMAIN.cpe.vpr.SyncError;
+import org.osehra.cpe.hub.dao.json.JsonAssert;
+import org.osehra.cpe.vpr.SyncError;
 import org.junit.Test;
 
 import javax.jms.MapMessage;
 
-import static EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants.*;
+import static org.osehra.cpe.vpr.sync.SyncMessageConstants.*;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;

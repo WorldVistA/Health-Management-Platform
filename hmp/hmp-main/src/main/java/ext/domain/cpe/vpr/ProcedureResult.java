@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr;
+package org.osehra.cpe.vpr;
 
-import EXT.DOMAIN.cpe.vpr.pom.AbstractPOMObject;
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPatientObjectDAO;
+import org.osehra.cpe.vpr.pom.AbstractPOMObject;
+import org.osehra.cpe.vpr.pom.IGenericPatientObjectDAO;
 
 import java.util.Map;
 

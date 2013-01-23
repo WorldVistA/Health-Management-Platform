@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.web.view;
+package org.osehra.cpe.vpr.web.view;
 
 import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;

@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.pom;
+package org.osehra.cpe.vpr.pom;
 
 import java.util.Date;
 import java.util.Map;

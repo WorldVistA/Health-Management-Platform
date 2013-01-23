@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.conn;
+package org.osehra.cpe.vista.rpc.broker.conn;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.rpc.RpcHost;
 
 import java.io.IOException;
 

@@ -1,13 +1,13 @@
-package EXT.DOMAIN.cpe.vistalink;
+package org.osehra.cpe.vistalink;
 
-import EXT.DOMAIN.exception.FoundationsException;
-import EXT.DOMAIN.vistalink.adapter.cci.VistaLinkAppProxyConnectionSpec;
-import EXT.DOMAIN.vistalink.adapter.cci.VistaLinkConnection;
-import EXT.DOMAIN.vistalink.adapter.cci.VistaLinkDuzConnectionSpec;
-import EXT.DOMAIN.vistalink.adapter.record.LoginsDisabledFaultException;
-import EXT.DOMAIN.vistalink.adapter.record.VistaLinkFaultException;
-import EXT.DOMAIN.vistalink.rpc.*;
-import EXT.DOMAIN.vistalink.security.m.SecurityFaultException;
+import org.osehra.exception.FoundationsException;
+import org.osehra.vistalink.adapter.cci.VistaLinkAppProxyConnectionSpec;
+import org.osehra.vistalink.adapter.cci.VistaLinkConnection;
+import org.osehra.vistalink.adapter.cci.VistaLinkDuzConnectionSpec;
+import org.osehra.vistalink.adapter.record.LoginsDisabledFaultException;
+import org.osehra.vistalink.adapter.record.VistaLinkFaultException;
+import org.osehra.vistalink.rpc.*;
+import org.osehra.vistalink.security.m.SecurityFaultException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataAccessException;

@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.jsonc;
+package org.osehra.cpe.jsonc;
 
 import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;

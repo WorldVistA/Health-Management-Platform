@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.pom.jds;
+package org.osehra.cpe.vpr.pom.jds;
 
 import org.hamcrest.CoreMatchers;
 import org.junit.Before;

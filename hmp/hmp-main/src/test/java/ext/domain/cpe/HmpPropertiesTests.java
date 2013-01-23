@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe;
+package org.osehra.cpe;
 
 import org.junit.Test;
 
 import java.util.Set;
 
-import static EXT.DOMAIN.cpe.HmpProperties.*;
+import static org.osehra.cpe.HmpProperties.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;

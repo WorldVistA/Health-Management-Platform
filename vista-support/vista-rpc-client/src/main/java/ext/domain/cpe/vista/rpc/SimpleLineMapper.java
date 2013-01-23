@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vista.rpc;
+package org.osehra.cpe.vista.rpc;
 
 import org.springframework.dao.TypeMismatchDataAccessException;
 import org.springframework.util.NumberUtils;
 
 /**
- * {@link EXT.DOMAIN.cpe.vista.rpc.LineMapper} implementation that converts each line into a single
+ * {@link org.osehra.cpe.vista.rpc.LineMapper} implementation that converts each line into a single
  * result value per line.
  * <p>The type of the result value for each line can be specified. The value
  * will be extracted from the <code>RpcResponse</code> and converted into the specified target type.

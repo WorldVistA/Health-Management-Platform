@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.conn;
+package org.osehra.cpe.vista.rpc.broker.conn;
 
-import EXT.DOMAIN.cpe.vista.rpc.broker.protocol.TransportMetrics;
+import org.osehra.cpe.vista.rpc.broker.protocol.TransportMetrics;
 import org.apache.commons.io.output.CountingOutputStream;
 
 import java.io.OutputStream;

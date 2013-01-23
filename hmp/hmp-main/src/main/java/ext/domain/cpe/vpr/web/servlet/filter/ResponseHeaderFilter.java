@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.web.servlet.filter;
+package org.osehra.cpe.vpr.web.servlet.filter;
  
 import java.io.IOException;
 import java.util.Enumeration;
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  * <code>
  * <filter>
  * <filter-name>responseHeaderFilter</filter-name>
- * <filter-class>EXT.DOMAIN.cpe.vpr.web.servlet.filter.ResponseHeaderFilter</filter-class>
+ * <filter-class>org.osehra.cpe.vpr.web.servlet.filter.ResponseHeaderFilter</filter-class>
  * <init-param>
  * <param-name>Cache-Control</param-name>
  * <param-value>max-age=3600</param-value>

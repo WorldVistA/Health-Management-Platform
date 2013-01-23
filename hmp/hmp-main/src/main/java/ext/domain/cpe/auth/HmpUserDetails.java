@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.auth;
+package org.osehra.cpe.auth;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import EXT.DOMAIN.cpe.vista.springframework.security.userdetails.VistaUserDetails;
+import org.osehra.cpe.vista.springframework.security.userdetails.VistaUserDetails;
 
 import java.util.Set;
 

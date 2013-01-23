@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.dao.multi;
+package org.osehra.cpe.vpr.dao.multi;
 
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO;
+import org.osehra.cpe.vpr.pom.IPatientDAO;
 
 import java.util.Map;
 

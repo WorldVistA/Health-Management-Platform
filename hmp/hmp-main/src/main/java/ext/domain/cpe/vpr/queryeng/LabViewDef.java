@@ -1,21 +1,21 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
-import static EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDefCriteria.client;
-import static EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDefCriteria.server;
-import EXT.DOMAIN.cpe.vpr.Result;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.ActionColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.HL7DTMColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.TemplateColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.JDSQuery;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDef.QueryFieldTransformer.HTMLEscapeTransformer;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDef.QueryFieldTransformer.ReplaceTransformer;
+import static org.osehra.cpe.vpr.queryeng.query.QueryDefCriteria.client;
+import static org.osehra.cpe.vpr.queryeng.query.QueryDefCriteria.server;
+import org.osehra.cpe.vpr.Result;
+import org.osehra.cpe.vpr.queryeng.ColDef.ActionColDef;
+import org.osehra.cpe.vpr.queryeng.ColDef.HL7DTMColDef;
+import org.osehra.cpe.vpr.queryeng.ColDef.TemplateColDef;
+import org.osehra.cpe.vpr.queryeng.query.JDSQuery;
+import org.osehra.cpe.vpr.queryeng.query.QueryDef;
+import org.osehra.cpe.vpr.queryeng.query.QueryDef.QueryFieldTransformer.HTMLEscapeTransformer;
+import org.osehra.cpe.vpr.queryeng.query.QueryDef.QueryFieldTransformer.ReplaceTransformer;
 
 import java.io.IOException;
 
 import org.springframework.stereotype.Component;
 
-@Component(value="EXT.DOMAIN.cpe.vpr.queryeng.LabViewDef")
+@Component(value="org.osehra.cpe.vpr.queryeng.LabViewDef")
 public class LabViewDef extends ViewDef {
 	
 	public LabViewDef() throws IOException {

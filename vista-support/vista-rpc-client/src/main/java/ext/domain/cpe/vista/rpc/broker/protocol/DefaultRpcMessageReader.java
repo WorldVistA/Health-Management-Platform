@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.protocol;
+package org.osehra.cpe.vista.rpc.broker.protocol;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcException;
-import EXT.DOMAIN.cpe.vista.rpc.RpcIoException;
-import EXT.DOMAIN.cpe.vista.rpc.RpcResponse;
-import EXT.DOMAIN.cpe.vista.rpc.TimeoutWaitingForRpcResponseException;
+import org.osehra.cpe.vista.rpc.RpcException;
+import org.osehra.cpe.vista.rpc.RpcIoException;
+import org.osehra.cpe.vista.rpc.RpcResponse;
+import org.osehra.cpe.vista.rpc.TimeoutWaitingForRpcResponseException;
 
 import java.io.IOException;
 import java.io.InterruptedIOException;

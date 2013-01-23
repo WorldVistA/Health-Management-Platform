@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.termeng;
+package org.osehra.cpe.vpr.termeng;
 
-import EXT.DOMAIN.cpe.vpr.web.IHealthCheck;
+import org.osehra.cpe.vpr.web.IHealthCheck;
 
 import java.sql.Clob;
 import java.sql.Connection;

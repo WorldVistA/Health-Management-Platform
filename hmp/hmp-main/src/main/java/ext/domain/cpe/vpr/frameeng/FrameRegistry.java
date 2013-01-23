@@ -1,13 +1,13 @@
-package EXT.DOMAIN.cpe.vpr.frameeng;
+package org.osehra.cpe.vpr.frameeng;
 
-import EXT.DOMAIN.cpe.param.ParamService;
-import EXT.DOMAIN.cpe.vista.rpc.RpcTemplate;
-import EXT.DOMAIN.cpe.vpr.frameeng.AdapterFrame.DroolsFrameAdapter;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameJob.FrameTask;
-import EXT.DOMAIN.cpe.vpr.frameeng.IFrameEvent.FrameInitEvent;
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewDef;
+import org.osehra.cpe.param.ParamService;
+import org.osehra.cpe.vista.rpc.RpcTemplate;
+import org.osehra.cpe.vpr.frameeng.AdapterFrame.DroolsFrameAdapter;
+import org.osehra.cpe.vpr.frameeng.FrameJob.FrameTask;
+import org.osehra.cpe.vpr.frameeng.IFrameEvent.FrameInitEvent;
+import org.osehra.cpe.vpr.pom.POMUtils;
+import org.osehra.cpe.vpr.queryeng.ColDef;
+import org.osehra.cpe.vpr.queryeng.ViewDef;
 
 import java.io.File;
 import java.io.FileInputStream;

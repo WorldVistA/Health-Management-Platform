@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vista.rpc.support;
+package org.osehra.cpe.vista.rpc.support;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcException;
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
-import EXT.DOMAIN.cpe.vista.rpc.broker.conn.*;
-import EXT.DOMAIN.cpe.vista.rpc.broker.protocol.*;
-import EXT.DOMAIN.cpe.vista.rpc.pool.TimeoutWaitingForIdleConnectionException;
+import org.osehra.cpe.vista.rpc.RpcException;
+import org.osehra.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.rpc.broker.conn.*;
+import org.osehra.cpe.vista.rpc.broker.protocol.*;
+import org.osehra.cpe.vista.rpc.pool.TimeoutWaitingForIdleConnectionException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

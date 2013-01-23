@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vista.rpc.support;
+package org.osehra.cpe.vista.rpc.support;
 
-import EXT.DOMAIN.cpe.vista.rpc.ConnectionCallback;
-import EXT.DOMAIN.cpe.vista.rpc.RpcException;
-import EXT.DOMAIN.cpe.vista.rpc.RpcRequest;
-import EXT.DOMAIN.cpe.vista.rpc.RpcResponse;
-import EXT.DOMAIN.cpe.vista.rpc.conn.Connection;
+import org.osehra.cpe.vista.rpc.ConnectionCallback;
+import org.osehra.cpe.vista.rpc.RpcException;
+import org.osehra.cpe.vista.rpc.RpcRequest;
+import org.osehra.cpe.vista.rpc.RpcResponse;
+import org.osehra.cpe.vista.rpc.conn.Connection;
 import org.springframework.dao.DataAccessException;
 
 public class RpcConnectionCallback implements ConnectionCallback<RpcResponse> {

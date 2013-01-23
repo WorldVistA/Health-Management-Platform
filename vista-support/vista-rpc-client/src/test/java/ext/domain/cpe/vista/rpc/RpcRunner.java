@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vista.rpc;
+package org.osehra.cpe.vista.rpc;
 
-import EXT.DOMAIN.cpe.vista.rpc.broker.conn.BrokerConnectionFactory;
-import EXT.DOMAIN.cpe.vista.rpc.broker.conn.DefaultSocketFactory;
-import EXT.DOMAIN.cpe.vista.rpc.broker.conn.DirectConnectionManager;
-import EXT.DOMAIN.cpe.vista.rpc.broker.conn.Hash;
-import EXT.DOMAIN.cpe.vista.rpc.conn.SystemInfo;
-import EXT.DOMAIN.cpe.vista.util.VistaStringUtils;
+import org.osehra.cpe.vista.rpc.broker.conn.BrokerConnectionFactory;
+import org.osehra.cpe.vista.rpc.broker.conn.DefaultSocketFactory;
+import org.osehra.cpe.vista.rpc.broker.conn.DirectConnectionManager;
+import org.osehra.cpe.vista.rpc.broker.conn.Hash;
+import org.osehra.cpe.vista.rpc.conn.SystemInfo;
+import org.osehra.cpe.vista.util.VistaStringUtils;
 import org.springframework.dao.DataAccessResourceFailureException;
 
 import java.io.IOException;

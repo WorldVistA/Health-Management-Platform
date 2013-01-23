@@ -1,25 +1,25 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.vpr.PatientAlert;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameAction;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameAction.IPatientSerializableAction;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameAction.ViewRenderAction;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameJob.FrameTask;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameRunner;
-import EXT.DOMAIN.cpe.vpr.frameeng.IFrameTrigger.CallTrigger;
-import EXT.DOMAIN.cpe.vpr.frameeng.IFrameTrigger.InvokeTrigger;
-import EXT.DOMAIN.cpe.vpr.pom.jds.JdsTemplate;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.ActionColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.Query.FrameQuery;
-import EXT.DOMAIN.cpe.vpr.queryeng.Query.JSONFileQuery;
-import EXT.DOMAIN.cpe.vpr.queryeng.Query.ViewDefQuery;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.JDSQuery;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDef;
-import EXT.DOMAIN.cpe.vpr.viewdef.QueryMapper;
-import EXT.DOMAIN.cpe.vpr.viewdef.QueryMapper.QueryTransformer;
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask;
-import EXT.DOMAIN.cpe.vpr.ws.link.OpenInfoButtonLinkGenerator;
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.vpr.PatientAlert;
+import org.osehra.cpe.vpr.frameeng.FrameAction;
+import org.osehra.cpe.vpr.frameeng.FrameAction.IPatientSerializableAction;
+import org.osehra.cpe.vpr.frameeng.FrameAction.ViewRenderAction;
+import org.osehra.cpe.vpr.frameeng.FrameJob.FrameTask;
+import org.osehra.cpe.vpr.frameeng.FrameRunner;
+import org.osehra.cpe.vpr.frameeng.IFrameTrigger.CallTrigger;
+import org.osehra.cpe.vpr.frameeng.IFrameTrigger.InvokeTrigger;
+import org.osehra.cpe.vpr.pom.jds.JdsTemplate;
+import org.osehra.cpe.vpr.queryeng.ColDef.ActionColDef;
+import org.osehra.cpe.vpr.queryeng.Query.FrameQuery;
+import org.osehra.cpe.vpr.queryeng.Query.JSONFileQuery;
+import org.osehra.cpe.vpr.queryeng.Query.ViewDefQuery;
+import org.osehra.cpe.vpr.queryeng.query.JDSQuery;
+import org.osehra.cpe.vpr.queryeng.query.QueryDef;
+import org.osehra.cpe.vpr.viewdef.QueryMapper;
+import org.osehra.cpe.vpr.viewdef.QueryMapper.QueryTransformer;
+import org.osehra.cpe.vpr.viewdef.RenderTask;
+import org.osehra.cpe.vpr.ws.link.OpenInfoButtonLinkGenerator;
 
 import java.io.File;
 import java.io.IOException;
@@ -33,7 +33,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Component(value="EXT.DOMAIN.cpe.vpr.queryeng.ProtocolViewDef")
+@Component(value="org.osehra.cpe.vpr.queryeng.ProtocolViewDef")
 @Scope("prototype")
 public class ProtocolViewDef extends ViewDef {
 	public static enum GoalStatus {NOT_DONE,DUE,NOT_DUE,DUE_NOW,DUE_SOON,NORMAL,ABNORMAL,MISC}
@@ -43,8 +43,8 @@ public class ProtocolViewDef extends ViewDef {
 
 	public ProtocolViewDef() {
 		super();
-		trig1 = addTrigger(new InvokeTrigger<Object>(this, null, "EXT.DOMAIN.cpe.vpr.rowaction"));
-		trig2 = addTrigger(new InvokeTrigger<Object>(this, null, "EXT.DOMAIN.cpe.vpr.protocoleval"));
+		trig1 = addTrigger(new InvokeTrigger<Object>(this, null, "org.osehra.cpe.vpr.rowaction"));
+		trig2 = addTrigger(new InvokeTrigger<Object>(this, null, "org.osehra.cpe.vpr.protocoleval"));
 	}
 	
 	@Override
@@ -98,7 +98,7 @@ public class ProtocolViewDef extends ViewDef {
         declareParam(new ViewParam.ColumnsParam(this, displayCols, requireCols, hideCols, sortCols, groupCols));
 
         // TODO: Should fetch this from the FrameRegistry
-        URL url = ViewDef.class.getResource("/EXT/DOMAIN/cpe/vpr/frames/");
+        URL url = ViewDef.class.getResource("/org.osehra/cpe/vpr/frames/");
 		File dir = new File(url.toURI());
         Query q1 = new JSONFileQuery("id", dir.listFiles(JSONFileQuery.JSON_FILES));
 		addColumns(q1, "id", "type", "name", "icdCode", "status", "conditionType", "relevantDrugClasses", "selfLink");

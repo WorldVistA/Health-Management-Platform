@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista;
+package org.osehra.cpe.vpr.sync.vista;
 
-import EXT.DOMAIN.cpe.vpr.pom.IDataStoreDAO;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject;
+import org.osehra.cpe.vpr.pom.IDataStoreDAO;
+import org.osehra.cpe.vpr.pom.IPatientObject;
 
 import java.util.Map;
 

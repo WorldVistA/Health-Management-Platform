@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.hibernate;
+package org.osehra.cpe.hibernate;
 
 import org.hibernate.event.PreInsertEvent;
 import org.hibernate.event.PreInsertEventListener;

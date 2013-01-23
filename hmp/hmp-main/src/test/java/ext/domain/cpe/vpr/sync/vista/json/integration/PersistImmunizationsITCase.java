@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista.json.integration;
+package org.osehra.cpe.vpr.sync.vista.json.integration;
 
-import EXT.DOMAIN.cpe.test.junit4.runners.*;
-import EXT.DOMAIN.cpe.vpr.Immunization;
-import EXT.DOMAIN.cpe.vpr.sync.vista.VistaDataChunk;
-import EXT.DOMAIN.cpe.vpr.sync.vista.json.ImmunizationImporter;
+import org.osehra.cpe.test.junit4.runners.*;
+import org.osehra.cpe.vpr.Immunization;
+import org.osehra.cpe.vpr.sync.vista.VistaDataChunk;
+import org.osehra.cpe.vpr.sync.vista.json.ImmunizationImporter;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 

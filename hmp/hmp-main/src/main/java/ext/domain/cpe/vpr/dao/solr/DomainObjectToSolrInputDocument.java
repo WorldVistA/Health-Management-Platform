@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.dao.solr;
+package org.osehra.cpe.vpr.dao.solr;
 
 import groovy.lang.Closure;
 import org.apache.solr.common.SolrInputDocument;

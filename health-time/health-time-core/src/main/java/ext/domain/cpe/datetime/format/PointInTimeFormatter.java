@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.datetime.format;
+package org.osehra.cpe.datetime.format;
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
+import org.osehra.cpe.datetime.PointInTime;
 import org.joda.time.Chronology;
 import org.joda.time.DateTimeUtils;
 import org.joda.time.ReadablePartial;

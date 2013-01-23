@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista;
+package org.osehra.cpe.vpr.sync.vista;
 
-import EXT.DOMAIN.cpe.vpr.pom.*;
+import org.osehra.cpe.vpr.pom.*;
 
 import java.util.Date;
 import java.util.List;

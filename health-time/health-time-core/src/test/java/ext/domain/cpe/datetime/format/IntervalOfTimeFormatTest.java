@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.datetime.format;
+package org.osehra.cpe.datetime.format;
 
 import org.junit.Test;
 

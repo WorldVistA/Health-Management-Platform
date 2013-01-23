@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vpr.pom.jds;
+package org.osehra.cpe.vpr.pom.jds;
 
-import EXT.DOMAIN.cpe.jsonc.JsonCCollection;
-import EXT.DOMAIN.cpe.vpr.pom.DefaultNamingStrategy;
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPOMObjectDAO;
-import EXT.DOMAIN.cpe.vpr.pom.INamingStrategy;
-import EXT.DOMAIN.cpe.vpr.pom.IPOMObject;
+import org.osehra.cpe.jsonc.JsonCCollection;
+import org.osehra.cpe.vpr.pom.DefaultNamingStrategy;
+import org.osehra.cpe.vpr.pom.IGenericPOMObjectDAO;
+import org.osehra.cpe.vpr.pom.INamingStrategy;
+import org.osehra.cpe.vpr.pom.IPOMObject;
 import org.apache.commons.lang.NotImplementedException;
 import org.springframework.dao.DataRetrievalFailureException;
 import org.springframework.data.domain.*;

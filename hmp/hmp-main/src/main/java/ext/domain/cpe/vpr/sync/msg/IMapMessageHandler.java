@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.sync.msg;
+package org.osehra.cpe.vpr.sync.msg;
 
 import java.util.Map;
 

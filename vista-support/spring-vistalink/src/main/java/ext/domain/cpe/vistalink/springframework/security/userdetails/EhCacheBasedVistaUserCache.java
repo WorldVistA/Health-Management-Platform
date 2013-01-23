@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vistalink.springframework.security.userdetails;
+package org.osehra.cpe.vistalink.springframework.security.userdetails;
 
-import EXT.DOMAIN.cpe.vista.springframework.security.userdetails.VistaUserDetails;
+import org.osehra.cpe.vista.springframework.security.userdetails.VistaUserDetails;
 import net.sf.ehcache.CacheException;
 import net.sf.ehcache.Ehcache;
 import net.sf.ehcache.Element;

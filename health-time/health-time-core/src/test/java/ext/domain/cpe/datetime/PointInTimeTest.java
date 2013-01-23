@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.datetime;
+package org.osehra.cpe.datetime;
 
 import org.joda.time.*;
 import org.junit.Assert;

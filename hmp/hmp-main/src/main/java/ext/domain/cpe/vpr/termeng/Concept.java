@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.termeng;
+package org.osehra.cpe.vpr.termeng;
 
 import java.io.Serializable;
 import java.util.HashMap;

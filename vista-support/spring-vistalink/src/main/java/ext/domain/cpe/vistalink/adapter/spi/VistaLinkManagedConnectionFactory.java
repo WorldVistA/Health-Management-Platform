@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vistalink.adapter.spi;
+package org.osehra.cpe.vistalink.adapter.spi;
 
-import EXT.DOMAIN.vistalink.adapter.spi.EMAdapterEnvironment;
+import org.osehra.vistalink.adapter.spi.EMAdapterEnvironment;
 import org.springframework.beans.factory.InitializingBean;
 
-public class VistaLinkManagedConnectionFactory extends EXT.DOMAIN.vistalink.adapter.spi.VistaLinkManagedConnectionFactory implements InitializingBean {
+public class VistaLinkManagedConnectionFactory extends org.osehra.vistalink.adapter.spi.VistaLinkManagedConnectionFactory implements InitializingBean {
 
     private String stationNumber;
 

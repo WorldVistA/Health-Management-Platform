@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vpr;
+package org.osehra.cpe.vpr;
 
 import java.util.Map;
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.vpr.pom.AbstractPOMObject;
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.vpr.pom.AbstractPOMObject;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonCreator;

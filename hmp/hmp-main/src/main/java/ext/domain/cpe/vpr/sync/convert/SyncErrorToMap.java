@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.sync.convert;
+package org.osehra.cpe.vpr.sync.convert;
 
-import EXT.DOMAIN.cpe.vpr.SyncError;
-import EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants;
+import org.osehra.cpe.vpr.SyncError;
+import org.osehra.cpe.vpr.sync.SyncMessageConstants;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.util.StringUtils;
 

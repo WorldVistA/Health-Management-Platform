@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vpr.frameeng;
+package org.osehra.cpe.vpr.frameeng;
 
 import static org.junit.Assert.*;
 
-import EXT.DOMAIN.cpe.vpr.Medication;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject;
-import EXT.DOMAIN.cpe.vpr.pom.PatientEvent;
+import org.osehra.cpe.vpr.Medication;
+import org.osehra.cpe.vpr.pom.IPatientObject;
+import org.osehra.cpe.vpr.pom.PatientEvent;
 
 import org.junit.Test;
 

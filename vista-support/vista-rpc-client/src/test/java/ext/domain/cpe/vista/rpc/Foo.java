@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vista.rpc;
+package org.osehra.cpe.vista.rpc;
 
 public class Foo {
     private String text;

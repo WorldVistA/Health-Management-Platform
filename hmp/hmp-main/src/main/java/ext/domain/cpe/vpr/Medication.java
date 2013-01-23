@@ -1,17 +1,17 @@
-package EXT.DOMAIN.cpe.vpr;
+package org.osehra.cpe.vpr;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.vpr.pom.AbstractPatientObject;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject;
-import EXT.DOMAIN.cpe.vpr.pom.POMIndex.JDSIndex;
-import EXT.DOMAIN.cpe.vpr.pom.POMIndex.MultiValueJDSIndex;
-import EXT.DOMAIN.cpe.vpr.pom.POMIndex.RangeJDSIndex;
-import EXT.DOMAIN.cpe.vpr.termeng.Concept;
-import EXT.DOMAIN.cpe.vpr.termeng.TermEng;
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.vpr.pom.AbstractPatientObject;
+import org.osehra.cpe.vpr.pom.IPatientObject;
+import org.osehra.cpe.vpr.pom.POMIndex.JDSIndex;
+import org.osehra.cpe.vpr.pom.POMIndex.MultiValueJDSIndex;
+import org.osehra.cpe.vpr.pom.POMIndex.RangeJDSIndex;
+import org.osehra.cpe.vpr.termeng.Concept;
+import org.osehra.cpe.vpr.termeng.TermEng;
 
 import java.util.ArrayList;
 import java.util.Collections;

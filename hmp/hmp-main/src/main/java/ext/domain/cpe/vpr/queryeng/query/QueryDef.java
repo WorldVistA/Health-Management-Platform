@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.queryeng.query;
+package org.osehra.cpe.vpr.queryeng.query;
 
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDefWalker.JDSFilterBuilder;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDefWalker.MatchQueryWalker;
+import org.osehra.cpe.vpr.queryeng.query.QueryDefWalker.JDSFilterBuilder;
+import org.osehra.cpe.vpr.queryeng.query.QueryDefWalker.MatchQueryWalker;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -18,7 +18,7 @@ import com.mongodb.BasicDBObject;
 
 /**
  * Defines a query object (but not the implementation or execution) that can be used by various 
- * JDS-backed data sources: {@see JDSQuery}, {@see EXT.DOMAIN.cpe.vpr.pom.IDataStoreDAO}.  Its sort of a 
+ * JDS-backed data sources: {@see JDSQuery}, {@see org.osehra.cpe.vpr.pom.IDataStoreDAO}.  Its sort of a 
  * cross between a query/criteria/URL builder, pseudo-DSL, templating language and a filter/transfomer.
  * 
  * See the test suite for an extensive list of usage examples.

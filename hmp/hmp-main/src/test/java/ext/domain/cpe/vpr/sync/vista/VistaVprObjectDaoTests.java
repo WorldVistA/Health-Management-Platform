@@ -1,19 +1,19 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista;
+package org.osehra.cpe.vpr.sync.vista;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import EXT.DOMAIN.cpe.test.mockito.ReturnsArgument;
-import EXT.DOMAIN.cpe.vista.rpc.RpcOperations;
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPOMObjectDAO;
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils;
+import org.osehra.cpe.test.mockito.ReturnsArgument;
+import org.osehra.cpe.vista.rpc.RpcOperations;
+import org.osehra.cpe.vpr.pom.IGenericPOMObjectDAO;
+import org.osehra.cpe.vpr.pom.POMUtils;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static EXT.DOMAIN.cpe.vpr.UserInterfaceRpcConstants.VPR_PUT_OBJECT_RPC_URI;
+import static org.osehra.cpe.vpr.UserInterfaceRpcConstants.VPR_PUT_OBJECT_RPC_URI;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.any;

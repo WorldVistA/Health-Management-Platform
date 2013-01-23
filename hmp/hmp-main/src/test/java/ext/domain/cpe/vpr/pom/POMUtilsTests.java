@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.pom;
+package org.osehra.cpe.vpr.pom;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,7 +8,7 @@ import java.util.Map;
 import org.junit.Test;
 
 import static junit.framework.Assert.*;
-import static EXT.DOMAIN.cpe.vpr.pom.POMUtils.*;
+import static org.osehra.cpe.vpr.pom.POMUtils.*;
 
 public class POMUtilsTests {
 	

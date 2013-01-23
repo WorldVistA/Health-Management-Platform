@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vista.rpc.pool;
+package org.osehra.cpe.vista.rpc.pool;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcException;
+import org.osehra.cpe.vista.rpc.RpcException;
 
 /**
  * Exception thrown when a when a request for a connection from a ConnectionManager times out.

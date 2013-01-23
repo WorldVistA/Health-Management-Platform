@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.pom.jds.integration;
+package org.osehra.cpe.vpr.pom.jds.integration;
 
-import EXT.DOMAIN.cpe.jsonc.JsonCCollection;
-import EXT.DOMAIN.cpe.vpr.pom.jds.JdsTemplate;
+import org.osehra.cpe.jsonc.JsonCCollection;
+import org.osehra.cpe.vpr.pom.jds.JdsTemplate;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;

@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vista.rpc.pool;
+package org.osehra.cpe.vista.rpc.pool;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
-import EXT.DOMAIN.cpe.vista.rpc.conn.AnonymousConnectionSpec;
+import org.osehra.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.rpc.conn.AnonymousConnectionSpec;
 
 import java.net.URI;
 import java.net.URISyntaxException;

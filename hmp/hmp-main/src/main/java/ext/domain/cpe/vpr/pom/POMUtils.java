@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.pom;
+package org.osehra.cpe.vpr.pom;
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.datetime.format.HL7DateTimeFormat;
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.datetime.format.HL7DateTimeFormat;
 
 import java.io.IOException;
 import java.io.InputStream;

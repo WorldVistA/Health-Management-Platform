@@ -1,13 +1,13 @@
-package EXT.DOMAIN.cpe.vista.rpc;
+package org.osehra.cpe.vista.rpc;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import EXT.DOMAIN.cpe.vista.rpc.conn.*;
-import EXT.DOMAIN.cpe.vista.rpc.pool.ConnectionManager;
-import EXT.DOMAIN.cpe.vista.rpc.pool.DefaultConnectionManager;
-import EXT.DOMAIN.cpe.vista.rpc.support.DefaultRpcExceptionTranslator;
-import EXT.DOMAIN.cpe.vista.rpc.support.RpcExceptionTranslator;
-import EXT.DOMAIN.cpe.vista.util.RpcUriUtils;
+import org.osehra.cpe.vista.rpc.conn.*;
+import org.osehra.cpe.vista.rpc.pool.ConnectionManager;
+import org.osehra.cpe.vista.rpc.pool.DefaultConnectionManager;
+import org.osehra.cpe.vista.rpc.support.DefaultRpcExceptionTranslator;
+import org.osehra.cpe.vista.rpc.support.RpcExceptionTranslator;
+import org.osehra.cpe.vista.util.RpcUriUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.DisposableBean;
@@ -26,7 +26,7 @@ import java.util.List;
  * optionally initiating iteration over the result lines and catching broker exceptions and translating them to the generic,
  * more informative exception hierarchy defined in the <code>org.springframework.dao</code> package.
  * <p/>
- * <p>All RPC operations performed by this class are logged at debug level, using "EXT.DOMAIN.cpe.vista.broker.RpcTemplate" as the log category.
+ * <p>All RPC operations performed by this class are logged at debug level, using "org.osehra.cpe.vista.broker.RpcTemplate" as the log category.
  * <p/>
  * <p>Can be used within a service implementation via direct instantiation
  * with a ConnectionFactory reference, or get prepared in an application context
@@ -35,11 +35,11 @@ import java.util.List;
  * given to the service directly, in the second case to the prepared template.
  * <p/>
  * <p>Because this class is parameterizable by the callback interfaces and
- * the {@link EXT.DOMAIN.cpe.vista.rpc.support.RpcExceptionTranslator}
+ * the {@link org.osehra.cpe.vista.rpc.support.RpcExceptionTranslator}
  * interface, there should be no need to subclass it.
  *
- * @see EXT.DOMAIN.cpe.vista.rpc.conn.ConnectionFactory
- * @see EXT.DOMAIN.cpe.vista.rpc.support.RpcExceptionTranslator
+ * @see org.osehra.cpe.vista.rpc.conn.ConnectionFactory
+ * @see org.osehra.cpe.vista.rpc.support.RpcExceptionTranslator
  * @see LineMapper
  */
 public class RpcTemplate implements DisposableBean, RpcOperations {
@@ -105,10 +105,10 @@ public class RpcTemplate implements DisposableBean, RpcOperations {
     /**
      * Set the exception translator for this instance.
      * <p>If no custom translator is provided, a default
-     * {@link EXT.DOMAIN.cpe.vista.rpc.support.DefaultRpcExceptionTranslator} is used which examines the
+     * {@link org.osehra.cpe.vista.rpc.support.DefaultRpcExceptionTranslator} is used which examines the
      * RpcException's type and/or error messages to carry out its exception translation.
      *
-     * @see EXT.DOMAIN.cpe.vista.rpc.support.DefaultRpcExceptionTranslator
+     * @see org.osehra.cpe.vista.rpc.support.DefaultRpcExceptionTranslator
      */
     public void setExceptionTranslator(RpcExceptionTranslator exceptionTranslator) {
         this.exceptionTranslator = exceptionTranslator;

@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.vistasvc;
+package org.osehra.cpe.vpr.vistasvc;
 
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.anyInt;
@@ -7,8 +7,8 @@ import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import EXT.DOMAIN.cpe.vpr.vistasvc.CacheMgr.CacheType;
-import EXT.DOMAIN.cpe.vpr.vistasvc.VistAServiceTests.HashMapAnswers;
+import org.osehra.cpe.vpr.vistasvc.CacheMgr.CacheType;
+import org.osehra.cpe.vpr.vistasvc.VistAServiceTests.HashMapAnswers;
 
 import org.junit.AfterClass;
 import org.junit.Before;

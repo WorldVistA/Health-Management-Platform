@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
 import static org.junit.Assert.*;
 
-import EXT.DOMAIN.cpe.vpr.queryeng.Query.QueryMode;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.JDSQuery;
+import org.osehra.cpe.vpr.queryeng.Query.QueryMode;
+import org.osehra.cpe.vpr.queryeng.query.JDSQuery;
 
 import java.util.Map;
 
@@ -27,8 +27,8 @@ public class ViewDefTests {
 		ViewDef vd = new EmptyTestViewDef();
 		Map<String, Object> appInfo = vd.getAppInfo();
 		
-		// without the annotation, getAppInfo() type returns EXT.DOMAIN.cpe.viewdef 
-		assertEquals("EXT.DOMAIN.cpe.viewdef", appInfo.get("type"));
+		// without the annotation, getAppInfo() type returns org.osehra.cpe.viewdef 
+		assertEquals("org.osehra.cpe.viewdef", appInfo.get("type"));
 		
 		// however the annotation should over-ride its return value
 		vd = new TestViewDef();

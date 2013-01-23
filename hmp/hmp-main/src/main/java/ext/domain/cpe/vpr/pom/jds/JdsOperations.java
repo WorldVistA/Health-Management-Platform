@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.pom.jds;
+package org.osehra.cpe.vpr.pom.jds;
 
-import EXT.DOMAIN.cpe.jsonc.JsonCCollection;
+import org.osehra.cpe.jsonc.JsonCCollection;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.springframework.dao.DataAccessException;
 

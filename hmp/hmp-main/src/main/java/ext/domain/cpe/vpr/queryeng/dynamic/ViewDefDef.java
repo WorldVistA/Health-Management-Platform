@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.vpr.queryeng.dynamic;
+package org.osehra.cpe.vpr.queryeng.dynamic;
 
-import EXT.DOMAIN.cpe.vpr.pom.AbstractPOMObject;
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils;
-import EXT.DOMAIN.cpe.vpr.queryeng.dynamic.columns.ViewDefDefColDef;
+import org.osehra.cpe.vpr.pom.AbstractPOMObject;
+import org.osehra.cpe.vpr.pom.POMUtils;
+import org.osehra.cpe.vpr.queryeng.dynamic.columns.ViewDefDefColDef;
 
 import java.util.ArrayList;
 import java.util.Map;

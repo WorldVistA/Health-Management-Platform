@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.hub;
+package org.osehra.cpe.hub;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;

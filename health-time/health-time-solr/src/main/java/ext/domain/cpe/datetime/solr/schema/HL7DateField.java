@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.datetime.solr.schema;
+package org.osehra.cpe.datetime.solr.schema;
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.datetime.format.HL7DateTimeFormat;
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.datetime.format.HL7DateTimeFormat;
 import org.apache.lucene.document.Fieldable;
 import org.apache.lucene.search.SortField;
 import org.apache.solr.common.SolrException;
@@ -19,7 +19,7 @@ import java.util.Map;
  * <p/>
  * Format: YYYY[MM[DD[HHMM[SS[.S[S[S[S]]]]]]]][+/-ZZZZ]^<degree of precision>
  *
- * @see EXT.DOMAIN.cpe.datetime.PointInTime
+ * @see org.osehra.cpe.datetime.PointInTime
  */
 public class HL7DateField extends FieldType {
 

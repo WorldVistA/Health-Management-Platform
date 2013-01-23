@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.vistasvc;
+package org.osehra.cpe.vpr.vistasvc;
 
 import java.lang.management.ManagementFactory;
 import java.util.Map;
@@ -117,7 +117,7 @@ public class CacheMgr<T> implements ICacheMgr<T> {
 	}
 	
 	/* (non-Javadoc)
-	 * @see EXT.DOMAIN.cpe.vpr.vistasvc.ICacheMgr#storeUnlessNull(java.lang.String, T)
+	 * @see org.osehra.cpe.vpr.vistasvc.ICacheMgr#storeUnlessNull(java.lang.String, T)
 	 */
 	@Override
 	public T storeUnlessNull(String key, T val) {
@@ -128,7 +128,7 @@ public class CacheMgr<T> implements ICacheMgr<T> {
 	}
 	
 	/* (non-Javadoc)
-	 * @see EXT.DOMAIN.cpe.vpr.vistasvc.ICacheMgr#store(java.lang.String, T)
+	 * @see org.osehra.cpe.vpr.vistasvc.ICacheMgr#store(java.lang.String, T)
 	 */
 	@Override
 	public T store(String key, T val) {
@@ -136,7 +136,7 @@ public class CacheMgr<T> implements ICacheMgr<T> {
 	}
 
 	/* (non-Javadoc)
-	 * @see EXT.DOMAIN.cpe.vpr.vistasvc.ICacheMgr#store(java.lang.String, T, int)
+	 * @see org.osehra.cpe.vpr.vistasvc.ICacheMgr#store(java.lang.String, T, int)
 	 */
 	@Override
 	public T store(String key, T val, int ttlSec) {
@@ -144,7 +144,7 @@ public class CacheMgr<T> implements ICacheMgr<T> {
 	}
 	
 	/* (non-Javadoc)
-	 * @see EXT.DOMAIN.cpe.vpr.vistasvc.ICacheMgr#fetch(java.lang.String)
+	 * @see org.osehra.cpe.vpr.vistasvc.ICacheMgr#fetch(java.lang.String)
 	 */
 	@Override
 	public T fetch(String key) {
@@ -152,7 +152,7 @@ public class CacheMgr<T> implements ICacheMgr<T> {
 	}
 	
 	/* (non-Javadoc)
-	 * @see EXT.DOMAIN.cpe.vpr.vistasvc.ICacheMgr#contains(java.lang.String)
+	 * @see org.osehra.cpe.vpr.vistasvc.ICacheMgr#contains(java.lang.String)
 	 */
 	@Override
 	public boolean contains(String key) {
@@ -160,7 +160,7 @@ public class CacheMgr<T> implements ICacheMgr<T> {
 	}
 	
 	/* (non-Javadoc)
-	 * @see EXT.DOMAIN.cpe.vpr.vistasvc.ICacheMgr#getSize()
+	 * @see org.osehra.cpe.vpr.vistasvc.ICacheMgr#getSize()
 	 */
 	@Override
 	public int getSize() {
@@ -168,7 +168,7 @@ public class CacheMgr<T> implements ICacheMgr<T> {
 	}
 	
 	/* (non-Javadoc)
-	 * @see EXT.DOMAIN.cpe.vpr.vistasvc.ICacheMgr#remove(java.lang.String)
+	 * @see org.osehra.cpe.vpr.vistasvc.ICacheMgr#remove(java.lang.String)
 	 */
 	@Override
 	public void remove(String... keys) {
@@ -180,7 +180,7 @@ public class CacheMgr<T> implements ICacheMgr<T> {
 	}
 	
 	/* (non-Javadoc)
-	 * @see EXT.DOMAIN.cpe.vpr.vistasvc.ICacheMgr#removeAll()
+	 * @see org.osehra.cpe.vpr.vistasvc.ICacheMgr#removeAll()
 	 */
 	@Override
 	public void removeAll() {

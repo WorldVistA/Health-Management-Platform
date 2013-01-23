@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.protocol;
+package org.osehra.cpe.vista.rpc.broker.protocol;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcResponse;
+import org.osehra.cpe.vista.rpc.RpcResponse;
 
 /**
  * TODOC: Provide summary documentation of class RpcResponseBuilder

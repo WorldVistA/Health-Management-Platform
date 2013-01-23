@@ -1,18 +1,18 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-import EXT.DOMAIN.cpe.vpr.queryeng.Query.StaticQuery;
-import EXT.DOMAIN.cpe.vpr.viewdef.QueryMapper.JoinQueryMapper;
-import EXT.DOMAIN.cpe.vpr.viewdef.QueryMapper.NestedViewDefQueryMapper;
-import EXT.DOMAIN.cpe.vpr.viewdef.QueryMapper.PerRowAppendMapper;
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask;
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask.RowRenderSubTask;
-import EXT.DOMAIN.cpe.vpr.viewdef.ViewDefRenderException;
-import EXT.DOMAIN.cpe.vpr.viewdef.ViewDefRenderer2;
-import EXT.DOMAIN.cpe.vpr.viewdef.ViewDefRenderer2.JSONViewRenderer2;
+import org.osehra.cpe.vpr.queryeng.Query.StaticQuery;
+import org.osehra.cpe.vpr.viewdef.QueryMapper.JoinQueryMapper;
+import org.osehra.cpe.vpr.viewdef.QueryMapper.NestedViewDefQueryMapper;
+import org.osehra.cpe.vpr.viewdef.QueryMapper.PerRowAppendMapper;
+import org.osehra.cpe.vpr.viewdef.RenderTask;
+import org.osehra.cpe.vpr.viewdef.RenderTask.RowRenderSubTask;
+import org.osehra.cpe.vpr.viewdef.ViewDefRenderException;
+import org.osehra.cpe.vpr.viewdef.ViewDefRenderer2;
+import org.osehra.cpe.vpr.viewdef.ViewDefRenderer2.JSONViewRenderer2;
 
 import java.util.ArrayList;
 import java.util.HashMap;

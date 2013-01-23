@@ -1,16 +1,16 @@
-package EXT.DOMAIN.cpe.vpr.frameeng;
+package org.osehra.cpe.vpr.frameeng;
 
-import EXT.DOMAIN.cpe.vpr.Medication;
-import EXT.DOMAIN.cpe.vpr.Observation;
-import EXT.DOMAIN.cpe.vpr.Result;
-import EXT.DOMAIN.cpe.vpr.VitalSign;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameJob.FrameTask;
-import EXT.DOMAIN.cpe.vpr.frameeng.IFrameEvent.InvokeEvent;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject;
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils;
-import EXT.DOMAIN.cpe.vpr.pom.PatientEvent;
-import EXT.DOMAIN.cpe.vpr.pom.PatientEvent.Change;
-import EXT.DOMAIN.cpe.vpr.termeng.TermEng;
+import org.osehra.cpe.vpr.Medication;
+import org.osehra.cpe.vpr.Observation;
+import org.osehra.cpe.vpr.Result;
+import org.osehra.cpe.vpr.VitalSign;
+import org.osehra.cpe.vpr.frameeng.FrameJob.FrameTask;
+import org.osehra.cpe.vpr.frameeng.IFrameEvent.InvokeEvent;
+import org.osehra.cpe.vpr.pom.IPatientObject;
+import org.osehra.cpe.vpr.pom.POMUtils;
+import org.osehra.cpe.vpr.pom.PatientEvent;
+import org.osehra.cpe.vpr.pom.PatientEvent.Change;
+import org.osehra.cpe.vpr.termeng.TermEng;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;

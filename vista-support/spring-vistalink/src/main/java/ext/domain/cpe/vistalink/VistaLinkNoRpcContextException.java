@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vistalink;
+package org.osehra.cpe.vistalink;
 
-import EXT.DOMAIN.vistalink.rpc.NoRpcContextFaultException;
+import org.osehra.vistalink.rpc.NoRpcContextFaultException;
 
 public class VistaLinkNoRpcContextException extends VistaLinkInvalidUsageException {
     public VistaLinkNoRpcContextException(NoRpcContextFaultException fault) {

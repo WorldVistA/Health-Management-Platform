@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameRegistry;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameRegistry.FrameStats;
-import EXT.DOMAIN.cpe.vpr.frameeng.IFrame;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.TemplateColDef;
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask;
+import org.osehra.cpe.vpr.frameeng.FrameRegistry;
+import org.osehra.cpe.vpr.frameeng.FrameRegistry.FrameStats;
+import org.osehra.cpe.vpr.frameeng.IFrame;
+import org.osehra.cpe.vpr.queryeng.ColDef.TemplateColDef;
+import org.osehra.cpe.vpr.viewdef.RenderTask;
 
 import java.util.Iterator;
 
@@ -12,8 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Component(value = "EXT.DOMAIN.cpe.vpr.queryeng.FrameListViewDef") 
-@HMPAppInfo(value="EXT.DOMAIN.cpe.nonpatientviewdef", title="Frame List")
+@Component(value = "org.osehra.cpe.vpr.queryeng.FrameListViewDef") 
+@HMPAppInfo(value="org.osehra.cpe.nonpatientviewdef", title="Frame List")
 @Scope("prototype")
 public class FrameListViewDef extends ViewDef {
 	

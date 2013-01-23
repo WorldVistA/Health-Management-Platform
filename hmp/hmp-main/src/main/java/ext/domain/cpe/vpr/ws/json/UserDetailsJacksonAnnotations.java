@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.ws.json;
+package org.osehra.cpe.vpr.ws.json;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.web;
+package org.osehra.cpe.vpr.web;
 
 import org.junit.Before;
 import org.junit.Test;

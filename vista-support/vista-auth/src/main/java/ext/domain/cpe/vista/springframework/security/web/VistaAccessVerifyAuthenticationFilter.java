@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vista.springframework.security.web;
+package org.osehra.cpe.vista.springframework.security.web;
 
-import EXT.DOMAIN.cpe.vista.springframework.security.authentication.VistaAuthenticationToken;
+import org.osehra.cpe.vista.springframework.security.authentication.VistaAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;

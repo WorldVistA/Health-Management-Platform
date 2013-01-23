@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vista.rpc;
+package org.osehra.cpe.vista.rpc;
 
 /**
  * Defines a general exception the VistA RPC client can throw when it encounters difficulty.

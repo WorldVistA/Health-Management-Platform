@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista.json.integration;
+package org.osehra.cpe.vpr.sync.vista.json.integration;
 
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPatientObjectDAO;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject;
-import EXT.DOMAIN.cpe.vpr.pom.hibernate.GenericHibMapDAO;
-import EXT.DOMAIN.cpe.vpr.pom.hibernate.PatientHibMapDAO;
-import EXT.DOMAIN.cpe.vpr.sync.vista.ImportException;
-import EXT.DOMAIN.cpe.vpr.sync.vista.VistaDataChunk;
+import org.osehra.cpe.vpr.pom.IGenericPatientObjectDAO;
+import org.osehra.cpe.vpr.pom.IPatientObject;
+import org.osehra.cpe.vpr.pom.hibernate.GenericHibMapDAO;
+import org.osehra.cpe.vpr.pom.hibernate.PatientHibMapDAO;
+import org.osehra.cpe.vpr.sync.vista.ImportException;
+import org.osehra.cpe.vpr.sync.vista.VistaDataChunk;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.ImprovedNamingStrategy;

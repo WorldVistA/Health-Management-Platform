@@ -1,12 +1,12 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.conn;
+package org.osehra.cpe.vista.rpc.broker.conn;
 
-import EXT.DOMAIN.cpe.vista.rpc.conn.ConnectionUserDetails;
+import org.osehra.cpe.vista.rpc.conn.ConnectionUserDetails;
 
 import java.util.Collections;
 import java.util.Map;
 
 /**
- * TODO: Document EXT.DOMAIN.cpe.vista.protocol
+ * TODO: Document org.osehra.cpe.vista.protocol
  */
 public class ConnectionUser implements ConnectionUserDetails {
     private String DUZ;

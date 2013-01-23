@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.datetime.format;
+package org.osehra.cpe.datetime.format;
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
+import org.osehra.cpe.datetime.PointInTime;
 import org.joda.time.LocalDateTime;
 import org.junit.Assert;
 import org.junit.Test;

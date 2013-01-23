@@ -1,16 +1,16 @@
-package EXT.DOMAIN.cpe.vpr.frameeng;
+package org.osehra.cpe.vpr.frameeng;
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.vpr.Immunization;
-import EXT.DOMAIN.cpe.vpr.Patient;
-import EXT.DOMAIN.cpe.vpr.Result;
-import EXT.DOMAIN.cpe.vpr.VitalSign;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameJob.FrameTask;
-import EXT.DOMAIN.cpe.vpr.frameeng.Goal.GoalStatus.DueStatus;
-import EXT.DOMAIN.cpe.vpr.frameeng.IFrameTrigger.InvokeTrigger;
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPatientObjectDAO;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject;
-import EXT.DOMAIN.cpe.vpr.queryeng.Table;
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.vpr.Immunization;
+import org.osehra.cpe.vpr.Patient;
+import org.osehra.cpe.vpr.Result;
+import org.osehra.cpe.vpr.VitalSign;
+import org.osehra.cpe.vpr.frameeng.FrameJob.FrameTask;
+import org.osehra.cpe.vpr.frameeng.Goal.GoalStatus.DueStatus;
+import org.osehra.cpe.vpr.frameeng.IFrameTrigger.InvokeTrigger;
+import org.osehra.cpe.vpr.pom.IGenericPatientObjectDAO;
+import org.osehra.cpe.vpr.pom.IPatientObject;
+import org.osehra.cpe.vpr.queryeng.Table;
 
 import java.util.HashMap;
 import java.util.List;
@@ -26,7 +26,7 @@ public abstract class Goal extends Frame {
 	@Override
 	protected void doInit(FrameJob task) throws Exception {
 		dao = task.getResource(IGenericPatientObjectDAO.class);
-		actionTrig = addTrigger(new IFrameTrigger.InvokeTrigger<IPatientObject>(this, IPatientObject.class, "EXT.DOMAIN.cpe.vpr.rowaction"));
+		actionTrig = addTrigger(new IFrameTrigger.InvokeTrigger<IPatientObject>(this, IPatientObject.class, "org.osehra.cpe.vpr.rowaction"));
 	}
 	
 	protected <T extends IPatientObject> T findOne(Class<T> clazz, String url, Map<String, Object> params) {
@@ -55,7 +55,7 @@ public abstract class Goal extends Frame {
 		// nothing by default.
 	}
 	
-	@Component(value="EXT.DOMAIN.cpe.vpr.goals.PotassiumGoal")
+	@Component(value="org.osehra.cpe.vpr.goals.PotassiumGoal")
 	public static class PotassiumGoal extends Goal {
 		private static String SUMMARY = "%s: <b style=\"color: %s; font-weight: bold;\">%s</b>";
 		@Override
@@ -77,7 +77,7 @@ public abstract class Goal extends Frame {
 		}
 	}
 	
-	@Component(value="EXT.DOMAIN.cpe.vpr.goals.BloodPressureGoal")
+	@Component(value="org.osehra.cpe.vpr.goals.BloodPressureGoal")
 	public static class BloodPressureGoal extends Goal {
 		@Override
 		public void evalGoal(FrameTask task) throws Exception {
@@ -85,7 +85,7 @@ public abstract class Goal extends Frame {
 			GoalStatus g = new GoalStatus(365);
 			g.focus = "B.P.";
 			g.guidelines = "q visit";
-			g.viewdef = "EXT.DOMAIN.cpe.vpr.queryeng.VitalsViewDef";
+			g.viewdef = "org.osehra.cpe.vpr.queryeng.VitalsViewDef";
 			g.viewdef_title = "Last Vitals";
 
 			if (res != null) {
@@ -97,7 +97,7 @@ public abstract class Goal extends Frame {
 		}
 	}
 	
-	@Component(value="EXT.DOMAIN.cpe.vpr.goals.CreatinineGoal")
+	@Component(value="org.osehra.cpe.vpr.goals.CreatinineGoal")
 	public static class CreatinineGoal extends Goal {
 		private static String SUMMARY = "%s: <b style=\"color: %s; font-weight: bold;\">%s</b>";
 		@Override
@@ -119,7 +119,7 @@ public abstract class Goal extends Frame {
 		}
 	}
 	
-	@Component(value="EXT.DOMAIN.cpe.vpr.goals.CholesterolGoal")
+	@Component(value="org.osehra.cpe.vpr.goals.CholesterolGoal")
 	public static class CholesterolGoal extends Goal {
 		private static String SUMMARY = "%s: <b style=\"color: %s; font-weight: bold;\">%s %s</b>";
 		@Override
@@ -130,7 +130,7 @@ public abstract class Goal extends Frame {
 			GoalStatus g = new GoalStatus(365);
 			g.focus = "Chol.";
 			g.guidelines = "Annually";
-			g.viewdef = "EXT.DOMAIN.cpe.vpr.queryeng.LabViewDef";
+			g.viewdef = "org.osehra.cpe.vpr.queryeng.LabViewDef";
 			g.viewdef_title = "Cholesterol Results";
 			g.viewdef_params = Table.buildRow("filter.typeNames", new String[] { "CHOLESTEROL", "LDL CHOLESTEROL", "HDL CHOLESTEROL"});
 
@@ -146,7 +146,7 @@ public abstract class Goal extends Frame {
 		}
 	}
 	
-	@Component(value="EXT.DOMAIN.cpe.vpr.goals.FluImmunizationGoal")
+	@Component(value="org.osehra.cpe.vpr.goals.FluImmunizationGoal")
 	public static class FluImmunizationGoal extends Goal {
 		@Override
 		public void evalGoal(FrameTask task) throws Exception {
@@ -155,7 +155,7 @@ public abstract class Goal extends Frame {
 			GoalStatus g = new GoalStatus(365);
 			g.focus = "Flu Vacc.";
 			g.guidelines = "Annually, unless egg allergic";
-			g.viewdef = "EXT.DOMAIN.cpe.vpr.queryeng.ImmunizationsViewDef";
+			g.viewdef = "org.osehra.cpe.vpr.queryeng.ImmunizationsViewDef";
 			g.viewdef_title = "Immunization History";
 			g.selfLink = "/frame/goal/vacc/" + task.getParamStr("pid");
 			if (r != null) {
@@ -167,7 +167,7 @@ public abstract class Goal extends Frame {
 		}
 	}
 	
-	@Component(value="EXT.DOMAIN.cpe.vpr.goals.PneumoImmunizationGoal")
+	@Component(value="org.osehra.cpe.vpr.goals.PneumoImmunizationGoal")
 	public static class PneumoImmunizationGoal extends Goal {
 		
 		@Override
@@ -202,7 +202,7 @@ public abstract class Goal extends Frame {
 			GoalStatus g = new GoalStatus(duestatus);
 			g.focus = "Pneum. Vacc.";
 			g.guidelines = guideline;
-			g.viewdef = "EXT.DOMAIN.cpe.vpr.queryeng.ImmunizationsViewDef";
+			g.viewdef = "org.osehra.cpe.vpr.queryeng.ImmunizationsViewDef";
 			g.viewdef_title = "Immunization History";
 			g.selfLink = "/frame/goal/vacc/" + task.getParamStr("pid");
 			if (r != null) {

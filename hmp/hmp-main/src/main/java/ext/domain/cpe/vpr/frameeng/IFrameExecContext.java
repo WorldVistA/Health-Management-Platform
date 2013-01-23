@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vpr.frameeng;
+package org.osehra.cpe.vpr.frameeng;
 
-import EXT.DOMAIN.cpe.vpr.pom.PatientEvent;
-import EXT.DOMAIN.cpe.vpr.queryeng.Query;
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewDef;
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask;
-import EXT.DOMAIN.cpe.vpr.viewdef.ViewDefRenderer2;
+import org.osehra.cpe.vpr.pom.PatientEvent;
+import org.osehra.cpe.vpr.queryeng.Query;
+import org.osehra.cpe.vpr.queryeng.ViewDef;
+import org.osehra.cpe.vpr.viewdef.RenderTask;
+import org.osehra.cpe.vpr.viewdef.ViewDefRenderer2;
 
 import java.util.Map;
 

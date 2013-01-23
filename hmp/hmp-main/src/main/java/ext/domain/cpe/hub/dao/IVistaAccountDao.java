@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.hub.dao;
+package org.osehra.cpe.hub.dao;
 
-import EXT.DOMAIN.cpe.dao.HmpRepository;
-import EXT.DOMAIN.cpe.hub.VistaAccount;
+import org.osehra.cpe.dao.HmpRepository;
+import org.osehra.cpe.hub.VistaAccount;
 
 import java.util.List;
 import java.util.Map;

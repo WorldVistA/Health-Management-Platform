@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.conn;
+package org.osehra.cpe.vista.rpc.broker.conn;
 
 import junit.framework.TestCase;
 import org.junit.Test;

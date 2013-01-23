@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vista.rpc.pool;
+package org.osehra.cpe.vista.rpc.pool;
 
-import EXT.DOMAIN.cpe.vista.rpc.conn.Connection;
-import EXT.DOMAIN.cpe.vista.rpc.conn.ConnectionFactory;
+import org.osehra.cpe.vista.rpc.conn.Connection;
+import org.osehra.cpe.vista.rpc.conn.ConnectionFactory;
 import org.easymock.EasyMock;
 import org.junit.Before;
 import org.junit.Test;

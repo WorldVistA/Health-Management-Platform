@@ -1,17 +1,17 @@
-package EXT.DOMAIN.cpe.vpr.queryeng.dynamic;
+package org.osehra.cpe.vpr.queryeng.dynamic;
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.vpr.RosterService;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.HL7DTMColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.TemplateColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.Query;
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewParam;
-import EXT.DOMAIN.cpe.vpr.queryeng.dynamic.columns.ViewDefDefColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.RosterPatientQuery;
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask;
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.vpr.RosterService;
+import org.osehra.cpe.vpr.pom.IPatientDAO;
+import org.osehra.cpe.vpr.queryeng.ColDef;
+import org.osehra.cpe.vpr.queryeng.ColDef.HL7DTMColDef;
+import org.osehra.cpe.vpr.queryeng.ColDef.TemplateColDef;
+import org.osehra.cpe.vpr.queryeng.Query;
+import org.osehra.cpe.vpr.queryeng.ViewDef;
+import org.osehra.cpe.vpr.queryeng.ViewParam;
+import org.osehra.cpe.vpr.queryeng.dynamic.columns.ViewDefDefColDef;
+import org.osehra.cpe.vpr.queryeng.query.RosterPatientQuery;
+import org.osehra.cpe.vpr.viewdef.RenderTask;
 
 import java.util.GregorianCalendar;
 import java.util.Iterator;
@@ -23,7 +23,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Component(value = "EXT.DOMAIN.cpe.vpr.queryeng.dynamic.PatientPanelViewDef")
+@Component(value = "org.osehra.cpe.vpr.queryeng.dynamic.PatientPanelViewDef")
 @Scope("prototype")
 public class PatientPanelViewDef extends ViewDef {
 

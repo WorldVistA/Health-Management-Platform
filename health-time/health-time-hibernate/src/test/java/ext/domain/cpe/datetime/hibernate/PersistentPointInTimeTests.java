@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.datetime.hibernate;
+package org.osehra.cpe.datetime.hibernate;
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
+import org.osehra.cpe.datetime.PointInTime;
 import org.junit.Test;
 
 import java.sql.Types;

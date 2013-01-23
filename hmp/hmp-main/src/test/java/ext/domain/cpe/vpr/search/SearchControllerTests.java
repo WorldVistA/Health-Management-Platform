@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.vpr.search;
+package org.osehra.cpe.vpr.search;
 
-import EXT.DOMAIN.cpe.jsonc.JsonCCollection;
-import EXT.DOMAIN.cpe.vpr.web.servlet.view.ContentNegotiatingViewResolver;
-import EXT.DOMAIN.cpe.vpr.web.view.AbstractGrailsConverterView;
+import org.osehra.cpe.jsonc.JsonCCollection;
+import org.osehra.cpe.vpr.web.servlet.view.ContentNegotiatingViewResolver;
+import org.osehra.cpe.vpr.web.view.AbstractGrailsConverterView;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.data.domain.PageRequest;

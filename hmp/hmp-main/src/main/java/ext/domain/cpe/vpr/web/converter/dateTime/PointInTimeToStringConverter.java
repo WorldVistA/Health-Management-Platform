@@ -1,8 +1,8 @@
 
-package EXT.DOMAIN.cpe.vpr.web.converter.dateTime;
+package org.osehra.cpe.vpr.web.converter.dateTime;
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.datetime.Precision;
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.datetime.Precision;
 
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;

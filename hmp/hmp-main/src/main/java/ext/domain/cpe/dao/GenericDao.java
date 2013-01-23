@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.dao;
+package org.osehra.cpe.dao;
 
-import EXT.DOMAIN.cpe.vpr.pom.IDataStoreDAO;
+import org.osehra.cpe.vpr.pom.IDataStoreDAO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

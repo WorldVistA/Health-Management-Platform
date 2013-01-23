@@ -1,4 +1,4 @@
-package EXT.DOMAIN.hmp.web.servlet.filter;
+package org.osehra.hmp.web.servlet.filter;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;

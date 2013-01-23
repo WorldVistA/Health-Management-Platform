@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.team;
+package org.osehra.cpe.team;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
-import EXT.DOMAIN.cpe.vpr.pom.AbstractPOMObject;
-import EXT.DOMAIN.cpe.vpr.pom.JSONViews;
+import org.osehra.cpe.vpr.pom.AbstractPOMObject;
+import org.osehra.cpe.vpr.pom.JSONViews;
 import org.springframework.util.StringUtils;
 
 import java.util.Collections;

@@ -1,12 +1,12 @@
-package EXT.DOMAIN.cpe.vista.rpc;
+package org.osehra.cpe.vista.rpc;
 
-import EXT.DOMAIN.cpe.vista.rpc.broker.conn.VistaIdNotFoundException;
-import EXT.DOMAIN.cpe.vista.rpc.broker.protocol.VerifyCodeExpiredException;
-import EXT.DOMAIN.cpe.vista.rpc.conn.AccessVerifyConnectionSpec;
-import EXT.DOMAIN.cpe.vista.rpc.conn.Connection;
-import EXT.DOMAIN.cpe.vista.rpc.conn.ConnectionFactory;
-import EXT.DOMAIN.cpe.vista.rpc.conn.ConnectionUserDetails;
-import EXT.DOMAIN.cpe.vista.util.RpcUriUtils;
+import org.osehra.cpe.vista.rpc.broker.conn.VistaIdNotFoundException;
+import org.osehra.cpe.vista.rpc.broker.protocol.VerifyCodeExpiredException;
+import org.osehra.cpe.vista.rpc.conn.AccessVerifyConnectionSpec;
+import org.osehra.cpe.vista.rpc.conn.Connection;
+import org.osehra.cpe.vista.rpc.conn.ConnectionFactory;
+import org.osehra.cpe.vista.rpc.conn.ConnectionUserDetails;
+import org.osehra.cpe.vista.util.RpcUriUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.dao.DataAccessException;

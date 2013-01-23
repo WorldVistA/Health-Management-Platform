@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vista.rpc.pool;
+package org.osehra.cpe.vista.rpc.pool;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
-import EXT.DOMAIN.cpe.vista.rpc.conn.AccessVerifyConnectionSpec;
-import EXT.DOMAIN.cpe.vista.rpc.conn.AnonymousConnectionSpec;
-import EXT.DOMAIN.cpe.vista.rpc.conn.ConnectionSpec;
-import EXT.DOMAIN.cpe.vista.util.RpcUriUtils;
+import org.osehra.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.rpc.conn.AccessVerifyConnectionSpec;
+import org.osehra.cpe.vista.rpc.conn.AnonymousConnectionSpec;
+import org.osehra.cpe.vista.rpc.conn.ConnectionSpec;
+import org.osehra.cpe.vista.util.RpcUriUtils;
 import org.springframework.util.ResourceUtils;
 
 import java.net.URI;

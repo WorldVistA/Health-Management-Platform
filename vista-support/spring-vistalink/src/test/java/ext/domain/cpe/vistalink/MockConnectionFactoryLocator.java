@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vistalink;
+package org.osehra.cpe.vistalink;
 
 import org.springframework.dao.DataAccessResourceFailureException;
 

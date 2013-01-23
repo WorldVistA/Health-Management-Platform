@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.auth;
+package org.osehra.cpe.auth;
 
 import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;

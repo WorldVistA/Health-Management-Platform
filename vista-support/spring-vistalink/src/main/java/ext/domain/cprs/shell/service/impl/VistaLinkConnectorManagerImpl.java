@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cprs.shell.service.impl;
+package org.osehra.cprs.shell.service.impl;
 
-import EXT.DOMAIN.cpe.vistalink.locator.VistaLinkConnectorConfig;
-import EXT.DOMAIN.cpe.vistalink.locator.VistaLinkConnectorConfigConnectionFactoryLocator;
-import EXT.DOMAIN.cprs.shell.dao.VistaLinkConfigDao;
-import EXT.DOMAIN.cprs.shell.service.VistaLinkConnectorManager;
+import org.osehra.cpe.vistalink.locator.VistaLinkConnectorConfig;
+import org.osehra.cpe.vistalink.locator.VistaLinkConnectorConfigConnectionFactoryLocator;
+import org.osehra.cprs.shell.dao.VistaLinkConfigDao;
+import org.osehra.cprs.shell.service.VistaLinkConnectorManager;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.util.Assert;

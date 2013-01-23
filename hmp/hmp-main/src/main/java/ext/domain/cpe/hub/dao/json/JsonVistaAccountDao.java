@@ -1,12 +1,12 @@
-package EXT.DOMAIN.cpe.hub.dao.json;
+package org.osehra.cpe.hub.dao.json;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import EXT.DOMAIN.cpe.Bootstrap;
-import EXT.DOMAIN.cpe.HmpProperties;
-import EXT.DOMAIN.cpe.hub.VistaAccount;
-import EXT.DOMAIN.cpe.hub.dao.IVistaAccountDao;
+import org.osehra.cpe.Bootstrap;
+import org.osehra.cpe.HmpProperties;
+import org.osehra.cpe.hub.VistaAccount;
+import org.osehra.cpe.hub.dao.IVistaAccountDao;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.BeanWrapper;
@@ -28,7 +28,7 @@ import java.io.Writer;
 import java.util.*;
 
 /**
- * Implementation of {@link EXT.DOMAIN.cpe.hub.dao.IVistaAccountDao} that uses a JSON formatted config file to store VistA connection information.
+ * Implementation of {@link org.osehra.cpe.hub.dao.IVistaAccountDao} that uses a JSON formatted config file to store VistA connection information.
  */
 public class JsonVistaAccountDao implements IVistaAccountDao, ApplicationContextAware {
 

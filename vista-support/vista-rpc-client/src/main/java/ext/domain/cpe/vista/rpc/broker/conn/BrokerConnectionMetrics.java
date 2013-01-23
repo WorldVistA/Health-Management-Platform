@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.conn;
+package org.osehra.cpe.vista.rpc.broker.conn;
 
-import EXT.DOMAIN.cpe.vista.rpc.broker.protocol.TransportMetrics;
-import EXT.DOMAIN.cpe.vista.rpc.conn.ConnectionMetrics;
+import org.osehra.cpe.vista.rpc.broker.protocol.TransportMetrics;
+import org.osehra.cpe.vista.rpc.conn.ConnectionMetrics;
 
 public class BrokerConnectionMetrics implements ConnectionMetrics {
     private long requestCount = 0;

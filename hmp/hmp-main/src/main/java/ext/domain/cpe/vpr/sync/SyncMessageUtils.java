@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vpr.sync;
+package org.osehra.cpe.vpr.sync;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Map;
 
-import static EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants.*;
+import static org.osehra.cpe.vpr.sync.SyncMessageConstants.*;
 
 public class SyncMessageUtils {
 

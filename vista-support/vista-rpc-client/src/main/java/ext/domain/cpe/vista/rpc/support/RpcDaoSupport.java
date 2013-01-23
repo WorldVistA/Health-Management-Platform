@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vista.rpc.support;
+package org.osehra.cpe.vista.rpc.support;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcTemplate;
-import EXT.DOMAIN.cpe.vista.rpc.conn.ConnectionFactory;
+import org.osehra.cpe.vista.rpc.RpcTemplate;
+import org.osehra.cpe.vista.rpc.conn.ConnectionFactory;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.dao.support.DaoSupport;
 

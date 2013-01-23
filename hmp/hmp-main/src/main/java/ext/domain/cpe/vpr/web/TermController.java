@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.web;
+package org.osehra.cpe.vpr.web;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,11 +7,11 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import EXT.DOMAIN.cpe.jsonc.JsonCCollection;
-import EXT.DOMAIN.cpe.vpr.queryeng.Table;
-import EXT.DOMAIN.cpe.vpr.termeng.Concept;
-import EXT.DOMAIN.cpe.vpr.termeng.TermEng;
-import EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory;
+import org.osehra.cpe.jsonc.JsonCCollection;
+import org.osehra.cpe.vpr.queryeng.Table;
+import org.osehra.cpe.vpr.termeng.Concept;
+import org.osehra.cpe.vpr.termeng.TermEng;
+import org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

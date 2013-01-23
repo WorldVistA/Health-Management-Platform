@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.conn;
+package org.osehra.cpe.vista.rpc.broker.conn;
 
 import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * TODOC: Provide summary documentation of class EXT.DOMAIN.cpe.vista.impl.BufferedInputStream
+ * TODOC: Provide summary documentation of class org.osehra.cpe.vista.impl.BufferedInputStream
  */
 public class EndOfTransmissionInputStream extends InputStream {
 

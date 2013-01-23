@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vistalink;
+package org.osehra.cpe.vistalink;
 
-import EXT.DOMAIN.vistalink.adapter.record.VistaLinkFaultException;
+import org.osehra.vistalink.adapter.record.VistaLinkFaultException;
 import org.springframework.dao.DataAccessResourceFailureException;
 
 public class VistaLinkResourceFailureException extends DataAccessResourceFailureException {

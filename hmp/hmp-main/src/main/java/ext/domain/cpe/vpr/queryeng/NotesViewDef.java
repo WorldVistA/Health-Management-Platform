@@ -1,15 +1,15 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
-import EXT.DOMAIN.cpe.vpr.VprConstants;
-import EXT.DOMAIN.cpe.vpr.pom.jds.JdsOperations;
-import EXT.DOMAIN.cpe.vpr.ws.link.OpenInfoButtonLinkGenerator;
+import org.osehra.cpe.vpr.VprConstants;
+import org.osehra.cpe.vpr.pom.jds.JdsOperations;
+import org.osehra.cpe.vpr.ws.link.OpenInfoButtonLinkGenerator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
-@Component(value = "EXT.DOMAIN.cpe.vpr.queryeng.NotesViewDef")
+@Component(value = "org.osehra.cpe.vpr.queryeng.NotesViewDef")
 @Scope("prototype")
 public class NotesViewDef extends MergedDocumentsViewDef {
 	

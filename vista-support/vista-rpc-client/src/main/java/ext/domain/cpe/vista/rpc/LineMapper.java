@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vista.rpc;
+package org.osehra.cpe.vista.rpc;
 
 /**
  * An interface used by RpcTemplate for mapping lines of an RpcResponse on a per-line basis. Implementations of this

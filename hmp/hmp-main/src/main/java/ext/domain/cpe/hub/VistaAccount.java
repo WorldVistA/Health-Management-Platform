@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.hub;
+package org.osehra.cpe.hub;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import EXT.DOMAIN.cpe.VprEncryption;
+import org.osehra.cpe.VprEncryption;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;

@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.auth;
+package org.osehra.cpe.auth;
 
 import java.io.Serializable;
 
-import EXT.DOMAIN.cpe.datetime.IntervalOfTime;
-import EXT.DOMAIN.cpe.datetime.PointInTime;
+import org.osehra.cpe.datetime.IntervalOfTime;
+import org.osehra.cpe.datetime.PointInTime;
 
 public class TeamPosition implements Serializable{
 

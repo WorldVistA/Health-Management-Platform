@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.viewdef;
+package org.osehra.cpe.vpr.viewdef;
 
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewDef;
+import org.osehra.cpe.vpr.queryeng.ViewDef;
 
 public class ViewDefRenderException extends Exception {
 	private static final long serialVersionUID = 4151010493860383366L;

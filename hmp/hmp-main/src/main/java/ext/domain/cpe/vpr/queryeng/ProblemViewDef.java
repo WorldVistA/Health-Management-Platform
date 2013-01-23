@@ -1,15 +1,15 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
-import static EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDefCriteria.where;
-import EXT.DOMAIN.cpe.vpr.Problem;
-import EXT.DOMAIN.cpe.vpr.frameeng.IFrameTrigger.PatientEventTrigger;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.ActionColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.HL7DTMColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.TemplateColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.JDSQuery;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDef;
-import EXT.DOMAIN.cpe.vpr.viewdef.QueryMapper;
-import EXT.DOMAIN.cpe.vpr.ws.link.OpenInfoButtonLinkGenerator;
+import static org.osehra.cpe.vpr.queryeng.query.QueryDefCriteria.where;
+import org.osehra.cpe.vpr.Problem;
+import org.osehra.cpe.vpr.frameeng.IFrameTrigger.PatientEventTrigger;
+import org.osehra.cpe.vpr.queryeng.ColDef.ActionColDef;
+import org.osehra.cpe.vpr.queryeng.ColDef.HL7DTMColDef;
+import org.osehra.cpe.vpr.queryeng.ColDef.TemplateColDef;
+import org.osehra.cpe.vpr.queryeng.query.JDSQuery;
+import org.osehra.cpe.vpr.queryeng.query.QueryDef;
+import org.osehra.cpe.vpr.viewdef.QueryMapper;
+import org.osehra.cpe.vpr.ws.link.OpenInfoButtonLinkGenerator;
 
 import java.sql.SQLException;
 
@@ -23,7 +23,7 @@ import org.springframework.stereotype.Component;
  * <p/>
  * It includes some filter capabilities (all, abnormal, critical) and time range selection criteria.
  */
-@Component(value="EXT.DOMAIN.cpe.vpr.queryeng.ProblemViewDef")
+@Component(value="org.osehra.cpe.vpr.queryeng.ProblemViewDef")
 @Scope("prototype")
 public class ProblemViewDef extends ViewDef {
 	

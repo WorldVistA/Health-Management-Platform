@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
 import java.util.AbstractCollection;
 import java.util.ArrayList;

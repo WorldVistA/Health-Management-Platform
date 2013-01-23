@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vista.springframework.security.userdetails.rpc;
+package org.osehra.cpe.vista.springframework.security.userdetails.rpc;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
-import EXT.DOMAIN.cpe.vista.springframework.security.authentication.VistaAuthenticationToken;
-import EXT.DOMAIN.cpe.vista.springframework.security.userdetails.VistaUser;
-import EXT.DOMAIN.cpe.vista.util.RpcUriUtils;
+import org.osehra.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.springframework.security.authentication.VistaAuthenticationToken;
+import org.osehra.cpe.vista.springframework.security.userdetails.VistaUser;
+import org.osehra.cpe.vista.util.RpcUriUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

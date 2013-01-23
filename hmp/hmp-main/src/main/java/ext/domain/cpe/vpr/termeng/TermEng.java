@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.termeng;
+package org.osehra.cpe.vpr.termeng;
 
-import EXT.DOMAIN.cpe.vpr.vistasvc.CacheMgr;
-import EXT.DOMAIN.cpe.vpr.vistasvc.ICacheMgr;
+import org.osehra.cpe.vpr.vistasvc.CacheMgr;
+import org.osehra.cpe.vpr.vistasvc.ICacheMgr;
 
 import java.util.ArrayList;
 import java.util.Arrays;

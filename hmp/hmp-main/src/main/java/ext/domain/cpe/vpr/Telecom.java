@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vpr;
+package org.osehra.cpe.vpr;
 
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonView;
-import EXT.DOMAIN.cpe.vpr.pom.AbstractPOMObject;
-import EXT.DOMAIN.cpe.vpr.pom.JSONViews;
+import org.osehra.cpe.vpr.pom.AbstractPOMObject;
+import org.osehra.cpe.vpr.pom.JSONViews;
 
 
 public class Telecom extends AbstractPOMObject {

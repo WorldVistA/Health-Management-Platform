@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vista.util;
+package org.osehra.cpe.vista.util;
 
-import EXT.DOMAIN.cpe.vista.rpc.broker.protocol.AbstractRpcProtocol;
+import org.osehra.cpe.vista.rpc.broker.protocol.AbstractRpcProtocol;
 
 import java.util.ArrayList;
 import java.util.List;

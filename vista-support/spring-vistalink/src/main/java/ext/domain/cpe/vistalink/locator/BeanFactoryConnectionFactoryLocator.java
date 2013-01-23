@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vistalink.locator;
+package org.osehra.cpe.vistalink.locator;
 
-import EXT.DOMAIN.cpe.vistalink.ConnectionFactoryLocator;
+import org.osehra.cpe.vistalink.ConnectionFactoryLocator;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;

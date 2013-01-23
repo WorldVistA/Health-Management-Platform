@@ -1,14 +1,14 @@
-package EXT.DOMAIN.cpe.vpr.pom;
+package org.osehra.cpe.vpr.pom;
 
-import static EXT.DOMAIN.cpe.vpr.pom.POMUtils.mapAlias;
-import static EXT.DOMAIN.cpe.vpr.pom.POMUtils.nvl;
+import static org.osehra.cpe.vpr.pom.POMUtils.mapAlias;
+import static org.osehra.cpe.vpr.pom.POMUtils.nvl;
 
 import com.fasterxml.jackson.annotation.*;
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.vpr.pom.POMIndex.MultiValueJDSIndex;
-import EXT.DOMAIN.cpe.vpr.pom.POMIndex.RangeJDSIndex;
-import EXT.DOMAIN.cpe.vpr.pom.POMIndex.TermJDSIndex;
-import EXT.DOMAIN.cpe.vpr.pom.POMIndex.ValueJDSIndex;
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.vpr.pom.POMIndex.MultiValueJDSIndex;
+import org.osehra.cpe.vpr.pom.POMIndex.RangeJDSIndex;
+import org.osehra.cpe.vpr.pom.POMIndex.TermJDSIndex;
+import org.osehra.cpe.vpr.pom.POMIndex.ValueJDSIndex;
 
 import java.util.List;
 import java.util.Map;

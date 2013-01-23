@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.web.servlet;
+package org.osehra.cpe.vpr.web.servlet;
 
-import EXT.DOMAIN.cpe.auth.HmpUser;
-import EXT.DOMAIN.cpe.auth.HmpUserDetails;
+import org.osehra.cpe.auth.HmpUser;
+import org.osehra.cpe.auth.HmpUserDetails;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.mock.web.MockHttpSession;

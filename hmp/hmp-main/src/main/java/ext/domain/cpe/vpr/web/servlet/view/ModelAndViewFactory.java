@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.vpr.web.servlet.view;
+package org.osehra.cpe.vpr.web.servlet.view;
 
-import EXT.DOMAIN.cpe.vpr.web.view.AbstractGrailsConverterView;
-import EXT.DOMAIN.cpe.vpr.web.view.ResourceView;
-import EXT.DOMAIN.cpe.vpr.web.view.StringView;
+import org.osehra.cpe.vpr.web.view.AbstractGrailsConverterView;
+import org.osehra.cpe.vpr.web.view.ResourceView;
+import org.osehra.cpe.vpr.web.view.StringView;
 import org.springframework.core.io.Resource;
 import org.springframework.web.servlet.ModelAndView;
 

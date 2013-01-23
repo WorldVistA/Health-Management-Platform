@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe;
+package org.osehra.cpe;
 
 /**
  * Constants for constructing JSON-C responses.

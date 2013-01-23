@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vista.springframework.security.userdetails.rpc;
+package org.osehra.cpe.vista.springframework.security.userdetails.rpc;
 
-import EXT.DOMAIN.cpe.vista.rpc.ConnectionCallback;
-import EXT.DOMAIN.cpe.vista.rpc.RpcOperations;
-import EXT.DOMAIN.cpe.vista.rpc.broker.protocol.BadCredentialsException;
-import EXT.DOMAIN.cpe.vista.rpc.broker.protocol.VerifyCodeExpiredException;
-import EXT.DOMAIN.cpe.vista.util.RpcUriUtils;
+import org.osehra.cpe.vista.rpc.ConnectionCallback;
+import org.osehra.cpe.vista.rpc.RpcOperations;
+import org.osehra.cpe.vista.rpc.broker.protocol.BadCredentialsException;
+import org.osehra.cpe.vista.rpc.broker.protocol.VerifyCodeExpiredException;
+import org.osehra.cpe.vista.util.RpcUriUtils;
 import org.easymock.EasyMock;
 import org.junit.Before;
 import org.junit.Test;

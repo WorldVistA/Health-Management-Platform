@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista;
+package org.osehra.cpe.vpr.sync.vista;
 
-import EXT.DOMAIN.cpe.hub.VistaAccount;
-import EXT.DOMAIN.cpe.hub.dao.IVistaAccountDao;
-import EXT.DOMAIN.cpe.vpr.dao.IVprUpdateDao;
-import EXT.DOMAIN.cpe.vpr.sync.ISyncService;
+import org.osehra.cpe.hub.VistaAccount;
+import org.osehra.cpe.hub.dao.IVistaAccountDao;
+import org.osehra.cpe.vpr.dao.IVprUpdateDao;
+import org.osehra.cpe.vpr.sync.ISyncService;
 import org.junit.Before;
 import org.junit.Test;
 

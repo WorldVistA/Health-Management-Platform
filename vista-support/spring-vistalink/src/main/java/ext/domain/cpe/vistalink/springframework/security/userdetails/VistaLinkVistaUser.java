@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vistalink.springframework.security.userdetails;
+package org.osehra.cpe.vistalink.springframework.security.userdetails;
 
-import EXT.DOMAIN.cpe.vista.springframework.security.userdetails.VistaUser;
+import org.osehra.cpe.vista.springframework.security.userdetails.VistaUser;
 import org.springframework.security.core.GrantedAuthority;
 
 import java.util.Collection;

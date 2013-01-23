@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.datetime.jackson;
+package org.osehra.cpe.datetime.jackson;
 
 import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.core.util.VersionUtil;

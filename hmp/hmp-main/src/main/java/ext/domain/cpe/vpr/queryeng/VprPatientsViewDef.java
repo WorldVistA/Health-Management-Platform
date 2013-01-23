@@ -1,13 +1,13 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
-import EXT.DOMAIN.cpe.vpr.Patient;
-import EXT.DOMAIN.cpe.vpr.dao.ISyncErrorDao;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.JDSQuery;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.VprPatientQuery;
-import EXT.DOMAIN.cpe.vpr.viewdef.QueryMapper;
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask;
+import org.osehra.cpe.vpr.Patient;
+import org.osehra.cpe.vpr.dao.ISyncErrorDao;
+import org.osehra.cpe.vpr.pom.IPatientDAO;
+import org.osehra.cpe.vpr.queryeng.query.JDSQuery;
+import org.osehra.cpe.vpr.queryeng.query.QueryDef;
+import org.osehra.cpe.vpr.queryeng.query.VprPatientQuery;
+import org.osehra.cpe.vpr.viewdef.QueryMapper;
+import org.osehra.cpe.vpr.viewdef.RenderTask;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -17,7 +17,7 @@ import java.util.*;
 /**
  * {@link ViewDef} for browsing through all patients in the VPR
  */
-@Component(value = "EXT.DOMAIN.cpe.vpr.queryeng.VprPatientsViewDef")
+@Component(value = "org.osehra.cpe.vpr.queryeng.VprPatientsViewDef")
 @Scope("prototype")
 public class VprPatientsViewDef extends ViewDef {
     public VprPatientsViewDef() {

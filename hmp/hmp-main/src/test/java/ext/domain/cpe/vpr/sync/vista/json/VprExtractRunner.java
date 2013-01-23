@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista.json;
+package org.osehra.cpe.vpr.sync.vista.json;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import EXT.DOMAIN.cpe.vista.rpc.CredentialsProvider;
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
-import EXT.DOMAIN.cpe.vista.rpc.RpcHostResolver;
-import EXT.DOMAIN.cpe.vista.rpc.RpcTemplate;
-import EXT.DOMAIN.cpe.vista.rpc.broker.conn.VistaIdNotFoundException;
+import org.osehra.cpe.vista.rpc.CredentialsProvider;
+import org.osehra.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.rpc.RpcHostResolver;
+import org.osehra.cpe.vista.rpc.RpcTemplate;
+import org.osehra.cpe.vista.rpc.broker.conn.VistaIdNotFoundException;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;

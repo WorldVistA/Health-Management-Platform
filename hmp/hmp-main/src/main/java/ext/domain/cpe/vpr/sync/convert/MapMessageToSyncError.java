@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.sync.convert;
+package org.osehra.cpe.vpr.sync.convert;
 
-import EXT.DOMAIN.cpe.vpr.SyncError;
-import EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants;
+import org.osehra.cpe.vpr.SyncError;
+import org.osehra.cpe.vpr.sync.SyncMessageConstants;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.core.convert.converter.Converter;
 
@@ -10,7 +10,7 @@ import javax.jms.MapMessage;
 import java.io.IOException;
 import java.util.Date;
 
-import static EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants.*;
+import static org.osehra.cpe.vpr.sync.SyncMessageConstants.*;
 
 /**
  * Converts a JMS {@link MapMessage} to a {@link SyncError}

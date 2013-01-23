@@ -1,15 +1,15 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista;
+package org.osehra.cpe.vpr.sync.vista;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import EXT.DOMAIN.cpe.vista.rpc.JacksonRpcResponseExtractor;
-import EXT.DOMAIN.cpe.vista.rpc.RpcEvent;
-import EXT.DOMAIN.cpe.vista.rpc.RpcRequest;
-import EXT.DOMAIN.cpe.vista.rpc.broker.protocol.Mult;
-import EXT.DOMAIN.cpe.vista.rpc.broker.protocol.RpcParam;
-import EXT.DOMAIN.cpe.vista.rpc.support.RpcLogFilter;
+import org.osehra.cpe.vista.rpc.JacksonRpcResponseExtractor;
+import org.osehra.cpe.vista.rpc.RpcEvent;
+import org.osehra.cpe.vista.rpc.RpcRequest;
+import org.osehra.cpe.vista.rpc.broker.protocol.Mult;
+import org.osehra.cpe.vista.rpc.broker.protocol.RpcParam;
+import org.osehra.cpe.vista.rpc.support.RpcLogFilter;
 
-import static EXT.DOMAIN.cpe.vpr.sync.vista.SynchronizationRpcConstants.VPR_GET_VISTA_DATA_JSON;
-import static EXT.DOMAIN.cpe.vpr.sync.vista.SynchronizationRpcConstants.VPR_SYNCHRONIZATION_CONTEXT;
+import static org.osehra.cpe.vpr.sync.vista.SynchronizationRpcConstants.VPR_GET_VISTA_DATA_JSON;
+import static org.osehra.cpe.vpr.sync.vista.SynchronizationRpcConstants.VPR_SYNCHRONIZATION_CONTEXT;
 
 /**
  * Filters out VPR Update RPCs from the log when there are no updates

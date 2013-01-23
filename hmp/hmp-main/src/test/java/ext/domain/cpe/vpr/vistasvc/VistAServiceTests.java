@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.vistasvc;
+package org.osehra.cpe.vpr.vistasvc;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -14,8 +14,8 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import EXT.DOMAIN.cpe.vista.rpc.RpcTemplate;
-import EXT.DOMAIN.cpe.vpr.vistasvc.CacheMgr.CacheType;
+import org.osehra.cpe.vista.rpc.RpcTemplate;
+import org.osehra.cpe.vpr.vistasvc.CacheMgr.CacheType;
 
 import java.util.HashMap;
 

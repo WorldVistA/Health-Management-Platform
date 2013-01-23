@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.QueryColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.Query.StaticQuery;
+import org.osehra.cpe.vpr.queryeng.ColDef.QueryColDef;
+import org.osehra.cpe.vpr.queryeng.Query.StaticQuery;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;

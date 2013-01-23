@@ -1,12 +1,12 @@
-package EXT.DOMAIN.cpe.vpr.frameeng;
+package org.osehra.cpe.vpr.frameeng;
 
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameAction.IFrameActionExec;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameAction.IPatientSerializableAction;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameJob.FrameTask;
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPatientObjectDAO;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject;
-import EXT.DOMAIN.cpe.vpr.pom.PatientEvent;
-import EXT.DOMAIN.cpe.vpr.pom.jds.JdsTemplate;
+import org.osehra.cpe.vpr.frameeng.FrameAction.IFrameActionExec;
+import org.osehra.cpe.vpr.frameeng.FrameAction.IPatientSerializableAction;
+import org.osehra.cpe.vpr.frameeng.FrameJob.FrameTask;
+import org.osehra.cpe.vpr.pom.IGenericPatientObjectDAO;
+import org.osehra.cpe.vpr.pom.IPatientObject;
+import org.osehra.cpe.vpr.pom.PatientEvent;
+import org.osehra.cpe.vpr.pom.jds.JdsTemplate;
 
 import java.util.Arrays;
 import java.util.List;

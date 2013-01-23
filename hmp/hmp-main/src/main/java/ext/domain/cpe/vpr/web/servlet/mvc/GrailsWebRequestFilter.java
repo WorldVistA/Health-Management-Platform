@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.web.servlet.mvc;
+package org.osehra.cpe.vpr.web.servlet.mvc;
 
 import org.codehaus.groovy.grails.commons.ApplicationAttributes;
 import org.codehaus.groovy.grails.commons.GrailsApplication;

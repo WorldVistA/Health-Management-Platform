@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.dao.hibernate;
+package org.osehra.cpe.dao.hibernate;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;

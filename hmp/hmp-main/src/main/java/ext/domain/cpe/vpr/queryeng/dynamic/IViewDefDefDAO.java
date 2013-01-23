@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.queryeng.dynamic;
+package org.osehra.cpe.vpr.queryeng.dynamic;
 
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject;
+import org.osehra.cpe.vpr.pom.IPatientObject;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,12 +1,12 @@
-package EXT.DOMAIN.cpe.vpr.frameeng;
+package org.osehra.cpe.vpr.frameeng;
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.vpr.PatientAlert;
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPatientObjectDAO;
-import EXT.DOMAIN.cpe.vpr.queryeng.Table;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDefCriteria;
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask;
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.vpr.PatientAlert;
+import org.osehra.cpe.vpr.pom.IGenericPatientObjectDAO;
+import org.osehra.cpe.vpr.queryeng.Table;
+import org.osehra.cpe.vpr.queryeng.query.QueryDef;
+import org.osehra.cpe.vpr.queryeng.query.QueryDefCriteria;
+import org.osehra.cpe.vpr.viewdef.RenderTask;
 
 import java.io.IOException;
 import java.util.ArrayList;

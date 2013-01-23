@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.conn;
+package org.osehra.cpe.vista.rpc.broker.conn;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcResponse;
-import EXT.DOMAIN.cpe.vista.util.VistaStringUtils;
+import org.osehra.cpe.vista.rpc.RpcResponse;
+import org.osehra.cpe.vista.util.VistaStringUtils;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

@@ -1,15 +1,15 @@
-package EXT.DOMAIN.cpe.vpr.queryeng.dynamic.columns;
+package org.osehra.cpe.vpr.queryeng.dynamic.columns;
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.datetime.format.HL7DateTimeFormat;
-import EXT.DOMAIN.cpe.datetime.format.PointInTimeFormat;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameRegistry;
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewDef;
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask;
-import EXT.DOMAIN.cpe.vpr.viewdef.ViewDefRenderException;
-import EXT.DOMAIN.cpe.vpr.viewdef.ViewDefRenderer2;
-import EXT.DOMAIN.cpe.vpr.viewdef.ViewDefRenderer2.JSONViewRenderer2;
-import EXT.DOMAIN.cpe.vpr.web.converter.dateTime.PointInTimeToStringConverter;
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.datetime.format.HL7DateTimeFormat;
+import org.osehra.cpe.datetime.format.PointInTimeFormat;
+import org.osehra.cpe.vpr.frameeng.FrameRegistry;
+import org.osehra.cpe.vpr.queryeng.ViewDef;
+import org.osehra.cpe.vpr.viewdef.RenderTask;
+import org.osehra.cpe.vpr.viewdef.ViewDefRenderException;
+import org.osehra.cpe.vpr.viewdef.ViewDefRenderer2;
+import org.osehra.cpe.vpr.viewdef.ViewDefRenderer2.JSONViewRenderer2;
+import org.osehra.cpe.vpr.web.converter.dateTime.PointInTimeToStringConverter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,7 +22,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
-@Component(value = "EXT.DOMAIN.cpe.vpr.queryeng.dynamic.columns.PendingTasks")
+@Component(value = "org.osehra.cpe.vpr.queryeng.dynamic.columns.PendingTasks")
 @Scope("prototype")
 public class PendingTasks extends ViewDefDefColDef {
 
@@ -62,7 +62,7 @@ public class PendingTasks extends ViewDefDefColDef {
 		 * Multiple chained frames or viewdefs?
 		 * Need to learn more about the frame concept, work with BB on that.
 		 */
-		return "EXT.DOMAIN.cpe.vpr.queryeng.TasksViewDef";
+		return "org.osehra.cpe.vpr.queryeng.TasksViewDef";
 	}
 
 	@Override
@@ -115,8 +115,8 @@ public class PendingTasks extends ViewDefDefColDef {
 				 * 
 				 * A.K.A. "Black Magic part 1 of 2"
 				 */
-				results.add("<a href=\"javascript:;\" onmousedown=\"EXT.DOMAIN.cpe.TaskWindow.showTaskForPatient(event, "+configProperties.get("pid")+")" +
-						//"var taskWindow = EXT.DOMAIN.cpe.TaskWindow.showTaskForPatient("+configProperties.get("pid")+", true);" +//Ext.getCmp('taskWindow');" +
+				results.add("<a href=\"javascript:;\" onmousedown=\"org.osehra.cpe.TaskWindow.showTaskForPatient(event, "+configProperties.get("pid")+")" +
+						//"var taskWindow = org.osehra.cpe.TaskWindow.showTaskForPatient("+configProperties.get("pid")+", true);" +//Ext.getCmp('taskWindow');" +
 						"\">Add Task</a><br>");
 			}
 		} catch (ViewDefRenderException e) {

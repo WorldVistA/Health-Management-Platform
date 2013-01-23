@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.conn;
+package org.osehra.cpe.vista.rpc.broker.conn;
 
-import EXT.DOMAIN.cpe.vista.rpc.conn.SystemInfo;
-import EXT.DOMAIN.cpe.vista.util.VistaStringUtils;
+import org.osehra.cpe.vista.rpc.conn.SystemInfo;
+import org.osehra.cpe.vista.util.VistaStringUtils;
 
 /**
- * TODOC: Provide summary documentation of class EXT.DOMAIN.cpe.vista.impl.SystemInfo
+ * TODOC: Provide summary documentation of class org.osehra.cpe.vista.impl.SystemInfo
  */
 public class VistaSystemInfo implements SystemInfo {
     private String server;

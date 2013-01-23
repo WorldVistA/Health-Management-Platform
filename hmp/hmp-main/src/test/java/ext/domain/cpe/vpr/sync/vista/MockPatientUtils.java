@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista;
+package org.osehra.cpe.vpr.sync.vista;
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.vpr.Patient;
-import EXT.DOMAIN.cpe.vpr.PatientFacility;
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.vpr.Patient;
+import org.osehra.cpe.vpr.PatientFacility;
 
 /**
  * TestCase that sets up a mock Patient and facility for use in tests

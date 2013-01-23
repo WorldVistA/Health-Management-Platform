@@ -1,12 +1,12 @@
-package EXT.DOMAIN.cpe.vpr.ws.link;
+package org.osehra.cpe.vpr.ws.link;
 
 import java.util.Date;
 
-import EXT.DOMAIN.cpe.HmpProperties;
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.feed.atom.Link;
-import EXT.DOMAIN.cpe.vpr.*;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO;
+import org.osehra.cpe.HmpProperties;
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.feed.atom.Link;
+import org.osehra.cpe.vpr.*;
+import org.osehra.cpe.vpr.pom.IPatientDAO;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.core.env.Environment;

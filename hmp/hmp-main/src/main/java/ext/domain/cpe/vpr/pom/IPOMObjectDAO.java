@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.pom;
+package org.osehra.cpe.vpr.pom;
 
-import EXT.DOMAIN.cpe.dao.HmpRepository;
+import org.osehra.cpe.dao.HmpRepository;
 
 public interface IPOMObjectDAO<T extends IPOMObject> extends HmpRepository<T, String> {
 

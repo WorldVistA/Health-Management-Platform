@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.grails;
+package org.osehra.cpe.grails;
 
 import grails.persistence.Entity;
 import org.codehaus.groovy.grails.commons.DefaultGrailsApplication;

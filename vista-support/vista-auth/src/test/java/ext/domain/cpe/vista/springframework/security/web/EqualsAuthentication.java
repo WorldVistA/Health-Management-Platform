@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vista.springframework.security.web;
+package org.osehra.cpe.vista.springframework.security.web;
 
 import org.mockito.ArgumentMatcher;
 import org.springframework.security.core.Authentication;

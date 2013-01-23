@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vista.rpc;
+package org.osehra.cpe.vista.rpc;
 
 /**
  * Implementations of CredentialsProvider are called by {@link RpcTemplate} to supply the credentials for VistA RPC requests that are

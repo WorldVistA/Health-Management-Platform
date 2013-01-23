@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.protocol;
+package org.osehra.cpe.vista.rpc.broker.protocol;
 
-import EXT.DOMAIN.cpe.vista.rpc.support.Wire;
+import org.osehra.cpe.vista.rpc.support.Wire;
 
 import java.io.IOException;
 import java.io.InputStream;

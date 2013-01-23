@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.pom.jds;
+package org.osehra.cpe.vpr.pom.jds;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
@@ -9,19 +9,19 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import EXT.DOMAIN.cpe.jsonc.JsonCCollection;
-import EXT.DOMAIN.cpe.vpr.Allergy;
-import EXT.DOMAIN.cpe.vpr.Document;
-import EXT.DOMAIN.cpe.vpr.Encounter;
-import EXT.DOMAIN.cpe.vpr.HealthFactor;
-import EXT.DOMAIN.cpe.vpr.Medication;
-import EXT.DOMAIN.cpe.vpr.Order;
-import EXT.DOMAIN.cpe.vpr.Patient;
-import EXT.DOMAIN.cpe.vpr.Problem;
-import EXT.DOMAIN.cpe.vpr.Result;
-import EXT.DOMAIN.cpe.vpr.VitalSign;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDefCriteria;
+import org.osehra.cpe.jsonc.JsonCCollection;
+import org.osehra.cpe.vpr.Allergy;
+import org.osehra.cpe.vpr.Document;
+import org.osehra.cpe.vpr.Encounter;
+import org.osehra.cpe.vpr.HealthFactor;
+import org.osehra.cpe.vpr.Medication;
+import org.osehra.cpe.vpr.Order;
+import org.osehra.cpe.vpr.Patient;
+import org.osehra.cpe.vpr.Problem;
+import org.osehra.cpe.vpr.Result;
+import org.osehra.cpe.vpr.VitalSign;
+import org.osehra.cpe.vpr.queryeng.query.QueryDef;
+import org.osehra.cpe.vpr.queryeng.query.QueryDefCriteria;
 
 import java.net.URI;
 import java.util.HashMap;

@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vpr.pom.jds;
+package org.osehra.cpe.vpr.pom.jds;
 
-import EXT.DOMAIN.cpe.jsonc.JsonCCollection;
-import EXT.DOMAIN.cpe.vpr.DomainNameUtils;
-import EXT.DOMAIN.cpe.vpr.Patient;
-import EXT.DOMAIN.cpe.vpr.UidUtils;
-import EXT.DOMAIN.cpe.vpr.pom.*;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDef;
+import org.osehra.cpe.jsonc.JsonCCollection;
+import org.osehra.cpe.vpr.DomainNameUtils;
+import org.osehra.cpe.vpr.Patient;
+import org.osehra.cpe.vpr.UidUtils;
+import org.osehra.cpe.vpr.pom.*;
+import org.osehra.cpe.vpr.queryeng.query.QueryDef;
 
 import java.net.URI;
 import java.util.ArrayList;

@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista.json.integration;
+package org.osehra.cpe.vpr.sync.vista.json.integration;
 
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject;
-import EXT.DOMAIN.cpe.vpr.sync.vista.VistaDataChunk;
+import org.osehra.cpe.vpr.pom.IPatientObject;
+import org.osehra.cpe.vpr.sync.vista.VistaDataChunk;
 
 import org.hibernate.HibernateException;
 import org.junit.After;

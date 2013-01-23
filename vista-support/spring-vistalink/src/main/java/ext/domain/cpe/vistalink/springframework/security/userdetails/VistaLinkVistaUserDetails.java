@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vistalink.springframework.security.userdetails;
+package org.osehra.cpe.vistalink.springframework.security.userdetails;
 
-import EXT.DOMAIN.cpe.vista.springframework.security.userdetails.VistaUserDetails;
+import org.osehra.cpe.vista.springframework.security.userdetails.VistaUserDetails;
 
 /**
  * TODO: Provide summary documentation of class VistaLinkVistaUserDetails

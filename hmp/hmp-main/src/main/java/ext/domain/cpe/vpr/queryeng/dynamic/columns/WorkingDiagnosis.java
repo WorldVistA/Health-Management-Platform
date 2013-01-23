@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.queryeng.dynamic.columns;
+package org.osehra.cpe.vpr.queryeng.dynamic.columns;
 
-import EXT.DOMAIN.cpe.vpr.queryeng.editor.EditorOption;
+import org.osehra.cpe.vpr.queryeng.editor.EditorOption;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
-@Component(value = "EXT.DOMAIN.cpe.vpr.queryeng.dynamic.columns.WorkingDiagnosis")
+@Component(value = "org.osehra.cpe.vpr.queryeng.dynamic.columns.WorkingDiagnosis")
 @Scope("prototype")
 public class WorkingDiagnosis extends ViewDefDefColDef {
 
@@ -35,7 +35,7 @@ public class WorkingDiagnosis extends ViewDefDefColDef {
 
 	@Override
 	public String getViewdefCode() {
-		return "EXT.DOMAIN.cpe.vpr.queryeng.WorkingDiagnosisViewDef";
+		return "org.osehra.cpe.vpr.queryeng.WorkingDiagnosisViewDef";
 	}
 
 	@Override

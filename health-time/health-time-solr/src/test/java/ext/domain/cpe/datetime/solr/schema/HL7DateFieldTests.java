@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.datetime.solr.schema;
+package org.osehra.cpe.datetime.solr.schema;
 
 import org.apache.solr.common.SolrException;
 import org.junit.Before;

@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.datetime.format;
+package org.osehra.cpe.datetime.format;
 
-import EXT.DOMAIN.cpe.datetime.IntervalOfTime;
+import org.osehra.cpe.datetime.IntervalOfTime;
 
 /**
  * TODOC: Provide summary documentation of class IntervalOfTimeFormat

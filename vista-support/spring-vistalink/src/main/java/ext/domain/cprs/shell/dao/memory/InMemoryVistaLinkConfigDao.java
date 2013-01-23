@@ -1,13 +1,13 @@
-package EXT.DOMAIN.cprs.shell.dao.memory;
+package org.osehra.cprs.shell.dao.memory;
 
-import EXT.DOMAIN.cpe.vistalink.locator.VistaLinkConnectorConfig;
-import EXT.DOMAIN.cprs.shell.dao.VistaLinkConfigDao;
+import org.osehra.cpe.vistalink.locator.VistaLinkConnectorConfig;
+import org.osehra.cprs.shell.dao.VistaLinkConfigDao;
 
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * TODO: Provide summary documentation of class EXT.DOMAIN.cprs.shell.dao.memory.InMemoryVistaLinkConfigDao
+ * TODO: Provide summary documentation of class org.osehra.cprs.shell.dao.memory.InMemoryVistaLinkConfigDao
  */
 public class InMemoryVistaLinkConfigDao implements VistaLinkConfigDao {
 

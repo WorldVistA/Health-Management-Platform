@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.web.servlet;
+package org.osehra.cpe.vpr.web.servlet;
 
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;

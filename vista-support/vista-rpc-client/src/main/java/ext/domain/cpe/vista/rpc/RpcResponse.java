@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vista.rpc;
+package org.osehra.cpe.vista.rpc;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import EXT.DOMAIN.cpe.vista.rpc.conn.ConnectionUserDetails;
-import EXT.DOMAIN.cpe.vista.rpc.conn.SystemInfo;
+import org.osehra.cpe.vista.rpc.conn.ConnectionUserDetails;
+import org.osehra.cpe.vista.rpc.conn.SystemInfo;
 
 import java.io.Serializable;
 import java.util.Arrays;
@@ -18,7 +18,7 @@ import java.util.List;
  * the "Application" and "Security" segments of the RPC message.
  *
  * @see RpcTemplate
- * @see EXT.DOMAIN.cpe.vista.rpc.conn.Connection
+ * @see org.osehra.cpe.vista.rpc.conn.Connection
  */
 public class RpcResponse implements Serializable {
 

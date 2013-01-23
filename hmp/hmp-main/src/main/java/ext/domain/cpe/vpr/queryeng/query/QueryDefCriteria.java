@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.queryeng.query;
+package org.osehra.cpe.vpr.queryeng.query;
 
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask;
+import org.osehra.cpe.vpr.viewdef.RenderTask;
 
 import java.util.ArrayList;
 import java.util.Arrays;

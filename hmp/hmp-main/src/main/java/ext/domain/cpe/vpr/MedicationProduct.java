@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.vpr;
+package org.osehra.cpe.vpr;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import EXT.DOMAIN.cpe.vpr.pom.AbstractPOMObject;
+import org.osehra.cpe.vpr.pom.AbstractPOMObject;
 
 import java.util.Map;
 

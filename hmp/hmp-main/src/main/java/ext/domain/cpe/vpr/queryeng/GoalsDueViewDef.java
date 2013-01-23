@@ -1,23 +1,23 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameJob;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameRegistry;
-import EXT.DOMAIN.cpe.vpr.frameeng.Goal;
-import EXT.DOMAIN.cpe.vpr.frameeng.Goal.GoalStatus;
-import EXT.DOMAIN.cpe.vpr.frameeng.IFrame;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameJob.FrameTask;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.ActionColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.HL7DTMColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.QueryColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.Query.ViewDefQuery;
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask;
+import org.osehra.cpe.vpr.frameeng.FrameJob;
+import org.osehra.cpe.vpr.frameeng.FrameRegistry;
+import org.osehra.cpe.vpr.frameeng.Goal;
+import org.osehra.cpe.vpr.frameeng.Goal.GoalStatus;
+import org.osehra.cpe.vpr.frameeng.IFrame;
+import org.osehra.cpe.vpr.frameeng.FrameJob.FrameTask;
+import org.osehra.cpe.vpr.queryeng.ColDef.ActionColDef;
+import org.osehra.cpe.vpr.queryeng.ColDef.HL7DTMColDef;
+import org.osehra.cpe.vpr.queryeng.ColDef.QueryColDef;
+import org.osehra.cpe.vpr.queryeng.Query.ViewDefQuery;
+import org.osehra.cpe.vpr.viewdef.RenderTask;
 
 import java.util.List;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Component(value="EXT.DOMAIN.cpe.vpr.queryeng.GoalsDueViewDef")
+@Component(value="org.osehra.cpe.vpr.queryeng.GoalsDueViewDef")
 @Scope("prototype")
 public class GoalsDueViewDef extends ViewDef {
 	public GoalsDueViewDef() {

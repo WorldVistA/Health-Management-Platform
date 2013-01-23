@@ -1,14 +1,14 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
-import EXT.DOMAIN.cpe.vpr.Procedure;
-import EXT.DOMAIN.cpe.vpr.VprConstants;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.HL7DTMColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.Query.QueryMode;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.JDSQuery;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDefCriteria;
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask;
-import EXT.DOMAIN.cpe.vpr.ws.link.OpenInfoButtonLinkGenerator;
+import org.osehra.cpe.vpr.Procedure;
+import org.osehra.cpe.vpr.VprConstants;
+import org.osehra.cpe.vpr.queryeng.ColDef.HL7DTMColDef;
+import org.osehra.cpe.vpr.queryeng.Query.QueryMode;
+import org.osehra.cpe.vpr.queryeng.query.JDSQuery;
+import org.osehra.cpe.vpr.queryeng.query.QueryDef;
+import org.osehra.cpe.vpr.queryeng.query.QueryDefCriteria;
+import org.osehra.cpe.vpr.viewdef.RenderTask;
+import org.osehra.cpe.vpr.ws.link.OpenInfoButtonLinkGenerator;
 
 import java.util.Iterator;
 import java.util.List;
@@ -20,7 +20,7 @@ import org.springframework.core.env.Environment;
 
 import com.lowagie.text.Document;
 
-//@Component(value = "EXT.DOMAIN.cpe.vpr.queryeng.MergedDocumentsViewDef")
+//@Component(value = "org.osehra.cpe.vpr.queryeng.MergedDocumentsViewDef")
 @Scope("prototype")
 public abstract class MergedDocumentsViewDef extends ViewDef {
 	protected Environment env = null;

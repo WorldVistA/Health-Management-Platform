@@ -1,12 +1,12 @@
-package EXT.DOMAIN.cpe.vista.rpc.pool;
+package org.osehra.cpe.vista.rpc.pool;
 
-import EXT.DOMAIN.cpe.vista.rpc.*;
-import EXT.DOMAIN.cpe.vista.rpc.broker.conn.ConnectionClosedException;
-import EXT.DOMAIN.cpe.vista.rpc.broker.protocol.InternalServerException;
-import EXT.DOMAIN.cpe.vista.rpc.conn.Connection;
-import EXT.DOMAIN.cpe.vista.rpc.conn.ConnectionMetrics;
-import EXT.DOMAIN.cpe.vista.rpc.conn.ConnectionUserDetails;
-import EXT.DOMAIN.cpe.vista.rpc.conn.SystemInfo;
+import org.osehra.cpe.vista.rpc.*;
+import org.osehra.cpe.vista.rpc.broker.conn.ConnectionClosedException;
+import org.osehra.cpe.vista.rpc.broker.protocol.InternalServerException;
+import org.osehra.cpe.vista.rpc.conn.Connection;
+import org.osehra.cpe.vista.rpc.conn.ConnectionMetrics;
+import org.osehra.cpe.vista.rpc.conn.ConnectionUserDetails;
+import org.osehra.cpe.vista.rpc.conn.SystemInfo;
 
 public class ManagedConnection implements Connection {
 

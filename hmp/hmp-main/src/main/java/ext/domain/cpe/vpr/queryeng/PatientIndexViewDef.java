@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.QueryColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.Query.QueryMode;
+import org.osehra.cpe.vpr.queryeng.ColDef.QueryColDef;
+import org.osehra.cpe.vpr.queryeng.Query.QueryMode;
 
 import java.sql.SQLException;
 
@@ -9,7 +9,7 @@ import org.apache.solr.client.solrj.SolrServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component(value="EXT.DOMAIN.cpe.vpr.queryeng.PatientIndexViewDef")
+@Component(value="org.osehra.cpe.vpr.queryeng.PatientIndexViewDef")
 public class PatientIndexViewDef extends ViewDef {
 
 	@Autowired

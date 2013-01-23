@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vistalink.locator;
+package org.osehra.cpe.vistalink.locator;
 
-import EXT.DOMAIN.cpe.vistalink.ConnectionFactoryLocator;
-import EXT.DOMAIN.vistalink.adapter.cci.VistaLinkConnectionFactory;
-import EXT.DOMAIN.vistalink.institution.InstitutionMapNotInitializedException;
-import EXT.DOMAIN.vistalink.institution.InstitutionMappingDelegate;
-import EXT.DOMAIN.vistalink.institution.InstitutionMappingNotFoundException;
+import org.osehra.cpe.vistalink.ConnectionFactoryLocator;
+import org.osehra.vistalink.adapter.cci.VistaLinkConnectionFactory;
+import org.osehra.vistalink.institution.InstitutionMapNotInitializedException;
+import org.osehra.vistalink.institution.InstitutionMappingDelegate;
+import org.osehra.vistalink.institution.InstitutionMappingNotFoundException;
 import org.springframework.dao.DataAccessResourceFailureException;
 
 import javax.naming.Context;

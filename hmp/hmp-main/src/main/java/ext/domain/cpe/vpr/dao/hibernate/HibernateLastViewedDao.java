@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.vpr.dao.hibernate;
+package org.osehra.cpe.vpr.dao.hibernate;
 
-import EXT.DOMAIN.cpe.dao.hibernate.HibernateHmpRepository;
-import EXT.DOMAIN.cpe.vpr.LastViewed;
-import EXT.DOMAIN.cpe.vpr.dao.ILastViewedDao;
+import org.osehra.cpe.dao.hibernate.HibernateHmpRepository;
+import org.osehra.cpe.vpr.LastViewed;
+import org.osehra.cpe.vpr.dao.ILastViewedDao;
 
 import java.util.List;
 

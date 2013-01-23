@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.vistasvc;
+package org.osehra.cpe.vpr.vistasvc;
 
-import EXT.DOMAIN.cpe.HmpProperties;
+import org.osehra.cpe.HmpProperties;
 import org.junit.rules.TemporaryFolder;
 
 import java.io.IOException;

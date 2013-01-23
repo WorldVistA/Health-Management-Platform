@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vistalink.springframework.security.userdetails;
+package org.osehra.cpe.vistalink.springframework.security.userdetails;
 
 import junit.framework.TestCase;
 import org.springframework.security.core.GrantedAuthority;

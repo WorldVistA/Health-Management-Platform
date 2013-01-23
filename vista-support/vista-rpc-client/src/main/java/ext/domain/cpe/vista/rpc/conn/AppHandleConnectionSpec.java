@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vista.rpc.conn;
+package org.osehra.cpe.vista.rpc.conn;
 
 /**
  * TODOC: Provide summary documentation of class AppHandleConnectionSpec

@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.frameeng;
+package org.osehra.cpe.vpr.frameeng;
 
-import EXT.DOMAIN.cpe.vpr.pom.PatientEvent;
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask;
+import org.osehra.cpe.vpr.pom.PatientEvent;
+import org.osehra.cpe.vpr.viewdef.RenderTask;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +16,7 @@ public class SimpleFrameExecContext implements IFrameExecContext {
 	
 	// these set the context params
     /* (non-Javadoc)
-	 * @see EXT.DOMAIN.cpe.vpr.viewdef.RenderContext#setParam(java.lang.String, int)
+	 * @see org.osehra.cpe.vpr.viewdef.RenderContext#setParam(java.lang.String, int)
 	 */
     @Override
 	public void setParam(String key, int val) {
@@ -24,7 +24,7 @@ public class SimpleFrameExecContext implements IFrameExecContext {
     }
     
     /* (non-Javadoc)
-	 * @see EXT.DOMAIN.cpe.vpr.viewdef.RenderContext#setParam(java.lang.String, java.lang.Object)
+	 * @see org.osehra.cpe.vpr.viewdef.RenderContext#setParam(java.lang.String, java.lang.Object)
 	 */
     @Override
 	public void setParam(String key, Object val) {
@@ -32,7 +32,7 @@ public class SimpleFrameExecContext implements IFrameExecContext {
     }
     
     /* (non-Javadoc)
-	 * @see EXT.DOMAIN.cpe.vpr.viewdef.RenderContext#setParams(java.util.Map)
+	 * @see org.osehra.cpe.vpr.viewdef.RenderContext#setParams(java.util.Map)
 	 */
     @Override
 	public void setParams(Map<String,Object> params) {
@@ -40,7 +40,7 @@ public class SimpleFrameExecContext implements IFrameExecContext {
     }
     
     /* (non-Javadoc)
-	 * @see EXT.DOMAIN.cpe.vpr.viewdef.RenderContext#setParams(java.lang.String, java.util.Map)
+	 * @see org.osehra.cpe.vpr.viewdef.RenderContext#setParams(java.lang.String, java.util.Map)
 	 */
     @Override
 	public void setParams(String prefix, Map<String,Object> params) {
@@ -62,7 +62,7 @@ public class SimpleFrameExecContext implements IFrameExecContext {
     }
     
     /* (non-Javadoc)
-   	 * @see EXT.DOMAIN.cpe.vpr.viewdef.RenderContext#getParams()
+   	 * @see org.osehra.cpe.vpr.viewdef.RenderContext#getParams()
    	 */
        @Override
    	public Map<String, Object> getParams() {
@@ -75,7 +75,7 @@ public class SimpleFrameExecContext implements IFrameExecContext {
        }	
        
        /* (non-Javadoc)
-   	 * @see EXT.DOMAIN.cpe.vpr.viewdef.RenderContext#getParam(java.lang.Class, java.lang.String)
+   	 * @see org.osehra.cpe.vpr.viewdef.RenderContext#getParam(java.lang.Class, java.lang.String)
    	 */
        
        @Override
@@ -97,7 +97,7 @@ public class SimpleFrameExecContext implements IFrameExecContext {
        }
        
        /* (non-Javadoc)
-   	 * @see EXT.DOMAIN.cpe.vpr.viewdef.RenderContext#getParamObj(java.lang.String)
+   	 * @see org.osehra.cpe.vpr.viewdef.RenderContext#getParamObj(java.lang.String)
    	 */
        @Override
    	public Object getParamObj(String key) {
@@ -114,7 +114,7 @@ public class SimpleFrameExecContext implements IFrameExecContext {
        }
        
        /* (non-Javadoc)
-   	 * @see EXT.DOMAIN.cpe.vpr.viewdef.RenderContext#getParamStr(java.lang.String)
+   	 * @see org.osehra.cpe.vpr.viewdef.RenderContext#getParamStr(java.lang.String)
    	 */
        @Override
    	public String getParamStr(String key) {
@@ -126,7 +126,7 @@ public class SimpleFrameExecContext implements IFrameExecContext {
        }
        
        /* (non-Javadoc)
-   	 * @see EXT.DOMAIN.cpe.vpr.viewdef.RenderContext#getParamInt(java.lang.String)
+   	 * @see org.osehra.cpe.vpr.viewdef.RenderContext#getParamInt(java.lang.String)
    	 */
        @Override
    	public int getParamInt(String key) {

@@ -1,12 +1,12 @@
-package EXT.DOMAIN.cpe.vpr.dao.jms;
+package org.osehra.cpe.vpr.dao.jms;
 
-import EXT.DOMAIN.cpe.test.mock.jms.ReturnsBrowserCallbackArgument;
-import EXT.DOMAIN.cpe.test.mock.jms.ReturnsConvertedMapMessage;
-import EXT.DOMAIN.cpe.vpr.SyncError;
-import EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants;
-import EXT.DOMAIN.cpe.vpr.sync.SyncQueues;
-import EXT.DOMAIN.cpe.vpr.sync.convert.MapMessageToSyncError;
-import EXT.DOMAIN.cpe.vpr.sync.convert.SyncErrorToMap;
+import org.osehra.cpe.test.mock.jms.ReturnsBrowserCallbackArgument;
+import org.osehra.cpe.test.mock.jms.ReturnsConvertedMapMessage;
+import org.osehra.cpe.vpr.SyncError;
+import org.osehra.cpe.vpr.sync.SyncMessageConstants;
+import org.osehra.cpe.vpr.sync.SyncQueues;
+import org.osehra.cpe.vpr.sync.convert.MapMessageToSyncError;
+import org.osehra.cpe.vpr.sync.convert.SyncErrorToMap;
 import org.apache.activemq.broker.jmx.QueueViewMBean;
 import org.junit.Before;
 import org.junit.Test;

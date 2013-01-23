@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.jsonc;
+package org.osehra.cpe.jsonc;
 
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils;
+import org.osehra.cpe.vpr.pom.POMUtils;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;

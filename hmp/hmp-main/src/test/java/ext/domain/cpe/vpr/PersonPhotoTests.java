@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr;
+package org.osehra.cpe.vpr;
 
 import org.apache.commons.codec.binary.Base64;
 import org.junit.Test;

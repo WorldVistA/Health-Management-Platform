@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.param;
+package org.osehra.cpe.param;
 
 import java.util.Map;
 

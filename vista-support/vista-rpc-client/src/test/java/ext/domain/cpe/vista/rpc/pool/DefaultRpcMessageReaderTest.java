@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vista.rpc.pool;
+package org.osehra.cpe.vista.rpc.pool;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
-import EXT.DOMAIN.cpe.vista.rpc.RpcIoException;
-import EXT.DOMAIN.cpe.vista.rpc.RpcResponse;
-import EXT.DOMAIN.cpe.vista.rpc.broker.protocol.DefaultRpcMessageReader;
+import org.osehra.cpe.vista.rpc.RpcIoException;
+import org.osehra.cpe.vista.rpc.RpcResponse;
+import org.osehra.cpe.vista.rpc.broker.protocol.DefaultRpcMessageReader;
 
 import java.io.IOException;
 import java.io.Reader;

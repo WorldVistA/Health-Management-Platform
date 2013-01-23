@@ -1,17 +1,17 @@
-package EXT.DOMAIN.cpe.vpr.viewdef;
+package org.osehra.cpe.vpr.viewdef;
 
-import EXT.DOMAIN.cpe.datetime.jackson.HealthTimeModule;
-import EXT.DOMAIN.cpe.vpr.frameeng.CallEvent;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameAction.ViewRenderAction;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameJob.FrameTask;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameRegistry;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameRegistry.FrameStats;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.DeferredViewDefDefColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewParam;
-import EXT.DOMAIN.cpe.vpr.queryeng.dynamic.columns.ViewDefDefColDef;
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask.RenderJob;
+import org.osehra.cpe.datetime.jackson.HealthTimeModule;
+import org.osehra.cpe.vpr.frameeng.CallEvent;
+import org.osehra.cpe.vpr.frameeng.FrameAction.ViewRenderAction;
+import org.osehra.cpe.vpr.frameeng.FrameJob.FrameTask;
+import org.osehra.cpe.vpr.frameeng.FrameRegistry;
+import org.osehra.cpe.vpr.frameeng.FrameRegistry.FrameStats;
+import org.osehra.cpe.vpr.queryeng.ColDef;
+import org.osehra.cpe.vpr.queryeng.ColDef.DeferredViewDefDefColDef;
+import org.osehra.cpe.vpr.queryeng.ViewDef;
+import org.osehra.cpe.vpr.queryeng.ViewParam;
+import org.osehra.cpe.vpr.queryeng.dynamic.columns.ViewDefDefColDef;
+import org.osehra.cpe.vpr.viewdef.RenderTask.RenderJob;
 
 import java.util.HashMap;
 import java.util.HashSet;

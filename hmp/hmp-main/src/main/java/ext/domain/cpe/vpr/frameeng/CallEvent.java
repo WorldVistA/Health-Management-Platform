@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.frameeng;
+package org.osehra.cpe.vpr.frameeng;
 
 import java.util.Map;
 

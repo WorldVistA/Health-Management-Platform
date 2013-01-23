@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.pom;
+package org.osehra.cpe.vpr.pom;
 
 import java.io.Serializable;
 import java.lang.annotation.Annotation;

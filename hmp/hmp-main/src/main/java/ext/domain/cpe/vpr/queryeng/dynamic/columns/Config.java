@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.queryeng.dynamic.columns;
+package org.osehra.cpe.vpr.queryeng.dynamic.columns;
 
 import java.util.ArrayList;
 

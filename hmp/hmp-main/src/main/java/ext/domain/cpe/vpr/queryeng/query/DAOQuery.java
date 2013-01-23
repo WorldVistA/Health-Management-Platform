@@ -1,15 +1,15 @@
-package EXT.DOMAIN.cpe.vpr.queryeng.query;
+package org.osehra.cpe.vpr.queryeng.query;
 
 import java.util.List;
 import java.util.Map;
 
-import EXT.DOMAIN.cpe.vpr.frameeng.IFrameExecContext;
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPatientObjectDAO;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject;
-import EXT.DOMAIN.cpe.vpr.queryeng.Query;
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewDefRenderer;
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask;
-import EXT.DOMAIN.cpe.vpr.viewdef.ViewDefRenderer2;
+import org.osehra.cpe.vpr.frameeng.IFrameExecContext;
+import org.osehra.cpe.vpr.pom.IGenericPatientObjectDAO;
+import org.osehra.cpe.vpr.pom.IPatientObject;
+import org.osehra.cpe.vpr.queryeng.Query;
+import org.osehra.cpe.vpr.queryeng.ViewDefRenderer;
+import org.osehra.cpe.vpr.viewdef.RenderTask;
+import org.osehra.cpe.vpr.viewdef.ViewDefRenderer2;
 
 /**
  * <p>DAOQuery uses a QueryDef and the active {@link IGenericPatientObjectDAO} to fetch full domain object

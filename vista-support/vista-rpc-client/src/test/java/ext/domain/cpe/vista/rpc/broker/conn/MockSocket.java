@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.conn;
+package org.osehra.cpe.vista.rpc.broker.conn;
 
-import EXT.DOMAIN.cpe.vista.rpc.broker.protocol.AbstractRpcProtocol;
-import EXT.DOMAIN.cpe.vista.rpc.broker.protocol.TransportMetrics;
-import EXT.DOMAIN.cpe.vista.util.RpcUriUtils;
+import org.osehra.cpe.vista.rpc.broker.protocol.AbstractRpcProtocol;
+import org.osehra.cpe.vista.rpc.broker.protocol.TransportMetrics;
+import org.osehra.cpe.vista.util.RpcUriUtils;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -11,7 +11,7 @@ import java.io.OutputStream;
 import java.net.SocketException;
 
 /**
- * TODO: Document EXT.DOMAIN.cpe.vista.protocol
+ * TODO: Document org.osehra.cpe.vista.protocol
  */
 public class MockSocket implements Socket {
 

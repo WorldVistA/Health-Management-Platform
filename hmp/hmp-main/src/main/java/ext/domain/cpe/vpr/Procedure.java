@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vpr;
+package org.osehra.cpe.vpr;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.vpr.pom.AbstractPatientObject;
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPatientObjectDAO;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject;
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.vpr.pom.AbstractPatientObject;
+import org.osehra.cpe.vpr.pom.IGenericPatientObjectDAO;
+import org.osehra.cpe.vpr.pom.IPatientObject;
 
 import java.util.LinkedHashSet;
 import java.util.List;

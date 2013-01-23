@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vista.rpc.jackson;
+package org.osehra.cpe.vista.rpc.jackson;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import EXT.DOMAIN.cpe.vista.rpc.broker.protocol.RpcParam;
+import org.osehra.cpe.vista.rpc.broker.protocol.RpcParam;
 
 import java.io.IOException;
 

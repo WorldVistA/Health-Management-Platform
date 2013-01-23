@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.datetime;
+package org.osehra.cpe.datetime;
 
-import EXT.DOMAIN.cpe.datetime.format.HL7DateTimeFormat;
+import org.osehra.cpe.datetime.format.HL7DateTimeFormat;
 import org.joda.time.*;
 
 import java.io.Serializable;

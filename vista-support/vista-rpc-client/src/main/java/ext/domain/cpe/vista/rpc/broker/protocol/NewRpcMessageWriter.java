@@ -1,13 +1,13 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.protocol;
+package org.osehra.cpe.vista.rpc.broker.protocol;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcException;
-import EXT.DOMAIN.cpe.vista.rpc.RpcRequest;
+import org.osehra.cpe.vista.rpc.RpcException;
+import org.osehra.cpe.vista.rpc.RpcRequest;
 
 import java.io.IOException;
 import java.io.Writer;
 
 /**
- * TODOC: Provide summary documentation of class EXT.DOMAIN.cpe.vista.protocol.impl.NewStyleRpcRequestWriter
+ * TODOC: Provide summary documentation of class org.osehra.cpe.vista.protocol.impl.NewStyleRpcRequestWriter
  */
 public class NewRpcMessageWriter implements RpcMessageWriter {
 

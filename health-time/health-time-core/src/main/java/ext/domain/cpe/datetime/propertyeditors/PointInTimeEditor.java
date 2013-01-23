@@ -1,15 +1,15 @@
-package EXT.DOMAIN.cpe.datetime.propertyeditors;
+package org.osehra.cpe.datetime.propertyeditors;
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.datetime.format.HL7DateTimeFormat;
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.datetime.format.HL7DateTimeFormat;
 
 import java.beans.PropertyEditorSupport;
 
 /**
  * Editor for PointInTime's.  Instances are converted to Strings and vice-versa using HL7DateTimeFormat.
  *
- * @see EXT.DOMAIN.cpe.datetime.PointInTime
- * @see EXT.DOMAIN.cpe.datetime.format.HL7DateTimeFormat
+ * @see org.osehra.cpe.datetime.PointInTime
+ * @see org.osehra.cpe.datetime.format.HL7DateTimeFormat
  */
 public class PointInTimeEditor extends PropertyEditorSupport {
 

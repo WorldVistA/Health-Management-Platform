@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.web;
+package org.osehra.cpe.vpr.web;
 
 import org.springframework.security.web.savedrequest.SavedRequest;
 

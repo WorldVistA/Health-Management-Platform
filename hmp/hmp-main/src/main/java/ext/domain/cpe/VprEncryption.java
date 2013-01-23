@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe;
+package org.osehra.cpe;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;

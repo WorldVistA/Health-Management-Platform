@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.pom;
+package org.osehra.cpe.vpr.pom;
 
 /**
  * Simple class that uses Jacksons Views mechanism to define categories

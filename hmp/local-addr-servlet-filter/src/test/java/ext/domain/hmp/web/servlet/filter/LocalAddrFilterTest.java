@@ -1,4 +1,4 @@
-package EXT.DOMAIN.hmp.web.servlet.filter;
+package org.osehra.hmp.web.servlet.filter;
 
 import org.hamcrest.Matcher;
 import org.junit.After;

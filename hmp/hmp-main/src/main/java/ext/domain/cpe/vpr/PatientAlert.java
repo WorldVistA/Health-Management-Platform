@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vpr;
+package org.osehra.cpe.vpr;
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.vpr.frameeng.Frame;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameAction;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameAction.IPatientSerializableAction;
-import EXT.DOMAIN.cpe.vpr.pom.AbstractPatientObject;
-import EXT.DOMAIN.cpe.vpr.queryeng.Table;
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.vpr.frameeng.Frame;
+import org.osehra.cpe.vpr.frameeng.FrameAction;
+import org.osehra.cpe.vpr.frameeng.FrameAction.IPatientSerializableAction;
+import org.osehra.cpe.vpr.pom.AbstractPatientObject;
+import org.osehra.cpe.vpr.queryeng.Table;
 
 import java.util.ArrayList;
 import java.util.List;

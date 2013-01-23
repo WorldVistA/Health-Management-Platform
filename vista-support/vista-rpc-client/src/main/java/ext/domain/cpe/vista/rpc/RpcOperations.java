@@ -1,20 +1,20 @@
-package EXT.DOMAIN.cpe.vista.rpc;
+package org.osehra.cpe.vista.rpc;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import EXT.DOMAIN.cpe.vista.rpc.conn.SystemInfo;
+import org.osehra.cpe.vista.rpc.conn.SystemInfo;
 import org.springframework.dao.DataAccessException;
 
 import java.util.List;
 
 /**
  * Interface specifying a basic set of RPC operations.
- * Implemented by {@link EXT.DOMAIN.cpe.vista.rpc.RpcTemplate}. Not often used directly, but a useful
+ * Implemented by {@link org.osehra.cpe.vista.rpc.RpcTemplate}. Not often used directly, but a useful
  * option to enhance testability, as it can easily be mocked or stubbed.
  * <p/>
  * <p>Alternatively, the VistA connection factory/connection infrastructure can be mocked.
  * However, mocking this interface constitutes significantly less work.
  *
- * @see EXT.DOMAIN.cpe.vista.rpc.RpcTemplate
+ * @see org.osehra.cpe.vista.rpc.RpcTemplate
  */
 public interface RpcOperations {
     /**
@@ -38,7 +38,7 @@ public interface RpcOperations {
      * @param params parameters to bind to the RPC
      * @return an RpcResponse representation
      * @throws DataAccessException if there is any problem executing the RPC
-     * @see EXT.DOMAIN.cpe.vista.util.RpcUriUtils
+     * @see org.osehra.cpe.vista.util.RpcUriUtils
      */
     RpcResponse execute(String uri, Object... params) throws DataAccessException;
 
@@ -51,7 +51,7 @@ public interface RpcOperations {
      * @param params parameters to bind to the RPC
      * @return an RpcResponse representation
      * @throws DataAccessException if there is any problem executing the RPC
-     * @see EXT.DOMAIN.cpe.vista.util.RpcUriUtils
+     * @see org.osehra.cpe.vista.util.RpcUriUtils
      */
     RpcResponse execute(String uri, List params) throws DataAccessException;
 

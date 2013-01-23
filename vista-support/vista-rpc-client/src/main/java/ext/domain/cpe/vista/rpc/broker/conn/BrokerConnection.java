@@ -1,13 +1,13 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.conn;
+package org.osehra.cpe.vista.rpc.broker.conn;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcException;
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
-import EXT.DOMAIN.cpe.vista.rpc.RpcRequest;
-import EXT.DOMAIN.cpe.vista.rpc.RpcResponse;
-import EXT.DOMAIN.cpe.vista.rpc.broker.protocol.*;
-import EXT.DOMAIN.cpe.vista.rpc.conn.*;
-import EXT.DOMAIN.cpe.vista.util.RpcUriUtils;
-import EXT.DOMAIN.cpe.vista.util.VistaStringUtils;
+import org.osehra.cpe.vista.rpc.RpcException;
+import org.osehra.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.rpc.RpcRequest;
+import org.osehra.cpe.vista.rpc.RpcResponse;
+import org.osehra.cpe.vista.rpc.broker.protocol.*;
+import org.osehra.cpe.vista.rpc.conn.*;
+import org.osehra.cpe.vista.util.RpcUriUtils;
+import org.osehra.cpe.vista.util.VistaStringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;

@@ -1,17 +1,17 @@
-package EXT.DOMAIN.cpe.param;
+package org.osehra.cpe.param;
 
-import static EXT.DOMAIN.cpe.vpr.UserInterfaceRpcConstants.CONTROLLER_RPC_URI;
+import static org.osehra.cpe.vpr.UserInterfaceRpcConstants.CONTROLLER_RPC_URI;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import EXT.DOMAIN.cpe.auth.HmpUserDetails;
-import EXT.DOMAIN.cpe.auth.UserContext;
-import EXT.DOMAIN.cpe.vista.rpc.RpcOperations;
-import EXT.DOMAIN.cpe.vista.rpc.RpcResponseExtractionException;
-import EXT.DOMAIN.cpe.vista.util.VistaStringUtils;
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils;
-import EXT.DOMAIN.cpe.vpr.vistasvc.CacheMgr;
-import EXT.DOMAIN.cpe.vpr.vistasvc.CacheMgr.CacheType;
-import EXT.DOMAIN.cpe.vpr.vistasvc.ICacheMgr;
+import org.osehra.cpe.auth.HmpUserDetails;
+import org.osehra.cpe.auth.UserContext;
+import org.osehra.cpe.vista.rpc.RpcOperations;
+import org.osehra.cpe.vista.rpc.RpcResponseExtractionException;
+import org.osehra.cpe.vista.util.VistaStringUtils;
+import org.osehra.cpe.vpr.pom.POMUtils;
+import org.osehra.cpe.vpr.vistasvc.CacheMgr;
+import org.osehra.cpe.vpr.vistasvc.CacheMgr.CacheType;
+import org.osehra.cpe.vpr.vistasvc.ICacheMgr;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.conn;
+package org.osehra.cpe.vista.rpc.broker.conn;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcException;
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
-import EXT.DOMAIN.cpe.vista.rpc.broker.protocol.*;
-import EXT.DOMAIN.cpe.vista.rpc.conn.AccessVerifyConnectionSpec;
-import EXT.DOMAIN.cpe.vista.rpc.conn.Connection;
+import org.osehra.cpe.vista.rpc.RpcException;
+import org.osehra.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.rpc.broker.protocol.*;
+import org.osehra.cpe.vista.rpc.conn.AccessVerifyConnectionSpec;
+import org.osehra.cpe.vista.rpc.conn.Connection;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

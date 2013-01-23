@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.sync;
+package org.osehra.cpe.vpr.sync;
 
 public class SyncAction {
     public static final String PATIENT_LOAD = "patient.load";

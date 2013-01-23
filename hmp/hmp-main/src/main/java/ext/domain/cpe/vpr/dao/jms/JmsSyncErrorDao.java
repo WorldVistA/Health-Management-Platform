@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vpr.dao.jms;
+package org.osehra.cpe.vpr.dao.jms;
 
-import EXT.DOMAIN.cpe.vpr.SyncError;
-import EXT.DOMAIN.cpe.vpr.dao.ISyncErrorDao;
-import EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants;
-import EXT.DOMAIN.cpe.vpr.sync.SyncQueues;
+import org.osehra.cpe.vpr.SyncError;
+import org.osehra.cpe.vpr.dao.ISyncErrorDao;
+import org.osehra.cpe.vpr.sync.SyncMessageConstants;
+import org.osehra.cpe.vpr.sync.SyncQueues;
 import org.apache.activemq.broker.jmx.QueueViewMBean;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.core.convert.ConversionService;

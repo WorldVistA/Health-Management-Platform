@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.datetime.jackson;
+package org.osehra.cpe.datetime.jackson;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonGenerator;
@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.SerializationConfig;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import EXT.DOMAIN.cpe.datetime.PointInTime;
+import org.osehra.cpe.datetime.PointInTime;
 
 import java.io.IOException;
 

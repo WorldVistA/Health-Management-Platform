@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.auth;
+package org.osehra.cpe.auth;
 
-import EXT.DOMAIN.cpe.vpr.web.WebUtils;
+import org.osehra.cpe.vpr.web.WebUtils;
 import org.springframework.security.web.util.RequestMatcher;
 
 import javax.servlet.http.HttpServletRequest;

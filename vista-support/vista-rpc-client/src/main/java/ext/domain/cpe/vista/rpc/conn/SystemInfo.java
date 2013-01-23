@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vista.rpc.conn;
+package org.osehra.cpe.vista.rpc.conn;
 
 /**
  * The interface <code>SystemInfo</code> provides information about a VistA instance connected through a

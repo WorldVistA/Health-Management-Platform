@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
 import static org.junit.Assert.*;
 

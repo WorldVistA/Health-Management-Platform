@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vista.springframework.security.userdetails.memory;
+package org.osehra.cpe.vista.springframework.security.userdetails.memory;
 
-import EXT.DOMAIN.cpe.vista.springframework.security.userdetails.VistaUserDetails;
+import org.osehra.cpe.vista.springframework.security.userdetails.VistaUserDetails;
 import org.easymock.EasyMock;
 import org.junit.Test;
 

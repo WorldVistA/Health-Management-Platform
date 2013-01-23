@@ -1,12 +1,12 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.conn;
+package org.osehra.cpe.vista.rpc.broker.conn;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcException;
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
-import EXT.DOMAIN.cpe.vista.rpc.conn.AccessVerifyConnectionSpec;
-import EXT.DOMAIN.cpe.vista.rpc.conn.Connection;
-import EXT.DOMAIN.cpe.vista.rpc.conn.ConnectionFactory;
-import EXT.DOMAIN.cpe.vista.rpc.conn.ConnectionSpec;
-import EXT.DOMAIN.cpe.vista.rpc.pool.ConnectionManager;
+import org.osehra.cpe.vista.rpc.RpcException;
+import org.osehra.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.rpc.conn.AccessVerifyConnectionSpec;
+import org.osehra.cpe.vista.rpc.conn.Connection;
+import org.osehra.cpe.vista.rpc.conn.ConnectionFactory;
+import org.osehra.cpe.vista.rpc.conn.ConnectionSpec;
+import org.osehra.cpe.vista.rpc.pool.ConnectionManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

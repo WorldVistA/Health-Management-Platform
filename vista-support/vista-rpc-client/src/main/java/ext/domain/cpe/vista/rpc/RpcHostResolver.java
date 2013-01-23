@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vista.rpc;
+package org.osehra.cpe.vista.rpc;
 
-import EXT.DOMAIN.cpe.vista.rpc.broker.conn.VistaIdNotFoundException;
+import org.osehra.cpe.vista.rpc.broker.conn.VistaIdNotFoundException;
 
 /**
  * Implementations of RpcHostResolver are called by {@link RpcTemplate} to resolve ambiguous or encoded hostnames into RpcHost instances that contain

@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.auth;
+package org.osehra.cpe.auth;
 
-import EXT.DOMAIN.cpe.auth.VistaSecurityKey;
+import org.osehra.cpe.auth.VistaSecurityKey;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;

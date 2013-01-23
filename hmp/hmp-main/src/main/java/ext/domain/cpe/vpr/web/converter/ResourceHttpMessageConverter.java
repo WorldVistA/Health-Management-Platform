@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.web.converter;
+package org.osehra.cpe.vpr.web.converter;
 
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
@@ -18,7 +18,7 @@ public class ResourceHttpMessageConverter extends org.springframework.http.conve
     private ConfigurableMimeFileTypeMap fileTypeMap = new ConfigurableMimeFileTypeMap();
 
     public ResourceHttpMessageConverter() {
-        fileTypeMap.setMappingLocation(new ClassPathResource("ext/domain/cpe/vpr/web/converter/mime.types"));
+        fileTypeMap.setMappingLocation(new ClassPathResource("org.osehra/cpe/vpr/web/converter/mime.types"));
         fileTypeMap.afterPropertiesSet();
     }
 

@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vista.rpc;
+package org.osehra.cpe.vista.rpc;
 
-import EXT.DOMAIN.cpe.vista.util.RpcUriUtils;
+import org.osehra.cpe.vista.util.RpcUriUtils;
 
 import java.io.Serializable;
 
-import static EXT.DOMAIN.cpe.vista.util.RpcUriUtils.VISTALINK_SCHEME;
-import static EXT.DOMAIN.cpe.vista.util.RpcUriUtils.VISTA_RPC_BROKER_SCHEME;
+import static org.osehra.cpe.vista.util.RpcUriUtils.VISTALINK_SCHEME;
+import static org.osehra.cpe.vista.util.RpcUriUtils.VISTA_RPC_BROKER_SCHEME;
 
 /**
  * Holds all of the variables needed to describe an VistA RPC connection to a host.

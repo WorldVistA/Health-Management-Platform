@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.termeng;
+package org.osehra.cpe.vpr.termeng;
 
 import java.util.ArrayList;
 import java.util.HashMap;

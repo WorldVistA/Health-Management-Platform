@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.test.junit4.runners;
+package org.osehra.cpe.test.junit4.runners;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcRequest;
+import org.osehra.cpe.vista.rpc.RpcRequest;
 
 import java.lang.annotation.*;
 

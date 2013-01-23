@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vpr.pom.hibernate;
+package org.osehra.cpe.vpr.pom.hibernate;
 
 import static org.hibernate.criterion.Restrictions.eq;
-import EXT.DOMAIN.cpe.dao.hibernate.PaginationUtils;
-import EXT.DOMAIN.cpe.vpr.Patient;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO;
+import org.osehra.cpe.dao.hibernate.PaginationUtils;
+import org.osehra.cpe.vpr.Patient;
+import org.osehra.cpe.vpr.pom.IPatientDAO;
 
 import java.util.ArrayList;
 import java.util.List;

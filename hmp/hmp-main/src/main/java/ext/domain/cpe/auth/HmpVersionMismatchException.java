@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.auth;
+package org.osehra.cpe.auth;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.rpc.RpcHost;
 
 public class HmpVersionMismatchException extends RuntimeException {
     public HmpVersionMismatchException(String webHmpVersion, String vistaHmpVersion, RpcHost host, String vistaId, String division) {

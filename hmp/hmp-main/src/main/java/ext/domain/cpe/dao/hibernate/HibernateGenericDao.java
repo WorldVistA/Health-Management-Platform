@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.dao.hibernate;
+package org.osehra.cpe.dao.hibernate;
 
-import EXT.DOMAIN.cpe.dao.GenericDao;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject;
+import org.osehra.cpe.dao.GenericDao;
+import org.osehra.cpe.vpr.pom.IPatientObject;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

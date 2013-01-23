@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista.json.integration;
+package org.osehra.cpe.vpr.sync.vista.json.integration;
 
-import EXT.DOMAIN.cpe.test.junit4.runners.AnnotationFinder;
-import EXT.DOMAIN.cpe.test.junit4.runners.Importer;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject;
-import EXT.DOMAIN.cpe.vpr.sync.vista.ImportException;
-import EXT.DOMAIN.cpe.vpr.sync.vista.VistaDataChunk;
+import org.osehra.cpe.test.junit4.runners.AnnotationFinder;
+import org.osehra.cpe.test.junit4.runners.Importer;
+import org.osehra.cpe.vpr.pom.IPatientObject;
+import org.osehra.cpe.vpr.sync.vista.ImportException;
+import org.osehra.cpe.vpr.sync.vista.VistaDataChunk;
 import org.junit.runners.model.InitializationError;
 import org.springframework.core.convert.converter.Converter;
 

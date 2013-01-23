@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.vpr.dao.jds;
+package org.osehra.cpe.vpr.dao.jds;
 
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPOMObjectDAO;
-import EXT.DOMAIN.cpe.vpr.pom.jds.JdsOperations;
-import EXT.DOMAIN.cpe.vpr.sync.vista.VprUpdate;
+import org.osehra.cpe.vpr.pom.IGenericPOMObjectDAO;
+import org.osehra.cpe.vpr.pom.jds.JdsOperations;
+import org.osehra.cpe.vpr.sync.vista.VprUpdate;
 import org.junit.Before;
 import org.junit.Test;
 

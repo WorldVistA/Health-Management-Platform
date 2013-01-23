@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.sync;
+package org.osehra.cpe.vpr.sync;
 
-import EXT.DOMAIN.cpe.vpr.Patient;
-import EXT.DOMAIN.cpe.vpr.sync.vista.VistaDataChunk;
+import org.osehra.cpe.vpr.Patient;
+import org.osehra.cpe.vpr.sync.vista.VistaDataChunk;
 
 import java.util.List;
 import java.util.Map;

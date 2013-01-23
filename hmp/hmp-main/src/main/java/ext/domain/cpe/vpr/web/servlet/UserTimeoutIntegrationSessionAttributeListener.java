@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.web.servlet;
+package org.osehra.cpe.vpr.web.servlet;
 
-import EXT.DOMAIN.cpe.auth.HmpUserDetails;
+import org.osehra.cpe.auth.HmpUserDetails;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSessionBindingEvent;
 /**
  * Sets the servlet {@link javax.servlet.http.HttpSession} timeout based on an HMP user's timeout setting.
  *
- * @see EXT.DOMAIN.cpe.auth.HmpUserDetails#getTimeoutSeconds()
+ * @see org.osehra.cpe.auth.HmpUserDetails#getTimeoutSeconds()
  */
 public class UserTimeoutIntegrationSessionAttributeListener implements HttpSessionAttributeListener {
 

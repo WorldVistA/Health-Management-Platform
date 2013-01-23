@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vpr;
+package org.osehra.cpe.vpr;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameAction.ObsDateRequestAction;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameAction.ObsRequestAction;
-import EXT.DOMAIN.cpe.vpr.pom.jds.JdsGenericPatientObjectDAO;
-import EXT.DOMAIN.cpe.vpr.pom.jds.JdsTemplate;
+import org.osehra.cpe.vpr.frameeng.FrameAction.ObsDateRequestAction;
+import org.osehra.cpe.vpr.frameeng.FrameAction.ObsRequestAction;
+import org.osehra.cpe.vpr.pom.jds.JdsGenericPatientObjectDAO;
+import org.osehra.cpe.vpr.pom.jds.JdsTemplate;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,7 +28,7 @@ public class PatientAlertITCase {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("uid", "urn:va:::alert:10:teratogenic:med:33456");
 		map.put("pid", "10");
-		map.put("frameID", "EXT.DOMAIN.cpe.vpr.frameeng.TeratogenicMedsFrame");
+		map.put("frameID", "org.osehra.cpe.vpr.frameeng.TeratogenicMedsFrame");
 		map.put("title", "Foo2");
 		map.put("description", "Bar");
 		PatientAlert pa = new PatientAlert(map);

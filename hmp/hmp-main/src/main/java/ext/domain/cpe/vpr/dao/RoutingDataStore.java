@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.dao;
+package org.osehra.cpe.vpr.dao;
 
-import EXT.DOMAIN.cpe.vpr.pom.IDataStoreDAO;
+import org.osehra.cpe.vpr.pom.IDataStoreDAO;
 
 // TODO: this interface is probably redundant now
 public interface RoutingDataStore extends IDataStoreDAO {

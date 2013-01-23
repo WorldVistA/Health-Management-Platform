@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vpr.pom.mongo;
+package org.osehra.cpe.vpr.pom.mongo;
 
 import static org.junit.Assert.*;
-import EXT.DOMAIN.cpe.vpr.Patient;
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils;
-import EXT.DOMAIN.cpe.vpr.pom.hibernate.PatientHibMapDAO;
+import org.osehra.cpe.vpr.Patient;
+import org.osehra.cpe.vpr.pom.POMUtils;
+import org.osehra.cpe.vpr.pom.hibernate.PatientHibMapDAO;
 
 import java.io.InputStream;
 import java.net.UnknownHostException;

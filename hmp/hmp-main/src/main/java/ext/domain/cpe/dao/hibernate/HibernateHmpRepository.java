@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.dao.hibernate;
+package org.osehra.cpe.dao.hibernate;
 
-import EXT.DOMAIN.cpe.dao.HmpRepository;
+import org.osehra.cpe.dao.HmpRepository;
 import org.apache.commons.lang.NotImplementedException;
 import org.hibernate.Criteria;
 import org.hibernate.Session;

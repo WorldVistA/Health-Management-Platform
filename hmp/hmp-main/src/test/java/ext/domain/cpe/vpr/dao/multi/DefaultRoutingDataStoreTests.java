@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vpr.dao.multi;
+package org.osehra.cpe.vpr.dao.multi;
 
-import EXT.DOMAIN.cpe.vpr.pom.IDataStoreDAO;
-import EXT.DOMAIN.cpe.test.mockito.ReturnsArgument;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject;
-import EXT.DOMAIN.cpe.vpr.sync.vista.Foo;
+import org.osehra.cpe.vpr.pom.IDataStoreDAO;
+import org.osehra.cpe.test.mockito.ReturnsArgument;
+import org.osehra.cpe.vpr.pom.IPatientObject;
+import org.osehra.cpe.vpr.sync.vista.Foo;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.core.env.Environment;

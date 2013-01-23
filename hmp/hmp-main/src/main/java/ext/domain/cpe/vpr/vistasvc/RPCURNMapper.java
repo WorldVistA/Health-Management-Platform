@@ -1,13 +1,13 @@
-package EXT.DOMAIN.cpe.vpr.vistasvc;
+package org.osehra.cpe.vpr.vistasvc;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcTemplate;
+import org.osehra.cpe.vista.rpc.RpcTemplate;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static EXT.DOMAIN.cpe.vpr.UserInterfaceRpcConstants.CONTROLLER_RPC_URI;
+import static org.osehra.cpe.vpr.UserInterfaceRpcConstants.CONTROLLER_RPC_URI;
 
 public abstract class RPCURNMapper {
 	public abstract boolean isKnown(String urn);

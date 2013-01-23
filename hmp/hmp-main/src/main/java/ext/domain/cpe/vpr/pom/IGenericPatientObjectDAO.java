@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.pom;
+package org.osehra.cpe.vpr.pom;
 
 
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDef;
+import org.osehra.cpe.vpr.queryeng.query.QueryDef;
 
 import java.util.List;
 import java.util.Map;

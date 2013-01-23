@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.auth;
+package org.osehra.cpe.auth;
 
-import EXT.DOMAIN.cpe.vpr.web.WebUtils;
+import org.osehra.cpe.vpr.web.WebUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.WebAttributes;

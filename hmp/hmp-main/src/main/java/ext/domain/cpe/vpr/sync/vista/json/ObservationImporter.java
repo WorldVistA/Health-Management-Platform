@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista.json;
+package org.osehra.cpe.vpr.sync.vista.json;
 
-import EXT.DOMAIN.cpe.vpr.Observation;
+import org.osehra.cpe.vpr.Observation;
 
 public class ObservationImporter extends AbstractJsonImporter<Observation>{
 

@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.vpr.pom.jds;
+package org.osehra.cpe.vpr.pom.jds;
 
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPOMObjectDAO;
-import EXT.DOMAIN.cpe.vpr.pom.IPOMObject;
-import EXT.DOMAIN.cpe.vpr.pom.IPOMObjectDAO;
+import org.osehra.cpe.vpr.pom.IGenericPOMObjectDAO;
+import org.osehra.cpe.vpr.pom.IPOMObject;
+import org.osehra.cpe.vpr.pom.IPOMObjectDAO;
 import org.apache.commons.lang.NotImplementedException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

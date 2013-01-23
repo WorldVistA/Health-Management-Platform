@@ -1,23 +1,23 @@
-package EXT.DOMAIN.cpe.vpr.frameeng;
+package org.osehra.cpe.vpr.frameeng;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-import EXT.DOMAIN.cpe.vpr.Patient;
-import EXT.DOMAIN.cpe.vpr.PatientAlert;
-import EXT.DOMAIN.cpe.vpr.frameeng.AdapterFrame.DroolsFrameAdapter;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameAction.BaseFrameAction;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameJob.FrameTask;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameRegistry.DroolsFrameLoader;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameRegistry.FrameLoader;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameRegistry.FrameStats;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameRegistry.ProtocolFileFrameLoader;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameRegistry.StaticFrameLoader;
-import EXT.DOMAIN.cpe.vpr.frameeng.IFrameTrigger.PatientObjectFieldChangedTrigger;
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils;
-import EXT.DOMAIN.cpe.vpr.sync.vista.json.PatientImporter;
+import org.osehra.cpe.vpr.Patient;
+import org.osehra.cpe.vpr.PatientAlert;
+import org.osehra.cpe.vpr.frameeng.AdapterFrame.DroolsFrameAdapter;
+import org.osehra.cpe.vpr.frameeng.FrameAction.BaseFrameAction;
+import org.osehra.cpe.vpr.frameeng.FrameJob.FrameTask;
+import org.osehra.cpe.vpr.frameeng.FrameRegistry.DroolsFrameLoader;
+import org.osehra.cpe.vpr.frameeng.FrameRegistry.FrameLoader;
+import org.osehra.cpe.vpr.frameeng.FrameRegistry.FrameStats;
+import org.osehra.cpe.vpr.frameeng.FrameRegistry.ProtocolFileFrameLoader;
+import org.osehra.cpe.vpr.frameeng.FrameRegistry.StaticFrameLoader;
+import org.osehra.cpe.vpr.frameeng.IFrameTrigger.PatientObjectFieldChangedTrigger;
+import org.osehra.cpe.vpr.pom.POMUtils;
+import org.osehra.cpe.vpr.sync.vista.json.PatientImporter;
 
 import java.io.File;
 import java.net.URISyntaxException;
@@ -88,7 +88,7 @@ public class FrameRegistryTests {
 	@Test
 	@Ignore
 	public void testProtocolFileFrameLoader() throws URISyntaxException {
-		URL url = FrameRegistryTests.class.getResource("/EXT/DOMAIN/cpe/vpr/frames/");
+		URL url = FrameRegistryTests.class.getResource("/org.osehra/cpe/vpr/frames/");
 		ProtocolFileFrameLoader loader = new ProtocolFileFrameLoader(new File(url.toURI()));
 		List<IFrame> frames = loader.load();
 		assertEquals(6, frames.size());
@@ -116,7 +116,7 @@ public class FrameRegistryTests {
 	public void testDroolsFrameLoader() throws Exception {
 		// build the knowledge base
 		KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
-		kbuilder.add( ResourceFactory.newClassPathResource( "/EXT/DOMAIN/cpe/vpr/frames/HelloWorldAlert.drl", getClass()), ResourceType.DRL );
+		kbuilder.add( ResourceFactory.newClassPathResource( "/org.osehra/cpe/vpr/frames/HelloWorldAlert.drl", getClass()), ResourceType.DRL );
 		if ( kbuilder.hasErrors() ) {
 			fail(kbuilder.getErrors().toString());
 		}

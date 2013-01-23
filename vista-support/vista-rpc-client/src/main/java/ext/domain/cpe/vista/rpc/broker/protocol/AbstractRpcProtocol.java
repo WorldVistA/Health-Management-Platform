@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.protocol;
+package org.osehra.cpe.vista.rpc.broker.protocol;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcException;
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
-import EXT.DOMAIN.cpe.vista.rpc.broker.conn.EndOfTransmissionInputStream;
-import EXT.DOMAIN.cpe.vista.rpc.broker.conn.Socket;
-import EXT.DOMAIN.cpe.vista.rpc.broker.conn.SocketFactory;
-import EXT.DOMAIN.cpe.vista.rpc.support.Wire;
+import org.osehra.cpe.vista.rpc.RpcException;
+import org.osehra.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.rpc.broker.conn.EndOfTransmissionInputStream;
+import org.osehra.cpe.vista.rpc.broker.conn.Socket;
+import org.osehra.cpe.vista.rpc.broker.conn.SocketFactory;
+import org.osehra.cpe.vista.rpc.support.Wire;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,7 +19,7 @@ public abstract class AbstractRpcProtocol implements RpcProtocol {
 
     public static final String R_ACCEPT = "accept";
 
-    private static final Logger wireLog = LoggerFactory.getLogger("EXT.DOMAIN.cpe.vista.rpc.wire");
+    private static final Logger wireLog = LoggerFactory.getLogger("org.osehra.cpe.vista.rpc.wire");
 
     protected Logger log = LoggerFactory.getLogger(getClass());
     protected SocketFactory socketFactory;

@@ -1,14 +1,14 @@
-package EXT.DOMAIN.cpe.team;
+package org.osehra.cpe.team;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import EXT.DOMAIN.cpe.auth.UserContext;
-import EXT.DOMAIN.cpe.jsonc.JsonCCollection;
-import EXT.DOMAIN.cpe.jsonc.JsonCResponse;
-import EXT.DOMAIN.cpe.vpr.NotFoundException;
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPOMObjectDAO;
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils;
-import EXT.DOMAIN.cpe.vpr.sync.vista.IVistaVprObjectDao;
-import EXT.DOMAIN.cpe.vpr.web.BadRequestException;
+import org.osehra.cpe.auth.UserContext;
+import org.osehra.cpe.jsonc.JsonCCollection;
+import org.osehra.cpe.jsonc.JsonCResponse;
+import org.osehra.cpe.vpr.NotFoundException;
+import org.osehra.cpe.vpr.pom.IGenericPOMObjectDAO;
+import org.osehra.cpe.vpr.pom.POMUtils;
+import org.osehra.cpe.vpr.sync.vista.IVistaVprObjectDao;
+import org.osehra.cpe.vpr.web.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.Resource;
@@ -25,8 +25,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView;
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.stringModelAndView;
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView;
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.stringModelAndView;
 
 @Controller
 public class TeamManagementController {
@@ -44,7 +44,7 @@ public class TeamManagementController {
 
     @RequestMapping(value = "/teamMgmt/v{apiVersion}/person/list", method = RequestMethod.GET)
     public ModelAndView persons(@PathVariable String apiVersion) throws IOException {
-        String personsJson = getResourceAsString("classpath:ext/domain/cpe/team/persons.json");
+        String personsJson = getResourceAsString("classpath:org.osehra/cpe/team/persons.json");
         return stringModelAndView(personsJson, "application/json");
     }
 
@@ -99,7 +99,7 @@ public class TeamManagementController {
 
     private  List<TeamPosition> initializePositionList() throws IOException {
         List<TeamPosition> positions = new ArrayList<TeamPosition>();
-        String positionsJson = getResourceAsString("classpath:ext/domain/cpe/team/team-positions.json");
+        String positionsJson = getResourceAsString("classpath:org.osehra/cpe/team/team-positions.json");
         JsonNode json = POMUtils.parseJSONtoNode(positionsJson);
         JsonNode items = json.path("data").path("items");
         for (JsonNode item : items) {

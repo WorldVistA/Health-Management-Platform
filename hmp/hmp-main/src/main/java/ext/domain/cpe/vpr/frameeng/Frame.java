@@ -1,38 +1,38 @@
-package EXT.DOMAIN.cpe.vpr.frameeng;
+package org.osehra.cpe.vpr.frameeng;
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.feed.atom.Link;
-import EXT.DOMAIN.cpe.vpr.HMPApp;
-import EXT.DOMAIN.cpe.vpr.Medication;
-import EXT.DOMAIN.cpe.vpr.Observation;
-import EXT.DOMAIN.cpe.vpr.Patient;
-import EXT.DOMAIN.cpe.vpr.PatientAlert;
-import EXT.DOMAIN.cpe.vpr.Result;
-import EXT.DOMAIN.cpe.vpr.UidUtils;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameAction.ObsDateRequestAction;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameAction.ObsRequestAction;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameAction.RetractAction;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameJob.FrameTask;
-import EXT.DOMAIN.cpe.vpr.frameeng.IFrameEvent.InvokeEvent;
-import EXT.DOMAIN.cpe.vpr.frameeng.IFrameTrigger.InvokeTrigger;
-import EXT.DOMAIN.cpe.vpr.frameeng.IFrameTrigger.MedOrderedTrigger;
-import EXT.DOMAIN.cpe.vpr.frameeng.IFrameTrigger.NewObsTrigger;
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPatientObjectDAO;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject;
-import EXT.DOMAIN.cpe.vpr.pom.PatientEvent;
-import EXT.DOMAIN.cpe.vpr.pom.jds.JdsTemplate;
-import EXT.DOMAIN.cpe.vpr.queryeng.HMPAppInfo;
-import EXT.DOMAIN.cpe.vpr.queryeng.Table;
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewParam;
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewParam.AsArrayListParam;
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewParam.SimpleViewParam;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDefCriteria;
-import EXT.DOMAIN.cpe.vpr.termeng.Concept;
-import EXT.DOMAIN.cpe.vpr.termeng.TermEng;
-import EXT.DOMAIN.cpe.vpr.ws.link.OpenInfoButtonLinkGenerator;
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.feed.atom.Link;
+import org.osehra.cpe.vpr.HMPApp;
+import org.osehra.cpe.vpr.Medication;
+import org.osehra.cpe.vpr.Observation;
+import org.osehra.cpe.vpr.Patient;
+import org.osehra.cpe.vpr.PatientAlert;
+import org.osehra.cpe.vpr.Result;
+import org.osehra.cpe.vpr.UidUtils;
+import org.osehra.cpe.vpr.frameeng.FrameAction.ObsDateRequestAction;
+import org.osehra.cpe.vpr.frameeng.FrameAction.ObsRequestAction;
+import org.osehra.cpe.vpr.frameeng.FrameAction.RetractAction;
+import org.osehra.cpe.vpr.frameeng.FrameJob.FrameTask;
+import org.osehra.cpe.vpr.frameeng.IFrameEvent.InvokeEvent;
+import org.osehra.cpe.vpr.frameeng.IFrameTrigger.InvokeTrigger;
+import org.osehra.cpe.vpr.frameeng.IFrameTrigger.MedOrderedTrigger;
+import org.osehra.cpe.vpr.frameeng.IFrameTrigger.NewObsTrigger;
+import org.osehra.cpe.vpr.pom.IGenericPatientObjectDAO;
+import org.osehra.cpe.vpr.pom.IPatientDAO;
+import org.osehra.cpe.vpr.pom.IPatientObject;
+import org.osehra.cpe.vpr.pom.PatientEvent;
+import org.osehra.cpe.vpr.pom.jds.JdsTemplate;
+import org.osehra.cpe.vpr.queryeng.HMPAppInfo;
+import org.osehra.cpe.vpr.queryeng.Table;
+import org.osehra.cpe.vpr.queryeng.ViewDef;
+import org.osehra.cpe.vpr.queryeng.ViewParam;
+import org.osehra.cpe.vpr.queryeng.ViewParam.AsArrayListParam;
+import org.osehra.cpe.vpr.queryeng.ViewParam.SimpleViewParam;
+import org.osehra.cpe.vpr.queryeng.query.QueryDef;
+import org.osehra.cpe.vpr.queryeng.query.QueryDefCriteria;
+import org.osehra.cpe.vpr.termeng.Concept;
+import org.osehra.cpe.vpr.termeng.TermEng;
+import org.osehra.cpe.vpr.ws.link.OpenInfoButtonLinkGenerator;
 
 import java.net.URI;
 import java.net.URL;
@@ -263,13 +263,13 @@ public abstract class Frame implements IFrame, HMPApp {
 				id = getClass().getName();
 			}
 			
-			String type = "EXT.DOMAIN.cpe.frame";
+			String type = "org.osehra.cpe.frame";
 			if (this.type != null) {
 				type = this.type;
 			} else if (annotation != null) {
 				type = annotation.value();
 			} else if (this instanceof ViewDef) {
-				type = "EXT.DOMAIN.cpe.viewdef";
+				type = "org.osehra.cpe.viewdef";
 			}
 			
 			// return the results
@@ -359,7 +359,7 @@ public abstract class Frame implements IFrame, HMPApp {
 			setID(this.document.findValue("id").asText());
 			setName(this.document.findValue("name").asText());
 			setResource(resource);
-			setType("EXT.DOMAIN.cpe.protocol");
+			setType("org.osehra.cpe.protocol");
 			this.pid = (this.document.has("pid")) ? this.document.findValue("pid").asText() : null;
 			
 			// setup the candidate-based triggers
@@ -400,12 +400,12 @@ public abstract class Frame implements IFrame, HMPApp {
 		private static IFrameTrigger buildTrigger(JsonNode trig) {
 			if (trig != null) {
 				String classStr = trig.get("class").asText();
-				if (classStr.equals("EXT.DOMAIN.cpe.vpr.frameeng.IFrameTrigger.NewVitalSignTrigger")) {
+				if (classStr.equals("org.osehra.cpe.vpr.frameeng.IFrameTrigger.NewVitalSignTrigger")) {
 					ArrayNode params = (ArrayNode) trig.get("params");
 					if (params != null && params.size() > 0) {
 						return new IFrameTrigger.NewVitalSignTrigger(params.get(0).asText());
 					}
-				} else if (classStr.equals("EXT.DOMAIN.cpe.vpr.frameeng.IFrameTrigger.LabResultRangeTrigger")) {
+				} else if (classStr.equals("org.osehra.cpe.vpr.frameeng.IFrameTrigger.LabResultRangeTrigger")) {
 					ArrayNode params = (ArrayNode) trig.get("params");
 					String name = null;
 					Double lo = null;
@@ -467,14 +467,14 @@ public abstract class Frame implements IFrame, HMPApp {
 		}
 	}
 	
-	@Component(value="EXT.DOMAIN.cpe.vpr.frameeng.IV2POFrame")
+	@Component(value="org.osehra.cpe.vpr.frameeng.IV2POFrame")
 	public static class IV2POFrame extends Frame {
 		
 		public IV2POFrame() {
 			declareParam(new SimpleViewParam("candidateMedClasses", "")); /*h2 antagonissts, proton pump inhibitors, etc */
 			addTrigger(new IFrameTrigger.InvokeTrigger<Medication>(this, Medication.class, "viewdefactions"));
 			addTrigger(new IFrameTrigger.MedOrderedTrigger());
-			addTrigger(new IFrameTrigger.InvokeTrigger<Medication>(this, Medication.class, "EXT.DOMAIN.cpe.vpr.rowaction"));
+			addTrigger(new IFrameTrigger.InvokeTrigger<Medication>(this, Medication.class, "org.osehra.cpe.vpr.rowaction"));
 		}
 
 		@Override
@@ -504,7 +504,7 @@ public abstract class Frame implements IFrame, HMPApp {
 
 			// if an oral med was found, issue an alert.
 			if (oralMed != null) {
-				if (evt instanceof InvokeEvent && ((InvokeEvent) evt).getEntryPoint().equals("EXT.DOMAIN.cpe.vpr.rowaction")) {
+				if (evt instanceof InvokeEvent && ((InvokeEvent) evt).getEntryPoint().equals("org.osehra.cpe.vpr.rowaction")) {
 					ctx.addAction(new FrameAction.OrderActionMenuItem("MODIFY", "Change route to PO", triggerMed.getUid()));
 				} else {
 					PatientAlert aa = new PatientAlert(this, "iv2po", pid, "IV2PO Switch Candidate", "This patient has active PO and IV meds, consider switching IV meds to PO to reduce infection risk, etc."); 
@@ -521,7 +521,7 @@ public abstract class Frame implements IFrame, HMPApp {
 		
 	}
 	
-	@Component(value="EXT.DOMAIN.cpe.vpr.frameeng.TeratogenicMedsFrame")
+	@Component(value="org.osehra.cpe.vpr.frameeng.TeratogenicMedsFrame")
 	public static class TeratogenicMedsFrame extends Frame {
 		// TODO: Externalize these?
 		private static String TITLE = "Potentially Teratogenic Medication";
@@ -630,7 +630,7 @@ public abstract class Frame implements IFrame, HMPApp {
 		
 	}
 	
-	@Component(value="EXT.DOMAIN.cpe.vpr.frameeng.DrugAllergyFrame")
+	@Component(value="org.osehra.cpe.vpr.frameeng.DrugAllergyFrame")
 	public static class DrugAllergyFrame extends Frame {
 
 		public DrugAllergyFrame() {
@@ -644,7 +644,7 @@ public abstract class Frame implements IFrame, HMPApp {
 	
 	}
 	
-	@Component(value="EXT.DOMAIN.cpe.vpr.frameeng.Vancomycin72HrFrame")
+	@Component(value="org.osehra.cpe.vpr.frameeng.Vancomycin72HrFrame")
 	public static class Vancomycin72HrFrame extends Frame {
 		
 		public Vancomycin72HrFrame() {
@@ -658,7 +658,7 @@ public abstract class Frame implements IFrame, HMPApp {
 		
 	}
 	
-	@Component(value="EXT.DOMAIN.cpe.vpr.frameeng.RenalDosingAdjustmentFrame")
+	@Component(value="org.osehra.cpe.vpr.frameeng.RenalDosingAdjustmentFrame")
 	public static class RenalDosingAdjustmentFrame extends Frame {
 		public RenalDosingAdjustmentFrame() {
 			setName("Renal Drug Dosing Adjustment");
@@ -770,10 +770,10 @@ public abstract class Frame implements IFrame, HMPApp {
 		}
 	}
 	
-	@Component(value="EXT.DOMAIN.cpe.vpr.frameeng.ActionButtonFrame")
+	@Component(value="org.osehra.cpe.vpr.frameeng.ActionButtonFrame")
 	public static class ActionButtonFrame extends Frame {
 		public ActionButtonFrame() {
-			addTrigger(new IFrameTrigger.InvokeTrigger<IPatientObject>(this, IPatientObject.class, "EXT.DOMAIN.cpe.vpr.rowaction"));
+			addTrigger(new IFrameTrigger.InvokeTrigger<IPatientObject>(this, IPatientObject.class, "org.osehra.cpe.vpr.rowaction"));
 		}
 
 		@Override
@@ -819,7 +819,7 @@ public abstract class Frame implements IFrame, HMPApp {
 		
 	}
 	
-	@Component(value="EXT.DOMAIN.cpe.vpr.frameeng.InfobuttonActionFrame")
+	@Component(value="org.osehra.cpe.vpr.frameeng.InfobuttonActionFrame")
 	public static class InfobuttonActionFrame extends Frame {
 		
 		private IPatientDAO patdao;
@@ -829,7 +829,7 @@ public abstract class Frame implements IFrame, HMPApp {
 
 		public InfobuttonActionFrame() {
 			// TODO: Declare a fetch timeout?
-			addTrigger(new IFrameTrigger.InvokeTrigger<IPatientObject>(this, IPatientObject.class, "EXT.DOMAIN.cpe.vpr.rowaction"));
+			addTrigger(new IFrameTrigger.InvokeTrigger<IPatientObject>(this, IPatientObject.class, "org.osehra.cpe.vpr.rowaction"));
 		}
 		
 		@Override

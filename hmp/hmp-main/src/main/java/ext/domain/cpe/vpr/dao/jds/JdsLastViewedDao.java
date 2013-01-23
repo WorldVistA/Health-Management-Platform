@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vpr.dao.jds;
+package org.osehra.cpe.vpr.dao.jds;
 
-import EXT.DOMAIN.cpe.vpr.LastViewed;
-import EXT.DOMAIN.cpe.vpr.dao.ILastViewedDao;
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPOMObjectDAO;
-import EXT.DOMAIN.cpe.vpr.pom.jds.JdsPOMObjectDAO;
+import org.osehra.cpe.vpr.LastViewed;
+import org.osehra.cpe.vpr.dao.ILastViewedDao;
+import org.osehra.cpe.vpr.pom.IGenericPOMObjectDAO;
+import org.osehra.cpe.vpr.pom.jds.JdsPOMObjectDAO;
 
 public class JdsLastViewedDao extends JdsPOMObjectDAO<LastViewed> implements ILastViewedDao {
     public JdsLastViewedDao(IGenericPOMObjectDAO genericDao) {

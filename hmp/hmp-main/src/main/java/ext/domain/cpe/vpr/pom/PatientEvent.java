@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.pom;
+package org.osehra.cpe.vpr.pom;
 
-import EXT.DOMAIN.cpe.vpr.Patient;
-import EXT.DOMAIN.cpe.vpr.frameeng.IFrameEvent;
+import org.osehra.cpe.vpr.Patient;
+import org.osehra.cpe.vpr.frameeng.IFrameEvent;
 
 import java.io.Serializable;
 import java.util.ArrayList;

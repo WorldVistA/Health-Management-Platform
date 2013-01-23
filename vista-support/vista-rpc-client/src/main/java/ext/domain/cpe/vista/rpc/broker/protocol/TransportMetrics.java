@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.protocol;
+package org.osehra.cpe.vista.rpc.broker.protocol;
 
 public interface TransportMetrics {
     /**

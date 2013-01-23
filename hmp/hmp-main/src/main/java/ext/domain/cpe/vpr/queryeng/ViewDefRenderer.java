@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
-import EXT.DOMAIN.cpe.vpr.queryeng.Query.StaticQuery;
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask;
+import org.osehra.cpe.vpr.queryeng.Query.StaticQuery;
+import org.osehra.cpe.vpr.viewdef.RenderTask;
 
 import java.util.HashSet;
 import java.util.Map;

@@ -1,16 +1,16 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
-import EXT.DOMAIN.cpe.vpr.Allergy;
-import EXT.DOMAIN.cpe.vpr.pom.jds.JdsOperations;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.JDSQuery;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDef;
+import org.osehra.cpe.vpr.Allergy;
+import org.osehra.cpe.vpr.pom.jds.JdsOperations;
+import org.osehra.cpe.vpr.queryeng.query.JDSQuery;
+import org.osehra.cpe.vpr.queryeng.query.QueryDef;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
-@Component(value = "EXT.DOMAIN.cpe.vpr.queryeng.AllergiesViewDef")
+@Component(value = "org.osehra.cpe.vpr.queryeng.AllergiesViewDef")
 @Scope("prototype")
 public class AllergiesViewDef extends ViewDef {
 

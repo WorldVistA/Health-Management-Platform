@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vista.util;
+package org.osehra.cpe.vista.util;
 
 import java.util.zip.Checksum;
 

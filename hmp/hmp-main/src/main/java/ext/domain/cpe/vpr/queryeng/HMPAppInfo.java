@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

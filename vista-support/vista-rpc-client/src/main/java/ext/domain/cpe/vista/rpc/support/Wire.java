@@ -25,7 +25,7 @@
  *
  */
 
-package EXT.DOMAIN.cpe.vista.rpc.support;
+package org.osehra.cpe.vista.rpc.support;
 
 import org.slf4j.Logger;
 

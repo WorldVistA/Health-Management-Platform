@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vpr.queryeng.dynamic.columns;
+package org.osehra.cpe.vpr.queryeng.dynamic.columns;
 
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewDef;
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask;
-import EXT.DOMAIN.cpe.vpr.viewdef.ViewDefRenderException;
-import EXT.DOMAIN.cpe.vpr.viewdef.ViewDefRenderer2;
+import org.osehra.cpe.vpr.queryeng.ViewDef;
+import org.osehra.cpe.vpr.viewdef.RenderTask;
+import org.osehra.cpe.vpr.viewdef.ViewDefRenderException;
+import org.osehra.cpe.vpr.viewdef.ViewDefRenderer2;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@Component(value = "EXT.DOMAIN.cpe.vpr.queryeng.dynamic.columns.Alerts")
+@Component(value = "org.osehra.cpe.vpr.queryeng.dynamic.columns.Alerts")
 @Scope("prototype")
 public class Alerts extends ViewDefDefColDef {
 
@@ -44,7 +44,7 @@ public class Alerts extends ViewDefDefColDef {
 
 	@Override
 	public String getViewdefCode() {
-		return "EXT.DOMAIN.cpe.vpr.queryeng.AlertViewDef";
+		return "org.osehra.cpe.vpr.queryeng.AlertViewDef";
 	}
 
 	@Override

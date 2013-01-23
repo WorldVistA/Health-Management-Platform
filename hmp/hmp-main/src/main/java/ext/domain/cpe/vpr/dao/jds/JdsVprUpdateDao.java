@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vpr.dao.jds;
+package org.osehra.cpe.vpr.dao.jds;
 
-import EXT.DOMAIN.cpe.vpr.dao.IVprUpdateDao;
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPOMObjectDAO;
-import EXT.DOMAIN.cpe.vpr.pom.jds.JdsPOMObjectDAO;
-import EXT.DOMAIN.cpe.vpr.sync.vista.VprUpdate;
+import org.osehra.cpe.vpr.dao.IVprUpdateDao;
+import org.osehra.cpe.vpr.pom.IGenericPOMObjectDAO;
+import org.osehra.cpe.vpr.pom.jds.JdsPOMObjectDAO;
+import org.osehra.cpe.vpr.sync.vista.VprUpdate;
 import org.springframework.util.Assert;
 
 public class JdsVprUpdateDao extends JdsPOMObjectDAO<VprUpdate> implements IVprUpdateDao {

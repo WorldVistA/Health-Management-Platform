@@ -1,15 +1,15 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
 
-import EXT.DOMAIN.cpe.vpr.pom.jds.JdsOperations;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.JDSQuery;
+import org.osehra.cpe.vpr.pom.jds.JdsOperations;
+import org.osehra.cpe.vpr.queryeng.query.JDSQuery;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
-@Component(value = "EXT.DOMAIN.cpe.vpr.queryeng.WorkingDiagnosisViewDef")
+@Component(value = "org.osehra.cpe.vpr.queryeng.WorkingDiagnosisViewDef")
 @Scope("prototype")
 public class WorkingDiagnosisViewDef extends ViewDef {
 

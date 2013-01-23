@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.auth;
+package org.osehra.cpe.auth;
 
-import EXT.DOMAIN.cpe.HmpProperties;
-import EXT.DOMAIN.cpe.hub.dao.IVistaAccountDao;
-import EXT.DOMAIN.cpe.vista.rpc.RpcOperations;
+import org.osehra.cpe.HmpProperties;
+import org.osehra.cpe.hub.dao.IVistaAccountDao;
+import org.osehra.cpe.vista.rpc.RpcOperations;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.core.env.Environment;
@@ -13,7 +13,7 @@ import org.springframework.security.web.PortResolver;
 import org.springframework.security.web.savedrequest.DefaultSavedRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import static EXT.DOMAIN.cpe.HmpProperties.SETUP_COMPLETE;
+import static org.osehra.cpe.HmpProperties.SETUP_COMPLETE;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;

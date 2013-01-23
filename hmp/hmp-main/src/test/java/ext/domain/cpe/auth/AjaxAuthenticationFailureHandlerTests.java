@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.auth;
+package org.osehra.cpe.auth;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
-import EXT.DOMAIN.cpe.vista.rpc.broker.protocol.VerifyCodeExpiredException;
+import org.osehra.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.rpc.broker.protocol.VerifyCodeExpiredException;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -13,7 +13,7 @@ import org.springframework.security.web.authentication.AuthenticationFailureHand
 
 import javax.servlet.http.HttpServletResponse;
 
-import static EXT.DOMAIN.cpe.hub.dao.json.JsonAssert.assertJsonEquals;
+import static org.osehra.cpe.hub.dao.json.JsonAssert.assertJsonEquals;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;

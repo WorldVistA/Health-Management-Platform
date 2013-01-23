@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.datetime.propertyeditors;
+package org.osehra.cpe.datetime.propertyeditors;
 
-import EXT.DOMAIN.cpe.datetime.IntervalOfTime;
-import EXT.DOMAIN.cpe.datetime.format.IntervalOfTimeFormat;
+import org.osehra.cpe.datetime.IntervalOfTime;
+import org.osehra.cpe.datetime.format.IntervalOfTimeFormat;
 
 import java.beans.PropertyEditorSupport;
 
@@ -9,8 +9,8 @@ import java.beans.PropertyEditorSupport;
  * Editor for IntervalOfTime.  IntervalsOfTime instances will be converted to their string representations and vice-versa
  * with IntervalOfTimeFormat.
  *
- * @see EXT.DOMAIN.cpe.datetime.IntervalOfTime
- * @see EXT.DOMAIN.cpe.datetime.format.IntervalOfTimeFormat
+ * @see org.osehra.cpe.datetime.IntervalOfTime
+ * @see org.osehra.cpe.datetime.format.IntervalOfTimeFormat
  */
 public class IntervalOfTimeEditor extends PropertyEditorSupport {
     @Override

@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.frameeng;
+package org.osehra.cpe.vpr.frameeng;
 
-import EXT.DOMAIN.cpe.vpr.frameeng.Frame.FrameExecException;
-import EXT.DOMAIN.cpe.vpr.frameeng.Frame.FrameInitException;
+import org.osehra.cpe.vpr.frameeng.Frame.FrameExecException;
+import org.osehra.cpe.vpr.frameeng.Frame.FrameInitException;
 
 import java.util.ArrayList;
 import java.util.HashMap;

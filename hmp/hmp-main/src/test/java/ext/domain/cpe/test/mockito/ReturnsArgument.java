@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.test.mockito;
+package org.osehra.cpe.test.mockito;
 
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;

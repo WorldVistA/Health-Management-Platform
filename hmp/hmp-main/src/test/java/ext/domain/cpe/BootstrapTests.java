@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe;
+package org.osehra.cpe;
 
 import org.junit.Before;
 import org.junit.Ignore;
@@ -22,7 +22,7 @@ import java.io.StringWriter;
 import java.net.InetAddress;
 import java.util.Properties;
 
-import static EXT.DOMAIN.cpe.HmpProperties.*;
+import static org.osehra.cpe.HmpProperties.*;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.notNull;

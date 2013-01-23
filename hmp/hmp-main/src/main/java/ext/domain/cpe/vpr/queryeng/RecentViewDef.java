@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.HL7DTMColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.Query.QueryMode;
+import org.osehra.cpe.vpr.queryeng.ColDef.HL7DTMColDef;
+import org.osehra.cpe.vpr.queryeng.Query.QueryMode;
 
 import org.apache.solr.client.solrj.SolrServer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ import org.springframework.stereotype.Component;
  * 
  * @author brian
  */
-@Component(value="EXT.DOMAIN.cpe.vpr.queryeng.RecentViewDef")
+@Component(value="org.osehra.cpe.vpr.queryeng.RecentViewDef")
 @Scope("prototype")
 public class RecentViewDef extends ViewDef {
     @Autowired

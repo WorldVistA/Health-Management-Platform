@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vista.rpc.pool;
+package org.osehra.cpe.vista.rpc.pool;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcException;
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
-import EXT.DOMAIN.cpe.vista.rpc.conn.Connection;
-import EXT.DOMAIN.cpe.vista.rpc.conn.ConnectionFactory;
-import EXT.DOMAIN.cpe.vista.rpc.conn.ConnectionSpec;
-import EXT.DOMAIN.cpe.vista.util.RpcUriUtils;
+import org.osehra.cpe.vista.rpc.RpcException;
+import org.osehra.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.rpc.conn.Connection;
+import org.osehra.cpe.vista.rpc.conn.ConnectionFactory;
+import org.osehra.cpe.vista.rpc.conn.ConnectionSpec;
+import org.osehra.cpe.vista.util.RpcUriUtils;
 import org.apache.commons.pool.KeyedPoolableObjectFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

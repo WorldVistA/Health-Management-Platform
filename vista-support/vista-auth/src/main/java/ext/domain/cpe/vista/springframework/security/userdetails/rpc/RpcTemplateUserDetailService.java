@@ -1,17 +1,17 @@
-package EXT.DOMAIN.cpe.vista.springframework.security.userdetails.rpc;
+package org.osehra.cpe.vista.springframework.security.userdetails.rpc;
 
-import EXT.DOMAIN.cpe.vista.rpc.ConnectionCallback;
-import EXT.DOMAIN.cpe.vista.rpc.RpcException;
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
-import EXT.DOMAIN.cpe.vista.rpc.RpcOperations;
-import EXT.DOMAIN.cpe.vista.rpc.broker.protocol.RpcContextAccessDeniedException;
-import EXT.DOMAIN.cpe.vista.rpc.broker.protocol.VerifyCodeExpiredException;
-import EXT.DOMAIN.cpe.vista.rpc.conn.Connection;
-import EXT.DOMAIN.cpe.vista.rpc.conn.ConnectionUserDetails;
-import EXT.DOMAIN.cpe.vista.springframework.security.userdetails.VistaUser;
-import EXT.DOMAIN.cpe.vista.springframework.security.userdetails.VistaUserDetails;
-import EXT.DOMAIN.cpe.vista.springframework.security.userdetails.VistaUserDetailsService;
-import EXT.DOMAIN.cpe.vista.util.RpcUriUtils;
+import org.osehra.cpe.vista.rpc.ConnectionCallback;
+import org.osehra.cpe.vista.rpc.RpcException;
+import org.osehra.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.rpc.RpcOperations;
+import org.osehra.cpe.vista.rpc.broker.protocol.RpcContextAccessDeniedException;
+import org.osehra.cpe.vista.rpc.broker.protocol.VerifyCodeExpiredException;
+import org.osehra.cpe.vista.rpc.conn.Connection;
+import org.osehra.cpe.vista.rpc.conn.ConnectionUserDetails;
+import org.osehra.cpe.vista.springframework.security.userdetails.VistaUser;
+import org.osehra.cpe.vista.springframework.security.userdetails.VistaUserDetails;
+import org.osehra.cpe.vista.springframework.security.userdetails.VistaUserDetailsService;
+import org.osehra.cpe.vista.util.RpcUriUtils;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.PermissionDeniedDataAccessException;
@@ -62,7 +62,7 @@ public class RpcTemplateUserDetailService implements VistaUserDetailsService {
     }
 
     protected void translateException(PermissionDeniedDataAccessException e) throws DataAccessException {
-        if (e.getCause() instanceof EXT.DOMAIN.cpe.vista.rpc.broker.protocol.BadCredentialsException) {
+        if (e.getCause() instanceof org.osehra.cpe.vista.rpc.broker.protocol.BadCredentialsException) {
             throw new BadCredentialsException(e.getCause().getMessage());
         } else if (e.getCause() instanceof VerifyCodeExpiredException) {
             throw new CredentialsExpiredException(e.getCause().getMessage());

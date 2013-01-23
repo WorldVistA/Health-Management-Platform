@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.vpr.queryeng.dynamic;
+package org.osehra.cpe.vpr.queryeng.dynamic;
 
-import EXT.DOMAIN.cpe.vpr.RosterService;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO;
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewDef;
+import org.osehra.cpe.vpr.RosterService;
+import org.osehra.cpe.vpr.pom.IPatientDAO;
+import org.osehra.cpe.vpr.queryeng.ViewDef;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;

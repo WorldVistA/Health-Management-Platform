@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.protocol;
+package org.osehra.cpe.vista.rpc.broker.protocol;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcException;
-import EXT.DOMAIN.cpe.vista.rpc.RpcRequest;
+import org.osehra.cpe.vista.rpc.RpcException;
+import org.osehra.cpe.vista.rpc.RpcRequest;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,7 +9,7 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import static EXT.DOMAIN.cpe.vista.rpc.broker.protocol.NewRpcMessageWriter.LPack;
+import static org.osehra.cpe.vista.rpc.broker.protocol.NewRpcMessageWriter.LPack;
 import static org.junit.Assert.assertEquals;
 
 public class TestNewRpcMessageWriter {

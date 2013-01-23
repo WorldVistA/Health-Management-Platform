@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr;
+package org.osehra.cpe.vpr;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import EXT.DOMAIN.cpe.vpr.pom.AbstractPOMObject;
+import org.osehra.cpe.vpr.pom.AbstractPOMObject;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.util.Assert;
 

@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.queryeng.dynamic.columns;
+package org.osehra.cpe.vpr.queryeng.dynamic.columns;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
-@Component(value = "EXT.DOMAIN.cpe.vpr.queryeng.dynamic.columns.DiabetesAnalysisVDDCD")
+@Component(value = "org.osehra.cpe.vpr.queryeng.dynamic.columns.DiabetesAnalysisVDDCD")
 @Scope("prototype")
 public class DiabetesAnalysisVDDCD extends ViewDefDefColDef {
 
@@ -33,7 +33,7 @@ public class DiabetesAnalysisVDDCD extends ViewDefDefColDef {
 
 	@Override
 	public String getViewdefCode() {
-		return "EXT.DOMAIN.cpe.vpr.queryeng.LabViewDef";
+		return "org.osehra.cpe.vpr.queryeng.LabViewDef";
 	}
 
 	@Override

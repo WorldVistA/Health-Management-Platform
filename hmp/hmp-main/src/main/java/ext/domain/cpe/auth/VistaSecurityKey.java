@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.auth;
+package org.osehra.cpe.auth;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 import org.springframework.security.core.GrantedAuthority;

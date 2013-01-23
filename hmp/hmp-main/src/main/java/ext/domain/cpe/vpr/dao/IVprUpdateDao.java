@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.dao;
+package org.osehra.cpe.vpr.dao;
 
-import EXT.DOMAIN.cpe.vpr.pom.IPOMObjectDAO;
-import EXT.DOMAIN.cpe.vpr.sync.vista.VprUpdate;
+import org.osehra.cpe.vpr.pom.IPOMObjectDAO;
+import org.osehra.cpe.vpr.sync.vista.VprUpdate;
 
 public interface IVprUpdateDao extends IPOMObjectDAO<VprUpdate> {
     VprUpdate findOneBySystemId(String systemId);

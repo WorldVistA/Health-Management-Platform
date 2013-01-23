@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vistalink.springframework.security.userdetails;
+package org.osehra.cpe.vistalink.springframework.security.userdetails;
 
-import EXT.DOMAIN.cpe.vista.springframework.security.userdetails.VistaUserDetails;
-import EXT.DOMAIN.cpe.vista.springframework.security.userdetails.VistaUserDetailsService;
-import EXT.DOMAIN.cpe.vistalink.ConnectionFactoryLocator;
-import EXT.DOMAIN.cpe.vistalink.VistaLinkDaoSupport;
-import EXT.DOMAIN.cpe.vistalink.VistaLinkTemplate;
+import org.osehra.cpe.vista.springframework.security.userdetails.VistaUserDetails;
+import org.osehra.cpe.vista.springframework.security.userdetails.VistaUserDetailsService;
+import org.osehra.cpe.vistalink.ConnectionFactoryLocator;
+import org.osehra.cpe.vistalink.VistaLinkDaoSupport;
+import org.osehra.cpe.vistalink.VistaLinkTemplate;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.dao.DataAccessException;
 import org.springframework.security.authentication.BadCredentialsException;

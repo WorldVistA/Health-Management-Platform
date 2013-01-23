@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vpr.queryeng.dynamic.columns;
+package org.osehra.cpe.vpr.queryeng.dynamic.columns;
 
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewDef;
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask;
-import EXT.DOMAIN.cpe.vpr.viewdef.ViewDefRenderException;
-import EXT.DOMAIN.cpe.vpr.viewdef.ViewDefRenderer2;
+import org.osehra.cpe.vpr.queryeng.ViewDef;
+import org.osehra.cpe.vpr.viewdef.RenderTask;
+import org.osehra.cpe.vpr.viewdef.ViewDefRenderException;
+import org.osehra.cpe.vpr.viewdef.ViewDefRenderer2;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
-@Component(value = "EXT.DOMAIN.cpe.vpr.queryeng.dynamic.columns.UnverifiedOrders")
+@Component(value = "org.osehra.cpe.vpr.queryeng.dynamic.columns.UnverifiedOrders")
 @Scope("prototype")
 public class UnverifiedOrders extends ViewDefDefColDef {
 
@@ -42,7 +42,7 @@ public class UnverifiedOrders extends ViewDefDefColDef {
 
 	@Override
 	public String getViewdefCode() {
-		return "EXT.DOMAIN.cpe.vpr.queryeng.OrdersViewDef";
+		return "org.osehra.cpe.vpr.queryeng.OrdersViewDef";
 	}
 
 	@Override

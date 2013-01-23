@@ -1,16 +1,16 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
-import EXT.DOMAIN.cpe.auth.HmpUserDetails;
-import EXT.DOMAIN.cpe.feed.atom.Link;
-import EXT.DOMAIN.cpe.vpr.Patient;
-import EXT.DOMAIN.cpe.vpr.UidUtils;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO;
-import EXT.DOMAIN.cpe.vpr.queryeng.Query.HQLQuery;
-import EXT.DOMAIN.cpe.vpr.queryeng.Query.QueryMode;
-import EXT.DOMAIN.cpe.vpr.queryeng.Query.StaticQuery;
-import EXT.DOMAIN.cpe.vpr.queryeng.dynamic.columns.ViewDefDefColDef;
-import EXT.DOMAIN.cpe.vpr.ws.link.OpenInfoButtonLinkGenerator;
-import EXT.DOMAIN.cpe.vpr.ws.link.PatientRelatedSelfLinkGenerator;
+import org.osehra.cpe.auth.HmpUserDetails;
+import org.osehra.cpe.feed.atom.Link;
+import org.osehra.cpe.vpr.Patient;
+import org.osehra.cpe.vpr.UidUtils;
+import org.osehra.cpe.vpr.pom.IPatientDAO;
+import org.osehra.cpe.vpr.queryeng.Query.HQLQuery;
+import org.osehra.cpe.vpr.queryeng.Query.QueryMode;
+import org.osehra.cpe.vpr.queryeng.Query.StaticQuery;
+import org.osehra.cpe.vpr.queryeng.dynamic.columns.ViewDefDefColDef;
+import org.osehra.cpe.vpr.ws.link.OpenInfoButtonLinkGenerator;
+import org.osehra.cpe.vpr.ws.link.PatientRelatedSelfLinkGenerator;
 
 import java.util.HashMap;
 import java.util.Map;

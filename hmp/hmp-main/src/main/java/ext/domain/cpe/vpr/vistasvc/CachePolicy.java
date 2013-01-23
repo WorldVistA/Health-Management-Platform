@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.vistasvc;
+package org.osehra.cpe.vpr.vistasvc;
 
-import EXT.DOMAIN.cpe.vpr.vistasvc.CacheMgr.CacheType;
+import org.osehra.cpe.vpr.vistasvc.CacheMgr.CacheType;
 
 import java.util.Date;
 

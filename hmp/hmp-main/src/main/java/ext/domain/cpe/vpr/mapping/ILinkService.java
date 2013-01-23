@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.mapping;
+package org.osehra.cpe.vpr.mapping;
 
-import EXT.DOMAIN.cpe.feed.atom.Link;
+import org.osehra.cpe.feed.atom.Link;
 
 import java.util.List;
 

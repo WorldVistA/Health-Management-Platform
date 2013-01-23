@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.vistalink.springframework.security.userdetails;
+package org.osehra.cpe.vistalink.springframework.security.userdetails;
 
-import EXT.DOMAIN.cpe.vistalink.AbstractVistaLinkConnectionTest;
-import EXT.DOMAIN.vistalink.adapter.record.VistaLinkFaultException;
-import EXT.DOMAIN.vistalink.security.m.SecurityAccessVerifyCodePairInvalidException;
+import org.osehra.cpe.vistalink.AbstractVistaLinkConnectionTest;
+import org.osehra.vistalink.adapter.record.VistaLinkFaultException;
+import org.osehra.vistalink.security.m.SecurityAccessVerifyCodePairInvalidException;
 import org.easymock.EasyMock;
 import org.springframework.dao.PermissionDeniedDataAccessException;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -10,7 +10,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import javax.resource.ResourceException;
 import java.io.IOException;
 
-import static EXT.DOMAIN.cpe.vistalink.springframework.security.userdetails.VistaLinkUserDetailService.*;
+import static org.osehra.cpe.vistalink.springframework.security.userdetails.VistaLinkUserDetailService.*;
 import static org.easymock.EasyMock.expect;
 
 public class VistaLinkUserDetailServiceTest extends AbstractVistaLinkConnectionTest {

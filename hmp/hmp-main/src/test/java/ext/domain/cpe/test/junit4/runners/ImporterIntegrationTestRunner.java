@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.test.junit4.runners;
+package org.osehra.cpe.test.junit4.runners;
 
-import EXT.DOMAIN.cpe.vpr.Patient;
-import EXT.DOMAIN.cpe.vpr.sync.vista.ImportException;
-import EXT.DOMAIN.cpe.vpr.sync.vista.VistaDataChunk;
+import org.osehra.cpe.vpr.Patient;
+import org.osehra.cpe.vpr.sync.vista.ImportException;
+import org.osehra.cpe.vpr.sync.vista.VistaDataChunk;
 import org.junit.Assert;
 import org.junit.internal.AssumptionViolatedException;
 import org.junit.runner.Description;

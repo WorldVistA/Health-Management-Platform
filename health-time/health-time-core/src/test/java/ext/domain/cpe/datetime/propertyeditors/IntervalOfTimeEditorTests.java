@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.datetime.propertyeditors;
+package org.osehra.cpe.datetime.propertyeditors;
 
-import EXT.DOMAIN.cpe.datetime.IntervalOfTime;
-import EXT.DOMAIN.cpe.datetime.PointInTime;
+import org.osehra.cpe.datetime.IntervalOfTime;
+import org.osehra.cpe.datetime.PointInTime;
 import org.junit.Assert;
 import org.junit.Test;
 

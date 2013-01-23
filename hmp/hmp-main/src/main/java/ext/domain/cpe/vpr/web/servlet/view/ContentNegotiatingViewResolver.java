@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.web.servlet.view;
+package org.osehra.cpe.vpr.web.servlet.view;
 
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.web.servlet.View;

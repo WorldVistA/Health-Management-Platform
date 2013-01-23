@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr;
+package org.osehra.cpe.vpr;
 
 public class DocumentLink {
 	private Long id;

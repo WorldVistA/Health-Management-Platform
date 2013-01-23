@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.dao.multi;
+package org.osehra.cpe.vpr.dao.multi;
 
 import org.junit.Before;
 import org.junit.Test;

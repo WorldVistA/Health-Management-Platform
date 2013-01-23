@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.web.converter;
+package org.osehra.cpe.vpr.web.converter;
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
+import org.osehra.cpe.datetime.PointInTime;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;

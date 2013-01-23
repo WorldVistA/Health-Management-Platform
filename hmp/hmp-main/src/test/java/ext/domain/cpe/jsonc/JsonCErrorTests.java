@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.jsonc;
+package org.osehra.cpe.jsonc;
 
 import org.hamcrest.Matcher;
 import org.junit.Test;

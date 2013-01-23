@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.vpr.queryeng.query;
+package org.osehra.cpe.vpr.queryeng.query;
 
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO;
-import EXT.DOMAIN.cpe.vpr.queryeng.Query;
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask;
+import org.osehra.cpe.vpr.pom.IPatientDAO;
+import org.osehra.cpe.vpr.queryeng.Query;
+import org.osehra.cpe.vpr.viewdef.RenderTask;
 
 import java.util.HashMap;
 import java.util.List;

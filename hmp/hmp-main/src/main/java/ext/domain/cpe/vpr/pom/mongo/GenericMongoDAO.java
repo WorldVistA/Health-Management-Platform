@@ -1,13 +1,13 @@
-package EXT.DOMAIN.cpe.vpr.pom.mongo;
+package org.osehra.cpe.vpr.pom.mongo;
 
-import EXT.DOMAIN.cpe.vpr.Patient;
-import EXT.DOMAIN.cpe.vpr.Result;
-import EXT.DOMAIN.cpe.vpr.ResultOrganizer;
-import EXT.DOMAIN.cpe.vpr.UidUtils;
-import EXT.DOMAIN.cpe.vpr.VitalSign;
-import EXT.DOMAIN.cpe.vpr.VitalSignOrganizer;
-import EXT.DOMAIN.cpe.vpr.pom.*;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDef;
+import org.osehra.cpe.vpr.Patient;
+import org.osehra.cpe.vpr.Result;
+import org.osehra.cpe.vpr.ResultOrganizer;
+import org.osehra.cpe.vpr.UidUtils;
+import org.osehra.cpe.vpr.VitalSign;
+import org.osehra.cpe.vpr.VitalSignOrganizer;
+import org.osehra.cpe.vpr.pom.*;
+import org.osehra.cpe.vpr.queryeng.query.QueryDef;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vistalink;
+package org.osehra.cpe.vistalink;
 
-import EXT.DOMAIN.exception.FoundationsException;
-import EXT.DOMAIN.vistalink.adapter.cci.VistaLinkAppProxyConnectionSpec;
-import EXT.DOMAIN.vistalink.adapter.cci.VistaLinkConnection;
-import EXT.DOMAIN.vistalink.adapter.cci.VistaLinkDuzConnectionSpec;
-import EXT.DOMAIN.vistalink.rpc.*;
+import org.osehra.exception.FoundationsException;
+import org.osehra.vistalink.adapter.cci.VistaLinkAppProxyConnectionSpec;
+import org.osehra.vistalink.adapter.cci.VistaLinkConnection;
+import org.osehra.vistalink.adapter.cci.VistaLinkDuzConnectionSpec;
+import org.osehra.vistalink.rpc.*;
 import junit.framework.TestCase;
 import org.easymock.EasyMock;
 import org.easymock.IArgumentMatcher;
@@ -133,7 +133,7 @@ public abstract class AbstractVistaLinkConnectionTest extends TestCase {
 
     static class TestRpcResponse extends RpcResponse {
         protected TestRpcResponse(String rpcResult) {
-            super(buildXmlResponse(rpcResult), buildXmlResponse(rpcResult), null, "EXT.DOMAIN.foundations.rpc.response", rpcResult, "flee");
+            super(buildXmlResponse(rpcResult), buildXmlResponse(rpcResult), null, "org.osehra.foundations.rpc.response", rpcResult, "flee");
         }
     }
 

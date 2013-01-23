@@ -1,18 +1,18 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista;
+package org.osehra.cpe.vpr.sync.vista;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPOMObjectDAO;
-import EXT.DOMAIN.cpe.vpr.pom.IPOMObject;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject;
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils;
+import org.osehra.cpe.vpr.pom.IGenericPOMObjectDAO;
+import org.osehra.cpe.vpr.pom.IPOMObject;
+import org.osehra.cpe.vpr.pom.IPatientObject;
+import org.osehra.cpe.vpr.pom.POMUtils;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.dao.DataRetrievalFailureException;
 import org.springframework.util.Assert;
 
 import java.util.Map;
 
-import static EXT.DOMAIN.cpe.vpr.UserInterfaceRpcConstants.VPR_PUT_OBJECT_RPC_URI;
-import static EXT.DOMAIN.cpe.vpr.UserInterfaceRpcConstants.VPR_PUT_PATIENT_DATA_URI;
+import static org.osehra.cpe.vpr.UserInterfaceRpcConstants.VPR_PUT_OBJECT_RPC_URI;
+import static org.osehra.cpe.vpr.UserInterfaceRpcConstants.VPR_PUT_PATIENT_DATA_URI;
 
 public class VistaVprObjectDao extends VistaVprObjectDaoSupport implements IVistaVprObjectDao {
 

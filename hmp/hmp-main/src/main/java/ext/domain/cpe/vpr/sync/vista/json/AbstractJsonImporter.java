@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista.json;
+package org.osehra.cpe.vpr.sync.vista.json;
 
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPatientObjectDAO;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject;
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils;
-import EXT.DOMAIN.cpe.vpr.sync.vista.ImportException;
-import EXT.DOMAIN.cpe.vpr.sync.vista.VistaDataChunk;
+import org.osehra.cpe.vpr.pom.IGenericPatientObjectDAO;
+import org.osehra.cpe.vpr.pom.IPatientObject;
+import org.osehra.cpe.vpr.pom.POMUtils;
+import org.osehra.cpe.vpr.sync.vista.ImportException;
+import org.osehra.cpe.vpr.sync.vista.VistaDataChunk;
 
 import java.util.Map;
 

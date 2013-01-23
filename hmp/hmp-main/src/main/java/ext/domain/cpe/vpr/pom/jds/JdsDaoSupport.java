@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.pom.jds;
+package org.osehra.cpe.vpr.pom.jds;
 
-import EXT.DOMAIN.cpe.vpr.pom.POMObjectMapper;
+import org.osehra.cpe.vpr.pom.POMObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.support.DaoSupport;

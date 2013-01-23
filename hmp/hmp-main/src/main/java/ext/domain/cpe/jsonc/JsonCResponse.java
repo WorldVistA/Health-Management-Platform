@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.jsonc;
+package org.osehra.cpe.jsonc;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import EXT.DOMAIN.cpe.datetime.PointInTime;
+import org.osehra.cpe.datetime.PointInTime;
 import org.codehaus.groovy.grails.web.servlet.mvc.GrailsParameterMap;
 import org.springframework.data.domain.Page;
 import org.springframework.validation.Errors;

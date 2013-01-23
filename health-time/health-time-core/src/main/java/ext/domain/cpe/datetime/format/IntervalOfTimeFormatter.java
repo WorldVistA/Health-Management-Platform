@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.datetime.format;
+package org.osehra.cpe.datetime.format;
 
-import EXT.DOMAIN.cpe.datetime.IntervalOfTime;
-import EXT.DOMAIN.cpe.datetime.PointInTime;
+import org.osehra.cpe.datetime.IntervalOfTime;
+import org.osehra.cpe.datetime.PointInTime;
 
 /**
  * TODOC: Provide summary documentation of class IntervalOfTimeFormatter

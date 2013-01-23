@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.frameeng;
+package org.osehra.cpe.vpr.frameeng;
 
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameAction.IPatientSerializableAction;
+import org.osehra.cpe.vpr.frameeng.FrameAction.IPatientSerializableAction;
 
 import java.io.Serializable;
 import java.util.HashMap;

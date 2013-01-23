@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.termeng;
+package org.osehra.cpe.vpr.termeng;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

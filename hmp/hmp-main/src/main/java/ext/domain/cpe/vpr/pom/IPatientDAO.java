@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.pom;
+package org.osehra.cpe.vpr.pom;
 
-import EXT.DOMAIN.cpe.vpr.Patient;
-import EXT.DOMAIN.cpe.vpr.PatientFacility;
+import org.osehra.cpe.vpr.Patient;
+import org.osehra.cpe.vpr.PatientFacility;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

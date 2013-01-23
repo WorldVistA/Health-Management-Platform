@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vistalink;
+package org.osehra.cpe.vistalink;
 
-import EXT.DOMAIN.vistalink.adapter.record.LoginsDisabledFaultException;
+import org.osehra.vistalink.adapter.record.LoginsDisabledFaultException;
 
 public class VistaLinkLoginsDisabledException extends VistaLinkResourceFailureException {
     public VistaLinkLoginsDisabledException(LoginsDisabledFaultException fault) {

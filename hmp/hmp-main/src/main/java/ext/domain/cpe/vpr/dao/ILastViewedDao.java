@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.vpr.dao;
+package org.osehra.cpe.vpr.dao;
 
-import EXT.DOMAIN.cpe.dao.HmpRepository;
-import EXT.DOMAIN.cpe.vpr.LastViewed;
-import EXT.DOMAIN.cpe.vpr.pom.IPOMObjectDAO;
+import org.osehra.cpe.dao.HmpRepository;
+import org.osehra.cpe.vpr.LastViewed;
+import org.osehra.cpe.vpr.pom.IPOMObjectDAO;
 
 public interface ILastViewedDao extends IPOMObjectDAO<LastViewed> {
 

@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vpr;
+package org.osehra.cpe.vpr;
 
 import static junit.framework.Assert.assertNull;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
+import org.osehra.cpe.datetime.PointInTime;
 
 import java.util.Set;
 
@@ -34,7 +34,7 @@ public class PatientTests {
         facility.setData("systemId","8636");
         pt.addToFacilities(facility);
 
-        assertThat(pt.toString(), is("EXT.DOMAIN.cpe.vpr.Patient{pids=[12345, 42, 8636;301, 960;229, 961;301, 9F06;229]}"));
+        assertThat(pt.toString(), is("org.osehra.cpe.vpr.Patient{pids=[12345, 42, 8636;301, 960;229, 961;301, 9F06;229]}"));
     }
 
     @Test

@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vpr.viewdef;
+package org.osehra.cpe.vpr.viewdef;
 
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameJob.FrameTask;
-import EXT.DOMAIN.cpe.vpr.queryeng.Query;
-import EXT.DOMAIN.cpe.vpr.queryeng.Table;
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewParam;
+import org.osehra.cpe.vpr.frameeng.FrameJob.FrameTask;
+import org.osehra.cpe.vpr.queryeng.Query;
+import org.osehra.cpe.vpr.queryeng.Table;
+import org.osehra.cpe.vpr.queryeng.ViewDef;
+import org.osehra.cpe.vpr.queryeng.ViewParam;
 
 import java.util.ArrayList;
 import java.util.HashMap;

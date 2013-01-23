@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vistalink;
+package org.osehra.cpe.vistalink;
 
-import EXT.DOMAIN.vistalink.adapter.record.LoginsDisabledFaultException;
-import EXT.DOMAIN.vistalink.adapter.record.VistaLinkFaultException;
-import EXT.DOMAIN.vistalink.rpc.NoRpcContextFaultException;
-import EXT.DOMAIN.vistalink.rpc.RpcNotInContextFaultException;
-import EXT.DOMAIN.vistalink.rpc.RpcNotOkForProxyUseException;
-import EXT.DOMAIN.vistalink.security.m.SecurityAccessVerifyCodePairInvalidException;
+import org.osehra.vistalink.adapter.record.LoginsDisabledFaultException;
+import org.osehra.vistalink.adapter.record.VistaLinkFaultException;
+import org.osehra.vistalink.rpc.NoRpcContextFaultException;
+import org.osehra.vistalink.rpc.RpcNotInContextFaultException;
+import org.osehra.vistalink.rpc.RpcNotOkForProxyUseException;
+import org.osehra.vistalink.security.m.SecurityAccessVerifyCodePairInvalidException;
 import org.springframework.dao.DataAccessResourceFailureException;
 
 public class VistaLinkTemplateTest extends AbstractVistaLinkConnectionTest {

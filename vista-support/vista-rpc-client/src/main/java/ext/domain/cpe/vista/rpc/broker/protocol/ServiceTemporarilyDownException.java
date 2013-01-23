@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.protocol;
+package org.osehra.cpe.vista.rpc.broker.protocol;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcException;
+import org.osehra.cpe.vista.rpc.RpcException;
 
 public class ServiceTemporarilyDownException extends RpcException {
     public static final String RPC_SERVICE_TEMPORARILY_DOWN_MESSAGE = "21 Service temporarily down.";

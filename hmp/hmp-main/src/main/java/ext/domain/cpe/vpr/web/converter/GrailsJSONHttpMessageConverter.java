@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.web.converter;
+package org.osehra.cpe.vpr.web.converter;
 
 import grails.converters.JSON;
 import org.codehaus.groovy.grails.web.converters.exceptions.ConverterException;

@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.web.view;
+package org.osehra.cpe.vpr.web.view;
 
 import org.springframework.core.io.Resource;
 import org.springframework.http.converter.HttpMessageConverter;

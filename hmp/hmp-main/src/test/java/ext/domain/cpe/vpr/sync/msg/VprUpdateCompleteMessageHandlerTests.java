@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vpr.sync.msg;
+package org.osehra.cpe.vpr.sync.msg;
 
-import EXT.DOMAIN.cpe.hub.dao.IVistaAccountDao;
-import EXT.DOMAIN.cpe.vpr.dao.ISolrDao;
-import EXT.DOMAIN.cpe.vpr.dao.IVprUpdateDao;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO;
-import EXT.DOMAIN.cpe.vpr.sync.ISyncService;
-import EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants;
+import org.osehra.cpe.hub.dao.IVistaAccountDao;
+import org.osehra.cpe.vpr.dao.ISolrDao;
+import org.osehra.cpe.vpr.dao.IVprUpdateDao;
+import org.osehra.cpe.vpr.pom.IPatientDAO;
+import org.osehra.cpe.vpr.sync.ISyncService;
+import org.osehra.cpe.vpr.sync.SyncMessageConstants;
 import org.junit.Before;
 import org.junit.Test;
 

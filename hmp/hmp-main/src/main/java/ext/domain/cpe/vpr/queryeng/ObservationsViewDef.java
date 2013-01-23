@@ -1,22 +1,22 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
-import static EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDefCriteria.where;
-import EXT.DOMAIN.cpe.vpr.Observation;
-import EXT.DOMAIN.cpe.vpr.VprConstants;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.HL7DTMColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.TemplateColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.Query.HQLQuery;
-import EXT.DOMAIN.cpe.vpr.queryeng.Query.QueryMode;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.JDSQuery;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDef;
-import EXT.DOMAIN.cpe.vpr.ws.link.OpenInfoButtonLinkGenerator;
+import static org.osehra.cpe.vpr.queryeng.query.QueryDefCriteria.where;
+import org.osehra.cpe.vpr.Observation;
+import org.osehra.cpe.vpr.VprConstants;
+import org.osehra.cpe.vpr.queryeng.ColDef.HL7DTMColDef;
+import org.osehra.cpe.vpr.queryeng.ColDef.TemplateColDef;
+import org.osehra.cpe.vpr.queryeng.Query.HQLQuery;
+import org.osehra.cpe.vpr.queryeng.Query.QueryMode;
+import org.osehra.cpe.vpr.queryeng.query.JDSQuery;
+import org.osehra.cpe.vpr.queryeng.query.QueryDef;
+import org.osehra.cpe.vpr.ws.link.OpenInfoButtonLinkGenerator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
-@Component(value = "EXT.DOMAIN.cpe.vpr.queryeng.ObservationsViewDef")
+@Component(value = "org.osehra.cpe.vpr.queryeng.ObservationsViewDef")
 @Scope("prototype")
 public class ObservationsViewDef extends ViewDef {
 	@Autowired 

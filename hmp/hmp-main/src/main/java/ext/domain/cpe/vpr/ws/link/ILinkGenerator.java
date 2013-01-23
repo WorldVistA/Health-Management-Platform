@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.ws.link;
+package org.osehra.cpe.vpr.ws.link;
 
-import EXT.DOMAIN.cpe.feed.atom.Link;
+import org.osehra.cpe.feed.atom.Link;
 
 /**
  * A ILinkGenerator is responsible for generating a related atom link for an arbitrary object.

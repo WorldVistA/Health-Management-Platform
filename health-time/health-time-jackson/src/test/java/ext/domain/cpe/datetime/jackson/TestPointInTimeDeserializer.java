@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.datetime.jackson;
+package org.osehra.cpe.datetime.jackson;
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
+import org.osehra.cpe.datetime.PointInTime;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;

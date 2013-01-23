@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.auth;
+package org.osehra.cpe.auth;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
-import EXT.DOMAIN.cpe.vista.springframework.security.userdetails.VistaUser;
-import EXT.DOMAIN.cpe.vpr.UidUtils;
+import org.osehra.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.springframework.security.userdetails.VistaUser;
+import org.osehra.cpe.vpr.UidUtils;
 import org.springframework.security.core.GrantedAuthority;
 
 import java.util.Collection;

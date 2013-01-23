@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista;
+package org.osehra.cpe.vpr.sync.vista;
 
 public class SynchronizationRpcConstants {
     public static final String NHIN_RPC_CONTEXT = "NHIN APPLICATION PROXY";

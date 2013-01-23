@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vista.springframework.security.userdetails.rpc;
+package org.osehra.cpe.vista.springframework.security.userdetails.rpc;
 
-import EXT.DOMAIN.cpe.vista.rpc.CredentialsProvider;
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
-import EXT.DOMAIN.cpe.vista.rpc.RpcHostResolver;
-import EXT.DOMAIN.cpe.vista.rpc.broker.conn.VistaIdNotFoundException;
-import EXT.DOMAIN.cpe.vista.springframework.security.userdetails.VistaUserDetails;
-import EXT.DOMAIN.cpe.vista.util.RpcUriUtils;
+import org.osehra.cpe.vista.rpc.CredentialsProvider;
+import org.osehra.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.rpc.RpcHostResolver;
+import org.osehra.cpe.vista.rpc.broker.conn.VistaIdNotFoundException;
+import org.osehra.cpe.vista.springframework.security.userdetails.VistaUserDetails;
+import org.osehra.cpe.vista.util.RpcUriUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 public class SecurityContextHostResolverAndCredentialsProvider implements RpcHostResolver, CredentialsProvider {

@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.dao;
+package org.osehra.cpe.dao;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

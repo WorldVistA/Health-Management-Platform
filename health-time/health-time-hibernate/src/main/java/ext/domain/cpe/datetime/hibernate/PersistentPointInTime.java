@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.datetime.hibernate;
+package org.osehra.cpe.datetime.hibernate;
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.datetime.format.HL7DateTimeFormat;
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.datetime.format.HL7DateTimeFormat;
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.dialect.Dialect;
@@ -14,9 +14,9 @@ import java.sql.SQLException;
 
 /**
  * <tt>pointintime</tt>: A type that maps an SQL VARCHAR to a
- * <tt>EXT.DOMAIN.vpr.pointintime.PointInTime</tt>
+ * <tt>org.osehra.vpr.pointintime.PointInTime</tt>
  *
- * @see EXT.DOMAIN.cpe.datetime.PointInTime
+ * @see org.osehra.cpe.datetime.PointInTime
  */
 public class PersistentPointInTime extends ImmutableType implements LiteralType {
 

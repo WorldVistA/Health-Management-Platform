@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -6,10 +6,10 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameJob;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameRegistry;
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewParam.DateRangeParam;
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.vpr.frameeng.FrameJob;
+import org.osehra.cpe.vpr.frameeng.FrameRegistry;
+import org.osehra.cpe.vpr.queryeng.ViewParam.DateRangeParam;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -58,9 +58,9 @@ public class ViewDefParamTests {
 		ViewDef vd = new EmptyTestViewDef();
 		Map<String,Object> info = vd.getAppInfo();
 		
-		assertEquals("EXT.DOMAIN.cpe.viewdef", info.get("type"));
-		assertEquals("EXT.DOMAIN.cpe.vpr.queryeng.ViewDefParamTests$EmptyTestViewDef", info.get("name"));
-		assertEquals("EXT.DOMAIN.cpe.vpr.queryeng.ViewDefParamTests$EmptyTestViewDef", info.get("code"));
+		assertEquals("org.osehra.cpe.viewdef", info.get("type"));
+		assertEquals("org.osehra.cpe.vpr.queryeng.ViewDefParamTests$EmptyTestViewDef", info.get("name"));
+		assertEquals("org.osehra.cpe.vpr.queryeng.ViewDefParamTests$EmptyTestViewDef", info.get("code"));
 	}
 
 	@Test
@@ -69,9 +69,9 @@ public class ViewDefParamTests {
 		ViewDef vd = new TestViewDef();
 		Map<String,Object> info = vd.getAppInfo();
 		
-		assertEquals("EXT.DOMAIN.cpe.viewdef", info.get("type"));
+		assertEquals("org.osehra.cpe.viewdef", info.get("type"));
 		assertEquals("Test View Def", info.get("name"));
-		assertEquals("EXT.DOMAIN.cpe.vpr.queryeng.ViewDefParamTests$TestViewDef", info.get("code"));
+		assertEquals("org.osehra.cpe.vpr.queryeng.ViewDefParamTests$TestViewDef", info.get("code"));
 	}
 	
 	@Test

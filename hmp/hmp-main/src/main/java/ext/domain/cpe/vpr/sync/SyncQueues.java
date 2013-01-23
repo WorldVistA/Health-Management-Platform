@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.sync;
+package org.osehra.cpe.vpr.sync;
 
 public class SyncQueues {
     public static final String PROCESSING_QUEUE = "vpr.work";

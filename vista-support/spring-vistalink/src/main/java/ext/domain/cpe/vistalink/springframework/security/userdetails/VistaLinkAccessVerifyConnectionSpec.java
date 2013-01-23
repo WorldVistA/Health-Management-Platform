@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.vistalink.springframework.security.userdetails;
+package org.osehra.cpe.vistalink.springframework.security.userdetails;
 
-import EXT.DOMAIN.crypto.VistaKernelHash;
-import EXT.DOMAIN.crypto.VistaKernelHashCountLimitExceededException;
-import EXT.DOMAIN.vistalink.adapter.cci.VistaLinkConnectionSpecImpl;
+import org.osehra.crypto.VistaKernelHash;
+import org.osehra.crypto.VistaKernelHashCountLimitExceededException;
+import org.osehra.vistalink.adapter.cci.VistaLinkConnectionSpecImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.CDATASection;

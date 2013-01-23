@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vpr.ws.json;
+package org.osehra.cpe.vpr.ws.json;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * Jackson mix-in to add json serialization annotations to the {@link EXT.DOMAIN.cpe.vista.springframework.security.userdetails.VistaUserDetails} interface.
+ * Jackson mix-in to add json serialization annotations to the {@link org.osehra.cpe.vista.springframework.security.userdetails.VistaUserDetails} interface.
  *
  * @see "http://wiki.fasterxml.com/JacksonMixInAnnotations"
  */

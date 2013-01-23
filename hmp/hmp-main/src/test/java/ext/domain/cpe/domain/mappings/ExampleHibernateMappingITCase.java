@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.domain.mappings;
+package org.osehra.cpe.domain.mappings;
 
 import static org.junit.Assert.*;
 

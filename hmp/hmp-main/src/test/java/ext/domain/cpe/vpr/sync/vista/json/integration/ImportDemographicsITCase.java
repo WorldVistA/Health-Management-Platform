@@ -1,24 +1,24 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista.json.integration;
+package org.osehra.cpe.vpr.sync.vista.json.integration;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import EXT.DOMAIN.cpe.test.junit4.runners.ImportTestSession;
-import EXT.DOMAIN.cpe.test.junit4.runners.Importer;
-import EXT.DOMAIN.cpe.test.junit4.runners.ImporterIntegrationTestRunner;
-import EXT.DOMAIN.cpe.test.junit4.runners.TestPatients;
-import EXT.DOMAIN.cpe.test.junit4.runners.VprExtract;
-import EXT.DOMAIN.cpe.vpr.Patient;
-import EXT.DOMAIN.cpe.vpr.pom.JSONViews;
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils;
-import EXT.DOMAIN.cpe.vpr.pom.hibernate.PatientHibMapDAO;
-import EXT.DOMAIN.cpe.vpr.pom.mongo.GenericMongoDAO;
-import EXT.DOMAIN.cpe.vpr.sync.vista.VistaDataChunk;
-import EXT.DOMAIN.cpe.vpr.sync.vista.json.PatientImporter;
+import org.osehra.cpe.test.junit4.runners.ImportTestSession;
+import org.osehra.cpe.test.junit4.runners.Importer;
+import org.osehra.cpe.test.junit4.runners.ImporterIntegrationTestRunner;
+import org.osehra.cpe.test.junit4.runners.TestPatients;
+import org.osehra.cpe.test.junit4.runners.VprExtract;
+import org.osehra.cpe.vpr.Patient;
+import org.osehra.cpe.vpr.pom.JSONViews;
+import org.osehra.cpe.vpr.pom.POMUtils;
+import org.osehra.cpe.vpr.pom.hibernate.PatientHibMapDAO;
+import org.osehra.cpe.vpr.pom.mongo.GenericMongoDAO;
+import org.osehra.cpe.vpr.sync.vista.VistaDataChunk;
+import org.osehra.cpe.vpr.sync.vista.json.PatientImporter;
 
 import java.util.List;
 import java.util.Map;
 
-import EXT.DOMAIN.cpe.vpr.sync.vista.json.PatientImporter;
+import org.osehra.cpe.vpr.sync.vista.json.PatientImporter;
 
 import org.junit.Ignore;
 import org.junit.Test;

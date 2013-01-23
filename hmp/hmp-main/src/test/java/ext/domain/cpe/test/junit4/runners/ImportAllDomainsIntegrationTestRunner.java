@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.test.junit4.runners;
+package org.osehra.cpe.test.junit4.runners;
 
 import org.junit.runner.Runner;
 import org.junit.runner.notification.RunNotifier;

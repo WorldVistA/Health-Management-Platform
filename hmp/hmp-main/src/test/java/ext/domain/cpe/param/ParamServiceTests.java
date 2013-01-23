@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.param;
+package org.osehra.cpe.param;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -6,17 +6,17 @@ import static org.junit.Assert.assertNull;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import EXT.DOMAIN.cpe.auth.HmpUserDetails;
-import EXT.DOMAIN.cpe.auth.UserContext;
-import EXT.DOMAIN.cpe.vista.rpc.RpcOperations;
-import EXT.DOMAIN.cpe.vpr.vistasvc.CacheMgrTests;
+import org.osehra.cpe.auth.HmpUserDetails;
+import org.osehra.cpe.auth.UserContext;
+import org.osehra.cpe.vista.rpc.RpcOperations;
+import org.osehra.cpe.vpr.vistasvc.CacheMgrTests;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import EXT.DOMAIN.cpe.vpr.vistasvc.EhCacheTestUtils;
+import org.osehra.cpe.vpr.vistasvc.EhCacheTestUtils;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;

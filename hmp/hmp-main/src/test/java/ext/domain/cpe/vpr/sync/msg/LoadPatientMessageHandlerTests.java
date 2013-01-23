@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vpr.sync.msg;
+package org.osehra.cpe.vpr.sync.msg;
 
-import EXT.DOMAIN.cpe.HmpProperties;
-import EXT.DOMAIN.cpe.vpr.Patient;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO;
-import EXT.DOMAIN.cpe.vpr.sync.ISyncService;
-import EXT.DOMAIN.cpe.vpr.sync.vista.*;
+import org.osehra.cpe.HmpProperties;
+import org.osehra.cpe.vpr.Patient;
+import org.osehra.cpe.vpr.pom.IPatientDAO;
+import org.osehra.cpe.vpr.sync.ISyncService;
+import org.osehra.cpe.vpr.sync.vista.*;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
@@ -17,8 +17,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants.PATIENT_DFN;
-import static EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants.VISTA_ID;
+import static org.osehra.cpe.vpr.sync.SyncMessageConstants.PATIENT_DFN;
+import static org.osehra.cpe.vpr.sync.SyncMessageConstants.VISTA_ID;
 import static org.mockito.Matchers.*;
 import static org.mockito.Mockito.*;
 

@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr;
+package org.osehra.cpe.vpr;
 
 public class UserInterfaceRpcConstants {
     public static final String VPR_UI_CONTEXT = "VPR UI CONTEXT";

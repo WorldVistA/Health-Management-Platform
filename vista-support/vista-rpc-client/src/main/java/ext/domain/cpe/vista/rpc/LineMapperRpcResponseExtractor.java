@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vista.rpc;
+package org.osehra.cpe.vista.rpc;
 
 import org.springframework.dao.DataAccessException;
 
@@ -29,8 +29,8 @@ import java.util.List;
  * "select * from user where id=?", new Object[] {id},
  * new RowMapperResultSetExtractor(rowMapper, 1));</pre>
  *
- * @see EXT.DOMAIN.cpe.vista.rpc.LineMapper
- * @see EXT.DOMAIN.cpe.vista.rpc.RpcTemplate
+ * @see org.osehra.cpe.vista.rpc.LineMapper
+ * @see org.osehra.cpe.vista.rpc.RpcTemplate
  */
 public class LineMapperRpcResponseExtractor<T> implements RpcResponseExtractor<List<T>> {
 

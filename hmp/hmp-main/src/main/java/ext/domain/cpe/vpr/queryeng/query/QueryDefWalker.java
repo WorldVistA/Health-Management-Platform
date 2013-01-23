@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.queryeng.query;
+package org.osehra.cpe.vpr.queryeng.query;
 
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils;
+import org.osehra.cpe.vpr.pom.POMUtils;
 
 import java.util.ArrayDeque;
 import java.util.Collection;

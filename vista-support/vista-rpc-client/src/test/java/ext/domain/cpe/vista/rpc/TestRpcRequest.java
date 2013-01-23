@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vista.rpc;
+package org.osehra.cpe.vista.rpc;
 
-import EXT.DOMAIN.cpe.vista.rpc.broker.protocol.Mult;
-import EXT.DOMAIN.cpe.vista.rpc.broker.protocol.RpcParam;
+import org.osehra.cpe.vista.rpc.broker.protocol.Mult;
+import org.osehra.cpe.vista.rpc.broker.protocol.RpcParam;
 import org.junit.Test;
 
 import java.util.ArrayList;

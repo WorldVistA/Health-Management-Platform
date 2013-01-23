@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista.json;
+package org.osehra.cpe.vpr.sync.vista.json;
 
 
-import EXT.DOMAIN.cpe.vpr.Task;
+import org.osehra.cpe.vpr.Task;
 
 public class TaskImporter extends AbstractJsonImporter<Task> {
 

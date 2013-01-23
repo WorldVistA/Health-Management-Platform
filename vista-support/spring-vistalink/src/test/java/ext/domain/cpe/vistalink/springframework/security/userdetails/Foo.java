@@ -1,13 +1,13 @@
-package EXT.DOMAIN.cpe.vistalink.springframework.security.userdetails;
+package org.osehra.cpe.vistalink.springframework.security.userdetails;
 
-import EXT.DOMAIN.cpe.vistalink.ConnectionFactoryLocator;
-import EXT.DOMAIN.cpe.vistalink.VistaLinkTemplate;
-import EXT.DOMAIN.vistalink.adapter.cci.VistaLinkConnection;
-import EXT.DOMAIN.vistalink.adapter.spi.EMAdapterEnvironment;
-import EXT.DOMAIN.vistalink.adapter.spi.VistaLinkManagedConnectionFactory;
-import EXT.DOMAIN.vistalink.rpc.RpcRequest;
-import EXT.DOMAIN.vistalink.rpc.RpcRequestFactory;
-import EXT.DOMAIN.vistalink.rpc.RpcResponse;
+import org.osehra.cpe.vistalink.ConnectionFactoryLocator;
+import org.osehra.cpe.vistalink.VistaLinkTemplate;
+import org.osehra.vistalink.adapter.cci.VistaLinkConnection;
+import org.osehra.vistalink.adapter.spi.EMAdapterEnvironment;
+import org.osehra.vistalink.adapter.spi.VistaLinkManagedConnectionFactory;
+import org.osehra.vistalink.rpc.RpcRequest;
+import org.osehra.vistalink.rpc.RpcRequestFactory;
+import org.osehra.vistalink.rpc.RpcResponse;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataAccessResourceFailureException;
 import org.springframework.jca.cci.core.CciTemplate;

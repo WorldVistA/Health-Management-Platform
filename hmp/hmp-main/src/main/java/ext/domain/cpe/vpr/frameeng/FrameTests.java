@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vpr.frameeng;
+package org.osehra.cpe.vpr.frameeng;
 
 import static org.junit.Assert.*;
-import EXT.DOMAIN.cpe.vpr.VitalSign;
-import EXT.DOMAIN.cpe.vpr.frameeng.IFrameTrigger.NewVitalSignTrigger;
-import EXT.DOMAIN.cpe.vpr.pom.PatientEvent;
+import org.osehra.cpe.vpr.VitalSign;
+import org.osehra.cpe.vpr.frameeng.IFrameTrigger.NewVitalSignTrigger;
+import org.osehra.cpe.vpr.pom.PatientEvent;
 
 import org.junit.Test;
 

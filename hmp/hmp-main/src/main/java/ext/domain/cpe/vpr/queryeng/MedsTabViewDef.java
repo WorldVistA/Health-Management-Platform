@@ -1,19 +1,19 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.datetime.format.HL7DateTimeFormat;
-import EXT.DOMAIN.cpe.vpr.Medication;
-import EXT.DOMAIN.cpe.vpr.frameeng.Frame;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.ActionColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.HL7DTMColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.TemplateColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.Query.FrameQuery;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.JDSQuery;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDefCriteria;
-import EXT.DOMAIN.cpe.vpr.viewdef.QueryMapper;
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask;
-import EXT.DOMAIN.cpe.vpr.ws.link.OpenInfoButtonLinkGenerator;
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.datetime.format.HL7DateTimeFormat;
+import org.osehra.cpe.vpr.Medication;
+import org.osehra.cpe.vpr.frameeng.Frame;
+import org.osehra.cpe.vpr.queryeng.ColDef.ActionColDef;
+import org.osehra.cpe.vpr.queryeng.ColDef.HL7DTMColDef;
+import org.osehra.cpe.vpr.queryeng.ColDef.TemplateColDef;
+import org.osehra.cpe.vpr.queryeng.Query.FrameQuery;
+import org.osehra.cpe.vpr.queryeng.query.JDSQuery;
+import org.osehra.cpe.vpr.queryeng.query.QueryDef;
+import org.osehra.cpe.vpr.queryeng.query.QueryDefCriteria;
+import org.osehra.cpe.vpr.viewdef.QueryMapper;
+import org.osehra.cpe.vpr.viewdef.RenderTask;
+import org.osehra.cpe.vpr.ws.link.OpenInfoButtonLinkGenerator;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,7 +27,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
-@Component(value = "EXT.DOMAIN.cpe.vpr.queryeng.MedsTabViewDef")
+@Component(value = "org.osehra.cpe.vpr.queryeng.MedsTabViewDef")
 @Scope("prototype")
 public class MedsTabViewDef extends ViewDef {
     @Autowired
@@ -513,9 +513,9 @@ public class MedsTabViewDef extends ViewDef {
 
         //               "<tpl if=\"(interpretation == \'N\')==false\"><div style=\"float: right; color: red; font-weight: bold;\">" +
 //        addColumn(new ColDef.TemplateColDef("doseInfo", "<span title='{doseChange}'>" +
-        addColumn(new ColDef.TemplateColDef("doseInfo", "<tpl if=\"doseChange == 'd'\">&darr; {[EXT.DOMAIN.hmp.util.HL7DTMFormatter.format(values.lastDoseChange)]} {lastDose} TEST</tpl>" +
-                                            "<tpl if=\"doseChange == 'i'\">&uarr; {[EXT.DOMAIN.hmp.util.HL7DTMFormatter.format(values.lastDoseChange)]} {lastDose}</tpl>" +
-                                            "<tpl if=\"doseChange == 'u'\">? {[EXT.DOMAIN.hmp.util.HL7DTMFormatter.format(values.lastDoseChange)]} {lastDose}</tpl>"
+        addColumn(new ColDef.TemplateColDef("doseInfo", "<tpl if=\"doseChange == 'd'\">&darr; {[org.osehra.hmp.util.HL7DTMFormatter.format(values.lastDoseChange)]} {lastDose} TEST</tpl>" +
+                                            "<tpl if=\"doseChange == 'i'\">&uarr; {[org.osehra.hmp.util.HL7DTMFormatter.format(values.lastDoseChange)]} {lastDose}</tpl>" +
+                                            "<tpl if=\"doseChange == 'u'\">? {[org.osehra.hmp.util.HL7DTMFormatter.format(values.lastDoseChange)]} {lastDose}</tpl>"
                                             ));
 
 

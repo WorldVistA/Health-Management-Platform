@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.sync;
+package org.osehra.cpe.vpr.sync;
 
 /**
  * Keys for parameters used in sync messages.

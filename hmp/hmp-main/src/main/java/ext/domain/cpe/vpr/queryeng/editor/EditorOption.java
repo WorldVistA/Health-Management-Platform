@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.queryeng.editor;
+package org.osehra.cpe.vpr.queryeng.editor;
 
 import java.util.Map;
 

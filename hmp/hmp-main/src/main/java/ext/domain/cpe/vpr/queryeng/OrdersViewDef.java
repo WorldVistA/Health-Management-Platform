@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
-import static EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDefCriteria.where;
-import EXT.DOMAIN.cpe.vpr.Order;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.HL7DTMColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.JDSQuery;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDef;
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask;
+import static org.osehra.cpe.vpr.queryeng.query.QueryDefCriteria.where;
+import org.osehra.cpe.vpr.Order;
+import org.osehra.cpe.vpr.queryeng.ColDef.HL7DTMColDef;
+import org.osehra.cpe.vpr.queryeng.query.JDSQuery;
+import org.osehra.cpe.vpr.queryeng.query.QueryDef;
+import org.osehra.cpe.vpr.viewdef.RenderTask;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 
-@Component(value="EXT.DOMAIN.cpe.vpr.queryeng.OrdersViewDef")
+@Component(value="org.osehra.cpe.vpr.queryeng.OrdersViewDef")
 @Scope("prototype")
 public class OrdersViewDef extends ViewDef {
 	

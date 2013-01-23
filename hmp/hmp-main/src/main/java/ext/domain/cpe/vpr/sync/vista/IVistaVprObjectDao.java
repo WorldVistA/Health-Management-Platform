@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista;
+package org.osehra.cpe.vpr.sync.vista;
 
-import EXT.DOMAIN.cpe.vpr.pom.AbstractPOMObject;
-import EXT.DOMAIN.cpe.vpr.pom.IDataStoreDAO;
-import EXT.DOMAIN.cpe.vpr.pom.IPOMObject;
+import org.osehra.cpe.vpr.pom.AbstractPOMObject;
+import org.osehra.cpe.vpr.pom.IDataStoreDAO;
+import org.osehra.cpe.vpr.pom.IPOMObject;
 
 import java.util.Map;
 

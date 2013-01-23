@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vpr.queryeng.query;
+package org.osehra.cpe.vpr.queryeng.query;
 
 import static org.junit.Assert.*;
-import static EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDefCriteria.where;
-import EXT.DOMAIN.cpe.vpr.queryeng.Table;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDef.QueryFieldTransformer;
+import static org.osehra.cpe.vpr.queryeng.query.QueryDefCriteria.where;
+import org.osehra.cpe.vpr.queryeng.Table;
+import org.osehra.cpe.vpr.queryeng.query.QueryDef.QueryFieldTransformer;
 
 import java.util.ArrayList;
 import java.util.List;

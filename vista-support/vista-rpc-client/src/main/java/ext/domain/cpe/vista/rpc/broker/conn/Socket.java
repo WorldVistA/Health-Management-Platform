@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.conn;
+package org.osehra.cpe.vista.rpc.broker.conn;
 
-import EXT.DOMAIN.cpe.vista.rpc.broker.protocol.TransportMetrics;
+import org.osehra.cpe.vista.rpc.broker.protocol.TransportMetrics;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,7 +8,7 @@ import java.io.OutputStream;
 import java.net.SocketException;
 
 /**
- * TODO: Document EXT.DOMAIN.cpe.vista.rpc.broker.conn.Socket
+ * TODO: Document org.osehra.cpe.vista.rpc.broker.conn.Socket
  */
 public interface Socket {
     InputStream in() throws IOException;

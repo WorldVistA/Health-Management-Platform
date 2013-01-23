@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.jsonc;
+package org.osehra.cpe.jsonc;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import EXT.DOMAIN.cpe.datetime.jackson.HealthTimeModule;
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils;
+import org.osehra.cpe.datetime.jackson.HealthTimeModule;
+import org.osehra.cpe.vpr.pom.POMUtils;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.data.domain.Page;

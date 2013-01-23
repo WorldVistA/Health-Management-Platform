@@ -1,17 +1,17 @@
-package EXT.DOMAIN.cpe.vista.util;
+package org.osehra.cpe.vista.util;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
-import EXT.DOMAIN.cpe.vista.rpc.RpcRequest;
-import EXT.DOMAIN.cpe.vista.rpc.conn.AccessVerifyConnectionSpec;
-import EXT.DOMAIN.cpe.vista.rpc.conn.AnonymousConnectionSpec;
-import EXT.DOMAIN.cpe.vista.rpc.conn.AppHandleConnectionSpec;
+import org.osehra.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.rpc.RpcRequest;
+import org.osehra.cpe.vista.rpc.conn.AccessVerifyConnectionSpec;
+import org.osehra.cpe.vista.rpc.conn.AnonymousConnectionSpec;
+import org.osehra.cpe.vista.rpc.conn.AppHandleConnectionSpec;
 
 import org.junit.Test;
 
 import java.net.URI;
 import java.util.Arrays;
 
-import static EXT.DOMAIN.cpe.vista.util.RpcUriUtils.VISTA_RPC_BROKER_SCHEME;
+import static org.osehra.cpe.vista.util.RpcUriUtils.VISTA_RPC_BROKER_SCHEME;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.*;
 

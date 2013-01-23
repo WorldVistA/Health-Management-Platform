@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista;
+package org.osehra.cpe.vpr.sync.vista;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
-import EXT.DOMAIN.cpe.vpr.pom.AbstractPOMObject;
+import org.osehra.cpe.vpr.pom.AbstractPOMObject;
 
 import java.util.HashMap;
 import java.util.Map;

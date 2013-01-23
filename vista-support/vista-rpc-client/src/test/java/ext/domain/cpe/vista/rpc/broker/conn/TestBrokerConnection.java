@@ -1,14 +1,14 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.conn;
+package org.osehra.cpe.vista.rpc.broker.conn;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcException;
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
-import EXT.DOMAIN.cpe.vista.rpc.RpcRequest;
-import EXT.DOMAIN.cpe.vista.rpc.RpcResponse;
-import EXT.DOMAIN.cpe.vista.rpc.broker.protocol.*;
-import EXT.DOMAIN.cpe.vista.rpc.conn.AccessVerifyConnectionSpec;
-import EXT.DOMAIN.cpe.vista.rpc.conn.ChangeVerifyCodeConnectionSpec;
-import EXT.DOMAIN.cpe.vista.rpc.conn.ConnectionUserDetails;
-import EXT.DOMAIN.cpe.vista.rpc.conn.SystemInfo;
+import org.osehra.cpe.vista.rpc.RpcException;
+import org.osehra.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.rpc.RpcRequest;
+import org.osehra.cpe.vista.rpc.RpcResponse;
+import org.osehra.cpe.vista.rpc.broker.protocol.*;
+import org.osehra.cpe.vista.rpc.conn.AccessVerifyConnectionSpec;
+import org.osehra.cpe.vista.rpc.conn.ChangeVerifyCodeConnectionSpec;
+import org.osehra.cpe.vista.rpc.conn.ConnectionUserDetails;
+import org.osehra.cpe.vista.rpc.conn.SystemInfo;
 import org.easymock.EasyMock;
 import org.easymock.IArgumentMatcher;
 import org.junit.Assert;
@@ -19,7 +19,7 @@ import org.springframework.test.util.ReflectionTestUtils;
 
 import java.net.URISyntaxException;
 
-import static EXT.DOMAIN.cpe.vista.rpc.RpcResponse.LINE_DELIMITER;
+import static org.osehra.cpe.vista.rpc.RpcResponse.LINE_DELIMITER;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertFalse;
 import static org.easymock.EasyMock.*;
@@ -27,7 +27,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 /**
- * TODO: Document EXT.DOMAIN.cpe.vista.protocol.impl
+ * TODO: Document org.osehra.cpe.vista.protocol.impl
  */
 public class TestBrokerConnection {
     private RpcHost host;

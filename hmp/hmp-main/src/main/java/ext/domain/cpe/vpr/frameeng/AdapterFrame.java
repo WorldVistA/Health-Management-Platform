@@ -1,22 +1,22 @@
-package EXT.DOMAIN.cpe.vpr.frameeng;
+package org.osehra.cpe.vpr.frameeng;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcTemplate;
-import EXT.DOMAIN.cpe.vpr.Patient;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameAction.BaseFrameAction;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameJob.FrameTask;
-import EXT.DOMAIN.cpe.vpr.frameeng.IFrameEvent.InvokeEvent;
-import EXT.DOMAIN.cpe.vpr.frameeng.IFrameTrigger.InvokeTrigger;
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPatientObjectDAO;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject;
-import EXT.DOMAIN.cpe.vpr.pom.PatientEvent;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.HL7DTMColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.ProtocolViewDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.Query;
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewParam;
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewParam.PatientIDParam;
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask;
+import org.osehra.cpe.vista.rpc.RpcTemplate;
+import org.osehra.cpe.vpr.Patient;
+import org.osehra.cpe.vpr.frameeng.FrameAction.BaseFrameAction;
+import org.osehra.cpe.vpr.frameeng.FrameJob.FrameTask;
+import org.osehra.cpe.vpr.frameeng.IFrameEvent.InvokeEvent;
+import org.osehra.cpe.vpr.frameeng.IFrameTrigger.InvokeTrigger;
+import org.osehra.cpe.vpr.pom.IGenericPatientObjectDAO;
+import org.osehra.cpe.vpr.pom.IPatientDAO;
+import org.osehra.cpe.vpr.pom.IPatientObject;
+import org.osehra.cpe.vpr.pom.PatientEvent;
+import org.osehra.cpe.vpr.queryeng.ColDef.HL7DTMColDef;
+import org.osehra.cpe.vpr.queryeng.ProtocolViewDef;
+import org.osehra.cpe.vpr.queryeng.Query;
+import org.osehra.cpe.vpr.queryeng.ViewDef;
+import org.osehra.cpe.vpr.queryeng.ViewParam;
+import org.osehra.cpe.vpr.queryeng.ViewParam.PatientIDParam;
+import org.osehra.cpe.vpr.viewdef.RenderTask;
 
 import java.io.File;
 import java.io.FileReader;
@@ -72,7 +72,7 @@ public abstract class AdapterFrame extends Frame {
 		public ReminderFrame(String name, String uid) {
 			setID(uid);
 			setName(name);
-			trig = addTrigger(new InvokeTrigger<Patient>(this, Patient.class, "EXT.DOMAIN.cpe.vpr.reminders"));
+			trig = addTrigger(new InvokeTrigger<Patient>(this, Patient.class, "org.osehra.cpe.vpr.reminders"));
 			declareParam(new PatientIDParam());
 		}
 		
@@ -94,7 +94,7 @@ public abstract class AdapterFrame extends Frame {
 		}
 	}
 	
-	@Component(value="EXT.DOMAIN.cpe.vpr.frameeng.AllRemindersFrame")
+	@Component(value="org.osehra.cpe.vpr.frameeng.AllRemindersFrame")
 	public static class AllRemindersFrame extends ProtocolViewDef {
 		private RpcTemplate tpl;
 		private Map<String, String> reminderCache;

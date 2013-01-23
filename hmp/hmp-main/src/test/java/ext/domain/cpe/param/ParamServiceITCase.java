@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.param;
+package org.osehra.cpe.param;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import EXT.DOMAIN.cpe.vista.rpc.RpcTemplate;
+import org.osehra.cpe.vista.rpc.RpcTemplate;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -17,7 +17,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
-import EXT.DOMAIN.cpe.vista.util.VistaStringUtils;
+import org.osehra.cpe.vista.util.VistaStringUtils;
 import org.apache.commons.codec.binary.Hex;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -52,7 +52,7 @@ public class ParamServiceITCase {
 	    @Ignore // remove to run this
 	    public void testABunchOfDocuments() throws IOException, URISyntaxException {
 	    	// test all the JSON files in the resources directory
-	    	URL url = getClass().getResource("/EXT/DOMAIN/cpe/vpr/sync/vista/json");
+	    	URL url = getClass().getResource("/org.osehra/cpe/vpr/sync/vista/json");
 	    	File dir = new File(url.toURI());
 	    	assertTrue(dir.exists());
 	    	assertTrue(dir.isDirectory());
@@ -67,7 +67,7 @@ public class ParamServiceITCase {
 	    
 	    @Test
 	    public void testOneDocument() throws FileNotFoundException, IOException, URISyntaxException {
-	    	URL url = getClass().getResource("/EXT/DOMAIN/cpe/vpr/sync/vista/json/allergy.json");
+	    	URL url = getClass().getResource("/org.osehra/cpe/vpr/sync/vista/json/allergy.json");
 	    	File f = new File(url.toURI());
 	    	testLargeStrings(FileCopyUtils.copyToString(new FileReader(f)));
 	    }

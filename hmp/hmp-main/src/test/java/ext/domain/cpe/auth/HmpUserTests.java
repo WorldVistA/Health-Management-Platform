@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.auth;
+package org.osehra.cpe.auth;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.rpc.RpcHost;
 import org.junit.Test;
 import org.springframework.security.core.GrantedAuthority;
 

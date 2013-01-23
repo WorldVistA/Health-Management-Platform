@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe;
+package org.osehra.cpe;
 
 import org.springframework.core.env.Environment;
 

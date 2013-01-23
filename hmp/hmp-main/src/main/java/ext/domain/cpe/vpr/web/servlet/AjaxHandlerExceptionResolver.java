@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vpr.web.servlet;
+package org.osehra.cpe.vpr.web.servlet;
 
-import EXT.DOMAIN.cpe.auth.AuthController;
-import EXT.DOMAIN.cpe.jsonc.JsonCResponse;
-import EXT.DOMAIN.cpe.vpr.NotFoundException;
-import EXT.DOMAIN.cpe.vpr.web.WebUtils;
-import EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory;
+import org.osehra.cpe.auth.AuthController;
+import org.osehra.cpe.jsonc.JsonCResponse;
+import org.osehra.cpe.vpr.NotFoundException;
+import org.osehra.cpe.vpr.web.WebUtils;
+import org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView;
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView;
 
 public class AjaxHandlerExceptionResolver extends DefaultHandlerExceptionResolver {
 

@@ -1,15 +1,15 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
-import EXT.DOMAIN.cpe.vpr.frameeng.Frame;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameAction.IFrameActionExec;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameAction.PatientAction;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameAction.ViewRenderAction;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameJob;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameJob.FrameTask;
-import EXT.DOMAIN.cpe.vpr.frameeng.IFrameTrigger.CallTrigger;
-import EXT.DOMAIN.cpe.vpr.pom.PatientEvent;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.QueryColDef;
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask;
+import org.osehra.cpe.vpr.frameeng.Frame;
+import org.osehra.cpe.vpr.frameeng.FrameAction.IFrameActionExec;
+import org.osehra.cpe.vpr.frameeng.FrameAction.PatientAction;
+import org.osehra.cpe.vpr.frameeng.FrameAction.ViewRenderAction;
+import org.osehra.cpe.vpr.frameeng.FrameJob;
+import org.osehra.cpe.vpr.frameeng.FrameJob.FrameTask;
+import org.osehra.cpe.vpr.frameeng.IFrameTrigger.CallTrigger;
+import org.osehra.cpe.vpr.pom.PatientEvent;
+import org.osehra.cpe.vpr.queryeng.ColDef.QueryColDef;
+import org.osehra.cpe.vpr.viewdef.RenderTask;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe;
+package org.osehra.cpe;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -11,7 +11,7 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
-import EXT.DOMAIN.cpe.hub.VistaAccount;
+import org.osehra.cpe.hub.VistaAccount;
 
 public class SetupCommand {
 

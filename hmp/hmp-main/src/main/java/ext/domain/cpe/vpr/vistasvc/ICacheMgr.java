@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.vistasvc;
+package org.osehra.cpe.vpr.vistasvc;
 
 public interface ICacheMgr<T> {
 

@@ -1,13 +1,13 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.datetime.format.HL7DateTimeFormat;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.ActionColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.QueryColDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.JDSQuery;
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDef;
-import EXT.DOMAIN.cpe.vpr.viewdef.QueryMapper;
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask;
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.datetime.format.HL7DateTimeFormat;
+import org.osehra.cpe.vpr.queryeng.ColDef.ActionColDef;
+import org.osehra.cpe.vpr.queryeng.ColDef.QueryColDef;
+import org.osehra.cpe.vpr.queryeng.query.JDSQuery;
+import org.osehra.cpe.vpr.queryeng.query.QueryDef;
+import org.osehra.cpe.vpr.viewdef.QueryMapper;
+import org.osehra.cpe.vpr.viewdef.RenderTask;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,7 +28,7 @@ import org.springframework.stereotype.Component;
  *	It includes some filter capabilities (all, abnormal, critical) and time range selection criteria.
  *
  */
-@Component(value="EXT.DOMAIN.cpe.vpr.queryeng.LabProfileViewDef")
+@Component(value="org.osehra.cpe.vpr.queryeng.LabProfileViewDef")
 @Scope("prototype")
 public class LabProfileViewDef extends ViewDef {
 	

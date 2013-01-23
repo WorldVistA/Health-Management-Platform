@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.protocol;
+package org.osehra.cpe.vista.rpc.broker.protocol;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -14,7 +14,7 @@ import static org.junit.Assert.assertThat;
 import static org.junit.matchers.JUnitMatchers.hasItems;
 
 /**
- * TODO: Document EXT.DOMAIN.cpe.vista.protocol
+ * TODO: Document org.osehra.cpe.vista.protocol
  */
 public class TestMult extends TestCase {
 

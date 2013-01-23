@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.datetime.format.HL7DateTimeFormat;
-import EXT.DOMAIN.cpe.vista.springframework.security.userdetails.VistaUserDetails;
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask;
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.datetime.format.HL7DateTimeFormat;
+import org.osehra.cpe.vista.springframework.security.userdetails.VistaUserDetails;
+import org.osehra.cpe.vpr.viewdef.RenderTask;
 
 import java.util.ArrayList;
 import java.util.HashMap;

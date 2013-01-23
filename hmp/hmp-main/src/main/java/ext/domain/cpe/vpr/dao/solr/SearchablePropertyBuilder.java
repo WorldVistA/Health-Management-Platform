@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.dao.solr;
+package org.osehra.cpe.vpr.dao.solr;
 
 import grails.util.GrailsNameUtils;
 import groovy.lang.Closure;

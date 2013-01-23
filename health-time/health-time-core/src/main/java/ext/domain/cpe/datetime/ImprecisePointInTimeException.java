@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.datetime;
+package org.osehra.cpe.datetime;
 
 public class ImprecisePointInTimeException extends RuntimeException {
     private PointInTime t;

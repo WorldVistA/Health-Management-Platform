@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vistalink;
+package org.osehra.cpe.vistalink;
 
-import EXT.DOMAIN.vistalink.security.m.SecurityUserVerifyCodeException;
+import org.osehra.vistalink.security.m.SecurityUserVerifyCodeException;
 
 public class VistaLinkVerifyCodeExpiredException extends VistaLinkPermissionDeniedException {
     public VistaLinkVerifyCodeExpiredException(SecurityUserVerifyCodeException fault) {

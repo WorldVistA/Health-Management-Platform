@@ -1,12 +1,12 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista;
+package org.osehra.cpe.vpr.sync.vista;
 
-import EXT.DOMAIN.cpe.HmpProperties;
-import EXT.DOMAIN.cpe.hub.VistaAccount;
-import EXT.DOMAIN.cpe.hub.dao.IVistaAccountDao;
-import EXT.DOMAIN.cpe.vpr.dao.IVprUpdateDao;
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPOMObjectDAO;
-import EXT.DOMAIN.cpe.vpr.sync.ISyncService;
-import EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants;
+import org.osehra.cpe.HmpProperties;
+import org.osehra.cpe.hub.VistaAccount;
+import org.osehra.cpe.hub.dao.IVistaAccountDao;
+import org.osehra.cpe.vpr.dao.IVprUpdateDao;
+import org.osehra.cpe.vpr.pom.IGenericPOMObjectDAO;
+import org.osehra.cpe.vpr.sync.ISyncService;
+import org.osehra.cpe.vpr.sync.SyncMessageConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

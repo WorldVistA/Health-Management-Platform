@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.termeng;
+package org.osehra.cpe.vpr.termeng;
 
-import EXT.DOMAIN.cpe.vpr.vistasvc.CacheMgr.CacheType;
+import org.osehra.cpe.vpr.vistasvc.CacheMgr.CacheType;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

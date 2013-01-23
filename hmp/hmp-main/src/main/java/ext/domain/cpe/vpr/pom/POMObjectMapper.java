@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.pom;
+package org.osehra.cpe.vpr.pom;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonGenerationException;
@@ -6,11 +6,11 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import EXT.DOMAIN.cpe.datetime.jackson.HealthTimeModule;
-import EXT.DOMAIN.cpe.vista.springframework.security.userdetails.VistaUserDetails;
-import EXT.DOMAIN.cpe.vpr.ws.json.GrantedAuthorityJacksonAnnotations;
-import EXT.DOMAIN.cpe.vpr.ws.json.UserDetailsJacksonAnnotations;
-import EXT.DOMAIN.cpe.vpr.ws.json.VistaUserDetailsJacksonAnnotations;
+import org.osehra.cpe.datetime.jackson.HealthTimeModule;
+import org.osehra.cpe.vista.springframework.security.userdetails.VistaUserDetails;
+import org.osehra.cpe.vpr.ws.json.GrantedAuthorityJacksonAnnotations;
+import org.osehra.cpe.vpr.ws.json.UserDetailsJacksonAnnotations;
+import org.osehra.cpe.vpr.ws.json.VistaUserDetailsJacksonAnnotations;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

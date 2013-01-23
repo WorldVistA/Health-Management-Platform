@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.team;
+package org.osehra.cpe.team;
 
-import EXT.DOMAIN.cpe.vpr.pom.AbstractPOMObject;
+import org.osehra.cpe.vpr.pom.AbstractPOMObject;
 
 import java.util.Map;
 

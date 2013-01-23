@@ -1,16 +1,16 @@
-package EXT.DOMAIN.cpe.vista.rpc.pool;
+package org.osehra.cpe.vista.rpc.pool;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcIoException;
-import EXT.DOMAIN.cpe.vista.rpc.RpcRequest;
-import EXT.DOMAIN.cpe.vista.rpc.RpcResponse;
-import EXT.DOMAIN.cpe.vista.rpc.TimeoutWaitingForRpcResponseException;
-import EXT.DOMAIN.cpe.vista.rpc.broker.conn.ConnectionClosedException;
-import EXT.DOMAIN.cpe.vista.rpc.broker.protocol.InternalServerException;
-import EXT.DOMAIN.cpe.vista.rpc.conn.Connection;
+import org.osehra.cpe.vista.rpc.RpcIoException;
+import org.osehra.cpe.vista.rpc.RpcRequest;
+import org.osehra.cpe.vista.rpc.RpcResponse;
+import org.osehra.cpe.vista.rpc.TimeoutWaitingForRpcResponseException;
+import org.osehra.cpe.vista.rpc.broker.conn.ConnectionClosedException;
+import org.osehra.cpe.vista.rpc.broker.protocol.InternalServerException;
+import org.osehra.cpe.vista.rpc.conn.Connection;
 
 import java.io.IOException;
 import java.io.InterruptedIOException;

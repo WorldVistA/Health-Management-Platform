@@ -1,20 +1,20 @@
-package EXT.DOMAIN.cpe.vpr.frameeng;
+package org.osehra.cpe.vpr.frameeng;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
-import EXT.DOMAIN.cpe.vpr.Patient;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameJob.FrameTask;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameRegistry.FrameLoader;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameRegistry.StaticFrameLoader;
-import EXT.DOMAIN.cpe.vpr.frameeng.IFrameTrigger.PatientObjectFieldChangedTrigger;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject;
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils;
-import EXT.DOMAIN.cpe.vpr.pom.PatientEvent;
+import org.osehra.cpe.vpr.Patient;
+import org.osehra.cpe.vpr.frameeng.FrameJob.FrameTask;
+import org.osehra.cpe.vpr.frameeng.FrameRegistry.FrameLoader;
+import org.osehra.cpe.vpr.frameeng.FrameRegistry.StaticFrameLoader;
+import org.osehra.cpe.vpr.frameeng.IFrameTrigger.PatientObjectFieldChangedTrigger;
+import org.osehra.cpe.vpr.pom.IPatientObject;
+import org.osehra.cpe.vpr.pom.POMUtils;
+import org.osehra.cpe.vpr.pom.PatientEvent;
 
-import EXT.DOMAIN.cpe.vpr.pom.jds.JdsGenericPatientObjectDAO;
-import EXT.DOMAIN.cpe.vpr.sync.vista.json.PatientImporter;
+import org.osehra.cpe.vpr.pom.jds.JdsGenericPatientObjectDAO;
+import org.osehra.cpe.vpr.sync.vista.json.PatientImporter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -101,7 +101,7 @@ public class FrameRunnerTests {
 		assertEquals(uid, msg.getStringProperty("uid"));
 		assertEquals(null, msg.getStringProperty("pid"));
 		assertEquals("UPDATE", msg.getStringProperty("type"));
-		assertEquals("EXT.DOMAIN.cpe.vpr.Patient{pids=[10104, 500;229, 666000004, F484;229]}", msg.getStringProperty("summary"));
+		assertEquals("org.osehra.cpe.vpr.Patient{pids=[10104, 500;229, 666000004, F484;229]}", msg.getStringProperty("summary"));
 		
 		// ensure the event comes through
 		Object body = msg.getObject();

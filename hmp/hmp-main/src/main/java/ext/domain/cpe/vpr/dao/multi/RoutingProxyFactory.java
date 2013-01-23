@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.dao.multi;
+package org.osehra.cpe.vpr.dao.multi;
 
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.context.EnvironmentAware;

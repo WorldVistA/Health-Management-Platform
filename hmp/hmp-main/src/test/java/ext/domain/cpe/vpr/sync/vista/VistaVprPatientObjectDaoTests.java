@@ -1,24 +1,24 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista;
+package org.osehra.cpe.vpr.sync.vista;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import EXT.DOMAIN.cpe.auth.HmpUserDetails;
-import EXT.DOMAIN.cpe.auth.UserContext;
-import EXT.DOMAIN.cpe.test.mockito.ReturnsArgument;
-import EXT.DOMAIN.cpe.vista.rpc.RpcOperations;
-import EXT.DOMAIN.cpe.vpr.Patient;
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPatientObjectDAO;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO;
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils;
-import EXT.DOMAIN.cpe.vpr.web.PatientNotFoundException;
+import org.osehra.cpe.auth.HmpUserDetails;
+import org.osehra.cpe.auth.UserContext;
+import org.osehra.cpe.test.mockito.ReturnsArgument;
+import org.osehra.cpe.vista.rpc.RpcOperations;
+import org.osehra.cpe.vpr.Patient;
+import org.osehra.cpe.vpr.pom.IGenericPatientObjectDAO;
+import org.osehra.cpe.vpr.pom.IPatientDAO;
+import org.osehra.cpe.vpr.pom.POMUtils;
+import org.osehra.cpe.vpr.web.PatientNotFoundException;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static EXT.DOMAIN.cpe.vpr.UserInterfaceRpcConstants.VPR_PUT_PATIENT_DATA_URI;
+import static org.osehra.cpe.vpr.UserInterfaceRpcConstants.VPR_PUT_PATIENT_DATA_URI;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.any;

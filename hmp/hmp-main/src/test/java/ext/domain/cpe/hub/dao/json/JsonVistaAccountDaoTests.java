@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.hub.dao.json;
+package org.osehra.cpe.hub.dao.json;
 
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import EXT.DOMAIN.cpe.HmpProperties;
-import EXT.DOMAIN.cpe.hub.VistaAccount;
+import org.osehra.cpe.HmpProperties;
+import org.osehra.cpe.hub.VistaAccount;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,8 +30,8 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
-import static EXT.DOMAIN.cpe.hub.dao.json.JsonAssert.assertJsonEquals;
-import static EXT.DOMAIN.cpe.hub.dao.json.JsonAssert.assertJsonStructureEquals;
+import static org.osehra.cpe.hub.dao.json.JsonAssert.assertJsonEquals;
+import static org.osehra.cpe.hub.dao.json.JsonAssert.assertJsonStructureEquals;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;

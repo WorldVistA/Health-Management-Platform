@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.hub;
+package org.osehra.cpe.hub;
 
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;

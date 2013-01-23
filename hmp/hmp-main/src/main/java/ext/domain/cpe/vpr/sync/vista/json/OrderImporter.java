@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista.json;
+package org.osehra.cpe.vpr.sync.vista.json;
 
-import EXT.DOMAIN.cpe.vpr.Order;
-import EXT.DOMAIN.cpe.vpr.sync.vista.VistaDataChunk;
+import org.osehra.cpe.vpr.Order;
+import org.osehra.cpe.vpr.sync.vista.VistaDataChunk;
 
 import org.springframework.core.convert.converter.Converter;
 

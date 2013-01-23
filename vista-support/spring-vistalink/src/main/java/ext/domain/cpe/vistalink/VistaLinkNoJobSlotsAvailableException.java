@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vistalink;
+package org.osehra.cpe.vistalink;
 
-import EXT.DOMAIN.vistalink.adapter.record.NoJobSlotsAvailableFaultException;
+import org.osehra.vistalink.adapter.record.NoJobSlotsAvailableFaultException;
 
 public class VistaLinkNoJobSlotsAvailableException extends VistaLinkTransientDataAccessResourceException {
     public VistaLinkNoJobSlotsAvailableException(NoJobSlotsAvailableFaultException fault) {

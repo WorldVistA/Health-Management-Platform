@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vistalink;
+package org.osehra.cpe.vistalink;
 
-import EXT.DOMAIN.cpe.vistalink.locator.InstitutionMappingConnectionFactoryLocator;
+import org.osehra.cpe.vistalink.locator.InstitutionMappingConnectionFactoryLocator;
 import junit.framework.TestCase;
 
 public class VistaLinkDaoSupportTest extends TestCase {

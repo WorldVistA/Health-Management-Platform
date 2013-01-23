@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vista.rpc.jackson;
+package org.osehra.cpe.vista.rpc.jackson;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

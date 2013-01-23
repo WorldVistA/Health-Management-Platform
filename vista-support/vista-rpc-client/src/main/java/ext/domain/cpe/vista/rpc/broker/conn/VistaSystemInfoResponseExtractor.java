@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.conn;
+package org.osehra.cpe.vista.rpc.broker.conn;
 
-import EXT.DOMAIN.cpe.vista.rpc.LinesFromRpcResponseExtractor;
-import EXT.DOMAIN.cpe.vista.rpc.RpcResponse;
-import EXT.DOMAIN.cpe.vista.rpc.RpcResponseExtractionException;
-import EXT.DOMAIN.cpe.vista.rpc.RpcResponseExtractor;
+import org.osehra.cpe.vista.rpc.LinesFromRpcResponseExtractor;
+import org.osehra.cpe.vista.rpc.RpcResponse;
+import org.osehra.cpe.vista.rpc.RpcResponseExtractionException;
+import org.osehra.cpe.vista.rpc.RpcResponseExtractor;
 import org.springframework.dao.DataAccessException;
 
 public class VistaSystemInfoResponseExtractor implements RpcResponseExtractor<VistaSystemInfo> {

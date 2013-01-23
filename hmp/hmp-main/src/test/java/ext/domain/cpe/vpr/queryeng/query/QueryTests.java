@@ -1,14 +1,14 @@
-package EXT.DOMAIN.cpe.vpr.queryeng.query;
+package org.osehra.cpe.vpr.queryeng.query;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameJob;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameJob.FrameTask;
-import EXT.DOMAIN.cpe.vpr.queryeng.Query;
-import EXT.DOMAIN.cpe.vpr.queryeng.Query.JSONFileQuery;
-import EXT.DOMAIN.cpe.vpr.queryeng.Query.StaticQuery;
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask;
+import org.osehra.cpe.vpr.frameeng.FrameJob;
+import org.osehra.cpe.vpr.frameeng.FrameJob.FrameTask;
+import org.osehra.cpe.vpr.queryeng.Query;
+import org.osehra.cpe.vpr.queryeng.Query.JSONFileQuery;
+import org.osehra.cpe.vpr.queryeng.Query.StaticQuery;
+import org.osehra.cpe.vpr.viewdef.RenderTask;
 
 import java.io.File;
 import java.net.URL;
@@ -78,7 +78,7 @@ public class QueryTests {
 	@Test
 	@Ignore // Need to fix this
 	public void testJSONFileQuery() throws Exception {
-		URL url = ClassLoader.getSystemResource("ext/domain/cpe/vpr/frames/");
+		URL url = ClassLoader.getSystemResource("org.osehra/cpe/vpr/frames/");
 		File dir = new File(url.toURI());
 		assertTrue(dir.exists());
 		assertTrue(dir.isDirectory());

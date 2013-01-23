@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.vpr.pom.jds;
+package org.osehra.cpe.vpr.pom.jds;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import EXT.DOMAIN.cpe.jsonc.JsonCCollection;
-import EXT.DOMAIN.cpe.vpr.pom.AbstractPOMObject;
+import org.osehra.cpe.jsonc.JsonCCollection;
+import org.osehra.cpe.vpr.pom.AbstractPOMObject;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.data.domain.Page;

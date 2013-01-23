@@ -1,12 +1,12 @@
-package EXT.DOMAIN.cpe.auth;
+package org.osehra.cpe.auth;
 
-import EXT.DOMAIN.cpe.Bootstrap;
-import EXT.DOMAIN.cpe.HmpProperties;
-import EXT.DOMAIN.cpe.hub.VistaAccount;
-import EXT.DOMAIN.cpe.hub.dao.IVistaAccountDao;
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
-import EXT.DOMAIN.cpe.vista.rpc.RpcOperations;
-import EXT.DOMAIN.cpe.vista.rpc.conn.SystemInfo;
+import org.osehra.cpe.Bootstrap;
+import org.osehra.cpe.HmpProperties;
+import org.osehra.cpe.hub.VistaAccount;
+import org.osehra.cpe.hub.dao.IVistaAccountDao;
+import org.osehra.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.rpc.RpcOperations;
+import org.osehra.cpe.vista.rpc.conn.SystemInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +34,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView;
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView;
 
 @Controller
 public class AuthController implements EnvironmentAware {

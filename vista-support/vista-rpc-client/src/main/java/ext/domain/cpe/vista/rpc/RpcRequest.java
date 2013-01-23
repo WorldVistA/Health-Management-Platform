@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vista.rpc;
+package org.osehra.cpe.vista.rpc;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import EXT.DOMAIN.cpe.vista.rpc.broker.protocol.RpcParam;
-import EXT.DOMAIN.cpe.vista.rpc.jackson.SanitizeCredentialsSerializer;
-import EXT.DOMAIN.cpe.vista.util.RpcUriUtils;
+import org.osehra.cpe.vista.rpc.broker.protocol.RpcParam;
+import org.osehra.cpe.vista.rpc.jackson.SanitizeCredentialsSerializer;
+import org.osehra.cpe.vista.util.RpcUriUtils;
 
 import java.io.Serializable;
 import java.net.URI;
@@ -17,7 +17,7 @@ import java.util.*;
  * hostname, port, credentials, RPC Context, RPC name, timeout and RPC parameter names, types and values.
  *
  * @see RpcTemplate
- * @see EXT.DOMAIN.cpe.vista.rpc.conn.Connection
+ * @see org.osehra.cpe.vista.rpc.conn.Connection
  */
 public class RpcRequest implements Serializable {
     public static final int MINIMUM_TIMEOUT = 14; // seconds

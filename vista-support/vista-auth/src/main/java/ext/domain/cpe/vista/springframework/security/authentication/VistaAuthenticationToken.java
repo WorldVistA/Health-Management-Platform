@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vista.springframework.security.authentication;
+package org.osehra.cpe.vista.springframework.security.authentication;
 
-import EXT.DOMAIN.cpe.vista.springframework.security.userdetails.VistaUserDetails;
+import org.osehra.cpe.vista.springframework.security.userdetails.VistaUserDetails;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
 

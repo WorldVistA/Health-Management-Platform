@@ -1,15 +1,15 @@
-package EXT.DOMAIN.cpe.vpr.queryeng.dynamic.columns;
+package org.osehra.cpe.vpr.queryeng.dynamic.columns;
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.datetime.format.HL7DateTimeFormat;
-import EXT.DOMAIN.cpe.datetime.format.PointInTimeFormat;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameRegistry;
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewDef;
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask;
-import EXT.DOMAIN.cpe.vpr.viewdef.ViewDefRenderException;
-import EXT.DOMAIN.cpe.vpr.viewdef.ViewDefRenderer2;
-import EXT.DOMAIN.cpe.vpr.viewdef.ViewDefRenderer2.JSONViewRenderer2;
-import EXT.DOMAIN.cpe.vpr.web.converter.dateTime.PointInTimeToStringConverter;
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.datetime.format.HL7DateTimeFormat;
+import org.osehra.cpe.datetime.format.PointInTimeFormat;
+import org.osehra.cpe.vpr.frameeng.FrameRegistry;
+import org.osehra.cpe.vpr.queryeng.ViewDef;
+import org.osehra.cpe.vpr.viewdef.RenderTask;
+import org.osehra.cpe.vpr.viewdef.ViewDefRenderException;
+import org.osehra.cpe.vpr.viewdef.ViewDefRenderer2;
+import org.osehra.cpe.vpr.viewdef.ViewDefRenderer2.JSONViewRenderer2;
+import org.osehra.cpe.vpr.web.converter.dateTime.PointInTimeToStringConverter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -53,7 +53,7 @@ public class ScheduledProcedures extends ViewDefDefColDef {
 	
 	@Override
 	public String getViewdefCode() {
-		return "EXT.DOMAIN.cpe.vpr.queryeng.OrdersViewDef";
+		return "org.osehra.cpe.vpr.queryeng.OrdersViewDef";
 	}
 
 	@Override

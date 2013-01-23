@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.jsonc;
+package org.osehra.cpe.jsonc;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

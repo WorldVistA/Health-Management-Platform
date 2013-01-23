@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.web.context;
+package org.osehra.cpe.vpr.web.context;
 
 import groovy.lang.ExpandoMetaClass;
 import groovy.lang.GroovyObject;

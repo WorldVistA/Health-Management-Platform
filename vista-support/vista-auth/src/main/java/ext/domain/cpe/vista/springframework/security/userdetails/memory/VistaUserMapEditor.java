@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.vista.springframework.security.userdetails.memory;
+package org.osehra.cpe.vista.springframework.security.userdetails.memory;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
-import EXT.DOMAIN.cpe.vista.springframework.security.userdetails.VistaUser;
-import EXT.DOMAIN.cpe.vista.springframework.security.userdetails.VistaUserDetails;
+import org.osehra.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.springframework.security.userdetails.VistaUser;
+import org.osehra.cpe.vista.springframework.security.userdetails.VistaUserDetails;
 import org.springframework.beans.propertyeditors.PropertiesEditor;
 import org.springframework.security.core.userdetails.memory.UserAttribute;
 import org.springframework.security.core.userdetails.memory.UserAttributeEditor;

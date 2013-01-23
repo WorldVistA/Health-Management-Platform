@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vista.rpc.support;
+package org.osehra.cpe.vista.rpc.support;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcEvent;
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
-import EXT.DOMAIN.cpe.vista.rpc.RpcListener;
-import EXT.DOMAIN.cpe.vista.rpc.conn.AnonymousConnectionSpec;
-import EXT.DOMAIN.cpe.vista.util.RpcUriUtils;
+import org.osehra.cpe.vista.rpc.RpcEvent;
+import org.osehra.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.rpc.RpcListener;
+import org.osehra.cpe.vista.rpc.conn.AnonymousConnectionSpec;
+import org.osehra.cpe.vista.util.RpcUriUtils;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;

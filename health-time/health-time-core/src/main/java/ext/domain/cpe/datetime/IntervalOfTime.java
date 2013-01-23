@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.datetime;
+package org.osehra.cpe.datetime;
 
-import EXT.DOMAIN.cpe.datetime.format.IntervalOfTimeFormat;
+import org.osehra.cpe.datetime.format.IntervalOfTimeFormat;
 import org.joda.time.*;
 
 public final class IntervalOfTime implements Cloneable {

@@ -1,15 +1,15 @@
-package EXT.DOMAIN.cpe.vpr.frameeng;
+package org.osehra.cpe.vpr.frameeng;
 
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameRunner.DefaultFrameActionRunner;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameRunner.JDSSaveActionRunner;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameRunner.PatientObjectActionRunner;
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPatientObjectDAO;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO;
-import EXT.DOMAIN.cpe.vpr.pom.PatientEvent;
-import EXT.DOMAIN.cpe.vpr.pom.jds.JdsTemplate;
-import EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants;
-import EXT.DOMAIN.cpe.vpr.sync.SyncMessageUtils;
-import EXT.DOMAIN.cpe.vpr.sync.SyncQueues;
+import org.osehra.cpe.vpr.frameeng.FrameRunner.DefaultFrameActionRunner;
+import org.osehra.cpe.vpr.frameeng.FrameRunner.JDSSaveActionRunner;
+import org.osehra.cpe.vpr.frameeng.FrameRunner.PatientObjectActionRunner;
+import org.osehra.cpe.vpr.pom.IGenericPatientObjectDAO;
+import org.osehra.cpe.vpr.pom.IPatientDAO;
+import org.osehra.cpe.vpr.pom.PatientEvent;
+import org.osehra.cpe.vpr.pom.jds.JdsTemplate;
+import org.osehra.cpe.vpr.sync.SyncMessageConstants;
+import org.osehra.cpe.vpr.sync.SyncMessageUtils;
+import org.osehra.cpe.vpr.sync.SyncQueues;
 
 import java.util.HashMap;
 import java.util.Map;

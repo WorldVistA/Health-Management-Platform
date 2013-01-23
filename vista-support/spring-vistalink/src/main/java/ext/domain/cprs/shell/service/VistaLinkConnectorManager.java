@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cprs.shell.service;
+package org.osehra.cprs.shell.service;
 
-import EXT.DOMAIN.cpe.vistalink.locator.VistaLinkConnectorConfig;
+import org.osehra.cpe.vistalink.locator.VistaLinkConnectorConfig;
 
 import java.util.Set;
 

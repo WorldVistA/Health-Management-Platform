@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vista.rpc.conn;
+package org.osehra.cpe.vista.rpc.conn;
 
 import org.junit.Test;
 

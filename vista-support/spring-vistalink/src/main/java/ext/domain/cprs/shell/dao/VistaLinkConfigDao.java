@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cprs.shell.dao;
+package org.osehra.cprs.shell.dao;
 
-import EXT.DOMAIN.cpe.vistalink.locator.VistaLinkConnectorConfig;
+import org.osehra.cpe.vistalink.locator.VistaLinkConnectorConfig;
 
 import java.util.Set;
 

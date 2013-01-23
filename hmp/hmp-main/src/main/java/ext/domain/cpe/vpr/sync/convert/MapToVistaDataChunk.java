@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.sync.convert;
+package org.osehra.cpe.vpr.sync.convert;
 
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO;
-import EXT.DOMAIN.cpe.vpr.sync.vista.VistaDataChunk;
+import org.osehra.cpe.vpr.pom.IPatientDAO;
+import org.osehra.cpe.vpr.sync.vista.VistaDataChunk;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -12,7 +12,7 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.core.convert.converter.Converter;
 
-import static EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants.*;
+import static org.osehra.cpe.vpr.sync.SyncMessageConstants.*;
 
 public class MapToVistaDataChunk implements Converter<Map<String, Object>, VistaDataChunk> {
 

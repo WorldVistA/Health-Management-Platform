@@ -1,13 +1,13 @@
-package EXT.DOMAIN.cpe.vpr.sync.convert;
+package org.osehra.cpe.vpr.sync.convert;
 
-import EXT.DOMAIN.cpe.vpr.Patient;
-import EXT.DOMAIN.cpe.vpr.sync.vista.VistaDataChunk;
+import org.osehra.cpe.vpr.Patient;
+import org.osehra.cpe.vpr.sync.vista.VistaDataChunk;
 import org.springframework.core.convert.converter.Converter;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants.*;
+import static org.osehra.cpe.vpr.sync.SyncMessageConstants.*;
 
 public class VistaDataChunkToMap implements Converter<VistaDataChunk, Map<String, Object>> {
 

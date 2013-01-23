@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vistalink;
+package org.osehra.cpe.vistalink;
 
-import EXT.DOMAIN.vistalink.adapter.record.VistaLinkFaultException;
-import EXT.DOMAIN.vistalink.security.m.SecurityFaultException;
+import org.osehra.vistalink.adapter.record.VistaLinkFaultException;
+import org.osehra.vistalink.security.m.SecurityFaultException;
 import org.springframework.dao.PermissionDeniedDataAccessException;
 
 public class VistaLinkPermissionDeniedException extends PermissionDeniedDataAccessException {

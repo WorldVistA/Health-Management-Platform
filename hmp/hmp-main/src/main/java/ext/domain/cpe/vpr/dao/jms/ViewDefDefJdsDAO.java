@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vpr.dao.jms;
+package org.osehra.cpe.vpr.dao.jms;
 
-import EXT.DOMAIN.cpe.param.ParamService;
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils;
-import EXT.DOMAIN.cpe.vpr.pom.jds.JdsDaoSupport;
-import EXT.DOMAIN.cpe.vpr.queryeng.dynamic.IViewDefDefDAO;
-import EXT.DOMAIN.cpe.vpr.queryeng.dynamic.ViewDefDef;
+import org.osehra.cpe.param.ParamService;
+import org.osehra.cpe.vpr.pom.POMUtils;
+import org.osehra.cpe.vpr.pom.jds.JdsDaoSupport;
+import org.osehra.cpe.vpr.queryeng.dynamic.IViewDefDefDAO;
+import org.osehra.cpe.vpr.queryeng.dynamic.ViewDefDef;
 
 import java.util.ArrayList;
 import java.util.Arrays;

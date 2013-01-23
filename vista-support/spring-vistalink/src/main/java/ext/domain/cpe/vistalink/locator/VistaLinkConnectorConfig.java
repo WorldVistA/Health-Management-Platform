@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vistalink.locator;
+package org.osehra.cpe.vistalink.locator;
 
-import EXT.DOMAIN.cpe.vista.util.RpcUriUtils;
+import org.osehra.cpe.vista.util.RpcUriUtils;
 
 import java.net.URI;
 import java.net.URISyntaxException;

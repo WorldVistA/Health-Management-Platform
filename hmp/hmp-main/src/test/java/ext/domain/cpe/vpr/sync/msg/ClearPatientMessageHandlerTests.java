@@ -1,14 +1,14 @@
-package EXT.DOMAIN.cpe.vpr.sync.msg;
+package org.osehra.cpe.vpr.sync.msg;
 
-import EXT.DOMAIN.cpe.HmpProperties;
-import EXT.DOMAIN.cpe.hub.VistaAccount;
-import EXT.DOMAIN.cpe.vpr.Patient;
-import EXT.DOMAIN.cpe.vpr.PatientFacility;
-import EXT.DOMAIN.cpe.vpr.dao.ISolrDao;
-import EXT.DOMAIN.cpe.vpr.dao.ISyncErrorDao;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO;
-import EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants;
-import EXT.DOMAIN.cpe.vpr.sync.vista.IVistaPatientDataService;
+import org.osehra.cpe.HmpProperties;
+import org.osehra.cpe.hub.VistaAccount;
+import org.osehra.cpe.vpr.Patient;
+import org.osehra.cpe.vpr.PatientFacility;
+import org.osehra.cpe.vpr.dao.ISolrDao;
+import org.osehra.cpe.vpr.dao.ISyncErrorDao;
+import org.osehra.cpe.vpr.pom.IPatientDAO;
+import org.osehra.cpe.vpr.sync.SyncMessageConstants;
+import org.osehra.cpe.vpr.sync.vista.IVistaPatientDataService;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.core.env.Environment;

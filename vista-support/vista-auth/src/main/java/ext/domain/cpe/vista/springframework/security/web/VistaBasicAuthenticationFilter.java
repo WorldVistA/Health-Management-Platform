@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vista.springframework.security.web;
+package org.osehra.cpe.vista.springframework.security.web;
 
-import EXT.DOMAIN.cpe.vista.springframework.security.authentication.VistaAuthenticationToken;
+import org.osehra.cpe.vista.springframework.security.authentication.VistaAuthenticationToken;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationDetailsSource;

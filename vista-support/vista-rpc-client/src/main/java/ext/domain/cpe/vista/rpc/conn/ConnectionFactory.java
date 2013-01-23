@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vista.rpc.conn;
+package org.osehra.cpe.vista.rpc.conn;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcException;
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.rpc.RpcException;
+import org.osehra.cpe.vista.rpc.RpcHost;
 
 /**
  * <code>ConnectionFactory</code> provides an interface for getting a connection to a VistA instance.

@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr;
+package org.osehra.cpe.vpr;
 
 import java.util.Map;
 
@@ -12,7 +12,7 @@ public interface HMPApp {
 
 	/**
 	 * Returns all the apps metadata.  Should contain at least the following keys:
-	 * code= Unique App Code (probably a EXT.DOMAIN.xxx-ish string)
+	 * code= Unique App Code (probably a org.osehra.xxx-ish string)
 	 * name= App Name (Only displayed in the app bar)
 	 * url= URL to link to the app (could be on the same server or not)
 	 * menu= The Menu Title (will group like apps under the same menu in the AppBar)

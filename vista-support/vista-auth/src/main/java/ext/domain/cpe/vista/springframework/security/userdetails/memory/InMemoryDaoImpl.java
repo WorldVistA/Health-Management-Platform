@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vista.springframework.security.userdetails.memory;
+package org.osehra.cpe.vista.springframework.security.userdetails.memory;
 
-import EXT.DOMAIN.cpe.vista.springframework.security.userdetails.VistaUserDetails;
-import EXT.DOMAIN.cpe.vista.springframework.security.userdetails.VistaUserDetailsService;
+import org.osehra.cpe.vista.springframework.security.userdetails.VistaUserDetails;
+import org.osehra.cpe.vista.springframework.security.userdetails.VistaUserDetailsService;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.dao.DataAccessException;
 import org.springframework.security.authentication.BadCredentialsException;

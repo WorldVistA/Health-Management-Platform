@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.vpr.frameeng;
+package org.osehra.cpe.vpr.frameeng;
 
-import EXT.DOMAIN.cpe.vpr.frameeng.Frame.FrameInitException;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameJob.FrameTask;
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewParam;
+import org.osehra.cpe.vpr.frameeng.Frame.FrameInitException;
+import org.osehra.cpe.vpr.frameeng.FrameJob.FrameTask;
+import org.osehra.cpe.vpr.queryeng.ViewParam;
 
 import java.net.URI;
 import java.util.Map;

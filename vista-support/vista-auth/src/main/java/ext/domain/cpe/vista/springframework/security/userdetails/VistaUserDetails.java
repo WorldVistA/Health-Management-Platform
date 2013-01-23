@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vista.springframework.security.userdetails;
+package org.osehra.cpe.vista.springframework.security.userdetails;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.rpc.RpcHost;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Map;

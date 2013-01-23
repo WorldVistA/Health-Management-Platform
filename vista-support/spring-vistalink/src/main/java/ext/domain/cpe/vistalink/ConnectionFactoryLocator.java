@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vistalink;
+package org.osehra.cpe.vistalink;
 
 import org.springframework.dao.DataAccessResourceFailureException;
 
@@ -7,7 +7,7 @@ import javax.resource.cci.ConnectionFactory;
 /**
  * Implementations of this interface retrieve JCA connection factories for a particular VistA station number.
  *
- * @see EXT.DOMAIN.cpe.vistalink.locator.InstitutionMappingConnectionFactoryLocator
+ * @see org.osehra.cpe.vistalink.locator.InstitutionMappingConnectionFactoryLocator
  */
 public interface ConnectionFactoryLocator {
     /**

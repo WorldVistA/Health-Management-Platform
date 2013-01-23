@@ -1,12 +1,12 @@
-package EXT.DOMAIN.cpe.vpr.pom.hibernate;
+package org.osehra.cpe.vpr.pom.hibernate;
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.test.junit4.runners.Importer;
-import EXT.DOMAIN.cpe.vpr.*;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject;
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils;
-import EXT.DOMAIN.cpe.vpr.sync.vista.json.PatientImporter;
-import EXT.DOMAIN.cpe.vpr.sync.vista.json.integration.AbstractImporterITCaseWithDB;
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.test.junit4.runners.Importer;
+import org.osehra.cpe.vpr.*;
+import org.osehra.cpe.vpr.pom.IPatientObject;
+import org.osehra.cpe.vpr.pom.POMUtils;
+import org.osehra.cpe.vpr.sync.vista.json.PatientImporter;
+import org.osehra.cpe.vpr.sync.vista.json.integration.AbstractImporterITCaseWithDB;
 
 import java.io.InputStream;
 import java.util.HashMap;

@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.datetime.format;
+package org.osehra.cpe.datetime.format;
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.datetime.Precision;
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.datetime.Precision;
 import org.joda.time.*;
 import org.joda.time.format.*;
 

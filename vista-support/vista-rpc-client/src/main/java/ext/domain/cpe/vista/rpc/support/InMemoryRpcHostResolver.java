@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.vista.rpc.support;
+package org.osehra.cpe.vista.rpc.support;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
-import EXT.DOMAIN.cpe.vista.rpc.RpcHostResolver;
-import EXT.DOMAIN.cpe.vista.rpc.broker.conn.VistaIdNotFoundException;
+import org.osehra.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.rpc.RpcHostResolver;
+import org.osehra.cpe.vista.rpc.broker.conn.VistaIdNotFoundException;
 
 import java.util.Collection;
 import java.util.HashMap;

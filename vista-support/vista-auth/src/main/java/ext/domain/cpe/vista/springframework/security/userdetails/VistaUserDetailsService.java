@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vista.springframework.security.userdetails;
+package org.osehra.cpe.vista.springframework.security.userdetails;
 
 import org.springframework.dao.DataAccessException;
 
 /**
  * Defines an interface for implementations that wish to provide data access
- * services to the {@link EXT.DOMAIN.cpe.vista.springframework.security.authentication.VistaAuthenticationProvider}.
+ * services to the {@link org.osehra.cpe.vista.springframework.security.authentication.VistaAuthenticationProvider}.
  * <p/>
  * <p>
  * The interface requires only one read-only method, which simplifies support

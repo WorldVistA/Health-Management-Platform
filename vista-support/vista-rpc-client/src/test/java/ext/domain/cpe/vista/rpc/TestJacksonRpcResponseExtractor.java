@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vista.rpc;
+package org.osehra.cpe.vista.rpc;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import org.junit.Test;

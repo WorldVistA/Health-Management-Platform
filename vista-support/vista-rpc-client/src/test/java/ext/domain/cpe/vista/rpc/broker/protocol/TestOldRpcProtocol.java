@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.protocol;
+package org.osehra.cpe.vista.rpc.broker.protocol;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcException;
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
-import EXT.DOMAIN.cpe.vista.rpc.broker.conn.MockServerSocket;
-import EXT.DOMAIN.cpe.vista.rpc.broker.conn.MockSocket;
-import EXT.DOMAIN.cpe.vista.rpc.broker.conn.Socket;
-import EXT.DOMAIN.cpe.vista.rpc.broker.conn.SocketFactory;
+import org.osehra.cpe.vista.rpc.RpcException;
+import org.osehra.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.rpc.broker.conn.MockServerSocket;
+import org.osehra.cpe.vista.rpc.broker.conn.MockSocket;
+import org.osehra.cpe.vista.rpc.broker.conn.Socket;
+import org.osehra.cpe.vista.rpc.broker.conn.SocketFactory;
 import org.easymock.EasyMock;
 import org.junit.Assert;
 import org.junit.Before;

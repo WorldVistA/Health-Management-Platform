@@ -1,6 +1,6 @@
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import EXT.DOMAIN.cpe.vista.rpc.RpcTemplate;
+import org.osehra.cpe.vista.rpc.RpcTemplate;
 
 import java.io.IOException;
 

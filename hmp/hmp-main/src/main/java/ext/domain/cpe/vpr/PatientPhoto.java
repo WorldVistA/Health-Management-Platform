@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr;
+package org.osehra.cpe.vpr;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import EXT.DOMAIN.cpe.vpr.pom.AbstractPatientObject;
+import org.osehra.cpe.vpr.pom.AbstractPatientObject;
 import org.apache.commons.codec.binary.Base64;
 
 public class PatientPhoto extends AbstractPatientObject {

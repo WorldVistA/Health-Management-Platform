@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.conn;
+package org.osehra.cpe.vista.rpc.broker.conn;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcResponse;
+import org.osehra.cpe.vista.rpc.RpcResponse;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -38,14 +38,14 @@ public class TestConnectionUserResponseExtractor {
 //        assertFalse(systemInfo.isProductionAccount());
 
 //        20012[\r][\n]"
-//16:28:27.449 [main] DEBUG EXT.DOMAIN.cpe.vista.broker.wire - << "VEHU,TEN[\r][\n]"
-//16:28:27.449 [main] DEBUG EXT.DOMAIN.cpe.vista.broker.wire - << "Ten Vehu[\r][\n]"
-//16:28:27.449 [main] DEBUG EXT.DOMAIN.cpe.vista.broker.wire - << "21787^SLC-FO EDIS DEV^960[\r][\n]"
-//16:28:27.449 [main] DEBUG EXT.DOMAIN.cpe.vista.broker.wire - << "Scholar Extraordinaire[\r][\n]"
-//16:28:27.449 [main] DEBUG EXT.DOMAIN.cpe.vista.broker.wire - << "MEDICINE[\r][\n]"
-//16:28:27.449 [main] DEBUG EXT.DOMAIN.cpe.vista.broker.wire - << "[\r][\n]"
-//16:28:27.449 [main] DEBUG EXT.DOMAIN.cpe.vista.broker.wire - << "5400[\r][\n]"
-//16:28:27.449 [main] DEBUG EXT.DOMAIN.cpe.vista.broker.wire - << "[\r][\n]
+//16:28:27.449 [main] DEBUG org.osehra.cpe.vista.broker.wire - << "VEHU,TEN[\r][\n]"
+//16:28:27.449 [main] DEBUG org.osehra.cpe.vista.broker.wire - << "Ten Vehu[\r][\n]"
+//16:28:27.449 [main] DEBUG org.osehra.cpe.vista.broker.wire - << "21787^SLC-FO EDIS DEV^960[\r][\n]"
+//16:28:27.449 [main] DEBUG org.osehra.cpe.vista.broker.wire - << "Scholar Extraordinaire[\r][\n]"
+//16:28:27.449 [main] DEBUG org.osehra.cpe.vista.broker.wire - << "MEDICINE[\r][\n]"
+//16:28:27.449 [main] DEBUG org.osehra.cpe.vista.broker.wire - << "[\r][\n]"
+//16:28:27.449 [main] DEBUG org.osehra.cpe.vista.broker.wire - << "5400[\r][\n]"
+//16:28:27.449 [main] DEBUG org.osehra.cpe.vista.broker.wire - << "[\r][\n]
 
         // these properties set by BrokerConnection
         assertNull(user.getAccessCode());

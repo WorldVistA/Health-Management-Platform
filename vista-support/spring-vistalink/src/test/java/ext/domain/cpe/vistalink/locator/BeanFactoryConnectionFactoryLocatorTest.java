@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vistalink.locator;
+package org.osehra.cpe.vistalink.locator;
 
 import junit.framework.TestCase;
 import org.easymock.EasyMock;

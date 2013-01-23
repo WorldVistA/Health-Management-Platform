@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr;
+package org.osehra.cpe.vpr;
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.vpr.Encounter;
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.vpr.Encounter;
 
 // TODO: is this a subclass of encounter?
 public class PatientStay {

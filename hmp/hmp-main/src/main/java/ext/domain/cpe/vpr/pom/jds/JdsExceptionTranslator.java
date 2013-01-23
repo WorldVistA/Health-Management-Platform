@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.pom.jds;
+package org.osehra.cpe.vpr.pom.jds;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.web.client.RestClientException;

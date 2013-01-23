@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista.json;
+package org.osehra.cpe.vpr.sync.vista.json;
 
-import EXT.DOMAIN.cpe.vpr.Procedure;
+import org.osehra.cpe.vpr.Procedure;
 
 public class ProcedureImporter extends AbstractJsonImporter<Procedure> {
     @Override

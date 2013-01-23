@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.web.converter.dateTime;
+package org.osehra.cpe.vpr.web.converter.dateTime;
 
 import static org.junit.Assert.assertEquals;
-import EXT.DOMAIN.cpe.datetime.PointInTime;
+import org.osehra.cpe.datetime.PointInTime;
 
 import org.junit.Test;
 

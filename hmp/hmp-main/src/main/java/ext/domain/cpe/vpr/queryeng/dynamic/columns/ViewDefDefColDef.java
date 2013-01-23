@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vpr.queryeng.dynamic.columns;
+package org.osehra.cpe.vpr.queryeng.dynamic.columns;
 
-import EXT.DOMAIN.cpe.auth.AuthController;
-import EXT.DOMAIN.cpe.vpr.HMPApp;
-import EXT.DOMAIN.cpe.vpr.pom.AbstractPOMObject;
-import EXT.DOMAIN.cpe.vpr.queryeng.HMPAppInfo;
-import EXT.DOMAIN.cpe.vpr.queryeng.dynamic.ViewDefDef;
-import EXT.DOMAIN.cpe.vpr.queryeng.editor.EditorOption;
+import org.osehra.cpe.auth.AuthController;
+import org.osehra.cpe.vpr.HMPApp;
+import org.osehra.cpe.vpr.pom.AbstractPOMObject;
+import org.osehra.cpe.vpr.queryeng.HMPAppInfo;
+import org.osehra.cpe.vpr.queryeng.dynamic.ViewDefDef;
+import org.osehra.cpe.vpr.queryeng.editor.EditorOption;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -136,7 +136,7 @@ public abstract class ViewDefDefColDef extends AbstractPOMObject implements HMPA
 		}
 		
 		// return the results
-		ret.put("type", (annotation != null) ? annotation.value() : "EXT.DOMAIN.cpe.vpr.queryeng.dynamic.columns.ViewDefDefColDef");
+		ret.put("type", (annotation != null) ? annotation.value() : "org.osehra.cpe.vpr.queryeng.dynamic.columns.ViewDefDefColDef");
 		ret.put("name", ((name == null || name.equals("")) ? getClass().getName() : name));
 		ret.put("code", getClass().getName());
 		return ret;

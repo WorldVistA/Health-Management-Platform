@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vista.rpc.broker.protocol;
+package org.osehra.cpe.vista.rpc.broker.protocol;
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcException;
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
-import EXT.DOMAIN.cpe.vista.rpc.broker.conn.ServerNotFoundException;
-import EXT.DOMAIN.cpe.vista.rpc.broker.conn.ServerUnavailableException;
-import EXT.DOMAIN.cpe.vista.rpc.broker.conn.SocketFactory;
+import org.osehra.cpe.vista.rpc.RpcException;
+import org.osehra.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.rpc.broker.conn.ServerNotFoundException;
+import org.osehra.cpe.vista.rpc.broker.conn.ServerUnavailableException;
+import org.osehra.cpe.vista.rpc.broker.conn.SocketFactory;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -24,10 +24,10 @@ public class OldRpcProtocol extends AbstractRpcProtocol implements RpcProtocol {
     }
 
     @Override
-    public EXT.DOMAIN.cpe.vista.rpc.broker.conn.Socket connect(RpcHost host, int timeout) throws IOException {
+    public org.osehra.cpe.vista.rpc.broker.conn.Socket connect(RpcHost host, int timeout) throws IOException {
         try {
-            EXT.DOMAIN.cpe.vista.rpc.broker.conn.Socket handshakeSocket = null;
-            EXT.DOMAIN.cpe.vista.rpc.broker.conn.ServerSocket callbackSocket = null;
+            org.osehra.cpe.vista.rpc.broker.conn.Socket handshakeSocket = null;
+            org.osehra.cpe.vista.rpc.broker.conn.ServerSocket callbackSocket = null;
             try {
                 handshakeSocket = socketFactory.createSocket(host);
                 callbackSocket = socketFactory.createServerSocket();

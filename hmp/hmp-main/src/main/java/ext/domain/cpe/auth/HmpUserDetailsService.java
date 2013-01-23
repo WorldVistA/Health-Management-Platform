@@ -1,12 +1,12 @@
-package EXT.DOMAIN.cpe.auth;
+package org.osehra.cpe.auth;
 
-import EXT.DOMAIN.cpe.HmpProperties;
-import EXT.DOMAIN.cpe.datetime.format.FileManDateTimeFormat;
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost;
-import EXT.DOMAIN.cpe.vista.rpc.conn.ConnectionUserDetails;
-import EXT.DOMAIN.cpe.vista.springframework.security.userdetails.VistaUserDetails;
-import EXT.DOMAIN.cpe.vista.springframework.security.userdetails.rpc.RpcTemplateUserDetailService;
-import EXT.DOMAIN.cpe.vpr.UserInterfaceRpcConstants;
+import org.osehra.cpe.HmpProperties;
+import org.osehra.cpe.datetime.format.FileManDateTimeFormat;
+import org.osehra.cpe.vista.rpc.RpcHost;
+import org.osehra.cpe.vista.rpc.conn.ConnectionUserDetails;
+import org.osehra.cpe.vista.springframework.security.userdetails.VistaUserDetails;
+import org.osehra.cpe.vista.springframework.security.userdetails.rpc.RpcTemplateUserDetailService;
+import org.osehra.cpe.vpr.UserInterfaceRpcConstants;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.core.env.Environment;

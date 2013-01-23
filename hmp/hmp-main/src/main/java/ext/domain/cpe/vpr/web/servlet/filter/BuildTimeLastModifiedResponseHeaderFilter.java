@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.web.servlet.filter;
+package org.osehra.cpe.vpr.web.servlet.filter;
 
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -29,7 +29,7 @@ import java.io.IOException;
  * <code>
  * <filter>
  * <filter-name>buildTimeLastModifiedFilter</filter-name>
- * <filter-class>EXT.DOMAIN.cpe.vpr.web.servlet.filter.BuildTimeLastModifiedResponseHeaderFilter</filter-class>
+ * <filter-class>org.osehra.cpe.vpr.web.servlet.filter.BuildTimeLastModifiedResponseHeaderFilter</filter-class>
  * </filter>
  * ...
  * <filter-mapping>

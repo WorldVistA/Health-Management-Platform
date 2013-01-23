@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vpr.pom.jds;
+package org.osehra.cpe.vpr.pom.jds;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import EXT.DOMAIN.cpe.datetime.jackson.HealthTimeModule;
-import EXT.DOMAIN.cpe.jsonc.JsonCCollection;
-import EXT.DOMAIN.cpe.vpr.pom.IPOMObject;
-import EXT.DOMAIN.cpe.vpr.pom.JSONViews;
+import org.osehra.cpe.datetime.jackson.HealthTimeModule;
+import org.osehra.cpe.jsonc.JsonCCollection;
+import org.osehra.cpe.vpr.pom.IPOMObject;
+import org.osehra.cpe.vpr.pom.JSONViews;
 import org.apache.commons.lang.NotImplementedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

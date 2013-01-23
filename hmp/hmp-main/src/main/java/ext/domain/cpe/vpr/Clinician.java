@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr;
+package org.osehra.cpe.vpr;
 
-import EXT.DOMAIN.cpe.vpr.pom.AbstractPOMObject;
+import org.osehra.cpe.vpr.pom.AbstractPOMObject;
 
 import java.util.HashSet;
 import java.util.Map;

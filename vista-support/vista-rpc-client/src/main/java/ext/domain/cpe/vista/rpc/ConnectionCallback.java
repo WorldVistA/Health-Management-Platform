@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vista.rpc;
+package org.osehra.cpe.vista.rpc;
 
-import EXT.DOMAIN.cpe.vista.rpc.conn.Connection;
+import org.osehra.cpe.vista.rpc.conn.Connection;
 import org.springframework.dao.DataAccessException;
 
 /**

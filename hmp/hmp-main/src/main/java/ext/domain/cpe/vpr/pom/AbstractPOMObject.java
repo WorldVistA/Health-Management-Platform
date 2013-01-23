@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.pom;
+package org.osehra.cpe.vpr.pom;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonParser;

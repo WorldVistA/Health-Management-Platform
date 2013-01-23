@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.vista.dao.vistalink;
+package org.osehra.cpe.vista.dao.vistalink;
 
-import EXT.DOMAIN.cpe.vistalink.VistaLinkDaoSupport;
-import EXT.DOMAIN.cpe.vistalink.springframework.security.userdetails.VistaUserCache;
-import EXT.DOMAIN.vistalink.rpc.RpcRequest;
+import org.osehra.cpe.vistalink.VistaLinkDaoSupport;
+import org.osehra.cpe.vistalink.springframework.security.userdetails.VistaUserCache;
+import org.osehra.vistalink.rpc.RpcRequest;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Repository;
 

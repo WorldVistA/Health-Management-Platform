@@ -75,7 +75,7 @@
         <fieldtype name="binary" class="solr.BinaryField"/>
 
         <!-- type for HL7 formatted date/time strings -->
-        <fieldType name="hl7date" class="EXT.DOMAIN.cpe.datetime.solr.schema.HL7DateField" sortMissingLast="true" omitNorms="true"/>
+        <fieldType name="hl7date" class="org.osehra.cpe.datetime.solr.schema.HL7DateField" sortMissingLast="true" omitNorms="true"/>
 
         <!-- The optional sortMissingLast and sortMissingFirst attributes are
              currently supported on types that are sorted internally as strings.

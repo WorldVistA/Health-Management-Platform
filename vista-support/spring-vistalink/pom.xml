@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
-        <groupId>EXT.DOMAIN.cpe</groupId>
+        <groupId>org.osehra.cpe</groupId>
         <artifactId>vista-support-parent</artifactId>
         <version>0.9.4-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>EXT.DOMAIN.cpe</groupId>
+    <groupId>org.osehra.cpe</groupId>
     <artifactId>spring-vistalink</artifactId>
     <version>0.9.4-SNAPSHOT</version>
     <name>VistALink Spring Integration Support Library</name>
@@ -30,14 +30,14 @@
             <version>${ehcache.version}</version>
         </dependency>
         <dependency>
-            <groupId>EXT.DOMAIN.vistalink</groupId>
+            <groupId>org.osehra.vistalink</groupId>
             <artifactId>vljFoundationsLib</artifactId>
             <version>1.5.0.026</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/vljFoundationsLib-1.5.0.026.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>EXT.DOMAIN.vistalink</groupId>
+            <groupId>org.osehra.vistalink</groupId>
             <artifactId>vljConnector</artifactId>
             <version>1.5.0.026</version>
             <scope>system</scope>

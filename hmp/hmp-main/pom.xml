@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>EXT.DOMAIN.cpe</groupId>
+    <groupId>org.osehra.cpe</groupId>
     <artifactId>hmp</artifactId>
     <packaging>war</packaging>
     <version>0.7-P34</version>
@@ -247,7 +247,7 @@
                         <create>true</create>
                         <format>true</format>
                         <jdk5>true</jdk5>
-                        <configurationfile>target/classes/EXT/DOMAIN/cpe/vpr/pom/hibernate/hibernate.cfg.xml
+                        <configurationfile>target/classes/org.osehra/cpe/vpr/pom/hibernate/hibernate.cfg.xml
                         </configurationfile>
                         <namingstrategy>org.hibernate.cfg.ImprovedNamingStrategy</namingstrategy>
                     </componentProperties>
@@ -465,7 +465,7 @@
             <!--<version>${groovy.version}</version>-->
             <!--</dependency>-->
             <!--<dependency>-->
-            <!--<groupId>EXT.DOMAIN.cpe</groupId>-->
+            <!--<groupId>org.osehra.cpe</groupId>-->
             <!--<artifactId>vista-rpc-client</artifactId>-->
             <!--<version>${vista-support.version}</version>-->
             <!--</dependency>-->
@@ -506,7 +506,7 @@
             <!--</exclusions>-->
             <!--</dependency>-->
             <!--<dependency>-->
-            <!--<groupId>EXT.DOMAIN.cpe</groupId>-->
+            <!--<groupId>org.osehra.cpe</groupId>-->
             <!--<artifactId>health-time-hibernate</artifactId>-->
             <!--<version>${health-time.version}</version>-->
             <!--</dependency>-->
@@ -614,7 +614,7 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>EXT.DOMAIN.hmp</groupId>
+                                    <groupId>org.osehra.hmp</groupId>
                                     <artifactId>termdb</artifactId>
                                     <version>${termdb.version}</version>
                                     <classifier>drugdb</classifier>
@@ -622,7 +622,7 @@
                                     <overWrite>false</overWrite>
                                 </artifactItem>
                                 <artifactItem>
-                                    <groupId>EXT.DOMAIN.hmp</groupId>
+                                    <groupId>org.osehra.hmp</groupId>
                                     <artifactId>termdb</artifactId>
                                     <version>${termdb.version}</version>
                                     <classifier>loincdb</classifier>
@@ -630,7 +630,7 @@
                                     <overWrite>false</overWrite>
                                 </artifactItem>
                                 <artifactItem>
-                                    <groupId>EXT.DOMAIN.hmp</groupId>
+                                    <groupId>org.osehra.hmp</groupId>
                                     <artifactId>termdb</artifactId>
                                     <version>${termdb.version}</version>
                                     <classifier>sctdb</classifier>
@@ -975,17 +975,17 @@
     </reporting>
     <dependencies>
         <dependency>
-            <groupId>EXT.DOMAIN.cpe</groupId>
+            <groupId>org.osehra.cpe</groupId>
             <artifactId>health-time-core</artifactId>
             <version>${health-time.version}</version>
         </dependency>
         <dependency>
-            <groupId>EXT.DOMAIN.cpe</groupId>
+            <groupId>org.osehra.cpe</groupId>
             <artifactId>health-time-jackson</artifactId>
             <version>${health-time.version}</version>
         </dependency>
         <dependency>
-            <groupId>EXT.DOMAIN.cpe</groupId>
+            <groupId>org.osehra.cpe</groupId>
             <artifactId>health-time-hibernate</artifactId>
             <version>${health-time.version}</version>
         </dependency>
@@ -1006,7 +1006,7 @@
             <version>${ehcache.version}</version>
         </dependency>
         <dependency>
-            <groupId>EXT.DOMAIN.cpe</groupId>
+            <groupId>org.osehra.cpe</groupId>
             <artifactId>vista-rpc-client</artifactId>
             <version>${vista-support.version}</version>
             <exclusions>
@@ -1029,7 +1029,7 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>EXT.DOMAIN.cpe</groupId>
+            <groupId>org.osehra.cpe</groupId>
             <artifactId>vista-auth</artifactId>
             <version>${vista-support.version}</version>
             <exclusions>
@@ -1417,7 +1417,7 @@
                         <configuration>
                             <classpath>
                                 <element>
-                                    <groupId>EXT.DOMAIN.cpe</groupId>
+                                    <groupId>org.osehra.cpe</groupId>
                                     <artifactId>vista-rpc-client</artifactId>
                                 </element>
                                 <element>

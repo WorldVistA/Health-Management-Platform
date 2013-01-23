@@ -53,7 +53,7 @@
         <kids.file2.prefix>VPR1_3_</kids.file2.prefix>
         <kids.file.suffix>.KID</kids.file.suffix>
         <kids.path>/srv/aviva/share/build/</kids.path>
-        <kids.host>vaphsaviva2.innovations.DOMAIN.EXT</kids.host>
+        <kids.host>127.0.0.1</kids.host>
         <kids.port>9064</kids.port>
         <kids.accessCode>10vehu</kids.accessCode>
         <kids.verifyCode>vehu10</kids.verifyCode>

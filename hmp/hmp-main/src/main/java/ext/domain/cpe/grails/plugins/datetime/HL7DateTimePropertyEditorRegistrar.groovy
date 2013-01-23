@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.grails.plugins.datetime
+package org.osehra.cpe.grails.plugins.datetime
 
 import org.springframework.beans.PropertyEditorRegistrar
 import org.springframework.beans.PropertyEditorRegistry
-import EXT.DOMAIN.cpe.datetime.PointInTime
-import EXT.DOMAIN.cpe.datetime.propertyeditors.PointInTimeEditor
-import EXT.DOMAIN.cpe.datetime.IntervalOfTime
-import EXT.DOMAIN.cpe.datetime.propertyeditors.IntervalOfTimeEditor
+import org.osehra.cpe.datetime.PointInTime
+import org.osehra.cpe.datetime.propertyeditors.PointInTimeEditor
+import org.osehra.cpe.datetime.IntervalOfTime
+import org.osehra.cpe.datetime.propertyeditors.IntervalOfTimeEditor
 
 public class HL7DateTimePropertyEditorRegistrar implements PropertyEditorRegistrar {
 

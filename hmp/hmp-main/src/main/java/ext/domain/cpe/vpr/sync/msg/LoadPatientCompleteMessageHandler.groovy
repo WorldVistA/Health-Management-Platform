@@ -1,19 +1,19 @@
-package EXT.DOMAIN.cpe.vpr.sync.msg
+package org.osehra.cpe.vpr.sync.msg
 
-import EXT.DOMAIN.cpe.vpr.EventController
-import EXT.DOMAIN.cpe.vpr.Patient;
+import org.osehra.cpe.vpr.EventController
+import org.osehra.cpe.vpr.Patient;
 
 
-import EXT.DOMAIN.cpe.vpr.sync.ISyncService
-import EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants;
+import org.osehra.cpe.vpr.sync.ISyncService
+import org.osehra.cpe.vpr.sync.SyncMessageConstants;
 
-import EXT.DOMAIN.cpe.vpr.dao.solr.DefaultSolrDao;
+import org.osehra.cpe.vpr.dao.solr.DefaultSolrDao;
 import org.perf4j.StopWatch;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO
-import EXT.DOMAIN.cpe.datetime.PointInTime;
+import org.osehra.cpe.vpr.pom.IPatientDAO
+import org.osehra.cpe.datetime.PointInTime;
 
 
 @Service

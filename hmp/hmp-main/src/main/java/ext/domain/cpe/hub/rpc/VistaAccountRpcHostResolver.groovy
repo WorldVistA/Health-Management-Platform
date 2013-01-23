@@ -1,12 +1,12 @@
-package EXT.DOMAIN.cpe.hub.rpc
+package org.osehra.cpe.hub.rpc
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost
-import EXT.DOMAIN.cpe.vista.rpc.RpcHostResolver
-import EXT.DOMAIN.cpe.vista.rpc.broker.conn.VistaIdNotFoundException
+import org.osehra.cpe.vista.rpc.RpcHost
+import org.osehra.cpe.vista.rpc.RpcHostResolver
+import org.osehra.cpe.vista.rpc.broker.conn.VistaIdNotFoundException
 
 import org.springframework.beans.factory.annotation.Autowired
-import EXT.DOMAIN.cpe.hub.VistaAccount
-import EXT.DOMAIN.cpe.hub.dao.IVistaAccountDao
+import org.osehra.cpe.hub.VistaAccount
+import org.osehra.cpe.hub.dao.IVistaAccountDao
 
 class VistaAccountRpcHostResolver implements RpcHostResolver {
 

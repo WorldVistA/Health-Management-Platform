@@ -1,22 +1,22 @@
-package EXT.DOMAIN.cpe.vpr.sync.msg
+package org.osehra.cpe.vpr.sync.msg
 
-import EXT.DOMAIN.cpe.vpr.dao.ISyncErrorDao
+import org.osehra.cpe.vpr.dao.ISyncErrorDao
 import org.apache.solr.client.solrj.SolrServerException
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
-import EXT.DOMAIN.cpe.vpr.*
-import static EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants.PATIENT_ID
+import org.osehra.cpe.vpr.*
+import static org.osehra.cpe.vpr.sync.SyncMessageConstants.PATIENT_ID
 import org.springframework.transaction.annotation.Transactional
-import EXT.DOMAIN.cpe.vpr.dao.ISolrDao
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO
+import org.osehra.cpe.vpr.dao.ISolrDao
+import org.osehra.cpe.vpr.pom.IPatientDAO
 
-import EXT.DOMAIN.cpe.vpr.sync.vista.IVistaPatientDataService
+import org.osehra.cpe.vpr.sync.vista.IVistaPatientDataService
 
 import org.springframework.context.EnvironmentAware
 import org.springframework.core.env.Environment
-import EXT.DOMAIN.cpe.HmpProperties
+import org.osehra.cpe.HmpProperties
 import org.springframework.util.StringUtils
 
 @Service

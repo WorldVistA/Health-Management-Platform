@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vpr.sync
+package org.osehra.cpe.vpr.sync
 
-import EXT.DOMAIN.cpe.auth.UserContext;
-import EXT.DOMAIN.cpe.vpr.EventController
-import EXT.DOMAIN.cpe.vpr.Patient
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO
-import EXT.DOMAIN.cpe.vpr.sync.vista.VistaDataChunk
+import org.osehra.cpe.auth.UserContext;
+import org.osehra.cpe.vpr.EventController
+import org.osehra.cpe.vpr.Patient
+import org.osehra.cpe.vpr.pom.IPatientDAO
+import org.osehra.cpe.vpr.sync.vista.VistaDataChunk
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service
 import javax.jms.Message
 
 import org.springframework.jms.core.JmsOperations
-import EXT.DOMAIN.cpe.HmpProperties
+import org.osehra.cpe.HmpProperties
 import com.fasterxml.jackson.databind.ObjectMapper
 
 import javax.management.MBeanServerConnection

@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.sync
+package org.osehra.cpe.vpr.sync
 
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO
+import org.osehra.cpe.vpr.pom.IPatientDAO
 import org.junit.Before
 import org.junit.Test
 import org.springframework.core.convert.ConversionService

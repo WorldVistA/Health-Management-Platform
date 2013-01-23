@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista
+package org.osehra.cpe.vpr.sync.vista
 
-import EXT.DOMAIN.cpe.vpr.Patient
+import org.osehra.cpe.vpr.Patient
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
 
-import static EXT.DOMAIN.cpe.vpr.sync.vista.SynchronizationRpcConstants.*
+import static org.osehra.cpe.vpr.sync.vista.SynchronizationRpcConstants.*
 
 class MockVistaDataChunks {
 

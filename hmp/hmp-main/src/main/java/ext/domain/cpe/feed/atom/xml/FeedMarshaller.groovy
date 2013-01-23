@@ -1,12 +1,12 @@
-package EXT.DOMAIN.cpe.feed.atom.xml
+package org.osehra.cpe.feed.atom.xml
 
-import EXT.DOMAIN.cpe.feed.atom.Feed
+import org.osehra.cpe.feed.atom.Feed
 import grails.converters.XML
 import org.codehaus.groovy.grails.web.converters.marshaller.NameAwareMarshaller
 import org.codehaus.groovy.grails.web.converters.marshaller.ObjectMarshaller
 import org.joda.time.format.ISODateTimeFormat
-import EXT.DOMAIN.cpe.feed.atom.Person
-import EXT.DOMAIN.cpe.feed.atom.Link
+import org.osehra.cpe.feed.atom.Person
+import org.osehra.cpe.feed.atom.Link
 
 /**
  * Responsible for marshalling <code>Feed</code> nodes to XML.

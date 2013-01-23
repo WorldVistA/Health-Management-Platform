@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.search
+package org.osehra.cpe.vpr.search
 
 
 class SearchPatientResults {

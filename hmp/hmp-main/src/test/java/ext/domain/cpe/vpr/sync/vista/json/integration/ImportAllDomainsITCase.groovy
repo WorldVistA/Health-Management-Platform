@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista.json.integration
+package org.osehra.cpe.vpr.sync.vista.json.integration
 
-import EXT.DOMAIN.cpe.test.junit4.runners.TestPatients
+import org.osehra.cpe.test.junit4.runners.TestPatients
 import org.junit.runner.RunWith
 import org.junit.runners.Suite.SuiteClasses
 
-import EXT.DOMAIN.cpe.test.junit4.runners.ImportTestSession
-import EXT.DOMAIN.cpe.test.junit4.runners.ImportAllDomainsIntegrationTestRunner
+import org.osehra.cpe.test.junit4.runners.ImportTestSession
+import org.osehra.cpe.test.junit4.runners.ImportAllDomainsIntegrationTestRunner
 
 @RunWith(ImportAllDomainsIntegrationTestRunner)
 @SuiteClasses([ImportVisitsITCase,

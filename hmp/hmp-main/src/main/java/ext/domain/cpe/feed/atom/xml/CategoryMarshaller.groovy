@@ -1,14 +1,14 @@
-package EXT.DOMAIN.cpe.feed.atom.xml
+package org.osehra.cpe.feed.atom.xml
 
 import grails.converters.XML
 import org.codehaus.groovy.grails.web.converters.marshaller.ObjectMarshaller
-import EXT.DOMAIN.cpe.feed.atom.Category
+import org.osehra.cpe.feed.atom.Category
 import org.codehaus.groovy.grails.web.converters.marshaller.NameAwareMarshaller
 
 /**
  * Responsible for marshalling <code>Category</code> atom nodes to XML.
  *
- * @see EXT.DOMAIN.cpe.feed.atom.Category
+ * @see org.osehra.cpe.feed.atom.Category
  */
 class CategoryMarshaller implements ObjectMarshaller<XML>, NameAwareMarshaller {
 

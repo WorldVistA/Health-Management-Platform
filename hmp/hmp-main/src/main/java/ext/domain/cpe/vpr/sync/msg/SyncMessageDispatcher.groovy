@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.sync.msg
+package org.osehra.cpe.vpr.sync.msg
 
-import EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants
+import org.osehra.cpe.vpr.sync.SyncMessageConstants
 
 class SyncMessageDispatcher implements IMapMessageHandler {
 

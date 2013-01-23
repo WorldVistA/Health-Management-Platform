@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista
+package org.osehra.cpe.vpr.sync.vista
 
 import groovy.util.slurpersupport.GPathResult
-import EXT.DOMAIN.cpe.vista.rpc.RpcResponseExtractor
-import EXT.DOMAIN.cpe.vista.rpc.RpcResponse
+import org.osehra.cpe.vista.rpc.RpcResponseExtractor
+import org.osehra.cpe.vista.rpc.RpcResponse
 
 @Deprecated
 class GPathResultRpcResponseExtractor implements RpcResponseExtractor<List<GPathResult>> {

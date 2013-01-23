@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.hub
+package org.osehra.cpe.hub
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost
+import org.osehra.cpe.vista.rpc.RpcHost
 
 class VistaAccountNotFoundException {
     VistaAccountNotFoundException(RpcHost rpcHost) {

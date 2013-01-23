@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.queryeng
+package org.osehra.cpe.vpr.queryeng
 
-import EXT.DOMAIN.cpe.vpr.ws.link.PatientRelatedSelfLinkGenerator
+import org.osehra.cpe.vpr.ws.link.PatientRelatedSelfLinkGenerator
 
 
 class DomainClassSelfLinkColDef extends ColDef {

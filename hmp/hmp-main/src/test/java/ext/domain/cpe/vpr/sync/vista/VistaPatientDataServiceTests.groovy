@@ -1,21 +1,21 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista
+package org.osehra.cpe.vpr.sync.vista
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
-import EXT.DOMAIN.cpe.vista.rpc.ConnectionCallback
-import EXT.DOMAIN.cpe.vista.rpc.RpcOperations
-import EXT.DOMAIN.cpe.vista.rpc.RpcRequest
-import EXT.DOMAIN.cpe.vista.rpc.RpcResponse
-import EXT.DOMAIN.cpe.vpr.Patient
-import EXT.DOMAIN.cpe.vpr.PatientFacility
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO
-import EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants
+import org.osehra.cpe.vista.rpc.ConnectionCallback
+import org.osehra.cpe.vista.rpc.RpcOperations
+import org.osehra.cpe.vista.rpc.RpcRequest
+import org.osehra.cpe.vista.rpc.RpcResponse
+import org.osehra.cpe.vpr.Patient
+import org.osehra.cpe.vpr.PatientFacility
+import org.osehra.cpe.vpr.pom.IPatientDAO
+import org.osehra.cpe.vpr.sync.SyncMessageConstants
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Matchers
 import org.springframework.util.FileCopyUtils
 
-import static EXT.DOMAIN.cpe.vpr.sync.vista.SynchronizationRpcConstants.*
+import static org.osehra.cpe.vpr.sync.vista.SynchronizationRpcConstants.*
 import static junit.framework.Assert.assertSame
 import static org.hamcrest.CoreMatchers.equalTo
 import static org.junit.Assert.assertNotNull

@@ -7,7 +7,7 @@ File basedir = new File(getClass().protectionDomain.codeSource.location.path).pa
 def csv = parseCsv(
         readFirstLine:true,
         columnNames:['ien', 'providerType','providerTypeCode','classification','classificationCode','areaOfSpecialization','areaOfSpecializationCode','status','dateInactivated', "vaCode", "X12Code", "specialtyCode"],
-        new FileReader(new File(basedir, "src/main/resources/EXT/DOMAIN/cpe/team/person-classes.csv")))
+        new FileReader(new File(basedir, "src/main/resources/org.osehra/cpe/team/person-classes.csv")))
 
 def itemList = []
 csv.each { line ->
@@ -26,5 +26,5 @@ builder.data {
     items(itemList)
 }
 //builder.persons(persons)
-File foo = new File(basedir, "src/main/js/EXT/DOMAIN/hmp/team/person-classes.json")
+File foo = new File(basedir, "src/main/js/org.osehra/hmp/team/person-classes.json")
 foo.write(builder.toPrettyString())

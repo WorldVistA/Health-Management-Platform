@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.rpc
+package org.osehra.cpe.rpc
 
 import org.apache.commons.collections.list.LazyList
 import org.apache.commons.collections.functors.InstantiateFactory

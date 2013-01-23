@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista.json
+package org.osehra.cpe.vpr.sync.vista.json
 
-import EXT.DOMAIN.cpe.datetime.PointInTime
-import EXT.DOMAIN.cpe.vpr.sync.vista.MockVistaDataChunks
-import EXT.DOMAIN.cpe.vpr.sync.vista.VistaDataChunk
+import org.osehra.cpe.datetime.PointInTime
+import org.osehra.cpe.vpr.sync.vista.MockVistaDataChunks
+import org.osehra.cpe.vpr.sync.vista.VistaDataChunk
 import org.junit.Test
-import EXT.DOMAIN.cpe.vpr.*
+import org.osehra.cpe.vpr.*
 import static org.hamcrest.CoreMatchers.equalTo
 import static org.junit.Assert.*
 

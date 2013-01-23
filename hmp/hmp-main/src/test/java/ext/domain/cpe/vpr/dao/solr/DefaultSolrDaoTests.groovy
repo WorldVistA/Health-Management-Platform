@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.dao.solr
+package org.osehra.cpe.vpr.dao.solr
 
 import org.junit.Test
 import org.junit.Before
@@ -6,32 +6,32 @@ import org.apache.solr.client.solrj.SolrServer
 import org.springframework.core.convert.ConversionService
 
 import static org.mockito.Mockito.mock
-import EXT.DOMAIN.cpe.vpr.search.SolrMockito
+import org.osehra.cpe.vpr.search.SolrMockito
 
 import static org.mockito.Mockito.verify
 import org.apache.solr.common.SolrInputDocument
 
 import static org.mockito.Mockito.when
 import static org.mockito.Mockito.never
-import EXT.DOMAIN.cpe.vpr.Patient
-import EXT.DOMAIN.cpe.vpr.PatientFacility
-import EXT.DOMAIN.cpe.vpr.ResultOrganizer
-import EXT.DOMAIN.cpe.datetime.PointInTime
-import EXT.DOMAIN.cpe.vpr.Result
-import EXT.DOMAIN.cpe.vpr.sync.vista.VistaDataChunk
+import org.osehra.cpe.vpr.Patient
+import org.osehra.cpe.vpr.PatientFacility
+import org.osehra.cpe.vpr.ResultOrganizer
+import org.osehra.cpe.datetime.PointInTime
+import org.osehra.cpe.vpr.Result
+import org.osehra.cpe.vpr.sync.vista.VistaDataChunk
 
 import static org.mockito.Matchers.anyMapOf
-import EXT.DOMAIN.cpe.test.mockito.ReturnsArgument
+import org.osehra.cpe.test.mockito.ReturnsArgument
 import org.mockito.ArgumentCaptor
 
 import static org.junit.Assert.assertThat
-import EXT.DOMAIN.cpe.vpr.VprConstants
+import org.osehra.cpe.vpr.VprConstants
 
 import static org.hamcrest.CoreMatchers.sameInstance
 import static org.junit.Assert.assertThat
 import static org.hamcrest.CoreMatchers.sameInstance
-import EXT.DOMAIN.cpe.vpr.VitalSignOrganizer
-import EXT.DOMAIN.cpe.vpr.VitalSign
+import org.osehra.cpe.vpr.VitalSignOrganizer
+import org.osehra.cpe.vpr.VitalSign
 
 import static org.mockito.Matchers.anyMapOf
 import static org.junit.Assert.assertThat

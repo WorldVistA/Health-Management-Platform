@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.ws.link
+package org.osehra.cpe.vpr.ws.link
 
-import EXT.DOMAIN.cpe.test.MockGrailsApplicationUnitTestCase
+import org.osehra.cpe.test.MockGrailsApplicationUnitTestCase
 import org.codehaus.groovy.grails.plugins.codecs.URLCodec
 import org.codehaus.groovy.grails.commons.ConfigurationHolder
 

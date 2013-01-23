@@ -1,14 +1,14 @@
-package EXT.DOMAIN.cpe.vpr
+package org.osehra.cpe.vpr
 
-import EXT.DOMAIN.cpe.feed.atom.Feed
-import EXT.DOMAIN.cpe.feed.atom.Person
+import org.osehra.cpe.feed.atom.Feed
+import org.osehra.cpe.feed.atom.Person
 import org.springframework.core.convert.ConversionService
-import EXT.DOMAIN.cpe.feed.atom.Entry
-import EXT.DOMAIN.cpe.feed.atom.Text
+import org.osehra.cpe.feed.atom.Entry
+import org.osehra.cpe.feed.atom.Text
 
-import EXT.DOMAIN.cpe.feed.atom.Link
-import EXT.DOMAIN.cpe.vpr.ws.link.LinkRelation
-import EXT.DOMAIN.cpe.datetime.PointInTime
+import org.osehra.cpe.feed.atom.Link
+import org.osehra.cpe.vpr.ws.link.LinkRelation
+import org.osehra.cpe.datetime.PointInTime
 
 import org.springframework.stereotype.Service
 

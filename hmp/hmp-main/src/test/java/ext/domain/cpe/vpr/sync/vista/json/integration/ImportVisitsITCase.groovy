@@ -1,22 +1,22 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista.json.integration
+package org.osehra.cpe.vpr.sync.vista.json.integration
 
-import EXT.DOMAIN.cpe.test.junit4.runners.ImportTestSession
-import EXT.DOMAIN.cpe.test.junit4.runners.TestPatients
-import EXT.DOMAIN.cpe.vpr.sync.vista.VistaDataChunk
+import org.osehra.cpe.test.junit4.runners.ImportTestSession
+import org.osehra.cpe.test.junit4.runners.TestPatients
+import org.osehra.cpe.vpr.sync.vista.VistaDataChunk
 import org.junit.Test
 import org.junit.runner.RunWith
 
-//import EXT.DOMAIN.cpe.vpr.sync.vista.rel.EncounterImporter
-import EXT.DOMAIN.cpe.vpr.sync.vista.json.*
-import EXT.DOMAIN.cpe.test.junit4.runners.VprExtract
-import EXT.DOMAIN.cpe.test.junit4.runners.ImporterIntegrationTestRunner
-import EXT.DOMAIN.cpe.test.junit4.runners.Importer
+//import org.osehra.cpe.vpr.sync.vista.rel.EncounterImporter
+import org.osehra.cpe.vpr.sync.vista.json.*
+import org.osehra.cpe.test.junit4.runners.VprExtract
+import org.osehra.cpe.test.junit4.runners.ImporterIntegrationTestRunner
+import org.osehra.cpe.test.junit4.runners.Importer
 
 import static org.junit.Assert.assertThat
 import static org.hamcrest.core.IsNot.not
 import static org.hamcrest.CoreMatchers.nullValue
-import EXT.DOMAIN.cpe.vpr.VitalSignOrganizer
-import EXT.DOMAIN.cpe.vpr.Encounter
+import org.osehra.cpe.vpr.VitalSignOrganizer
+import org.osehra.cpe.vpr.Encounter
 
 @RunWith(ImporterIntegrationTestRunner)
 @ImportTestSession(connectionUri = "vrpcb://10vehu;vehu10@localhost:29060")

@@ -1,14 +1,14 @@
-package EXT.DOMAIN.cpe.vpr
+package org.osehra.cpe.vpr
 
-import EXT.DOMAIN.cpe.feed.atom.Link
-import EXT.DOMAIN.cpe.vpr.mapping.ILinkService
-import EXT.DOMAIN.cpe.vpr.ws.link.ILinkGenerator
-import EXT.DOMAIN.cpe.vpr.ws.link.PatientRelatedSelfLinkGenerator;
+import org.osehra.cpe.feed.atom.Link
+import org.osehra.cpe.vpr.mapping.ILinkService
+import org.osehra.cpe.vpr.ws.link.ILinkGenerator
+import org.osehra.cpe.vpr.ws.link.PatientRelatedSelfLinkGenerator;
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.ApplicationContext
 import org.springframework.stereotype.Service
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO
+import org.osehra.cpe.vpr.pom.IPatientDAO
 
 @Service
 class LinkService implements ILinkService {

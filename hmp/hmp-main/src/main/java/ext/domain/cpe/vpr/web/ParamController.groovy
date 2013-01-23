@@ -1,12 +1,12 @@
-package EXT.DOMAIN.cpe.vpr.web
+package org.osehra.cpe.vpr.web
 
-import static EXT.DOMAIN.cpe.vpr.UserInterfaceRpcConstants.CONTROLLER_RPC_URI
-import EXT.DOMAIN.cpe.auth.UserContext
-import EXT.DOMAIN.cpe.param.ParamService
-import EXT.DOMAIN.cpe.vista.rpc.RpcOperations
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils
-import EXT.DOMAIN.cpe.vpr.vistasvc.CacheMgr
-import EXT.DOMAIN.cpe.vpr.vistasvc.CacheMgr.CacheType
+import static org.osehra.cpe.vpr.UserInterfaceRpcConstants.CONTROLLER_RPC_URI
+import org.osehra.cpe.auth.UserContext
+import org.osehra.cpe.param.ParamService
+import org.osehra.cpe.vista.rpc.RpcOperations
+import org.osehra.cpe.vpr.pom.POMUtils
+import org.osehra.cpe.vpr.vistasvc.CacheMgr
+import org.osehra.cpe.vpr.vistasvc.CacheMgr.CacheType
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.beans.factory.annotation.Autowired

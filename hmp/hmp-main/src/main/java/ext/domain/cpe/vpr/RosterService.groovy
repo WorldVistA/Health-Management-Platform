@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vpr
-import static EXT.DOMAIN.cpe.vpr.UserInterfaceRpcConstants.VPR_UI_CONTEXT
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.vista.rpc.RpcOperations
-import EXT.DOMAIN.cpe.vpr.vistasvc.CacheMgr.CacheType
-import EXT.DOMAIN.cpe.vpr.vistasvc.CacheMgr
-import EXT.DOMAIN.cpe.vpr.vistasvc.ICacheMgr;
+package org.osehra.cpe.vpr
+import static org.osehra.cpe.vpr.UserInterfaceRpcConstants.VPR_UI_CONTEXT
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.vista.rpc.RpcOperations
+import org.osehra.cpe.vpr.vistasvc.CacheMgr.CacheType
+import org.osehra.cpe.vpr.vistasvc.CacheMgr
+import org.osehra.cpe.vpr.vistasvc.ICacheMgr;
 
 import java.text.SimpleDateFormat
 import java.util.GregorianCalendar;

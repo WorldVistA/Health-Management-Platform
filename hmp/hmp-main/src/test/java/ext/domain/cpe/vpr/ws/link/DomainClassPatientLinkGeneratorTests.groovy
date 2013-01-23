@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vpr.ws.link
+package org.osehra.cpe.vpr.ws.link
 
-import EXT.DOMAIN.cpe.feed.atom.Link
-import EXT.DOMAIN.cpe.vpr.Document
-import EXT.DOMAIN.cpe.vpr.Patient
-import EXT.DOMAIN.cpe.vpr.PatientFacility
-import EXT.DOMAIN.cpe.vpr.ResultOrganizer
-import EXT.DOMAIN.cpe.vpr.mapping.ILinkService
+import org.osehra.cpe.feed.atom.Link
+import org.osehra.cpe.vpr.Document
+import org.osehra.cpe.vpr.Patient
+import org.osehra.cpe.vpr.PatientFacility
+import org.osehra.cpe.vpr.ResultOrganizer
+import org.osehra.cpe.vpr.mapping.ILinkService
 import org.junit.Before
 import org.junit.Test
 import static org.junit.Assert.*

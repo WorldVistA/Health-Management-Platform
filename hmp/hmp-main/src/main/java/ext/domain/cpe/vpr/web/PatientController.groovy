@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vpr.web
+package org.osehra.cpe.vpr.web
 
-import EXT.DOMAIN.cpe.jsonc.JsonCCollection
-import EXT.DOMAIN.cpe.jsonc.JsonCResponse
-import EXT.DOMAIN.cpe.param.ParamService
-import EXT.DOMAIN.cpe.vpr.dao.ISyncErrorDao
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPatientObjectDAO
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO
+import org.osehra.cpe.jsonc.JsonCCollection
+import org.osehra.cpe.jsonc.JsonCResponse
+import org.osehra.cpe.param.ParamService
+import org.osehra.cpe.vpr.dao.ISyncErrorDao
+import org.osehra.cpe.vpr.pom.IGenericPatientObjectDAO
+import org.osehra.cpe.vpr.pom.IPatientDAO
 
 import grails.util.GrailsNameUtils
 import org.springframework.beans.factory.annotation.Autowired
@@ -21,10 +21,10 @@ import org.springframework.web.servlet.ModelAndView
 
 import javax.servlet.http.HttpServletRequest
 
-import EXT.DOMAIN.cpe.vpr.*
+import org.osehra.cpe.vpr.*
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
 
 @Controller
 class PatientController {

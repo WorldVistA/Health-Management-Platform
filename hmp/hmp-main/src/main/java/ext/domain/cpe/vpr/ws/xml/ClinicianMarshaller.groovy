@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.vpr.ws.xml
+package org.osehra.cpe.vpr.ws.xml
 
 import grails.converters.XML
 import org.codehaus.groovy.grails.web.converters.marshaller.ObjectMarshaller
-import EXT.DOMAIN.cpe.vpr.Clinician
+import org.osehra.cpe.vpr.Clinician
 
 
 class ClinicianMarshaller implements ObjectMarshaller<XML> {

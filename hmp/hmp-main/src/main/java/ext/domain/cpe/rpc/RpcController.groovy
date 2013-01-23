@@ -1,15 +1,15 @@
-package EXT.DOMAIN.cpe.rpc
+package org.osehra.cpe.rpc
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
-import EXT.DOMAIN.cpe.auth.UserContext
-import EXT.DOMAIN.cpe.hub.dao.IVistaAccountDao
-import EXT.DOMAIN.cpe.jsonc.JsonCCollection
-import EXT.DOMAIN.cpe.jsonc.JsonCResponse
-import EXT.DOMAIN.cpe.vista.rpc.RpcEvent
-import EXT.DOMAIN.cpe.vista.rpc.RpcOperations
-import EXT.DOMAIN.cpe.vista.rpc.conn.AccessVerifyConnectionSpec
-import EXT.DOMAIN.cpe.vista.rpc.support.InMemoryRpcLog
+import org.osehra.cpe.auth.UserContext
+import org.osehra.cpe.hub.dao.IVistaAccountDao
+import org.osehra.cpe.jsonc.JsonCCollection
+import org.osehra.cpe.jsonc.JsonCResponse
+import org.osehra.cpe.vista.rpc.RpcEvent
+import org.osehra.cpe.vista.rpc.RpcOperations
+import org.osehra.cpe.vista.rpc.conn.AccessVerifyConnectionSpec
+import org.osehra.cpe.vista.rpc.support.InMemoryRpcLog
 
 import grails.validation.ValidationException
 import org.springframework.beans.factory.annotation.Autowired
@@ -25,8 +25,8 @@ import org.springframework.web.servlet.ModelAndView
 
 import javax.servlet.http.HttpServletRequest
 
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.stringModelAndView
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.stringModelAndView
 
 @Controller
 class RpcController {

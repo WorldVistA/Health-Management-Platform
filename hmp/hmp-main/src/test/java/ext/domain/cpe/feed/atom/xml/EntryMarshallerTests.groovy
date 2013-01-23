@@ -1,12 +1,12 @@
-package EXT.DOMAIN.cpe.feed.atom.xml
+package org.osehra.cpe.feed.atom.xml
 
-import EXT.DOMAIN.cpe.datetime.PointInTime
+import org.osehra.cpe.datetime.PointInTime
 import grails.converters.XML
 import grails.test.GrailsUnitTestCase
 import org.codehaus.groovy.grails.plugins.codecs.HTMLCodec
 import org.custommonkey.xmlunit.Diff
 import org.custommonkey.xmlunit.XMLUnit
-import EXT.DOMAIN.cpe.feed.atom.*
+import org.osehra.cpe.feed.atom.*
 
 class EntryMarshallerTests extends GrailsUnitTestCase {
 

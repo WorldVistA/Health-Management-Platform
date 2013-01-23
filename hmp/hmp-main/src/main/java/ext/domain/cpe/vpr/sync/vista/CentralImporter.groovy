@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista
+package org.osehra.cpe.vpr.sync.vista
 
 import org.springframework.beans.factory.InitializingBean
 import org.springframework.util.Assert

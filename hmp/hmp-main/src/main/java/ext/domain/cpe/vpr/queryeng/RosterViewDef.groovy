@@ -1,25 +1,25 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
 
-import EXT.DOMAIN.cpe.vpr.RosterService
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.HL7DTMColDef
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.TemplateColDef
-import EXT.DOMAIN.cpe.vpr.queryeng.Query.SOLRFacetQuery
-import EXT.DOMAIN.cpe.vpr.queryeng.Query.ViewDefQuery
-import EXT.DOMAIN.cpe.vpr.queryeng.query.RosterPatientQuery
-import EXT.DOMAIN.cpe.vpr.viewdef.QueryMapper
-import EXT.DOMAIN.cpe.vpr.viewdef.QueryMapper.FieldPrefixTransformer
-import EXT.DOMAIN.cpe.vpr.viewdef.QueryMapper.NestedViewDefQueryMapper
-import EXT.DOMAIN.cpe.vpr.viewdef.QueryMapper.PerRowAppendMapper
+import org.osehra.cpe.vpr.RosterService
+import org.osehra.cpe.vpr.pom.IPatientDAO
+import org.osehra.cpe.vpr.queryeng.ColDef.HL7DTMColDef
+import org.osehra.cpe.vpr.queryeng.ColDef.TemplateColDef
+import org.osehra.cpe.vpr.queryeng.Query.SOLRFacetQuery
+import org.osehra.cpe.vpr.queryeng.Query.ViewDefQuery
+import org.osehra.cpe.vpr.queryeng.query.RosterPatientQuery
+import org.osehra.cpe.vpr.viewdef.QueryMapper
+import org.osehra.cpe.vpr.viewdef.QueryMapper.FieldPrefixTransformer
+import org.osehra.cpe.vpr.viewdef.QueryMapper.NestedViewDefQueryMapper
+import org.osehra.cpe.vpr.viewdef.QueryMapper.PerRowAppendMapper
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Scope
 import org.springframework.stereotype.Component
 
-@Component(value = 'EXT.DOMAIN.cpe.vpr.queryeng.RosterViewDef')
+@Component(value = 'org.osehra.cpe.vpr.queryeng.RosterViewDef')
 @Scope("prototype")
-@HMPAppInfo(value="EXT.DOMAIN.cpe.multipatientviewdef", title="Default Roster View")
+@HMPAppInfo(value="org.osehra.cpe.multipatientviewdef", title="Default Roster View")
 public class RosterViewDef extends ViewDef {
 	@Autowired
 	public RosterViewDef(RosterService rosterSvc, IPatientDAO patientDao, AlertViewDef alertvd) {
@@ -61,7 +61,7 @@ public class RosterViewDef extends ViewDef {
 		Query recent = new SOLRFacetQuery("pid", q2, "domain");
 		addQuery(new PerRowAppendMapper(new FieldPrefixTransformer(recent, "recent_")));
 		
-		Query q3 = addQuery(new PerRowAppendMapper(new QueryMapper.GSPTemplateTransformer("alerts", "/frame/alertsummary", new ViewDefQuery("alert_data", "EXT.DOMAIN.cpe.vpr.queryeng.AlertViewDef"))));
+		Query q3 = addQuery(new PerRowAppendMapper(new QueryMapper.GSPTemplateTransformer("alerts", "/frame/alertsummary", new ViewDefQuery("alert_data", "org.osehra.cpe.vpr.queryeng.AlertViewDef"))));
 		addColumns(q3, "alerts");
 		
         // these are the actual columns that are intended to be displayed

@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.hub
+package org.osehra.cpe.hub
 
-import EXT.DOMAIN.cpe.vista.rpc.ConnectionCallback
-import EXT.DOMAIN.cpe.vista.rpc.RpcTemplate
-import EXT.DOMAIN.cpe.vista.rpc.conn.Connection
+import org.osehra.cpe.vista.rpc.ConnectionCallback
+import org.osehra.cpe.vista.rpc.RpcTemplate
+import org.osehra.cpe.vista.rpc.conn.Connection
 
 import org.codehaus.groovy.grails.web.servlet.mvc.GrailsParameterMap
 import org.springframework.beans.factory.annotation.Autowired
@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.servlet.ModelAndView
 
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
-import EXT.DOMAIN.cpe.hub.dao.IVistaAccountDao
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
+import org.osehra.cpe.hub.dao.IVistaAccountDao
 
 @RequestMapping("/vistaAccount/**")
 @Controller

@@ -1,14 +1,14 @@
-package EXT.DOMAIN.cpe.vpr.web
+package org.osehra.cpe.vpr.web
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
-import EXT.DOMAIN.cpe.auth.UserContext;
-import EXT.DOMAIN.cpe.vista.rpc.RpcTemplate;
-import EXT.DOMAIN.cpe.vpr.Diagnosis
-import EXT.DOMAIN.cpe.vpr.Patient
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO;
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils
-import EXT.DOMAIN.cpe.vpr.pom.jds.JdsGenericPatientObjectDAO;
+import org.osehra.cpe.auth.UserContext;
+import org.osehra.cpe.vista.rpc.RpcTemplate;
+import org.osehra.cpe.vpr.Diagnosis
+import org.osehra.cpe.vpr.Patient
+import org.osehra.cpe.vpr.pom.IPatientDAO;
+import org.osehra.cpe.vpr.pom.POMUtils
+import org.osehra.cpe.vpr.pom.jds.JdsGenericPatientObjectDAO;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -16,8 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.*
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.stringModelAndView
-import static EXT.DOMAIN.cpe.vpr.UserInterfaceRpcConstants.VPR_UI_CONTEXT
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.stringModelAndView
+import static org.osehra.cpe.vpr.UserInterfaceRpcConstants.VPR_UI_CONTEXT
 
 @RequestMapping(value = ["/diagnosis/**", "/vpr/diagnosis/**"])
 @Controller

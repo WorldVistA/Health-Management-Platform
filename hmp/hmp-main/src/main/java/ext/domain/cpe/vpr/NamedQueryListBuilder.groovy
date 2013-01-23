@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr
+package org.osehra.cpe.vpr
 
 /**
  * Groovy "builder" that evaluates a domain class <code>namedQueries</code> closure for a list of named queries that have no arguments.

@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.web.interceptor
+package org.osehra.cpe.vpr.web.interceptor
 
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter
 import javax.servlet.http.HttpServletRequest
@@ -8,12 +8,12 @@ import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.core.Authentication
 
-import EXT.DOMAIN.cpe.param.ParamService
+import org.osehra.cpe.param.ParamService
 import org.springframework.web.servlet.view.UrlBasedViewResolver
-import EXT.DOMAIN.cpe.param.Param
+import org.osehra.cpe.param.Param
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.JsonNode
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils
+import org.osehra.cpe.vpr.pom.POMUtils
 
 /**
  * Adds current user details and params to the ModelMap so that they are in all views.

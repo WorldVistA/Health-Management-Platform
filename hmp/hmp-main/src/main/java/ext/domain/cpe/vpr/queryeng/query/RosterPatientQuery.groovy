@@ -1,13 +1,13 @@
-package EXT.DOMAIN.cpe.vpr.queryeng.query;
+package org.osehra.cpe.vpr.queryeng.query;
 
-import EXT.DOMAIN.cpe.vpr.Patient;
-import EXT.DOMAIN.cpe.vpr.RosterService;
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO;
-import EXT.DOMAIN.cpe.vpr.queryeng.Query.QueryMode;
+import org.osehra.cpe.vpr.Patient;
+import org.osehra.cpe.vpr.RosterService;
+import org.osehra.cpe.vpr.pom.IPatientDAO;
+import org.osehra.cpe.vpr.queryeng.Query.QueryMode;
 
-import EXT.DOMAIN.cpe.vpr.queryeng.Query
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewDefRenderer;
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask;
+import org.osehra.cpe.vpr.queryeng.Query
+import org.osehra.cpe.vpr.queryeng.ViewDefRenderer;
+import org.osehra.cpe.vpr.viewdef.RenderTask;
 
 /**
  * Combines roster search and free-text patient search into a single viewdef.

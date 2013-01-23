@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.queryeng;
+package org.osehra.cpe.vpr.queryeng;
 
-import EXT.DOMAIN.cpe.vpr.queryeng.Query.StaticQuery
+import org.osehra.cpe.vpr.queryeng.Query.StaticQuery
 
 public class ViewDefSamples {
 	public static Query sq1 = new StaticQuery("id", [

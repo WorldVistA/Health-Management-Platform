@@ -1,19 +1,19 @@
-package EXT.DOMAIN.cpe.vpr.web
+package org.osehra.cpe.vpr.web
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
-import EXT.DOMAIN.cpe.auth.UserContext;
-import EXT.DOMAIN.cpe.vista.rpc.RpcTemplate
-import EXT.DOMAIN.cpe.vista.util.VistaStringUtils
-import EXT.DOMAIN.cpe.vpr.Patient
-import EXT.DOMAIN.cpe.vpr.PatientFacility
-import EXT.DOMAIN.cpe.vpr.pom.AbstractPOMObject
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO
+import org.osehra.cpe.auth.UserContext;
+import org.osehra.cpe.vista.rpc.RpcTemplate
+import org.osehra.cpe.vista.util.VistaStringUtils
+import org.osehra.cpe.vpr.Patient
+import org.osehra.cpe.vpr.PatientFacility
+import org.osehra.cpe.vpr.pom.AbstractPOMObject
+import org.osehra.cpe.vpr.pom.IPatientDAO
 
-//import EXT.DOMAIN.cpe.vpr.queryeng.ViewDefRollup
+//import org.osehra.cpe.vpr.queryeng.ViewDefRollup
 
 
-import EXT.DOMAIN.cpe.vpr.UidUtils
+import org.osehra.cpe.vpr.UidUtils
 
 import javax.servlet.http.HttpServletRequest
 
@@ -26,12 +26,12 @@ import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
 
 import org.springframework.web.servlet.ModelAndView
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
 
-import static EXT.DOMAIN.cpe.vpr.UserInterfaceRpcConstants.VPR_UI_CONTEXT
-import EXT.DOMAIN.cpe.vpr.pom.jds.JdsGenericPatientObjectDAO
+import static org.osehra.cpe.vpr.UserInterfaceRpcConstants.VPR_UI_CONTEXT
+import org.osehra.cpe.vpr.pom.jds.JdsGenericPatientObjectDAO
 
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.stringModelAndView
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.stringModelAndView
 
 @Controller
 @RequestMapping("/editor/**")
@@ -83,7 +83,7 @@ class EditorController {
 				}
 			}
 			if(dfn!=null) {
-            String json = EXT.DOMAIN.cpe.vpr.pom.POMUtils.toJSON(tmp)
+            String json = org.osehra.cpe.vpr.pom.POMUtils.toJSON(tmp)
 			def submitValue = VistaStringUtils.splitLargeStringIfNecessary(json)
 			rpcResult = rpcTemplate.executeForString("/${VPR_UI_CONTEXT}/VPR PUT PATIENT DATA", dfn, type, submitValue)
 			ObjectMapper jsonMapper = new ObjectMapper();

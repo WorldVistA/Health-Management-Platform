@@ -1,15 +1,15 @@
-package EXT.DOMAIN.cpe.vpr.ws.link
+package org.osehra.cpe.vpr.ws.link
 
-import EXT.DOMAIN.cpe.vpr.Medication
-import EXT.DOMAIN.cpe.feed.atom.Link
+import org.osehra.cpe.vpr.Medication
+import org.osehra.cpe.feed.atom.Link
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert
-import EXT.DOMAIN.cpe.vpr.mapping.ILinkService
+import org.osehra.cpe.vpr.mapping.ILinkService
 import grails.util.GrailsNameUtils
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject
-import EXT.DOMAIN.cpe.vpr.Patient
+import org.osehra.cpe.vpr.pom.IPatientObject
+import org.osehra.cpe.vpr.Patient
 
 @Component
 class MedicationDoseHistoryTrendLinkGenerator implements ILinkGenerator {

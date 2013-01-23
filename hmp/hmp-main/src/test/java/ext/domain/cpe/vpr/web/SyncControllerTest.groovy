@@ -1,13 +1,13 @@
-package EXT.DOMAIN.cpe.vpr.web;
+package org.osehra.cpe.vpr.web;
 
 import static org.junit.Assert.*
 import static org.mockito.Matchers.*
 import static org.mockito.Mockito.*
-import EXT.DOMAIN.cpe.auth.HmpUserDetails
-import EXT.DOMAIN.cpe.auth.UserContext;
-import EXT.DOMAIN.cpe.vpr.Patient
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO
-import EXT.DOMAIN.cpe.vpr.sync.ISyncService
+import org.osehra.cpe.auth.HmpUserDetails
+import org.osehra.cpe.auth.UserContext;
+import org.osehra.cpe.vpr.Patient
+import org.osehra.cpe.vpr.pom.IPatientDAO
+import org.osehra.cpe.vpr.sync.ISyncService
 
 import org.junit.Before
 import org.junit.Test

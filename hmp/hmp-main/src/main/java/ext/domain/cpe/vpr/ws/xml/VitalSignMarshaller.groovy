@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vpr.ws.xml
+package org.osehra.cpe.vpr.ws.xml
 
 import java.beans.PropertyDescriptor;
 
 import grails.converters.XML
-import EXT.DOMAIN.cpe.vpr.VitalSign
+import org.osehra.cpe.vpr.VitalSign
 
 
 class VitalSignMarshaller extends DomainClassMarshaller {

@@ -1,19 +1,19 @@
-package EXT.DOMAIN.cpe.vpr.web
+package org.osehra.cpe.vpr.web
 
-import EXT.DOMAIN.cpe.datetime.PointInTime
-import EXT.DOMAIN.cpe.datetime.Precision
-import EXT.DOMAIN.cpe.feed.atom.Link
-import EXT.DOMAIN.cpe.jsonc.JsonCCollection
-import EXT.DOMAIN.cpe.vpr.NotFoundException
-import EXT.DOMAIN.cpe.vpr.Result
-import EXT.DOMAIN.cpe.vpr.UidUtils
-import EXT.DOMAIN.cpe.vpr.VitalSign
-import EXT.DOMAIN.cpe.vpr.mapping.ILinkService
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPatientObjectDAO
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject
-import EXT.DOMAIN.cpe.vpr.queryeng.query.QueryDef
-import EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory
-import EXT.DOMAIN.cpe.vpr.ws.link.LinkRelation
+import org.osehra.cpe.datetime.PointInTime
+import org.osehra.cpe.datetime.Precision
+import org.osehra.cpe.feed.atom.Link
+import org.osehra.cpe.jsonc.JsonCCollection
+import org.osehra.cpe.vpr.NotFoundException
+import org.osehra.cpe.vpr.Result
+import org.osehra.cpe.vpr.UidUtils
+import org.osehra.cpe.vpr.VitalSign
+import org.osehra.cpe.vpr.mapping.ILinkService
+import org.osehra.cpe.vpr.pom.IGenericPatientObjectDAO
+import org.osehra.cpe.vpr.pom.IPatientObject
+import org.osehra.cpe.vpr.queryeng.query.QueryDef
+import org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory
+import org.osehra.cpe.vpr.ws.link.LinkRelation
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.RequestMapping
@@ -24,7 +24,7 @@ import org.springframework.web.servlet.ModelAndView
 
 import javax.servlet.http.HttpServletRequest
 
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
 
 //@RequestMapping(value = ["/trend/**", "/vpr/trend/**"])
 @Controller

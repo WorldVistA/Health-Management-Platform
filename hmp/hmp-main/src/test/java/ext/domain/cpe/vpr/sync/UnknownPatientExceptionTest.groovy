@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.sync;
+package org.osehra.cpe.vpr.sync;
 
 import static org.junit.Assert.*;
 import org.junit.Test;

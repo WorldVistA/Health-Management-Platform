@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.search
+package org.osehra.cpe.vpr.search
 
 import org.apache.solr.common.util.NamedList
 import org.mockito.stubbing.Answer

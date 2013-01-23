@@ -1,12 +1,12 @@
-package EXT.DOMAIN.cpe.vpr.ws.json
+package org.osehra.cpe.vpr.ws.json
 
-import EXT.DOMAIN.cpe.feed.atom.Link
-import EXT.DOMAIN.cpe.feed.atom.json.LinkMarshaller
-import EXT.DOMAIN.cpe.vpr.Patient
-import EXT.DOMAIN.cpe.vpr.PatientFlag
-import EXT.DOMAIN.cpe.vpr.ResultOrganizer
-import EXT.DOMAIN.cpe.vpr.mapping.ILinkService
-import EXT.DOMAIN.cpe.vpr.ws.link.LinkRelation
+import org.osehra.cpe.feed.atom.Link
+import org.osehra.cpe.feed.atom.json.LinkMarshaller
+import org.osehra.cpe.vpr.Patient
+import org.osehra.cpe.vpr.PatientFlag
+import org.osehra.cpe.vpr.ResultOrganizer
+import org.osehra.cpe.vpr.mapping.ILinkService
+import org.osehra.cpe.vpr.ws.link.LinkRelation
 import grails.converters.JSON
 import org.codehaus.groovy.grails.support.proxy.DefaultProxyHandler
 
@@ -66,7 +66,7 @@ class DomainClassMarshallerTests {
     "localId":"CH;6919868.919987",
     "organizerType": "accession",
     "resultStatus": {
-        "class":"EXT.DOMAIN.cpe.codes.ResultStatus",
+        "class":"org.osehra.cpe.codes.ResultStatus",
         "domain": "result_status",
         "link": {
             "rel":"self",

@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.feed.atom.xml
+package org.osehra.cpe.feed.atom.xml
 
 import grails.test.GrailsUnitTestCase
 import org.custommonkey.xmlunit.XMLUnit
 import grails.converters.XML
-import EXT.DOMAIN.cpe.feed.atom.Content
-import EXT.DOMAIN.cpe.feed.atom.Text
+import org.osehra.cpe.feed.atom.Content
+import org.osehra.cpe.feed.atom.Text
 import org.custommonkey.xmlunit.Diff
 
 class ContentMarshallerTests extends GrailsUnitTestCase {
@@ -26,7 +26,7 @@ class ContentMarshallerTests extends GrailsUnitTestCase {
         def expected = '''
     <baz>
         <content type="text">The quick brown fox jumps over the lazy dog.</content>
-        <class>EXT.DOMAIN.cpe.feed.atom.xml.Baz</class>
+        <class>org.osehra.cpe.feed.atom.xml.Baz</class>
     </baz>
     '''
         String xml = new XML(new Baz(content:new Content("The quick brown fox jumps over the lazy dog."))).toString()
@@ -38,7 +38,7 @@ class ContentMarshallerTests extends GrailsUnitTestCase {
         def expected = '''
     <baz>
         <content src="http://www.example.org/blogs/123"/>
-        <class>EXT.DOMAIN.cpe.feed.atom.xml.Baz</class>
+        <class>org.osehra.cpe.feed.atom.xml.Baz</class>
     </baz>
     '''
         String xml = new XML(new Baz(content:new Content(src:"http://www.example.org/blogs/123"))).toString()
@@ -50,7 +50,7 @@ class ContentMarshallerTests extends GrailsUnitTestCase {
         def expected = '''
     <baz>
         <content type="text/html" src="http://www.example.org/blogs/123"/>
-        <class>EXT.DOMAIN.cpe.feed.atom.xml.Baz</class>
+        <class>org.osehra.cpe.feed.atom.xml.Baz</class>
     </baz>
     '''
         String xml = new XML(new Baz(content:new Content(src:"http://www.example.org/blogs/123", type:'text/html'))).toString()

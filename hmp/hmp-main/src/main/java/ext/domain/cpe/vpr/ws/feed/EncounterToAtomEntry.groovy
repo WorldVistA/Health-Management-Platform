@@ -1,13 +1,13 @@
-package EXT.DOMAIN.cpe.vpr.ws.feed
+package org.osehra.cpe.vpr.ws.feed
 
-import EXT.DOMAIN.cpe.feed.atom.Entry
-import EXT.DOMAIN.cpe.vpr.Encounter
+import org.osehra.cpe.feed.atom.Entry
+import org.osehra.cpe.vpr.Encounter
 import org.springframework.core.convert.converter.Converter
-import EXT.DOMAIN.cpe.vpr.EncounterProvider
-import EXT.DOMAIN.cpe.feed.atom.Text
+import org.osehra.cpe.vpr.EncounterProvider
+import org.osehra.cpe.feed.atom.Text
 
-import EXT.DOMAIN.cpe.feed.atom.Link
-import EXT.DOMAIN.cpe.vpr.LinkService
+import org.osehra.cpe.feed.atom.Link
+import org.osehra.cpe.vpr.LinkService
 import org.springframework.util.Assert
 import org.springframework.beans.factory.InitializingBean
 

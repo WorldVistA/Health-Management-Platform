@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista.json
+package org.osehra.cpe.vpr.sync.vista.json
 
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.vpr.Encounter
-import EXT.DOMAIN.cpe.vpr.PatientFacility;
-import EXT.DOMAIN.cpe.vpr.UidUtils;
-import EXT.DOMAIN.cpe.vpr.sync.vista.MockVistaDataChunks
-import EXT.DOMAIN.cpe.vpr.sync.vista.VistaDataChunk
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.vpr.Encounter
+import org.osehra.cpe.vpr.PatientFacility;
+import org.osehra.cpe.vpr.UidUtils;
+import org.osehra.cpe.vpr.sync.vista.MockVistaDataChunks
+import org.osehra.cpe.vpr.sync.vista.VistaDataChunk
 import static org.junit.Assert.*
 
 import org.junit.Test

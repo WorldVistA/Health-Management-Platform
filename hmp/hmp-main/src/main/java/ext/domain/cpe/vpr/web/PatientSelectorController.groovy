@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vpr.web
+package org.osehra.cpe.vpr.web
 
-import EXT.DOMAIN.cpe.vpr.RosterService;
-import EXT.DOMAIN.cpe.vpr.sync.ISyncService
+import org.osehra.cpe.vpr.RosterService;
+import org.osehra.cpe.vpr.sync.ISyncService
 import org.springframework.beans.factory.annotation.Autowired;
-import EXT.DOMAIN.cpe.auth.UserContext
-import EXT.DOMAIN.cpe.jsonc.JsonCResponse
+import org.osehra.cpe.auth.UserContext
+import org.osehra.cpe.jsonc.JsonCResponse
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.servlet.ModelAndView
 
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
 import static org.springframework.web.bind.annotation.RequestMethod.GET
 
 @Controller

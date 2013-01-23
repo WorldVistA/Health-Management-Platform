@@ -1,15 +1,15 @@
-package EXT.DOMAIN.cpe.test.junit4.runners
+package org.osehra.cpe.test.junit4.runners
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcTemplate
-import EXT.DOMAIN.cpe.vpr.Patient
+import org.osehra.cpe.vista.rpc.RpcTemplate
+import org.osehra.cpe.vpr.Patient
 
-import EXT.DOMAIN.cpe.vpr.sync.vista.VistaDataChunk
-import EXT.DOMAIN.cpe.vpr.sync.vista.json.PatientImporter
-import static EXT.DOMAIN.cpe.vpr.sync.vista.SynchronizationRpcConstants.*
-import EXT.DOMAIN.cpe.vista.util.RpcUriUtils
+import org.osehra.cpe.vpr.sync.vista.VistaDataChunk
+import org.osehra.cpe.vpr.sync.vista.json.PatientImporter
+import static org.osehra.cpe.vpr.sync.vista.SynchronizationRpcConstants.*
+import org.osehra.cpe.vista.util.RpcUriUtils
 
 import com.fasterxml.jackson.databind.JsonNode
-import EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants
+import org.osehra.cpe.vpr.sync.SyncMessageConstants
 
 class ImportIntegrationTestUtils {
     static final protected String EXAMPLE_CONNECTION_URI = 'vrpcb://{stationNumber}:{accessCode};{verifyCode}@{host}:{port}'

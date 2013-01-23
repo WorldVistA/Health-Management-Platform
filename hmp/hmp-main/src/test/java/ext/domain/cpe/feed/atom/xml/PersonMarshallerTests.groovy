@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.feed.atom.xml
+package org.osehra.cpe.feed.atom.xml
 
 import grails.test.GrailsUnitTestCase
 import org.custommonkey.xmlunit.XMLUnit
 import grails.converters.XML
-import EXT.DOMAIN.cpe.feed.atom.Person
+import org.osehra.cpe.feed.atom.Person
 import org.custommonkey.xmlunit.Diff
 
 
@@ -31,7 +31,7 @@ class PersonMarshallerTests extends GrailsUnitTestCase {
 <fred>
 <name>flintstone</name>
 </fred>
-<class>EXT.DOMAIN.cpe.feed.atom.xml.Bar</class>
+<class>org.osehra.cpe.feed.atom.xml.Bar</class>
 </bar>
 '''
         String xml = new XML(new Bar(fred: new Person(name: 'flintstone'))).toString()
@@ -47,7 +47,7 @@ class PersonMarshallerTests extends GrailsUnitTestCase {
 <uri>http://www.example.org</uri>
 <email>fred@example.org</email>
 </fred>
-<class>EXT.DOMAIN.cpe.feed.atom.xml.Bar</class>
+<class>org.osehra.cpe.feed.atom.xml.Bar</class>
 </bar>
 '''
         String xml = new XML(new Bar(fred: new Person(name: 'flintstone', email: 'fred@example.org', uri: 'http://www.example.org'))).toString()

@@ -1,23 +1,23 @@
-package EXT.DOMAIN.cpe.vpr.ws.link
+package org.osehra.cpe.vpr.ws.link
 
-import EXT.DOMAIN.cpe.HmpProperties
-import EXT.DOMAIN.cpe.feed.atom.Link
-import EXT.DOMAIN.cpe.vpr.Medication
-import EXT.DOMAIN.cpe.vpr.Patient
-import EXT.DOMAIN.cpe.vpr.Problem
-import EXT.DOMAIN.cpe.vpr.Result
+import org.osehra.cpe.HmpProperties
+import org.osehra.cpe.feed.atom.Link
+import org.osehra.cpe.vpr.Medication
+import org.osehra.cpe.vpr.Patient
+import org.osehra.cpe.vpr.Problem
+import org.osehra.cpe.vpr.Result
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.EnvironmentAware
 import org.springframework.core.env.Environment
 
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO
+import org.osehra.cpe.vpr.pom.IPatientObject
+import org.osehra.cpe.vpr.pom.IPatientDAO
 
 class OpenInfoButtonLinkGenerator implements ILinkGenerator, EnvironmentAware {
     static final Map<Class, String> SUPPORTED_TYPES = [
-            'EXT.DOMAIN.cpe.vpr.Medication': "MLREV",
-            'EXT.DOMAIN.cpe.vpr.Result': "LABRREV",
-            'EXT.DOMAIN.cpe.vpr.Problem': "PROBLISTREV",
+            'org.osehra.cpe.vpr.Medication': "MLREV",
+            'org.osehra.cpe.vpr.Result': "LABRREV",
+            'org.osehra.cpe.vpr.Problem': "PROBLISTREV",
     ]
 
     boolean supports(Object object) {

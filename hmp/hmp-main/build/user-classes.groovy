@@ -7,7 +7,7 @@ File basedir = new File(getClass().protectionDomain.codeSource.location.path).pa
 def csv = parseCsv(
         readFirstLine:true,
         columnNames:['name', 'abbreviation','status','displayName','personClass','subclass','okToDistribute'],
-        new FileReader(new File(basedir, "src/main/resources/EXT/DOMAIN/cpe/team/user-classes.csv")))
+        new FileReader(new File(basedir, "src/main/resources/org.osehra/cpe/team/user-classes.csv")))
 
 def itemMap = [:]
 csv.eachWithIndex { line, i ->
@@ -62,5 +62,5 @@ builder.data {
     totalItems(itemTree.size())
     items(itemTree)
 }
-File foo = new File(basedir, "src/main/resources/EXT/DOMAIN/cpe/team/user-class-hierarchy.json")
+File foo = new File(basedir, "src/main/resources/org.osehra/cpe/team/user-class-hierarchy.json")
 foo.write(builder.toPrettyString())

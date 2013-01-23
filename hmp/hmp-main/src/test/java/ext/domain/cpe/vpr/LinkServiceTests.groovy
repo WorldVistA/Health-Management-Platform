@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vpr
+package org.osehra.cpe.vpr
 
-import EXT.DOMAIN.cpe.test.MockGrailsApplicationUnitTestCase
+import org.osehra.cpe.test.MockGrailsApplicationUnitTestCase
 import org.codehaus.groovy.grails.commons.ConfigurationHolder
 import org.codehaus.groovy.grails.plugins.codecs.URLCodec
 import org.springframework.context.support.StaticApplicationContext
-import EXT.DOMAIN.cpe.vpr.ws.link.PatientRelatedSelfLinkGenerator
+import org.osehra.cpe.vpr.ws.link.PatientRelatedSelfLinkGenerator
 
 //class LinkServiceTests extends MockGrailsApplicationUnitTestCase {
 class LinkServiceTests {

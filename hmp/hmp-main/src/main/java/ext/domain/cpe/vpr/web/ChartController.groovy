@@ -1,25 +1,25 @@
-package EXT.DOMAIN.cpe.vpr.web
+package org.osehra.cpe.vpr.web
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
-import EXT.DOMAIN.cpe.auth.UserContext
-import EXT.DOMAIN.cpe.datetime.PointInTime
-import EXT.DOMAIN.cpe.jsonc.JsonCResponse
-import EXT.DOMAIN.cpe.param.ParamService
-import EXT.DOMAIN.cpe.vista.rpc.RpcTemplate
-import EXT.DOMAIN.cpe.vista.util.VistaStringUtils
-import EXT.DOMAIN.cpe.vpr.AppService
-import EXT.DOMAIN.cpe.vpr.Patient
-import EXT.DOMAIN.cpe.vpr.Task
-import EXT.DOMAIN.cpe.vpr.PatientFacility
-import EXT.DOMAIN.cpe.vpr.Treatment
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPatientObjectDAO
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils
-import EXT.DOMAIN.cpe.vpr.pom.jds.JdsGenericPatientObjectDAO
-import EXT.DOMAIN.cpe.vpr.sync.vista.IVistaVprPatientObjectDao
-import EXT.DOMAIN.cpe.vpr.vistasvc.CacheMgr
-import EXT.DOMAIN.cpe.vpr.vistasvc.CacheMgr.CacheType
+import org.osehra.cpe.auth.UserContext
+import org.osehra.cpe.datetime.PointInTime
+import org.osehra.cpe.jsonc.JsonCResponse
+import org.osehra.cpe.param.ParamService
+import org.osehra.cpe.vista.rpc.RpcTemplate
+import org.osehra.cpe.vista.util.VistaStringUtils
+import org.osehra.cpe.vpr.AppService
+import org.osehra.cpe.vpr.Patient
+import org.osehra.cpe.vpr.Task
+import org.osehra.cpe.vpr.PatientFacility
+import org.osehra.cpe.vpr.Treatment
+import org.osehra.cpe.vpr.pom.IGenericPatientObjectDAO
+import org.osehra.cpe.vpr.pom.IPatientDAO
+import org.osehra.cpe.vpr.pom.POMUtils
+import org.osehra.cpe.vpr.pom.jds.JdsGenericPatientObjectDAO
+import org.osehra.cpe.vpr.sync.vista.IVistaVprPatientObjectDao
+import org.osehra.cpe.vpr.vistasvc.CacheMgr
+import org.osehra.cpe.vpr.vistasvc.CacheMgr.CacheType
 import org.joda.time.DateTime
 import org.joda.time.LocalDateTime
 import org.joda.time.format.DateTimeFormat
@@ -34,9 +34,9 @@ import java.text.SimpleDateFormat
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
-import static EXT.DOMAIN.cpe.vpr.UserInterfaceRpcConstants.VPR_UI_CONTEXT
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.stringModelAndView
+import static org.osehra.cpe.vpr.UserInterfaceRpcConstants.VPR_UI_CONTEXT
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.stringModelAndView
 
 @RequestMapping(value = ["/chart/**", "/vpr/chart/**"])
 @Controller

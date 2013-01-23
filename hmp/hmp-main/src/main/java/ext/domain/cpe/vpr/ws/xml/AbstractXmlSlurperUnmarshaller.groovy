@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.ws.xml
+package org.osehra.cpe.vpr.ws.xml
 
 import org.springframework.oxm.Unmarshaller
 import javax.xml.transform.Source

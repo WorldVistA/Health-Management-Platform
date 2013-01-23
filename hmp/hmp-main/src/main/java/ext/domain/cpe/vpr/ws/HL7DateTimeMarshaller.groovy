@@ -1,12 +1,12 @@
-package EXT.DOMAIN.cpe.vpr.ws
+package org.osehra.cpe.vpr.ws
 
 import org.codehaus.groovy.grails.web.converters.marshaller.ObjectMarshaller
 import org.codehaus.groovy.grails.web.converters.Converter
-import EXT.DOMAIN.cpe.datetime.PointInTime
+import org.osehra.cpe.datetime.PointInTime
 import org.joda.time.DateTime
 import org.joda.time.LocalDate
 import org.joda.time.LocalDateTime
-import EXT.DOMAIN.cpe.datetime.format.HL7DateTimeFormat
+import org.osehra.cpe.datetime.format.HL7DateTimeFormat
 
 
 class HL7DateTimeMarshaller implements ObjectMarshaller {

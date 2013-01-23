@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista.json.integration
+package org.osehra.cpe.vpr.sync.vista.json.integration
 
-import EXT.DOMAIN.cpe.vpr.VitalSign
-import EXT.DOMAIN.cpe.vpr.sync.vista.VistaDataChunk
-import EXT.DOMAIN.cpe.vpr.sync.vista.json.VitalSignImporter
+import org.osehra.cpe.vpr.VitalSign
+import org.osehra.cpe.vpr.sync.vista.VistaDataChunk
+import org.osehra.cpe.vpr.sync.vista.json.VitalSignImporter
 import org.junit.Test
 import org.junit.runner.RunWith
-import EXT.DOMAIN.cpe.test.junit4.runners.*
+import org.osehra.cpe.test.junit4.runners.*
 
 import static org.hamcrest.CoreMatchers.nullValue
 import static org.hamcrest.core.IsNot.not

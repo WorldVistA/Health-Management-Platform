@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.web.taglib
+package org.osehra.cpe.vpr.web.taglib
 
 class DetailTagLib
 {

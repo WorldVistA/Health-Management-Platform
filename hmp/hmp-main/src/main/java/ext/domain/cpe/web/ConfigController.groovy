@@ -1,15 +1,15 @@
-package EXT.DOMAIN.cpe.web
+package org.osehra.cpe.web
 
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
 import com.fasterxml.jackson.databind.ObjectMapper
-import EXT.DOMAIN.cpe.jsonc.JsonCResponse
-import EXT.DOMAIN.cpe.param.ParamService
-import EXT.DOMAIN.cpe.vpr.IAppService
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils
-import EXT.DOMAIN.cpe.vpr.queryeng.dynamic.IViewDefDefDAO
-import EXT.DOMAIN.cpe.vpr.queryeng.dynamic.ViewDefDef
-import EXT.DOMAIN.cpe.vpr.queryeng.dynamic.columns.ViewDefDefColDef
-import EXT.DOMAIN.cpe.vpr.service.IPatientDomainService
+import org.osehra.cpe.jsonc.JsonCResponse
+import org.osehra.cpe.param.ParamService
+import org.osehra.cpe.vpr.IAppService
+import org.osehra.cpe.vpr.pom.POMUtils
+import org.osehra.cpe.vpr.queryeng.dynamic.IViewDefDefDAO
+import org.osehra.cpe.vpr.queryeng.dynamic.ViewDefDef
+import org.osehra.cpe.vpr.queryeng.dynamic.columns.ViewDefDefColDef
+import org.osehra.cpe.vpr.service.IPatientDomainService
 
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse

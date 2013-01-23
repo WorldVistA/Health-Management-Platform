@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.ws.link
+package org.osehra.cpe.vpr.ws.link
 
 enum LinkRelation {
     SELF("self"),

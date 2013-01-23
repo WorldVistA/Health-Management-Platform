@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista
+package org.osehra.cpe.vpr.sync.vista
 
 import groovy.util.slurpersupport.GPathResult
-import EXT.DOMAIN.cpe.vista.rpc.RpcResponse
+import org.osehra.cpe.vista.rpc.RpcResponse
 
 class GPathResultRpcResponseExtractorTests extends GroovyTestCase {
     void testExtractData() {

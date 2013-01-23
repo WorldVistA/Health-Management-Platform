@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.feed.atom
+package org.osehra.cpe.feed.atom
 
 import grails.test.GrailsUnitTestCase
-import EXT.DOMAIN.cpe.feed.atom.Category
+import org.osehra.cpe.feed.atom.Category
 
 class CategoryTests extends GrailsUnitTestCase {
 

@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista
+package org.osehra.cpe.vpr.sync.vista
 
 import groovy.xml.XmlUtil
 import com.fasterxml.jackson.databind.ObjectMapper

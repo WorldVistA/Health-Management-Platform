@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.vpr.search
+package org.osehra.cpe.vpr.search
 
-import static EXT.DOMAIN.cpe.vpr.search.SearchService.*
-import static EXT.DOMAIN.cpe.vpr.search.SolrMockito.mockSolrServer
-import static EXT.DOMAIN.cpe.vpr.search.SolrMockito.solrXmlResponse
+import static org.osehra.cpe.vpr.search.SearchService.*
+import static org.osehra.cpe.vpr.search.SolrMockito.mockSolrServer
+import static org.osehra.cpe.vpr.search.SolrMockito.solrXmlResponse
 import static org.hamcrest.CoreMatchers.equalTo
 import static org.junit.Assert.assertThat
 import static org.junit.matchers.JUnitMatchers.hasItem

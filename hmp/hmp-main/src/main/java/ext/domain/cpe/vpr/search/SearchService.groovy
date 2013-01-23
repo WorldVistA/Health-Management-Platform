@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.search
+package org.osehra.cpe.vpr.search
 
 import org.apache.solr.client.solrj.SolrQuery
 
@@ -8,9 +8,9 @@ import java.util.List;
 import org.apache.solr.client.solrj.response.Group;
 
 
-import EXT.DOMAIN.cpe.datetime.PointInTime
-import EXT.DOMAIN.cpe.datetime.format.HL7DateTimeFormat
-import EXT.DOMAIN.cpe.datetime.format.PointInTimeFormat
+import org.osehra.cpe.datetime.PointInTime
+import org.osehra.cpe.datetime.format.HL7DateTimeFormat
+import org.osehra.cpe.datetime.format.PointInTimeFormat
 import java.util.Map.Entry
 import org.apache.solr.client.solrj.SolrQuery
 import org.apache.solr.client.solrj.SolrQuery.ORDER

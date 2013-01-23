@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista
+package org.osehra.cpe.vpr.sync.vista
 
-import EXT.DOMAIN.cpe.vpr.Patient
-import EXT.DOMAIN.cpe.vpr.ws.xml.AbstractXmlSlurperUnmarshaller
+import org.osehra.cpe.vpr.Patient
+import org.osehra.cpe.vpr.ws.xml.AbstractXmlSlurperUnmarshaller
 import groovy.util.slurpersupport.GPathResult
 
 class FooUnmarshaller extends AbstractXmlSlurperUnmarshaller {

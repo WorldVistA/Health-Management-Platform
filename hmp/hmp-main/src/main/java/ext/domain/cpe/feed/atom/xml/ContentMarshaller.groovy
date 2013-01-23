@@ -1,13 +1,13 @@
-package EXT.DOMAIN.cpe.feed.atom.xml
+package org.osehra.cpe.feed.atom.xml
 
 import grails.converters.XML
 
-import EXT.DOMAIN.cpe.feed.atom.Content
+import org.osehra.cpe.feed.atom.Content
 
 /**
  * Responsible for marshalling <code>Content</code> atom nodes to XML.
  *
- * @see EXT.DOMAIN.cpe.feed.atom.Content
+ * @see org.osehra.cpe.feed.atom.Content
  */
 class ContentMarshaller extends TextMarshaller {
 

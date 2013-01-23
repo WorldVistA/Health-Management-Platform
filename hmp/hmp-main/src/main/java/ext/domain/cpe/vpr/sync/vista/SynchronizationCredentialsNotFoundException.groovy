@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista
+package org.osehra.cpe.vpr.sync.vista
 
-import EXT.DOMAIN.cpe.hub.VistaAccount
+import org.osehra.cpe.hub.VistaAccount
 
 class SynchronizationCredentialsNotFoundException extends RuntimeException {
     SynchronizationCredentialsNotFoundException(VistaAccount vistaAccount) {

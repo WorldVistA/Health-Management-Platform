@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.feed.atom.json
+package org.osehra.cpe.feed.atom.json
 
 import grails.converters.JSON
 import org.codehaus.groovy.grails.web.converters.marshaller.ObjectMarshaller
-import EXT.DOMAIN.cpe.feed.atom.Link
+import org.osehra.cpe.feed.atom.Link
 
 
 class LinkMarshaller implements ObjectMarshaller<JSON> {

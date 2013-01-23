@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.grails.plugins
+package org.osehra.cpe.grails.plugins
 
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory

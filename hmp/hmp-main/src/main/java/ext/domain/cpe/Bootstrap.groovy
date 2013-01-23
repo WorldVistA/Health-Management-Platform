@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe
+package org.osehra.cpe
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,7 +19,7 @@ import org.springframework.util.Assert
 import org.springframework.util.StringUtils
 import org.springframework.web.context.ConfigurableWebApplicationContext
 
-import static EXT.DOMAIN.cpe.HmpProperties.*
+import static org.osehra.cpe.HmpProperties.*
 import net.sf.ehcache.config.DiskStoreConfiguration
 import net.sf.ehcache.CacheManager
 import net.sf.ehcache.config.Configuration

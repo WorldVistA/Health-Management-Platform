@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.web
+package org.osehra.cpe.vpr.web
 import javax.jms.Session;
 
 import javax.jms.Destination
@@ -6,27 +6,27 @@ import javax.jms.JMSException;
 import javax.jms.Session;
 
 import org.springframework.jms.core.SessionCallback;
-import EXT.DOMAIN.cpe.vpr.frameeng.CallEvent;
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameRegistry
+import org.osehra.cpe.vpr.frameeng.CallEvent;
+import org.osehra.cpe.vpr.frameeng.FrameRegistry
 import java.util.Map;
 
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameJob.FrameTask;
-import EXT.DOMAIN.cpe.vista.rpc.RpcTemplate
-import EXT.DOMAIN.cpe.vpr.IAppService
-import EXT.DOMAIN.cpe.vpr.NotFoundException
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO
-import EXT.DOMAIN.cpe.vpr.pom.jds.JdsTemplate
-import EXT.DOMAIN.cpe.vpr.queryeng.dynamic.IDynamicViewDefService
-import EXT.DOMAIN.cpe.vpr.queryeng.dynamic.IViewDefDefDAO;
-import EXT.DOMAIN.cpe.vpr.queryeng.dynamic.PatientPanelViewDef
-import EXT.DOMAIN.cpe.vpr.queryeng.dynamic.ViewDefDef
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewDef
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewDefRenderer
-import EXT.DOMAIN.cpe.vpr.queryeng.ColDef.DeferredViewDefDefColDef
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask
-import EXT.DOMAIN.cpe.vpr.viewdef.ViewDefRenderer2
-import EXT.DOMAIN.cpe.vpr.viewdef.ViewDefRenderer2.JSONViewRenderer2
+import org.osehra.cpe.vpr.frameeng.FrameJob.FrameTask;
+import org.osehra.cpe.vista.rpc.RpcTemplate
+import org.osehra.cpe.vpr.IAppService
+import org.osehra.cpe.vpr.NotFoundException
+import org.osehra.cpe.vpr.pom.IPatientDAO
+import org.osehra.cpe.vpr.pom.jds.JdsTemplate
+import org.osehra.cpe.vpr.queryeng.dynamic.IDynamicViewDefService
+import org.osehra.cpe.vpr.queryeng.dynamic.IViewDefDefDAO;
+import org.osehra.cpe.vpr.queryeng.dynamic.PatientPanelViewDef
+import org.osehra.cpe.vpr.queryeng.dynamic.ViewDefDef
+import org.osehra.cpe.vpr.queryeng.ColDef
+import org.osehra.cpe.vpr.queryeng.ViewDef
+import org.osehra.cpe.vpr.queryeng.ViewDefRenderer
+import org.osehra.cpe.vpr.queryeng.ColDef.DeferredViewDefDefColDef
+import org.osehra.cpe.vpr.viewdef.RenderTask
+import org.osehra.cpe.vpr.viewdef.ViewDefRenderer2
+import org.osehra.cpe.vpr.viewdef.ViewDefRenderer2.JSONViewRenderer2
 import grails.converters.JSON
 
 import javax.jms.Message
@@ -49,10 +49,10 @@ import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.servlet.ModelAndView
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
+import org.osehra.cpe.vpr.pom.POMUtils
 
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.stringModelAndView
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.stringModelAndView
 
 @Controller
 public class ViewController {
@@ -234,7 +234,7 @@ public class ViewController {
 	// Home-grown?
 	@RequestMapping(value = ["/vpr/view/ptlists","/view/ptlists"])
 	public ModelAndView ptlists(HttpServletRequest rq, HttpServletResponse rsp) {
-		def vals = appService.getApps("EXT.DOMAIN.cpe.multipatientviewdef");//.values();
+		def vals = appService.getApps("org.osehra.cpe.multipatientviewdef");//.values();
 		List<ViewDefDef> vdds = vddDAO.findAll();
 		for(ViewDefDef vdd: vdds) {
 			ViewDef vd = dynamicViewDefService.getViewDefByName(vdd.name);

@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vpr.ws.json
+package org.osehra.cpe.vpr.ws.json
 
-import EXT.DOMAIN.cpe.feed.atom.Link
-import EXT.DOMAIN.cpe.vpr.Patient
-import EXT.DOMAIN.cpe.vpr.PatientFacility
-import EXT.DOMAIN.cpe.vpr.mapping.ILinkService
+import org.osehra.cpe.feed.atom.Link
+import org.osehra.cpe.vpr.Patient
+import org.osehra.cpe.vpr.PatientFacility
+import org.osehra.cpe.vpr.mapping.ILinkService
 import grails.converters.JSON
 import java.beans.PropertyDescriptor
 import org.codehaus.groovy.grails.support.proxy.ProxyHandler
@@ -17,7 +17,7 @@ import org.springframework.beans.BeanWrapperImpl
 import org.springframework.beans.factory.InitializingBean
 import org.springframework.util.Assert
 import org.springframework.beans.BeanUtils
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject
+import org.osehra.cpe.vpr.pom.IPatientObject
 
 public class DomainClassMarshaller implements ObjectMarshaller<JSON>, InitializingBean {
 

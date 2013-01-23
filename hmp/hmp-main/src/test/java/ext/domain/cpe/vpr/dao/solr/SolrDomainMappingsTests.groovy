@@ -1,20 +1,20 @@
-package EXT.DOMAIN.cpe.vpr.dao.solr
+package org.osehra.cpe.vpr.dao.solr
 
 import org.junit.Test
 import org.junit.Before
-import EXT.DOMAIN.cpe.vpr.Document
+import org.osehra.cpe.vpr.Document
 import org.apache.solr.common.SolrInputDocument
 import static org.hamcrest.core.IsEqual.equalTo
 import static org.junit.Assert.assertThat
 
-import EXT.DOMAIN.cpe.vpr.Clinician
-import EXT.DOMAIN.cpe.vpr.Encounter
-import EXT.DOMAIN.cpe.vpr.EncounterProvider
-import EXT.DOMAIN.cpe.vpr.Patient
-import EXT.DOMAIN.cpe.vpr.PatientFacility
-//import EXT.DOMAIN.cpe.codes.DocumentType
-import EXT.DOMAIN.cpe.vpr.Order
-import EXT.DOMAIN.cpe.datetime.PointInTime
+import org.osehra.cpe.vpr.Clinician
+import org.osehra.cpe.vpr.Encounter
+import org.osehra.cpe.vpr.EncounterProvider
+import org.osehra.cpe.vpr.Patient
+import org.osehra.cpe.vpr.PatientFacility
+//import org.osehra.cpe.codes.DocumentType
+import org.osehra.cpe.vpr.Order
+import org.osehra.cpe.datetime.PointInTime
 
 // TODO: implement these mappings using Jackson views
 class SolrDomainMappingsTests {

@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vpr.ws.link
+package org.osehra.cpe.vpr.ws.link
 
 import org.springframework.stereotype.Component;
 
-import EXT.DOMAIN.cpe.feed.atom.Link
-import EXT.DOMAIN.cpe.jsonc.JsonCCollection
+import org.osehra.cpe.feed.atom.Link
+import org.osehra.cpe.jsonc.JsonCCollection
 
 // TODO: I suspect this logic should get folded into JsonCCollection somehow
 @Component

@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr
+package org.osehra.cpe.vpr
 
 import javax.jms.Destination
 import javax.jms.JMSException;
@@ -18,7 +18,7 @@ import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.servlet.ModelAndView
 import org.springframework.beans.factory.annotation.Autowired
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
 
 @Controller
 @RequestMapping("/chat/**")

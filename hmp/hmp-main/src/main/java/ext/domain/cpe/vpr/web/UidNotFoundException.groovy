@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.web
+package org.osehra.cpe.vpr.web
 
-import EXT.DOMAIN.cpe.vpr.NotFoundException
+import org.osehra.cpe.vpr.NotFoundException
 
 class UidNotFoundException extends NotFoundException {
 

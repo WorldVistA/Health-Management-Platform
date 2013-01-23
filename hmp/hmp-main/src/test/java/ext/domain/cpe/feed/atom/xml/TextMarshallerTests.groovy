@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.feed.atom.xml
+package org.osehra.cpe.feed.atom.xml
 
 import grails.test.GrailsUnitTestCase
 import org.custommonkey.xmlunit.XMLUnit
 import grails.converters.XML
-import EXT.DOMAIN.cpe.feed.atom.Text
+import org.osehra.cpe.feed.atom.Text
 import org.custommonkey.xmlunit.Diff
 
 
@@ -31,7 +31,7 @@ class TextMarshallerTests extends GrailsUnitTestCase {
         def expected = '''
 <foo>
 <title type='text'>The quick brown fox jumps over the lazy dog.</title>
-<class>EXT.DOMAIN.cpe.feed.atom.xml.Foo</class>
+<class>org.osehra.cpe.feed.atom.xml.Foo</class>
 </foo>
 '''
         String xml = new XML(new Foo(title: new Text("The quick brown fox jumps over the lazy dog."))).toString()
@@ -44,7 +44,7 @@ class TextMarshallerTests extends GrailsUnitTestCase {
         def expected = '''
 <foo>
 <title type='text'>AT&amp;T bought by SBC!</title>
-<class>EXT.DOMAIN.cpe.feed.atom.xml.Foo</class>
+<class>org.osehra.cpe.feed.atom.xml.Foo</class>
 </foo>
 '''
         String xml = new XML(new Foo(title: new Text("AT&T bought by SBC!"))).toString()
@@ -56,7 +56,7 @@ class TextMarshallerTests extends GrailsUnitTestCase {
         def expected = '''
 <foo>
 <title type='html'>AT&amp;amp;T bought &amp;lt;b&amp;gt;by SBC&amp;lt;/b&amp;gt;!</title>
-<class>EXT.DOMAIN.cpe.feed.atom.xml.Foo</class>
+<class>org.osehra.cpe.feed.atom.xml.Foo</class>
 </foo>
 '''
         String xml = new XML(new Foo(title: new Text(text:'AT&T bought <b>by SBC</b>!', type:"html"))).toString()
@@ -70,7 +70,7 @@ class TextMarshallerTests extends GrailsUnitTestCase {
 //<title type='xhtml'>
 //    <div xmlns="http://www.w3.org/1999/xhtml">AT&amp;T bought <b>by SBC</b>!</div>
 //</title>
-//<class>EXT.DOMAIN.vler.cpe.feed.atom.xml.Foo</class>
+//<class>org.osehra.vler.cpe.feed.atom.xml.Foo</class>
 //</foo>
 //'''
 //        String xml = new XML(new Foo(title: new Text(text:'AT&T bought <b>by SBC</b>!', type:"xhtml"))).toString()

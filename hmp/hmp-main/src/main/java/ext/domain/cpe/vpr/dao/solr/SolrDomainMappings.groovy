@@ -1,20 +1,20 @@
-package EXT.DOMAIN.cpe.vpr.dao.solr
+package org.osehra.cpe.vpr.dao.solr
 
-import EXT.DOMAIN.cpe.vpr.Allergy
-import EXT.DOMAIN.cpe.vpr.Document
-import EXT.DOMAIN.cpe.vpr.Problem
-import EXT.DOMAIN.cpe.vpr.Encounter
-import EXT.DOMAIN.cpe.vpr.HealthFactor
-import EXT.DOMAIN.cpe.vpr.Immunization
-import EXT.DOMAIN.cpe.vpr.Medication
-import EXT.DOMAIN.cpe.vpr.MedicationProduct
-import EXT.DOMAIN.cpe.vpr.Observation
-import EXT.DOMAIN.cpe.vpr.Order
-import EXT.DOMAIN.cpe.vpr.Procedure
-import EXT.DOMAIN.cpe.vpr.Tag
-import EXT.DOMAIN.cpe.vpr.Result
-import EXT.DOMAIN.cpe.vpr.Tagger
-import EXT.DOMAIN.cpe.vpr.VitalSign
+import org.osehra.cpe.vpr.Allergy
+import org.osehra.cpe.vpr.Document
+import org.osehra.cpe.vpr.Problem
+import org.osehra.cpe.vpr.Encounter
+import org.osehra.cpe.vpr.HealthFactor
+import org.osehra.cpe.vpr.Immunization
+import org.osehra.cpe.vpr.Medication
+import org.osehra.cpe.vpr.MedicationProduct
+import org.osehra.cpe.vpr.Observation
+import org.osehra.cpe.vpr.Order
+import org.osehra.cpe.vpr.Procedure
+import org.osehra.cpe.vpr.Tag
+import org.osehra.cpe.vpr.Result
+import org.osehra.cpe.vpr.Tagger
+import org.osehra.cpe.vpr.VitalSign
 
 // TODO: implement these mappings using Jackson views
 class SolrDomainMappings {

@@ -1,15 +1,15 @@
-package EXT.DOMAIN.cpe.vpr.sync.msg
+package org.osehra.cpe.vpr.sync.msg
 
-import EXT.DOMAIN.cpe.vpr.dao.ISolrDao
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPatientObjectDAO
-import EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants
+import org.osehra.cpe.vpr.dao.ISolrDao
+import org.osehra.cpe.vpr.pom.IGenericPatientObjectDAO
+import org.osehra.cpe.vpr.sync.SyncMessageConstants
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-import EXT.DOMAIN.cpe.vpr.*
+import org.osehra.cpe.vpr.*
 
 @Service
 @Transactional

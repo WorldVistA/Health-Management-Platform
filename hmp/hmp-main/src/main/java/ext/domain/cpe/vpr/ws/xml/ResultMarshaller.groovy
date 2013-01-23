@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vpr.ws.xml
+package org.osehra.cpe.vpr.ws.xml
 
 import java.beans.PropertyDescriptor;
 
 import grails.converters.XML
-import EXT.DOMAIN.cpe.vpr.Result
+import org.osehra.cpe.vpr.Result
 
 
 class ResultMarshaller extends DomainClassMarshaller {

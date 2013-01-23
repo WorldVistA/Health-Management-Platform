@@ -4,7 +4,7 @@
 
 File basedir = new File(getClass().protectionDomain.codeSource.location.path).parentFile.parentFile
 
-def json = new groovy.json.JsonSlurper().parse(new FileReader(new File(basedir, "src/main/resources/EXT/DOMAIN/cpe/team/team-positions.json")))
+def json = new groovy.json.JsonSlurper().parse(new FileReader(new File(basedir, "src/main/resources/org.osehra/cpe/team/team-positions.json")))
 
 def transformedItems = []
 json.data.items.eachWithIndex { it, i ->
@@ -21,13 +21,13 @@ builder.data {
    totalItems(json.data.totalItems);
    items(transformedItems)
 }
-File foo = new File(basedir, "src/main/resources/EXT/DOMAIN/cpe/team/team-positions.json")
+File foo = new File(basedir, "src/main/resources/org.osehra/cpe/team/team-positions.json")
 foo.write(builder.toPrettyString())
 
 //def csv = parseCsv(
 //        readFirstLine:true,
 //        columnNames:['name'],
-//        new FileReader(new File(basedir, "src/main/resources/EXT/DOMAIN/cpe/team/team-positions.csv")))
+//        new FileReader(new File(basedir, "src/main/resources/org.osehra/cpe/team/team-positions.csv")))
 //
 //def listItems = []
 //csv.each { line ->
@@ -45,7 +45,7 @@ foo.write(builder.toPrettyString())
 //    items(listItems)
 //}
 ////builder.persons(persons)
-//File foo = new File(basedir, "src/main/resources/EXT/DOMAIN/cpe/team/team-positions.json")
+//File foo = new File(basedir, "src/main/resources/org.osehra/cpe/team/team-positions.json")
 //foo.write(builder.toPrettyString())
 //
 //String decapitalize(String name) {

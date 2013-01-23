@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista
+package org.osehra.cpe.vpr.sync.vista
 
 /**
  * Class that holds the results of one call to one VistA system's VPR updates.
  *
  * @see VistaPatientDataService#fetchUpdates
- * @see EXT.DOMAIN.cpe.vpr.sync.vista.VprUpdateJob
+ * @see org.osehra.cpe.vpr.sync.vista.VprUpdateJob
  */
 class VprUpdateData {
     String lastUpdate

@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.feed.atom
+package org.osehra.cpe.feed.atom
 
 
 class Text {

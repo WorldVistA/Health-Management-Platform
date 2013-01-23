@@ -1,14 +1,14 @@
-package EXT.DOMAIN.cpe.vpr.sync.msg
+package org.osehra.cpe.vpr.sync.msg
 
 import org.springframework.stereotype.Service
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPatientObjectDAO
+import org.osehra.cpe.vpr.pom.IGenericPatientObjectDAO
 import org.springframework.beans.factory.annotation.Autowired
-import EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants
-import EXT.DOMAIN.cpe.vpr.sync.SyncAction
+import org.osehra.cpe.vpr.sync.SyncMessageConstants
+import org.osehra.cpe.vpr.sync.SyncAction
 
-import static EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants.UID
-import static EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants.ACTION
-import static EXT.DOMAIN.cpe.vpr.sync.SyncAction.ITEM_CLEAR
+import static org.osehra.cpe.vpr.sync.SyncMessageConstants.UID
+import static org.osehra.cpe.vpr.sync.SyncMessageConstants.ACTION
+import static org.osehra.cpe.vpr.sync.SyncAction.ITEM_CLEAR
 
 @Service
 class ClearItemMessageHandler implements IMapMessageHandler {

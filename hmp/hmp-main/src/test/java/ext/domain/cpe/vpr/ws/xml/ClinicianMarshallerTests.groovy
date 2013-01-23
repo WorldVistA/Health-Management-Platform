@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.ws.xml
+package org.osehra.cpe.vpr.ws.xml
 
-import EXT.DOMAIN.cpe.test.MockGrailsApplicationUnitTestCase
-import EXT.DOMAIN.cpe.vpr.Clinician
+import org.osehra.cpe.test.MockGrailsApplicationUnitTestCase
+import org.osehra.cpe.vpr.Clinician
 import grails.converters.XML
 import org.custommonkey.xmlunit.Diff
 import org.custommonkey.xmlunit.XMLUnit

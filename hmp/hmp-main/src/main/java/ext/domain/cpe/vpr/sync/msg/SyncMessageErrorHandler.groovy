@@ -1,14 +1,14 @@
-package EXT.DOMAIN.cpe.vpr.sync.msg
+package org.osehra.cpe.vpr.sync.msg
 
 import org.springframework.util.ErrorHandler
 
 import org.springframework.beans.factory.annotation.Autowired
 
-import EXT.DOMAIN.cpe.vpr.SyncError
+import org.osehra.cpe.vpr.SyncError
 import org.springframework.transaction.UnexpectedRollbackException
 import org.slf4j.LoggerFactory
 import org.slf4j.Logger
-import EXT.DOMAIN.cpe.vpr.dao.ISyncErrorDao
+import org.osehra.cpe.vpr.dao.ISyncErrorDao
 
 class SyncMessageErrorHandler implements ErrorHandler {
 

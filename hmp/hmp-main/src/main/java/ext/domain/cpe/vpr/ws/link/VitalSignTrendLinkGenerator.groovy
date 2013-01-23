@@ -1,12 +1,12 @@
-package EXT.DOMAIN.cpe.vpr.ws.link
+package org.osehra.cpe.vpr.ws.link
 
-import EXT.DOMAIN.cpe.feed.atom.Link
-import EXT.DOMAIN.cpe.vpr.VitalSign
+import org.osehra.cpe.feed.atom.Link
+import org.osehra.cpe.vpr.VitalSign
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert
-import EXT.DOMAIN.cpe.vpr.mapping.ILinkService
+import org.osehra.cpe.vpr.mapping.ILinkService
 import org.springframework.web.util.UriComponentsBuilder
 import org.springframework.web.util.UriComponents
 

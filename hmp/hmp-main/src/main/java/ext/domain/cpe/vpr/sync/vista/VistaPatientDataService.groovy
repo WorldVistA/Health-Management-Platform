@@ -1,12 +1,12 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista
+package org.osehra.cpe.vpr.sync.vista
 
 import com.fasterxml.jackson.databind.JsonNode
-import EXT.DOMAIN.cpe.vista.rpc.conn.Connection
-import EXT.DOMAIN.cpe.vpr.Patient
-import EXT.DOMAIN.cpe.vpr.PatientFacility
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO
-import EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants
-import EXT.DOMAIN.cpe.vpr.sync.UnknownPatientException
+import org.osehra.cpe.vista.rpc.conn.Connection
+import org.osehra.cpe.vpr.Patient
+import org.osehra.cpe.vpr.PatientFacility
+import org.osehra.cpe.vpr.pom.IPatientDAO
+import org.osehra.cpe.vpr.sync.SyncMessageConstants
+import org.osehra.cpe.vpr.sync.UnknownPatientException
 import org.perf4j.StopWatch
 import org.perf4j.slf4j.Slf4JStopWatch
 import org.slf4j.Logger
@@ -14,9 +14,9 @@ import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.dao.DataRetrievalFailureException
 import org.springframework.stereotype.Service
-import EXT.DOMAIN.cpe.vista.rpc.*
+import org.osehra.cpe.vista.rpc.*
 
-import static EXT.DOMAIN.cpe.vpr.sync.vista.SynchronizationRpcConstants.*
+import static org.osehra.cpe.vpr.sync.vista.SynchronizationRpcConstants.*
 
 @Service
 class VistaPatientDataService implements IVistaPatientDataService {

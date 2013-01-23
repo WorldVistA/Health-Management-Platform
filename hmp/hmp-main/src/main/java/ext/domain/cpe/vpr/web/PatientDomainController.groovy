@@ -1,17 +1,17 @@
-package EXT.DOMAIN.cpe.vpr.web
+package org.osehra.cpe.vpr.web
 
-import EXT.DOMAIN.cpe.auth.UserContext
-import EXT.DOMAIN.cpe.datetime.IntervalOfTime
-import EXT.DOMAIN.cpe.jsonc.JsonCCollection
-import EXT.DOMAIN.cpe.jsonc.JsonCResponse
-import EXT.DOMAIN.cpe.vpr.LastViewed
-import EXT.DOMAIN.cpe.vpr.Patient
-import EXT.DOMAIN.cpe.vpr.dao.ILastViewedDao
-import EXT.DOMAIN.cpe.vpr.pom.AbstractPOMObject
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPatientObjectDAO
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO
-import EXT.DOMAIN.cpe.vpr.service.IPatientDomainService
-import EXT.DOMAIN.cpe.vpr.service.PatientDomainService
+import org.osehra.cpe.auth.UserContext
+import org.osehra.cpe.datetime.IntervalOfTime
+import org.osehra.cpe.jsonc.JsonCCollection
+import org.osehra.cpe.jsonc.JsonCResponse
+import org.osehra.cpe.vpr.LastViewed
+import org.osehra.cpe.vpr.Patient
+import org.osehra.cpe.vpr.dao.ILastViewedDao
+import org.osehra.cpe.vpr.pom.AbstractPOMObject
+import org.osehra.cpe.vpr.pom.IGenericPatientObjectDAO
+import org.osehra.cpe.vpr.pom.IPatientDAO
+import org.osehra.cpe.vpr.service.IPatientDomainService
+import org.osehra.cpe.vpr.service.PatientDomainService
 
 import grails.validation.ValidationException
 import org.codehaus.groovy.grails.web.servlet.mvc.GrailsParameterMap
@@ -29,7 +29,7 @@ import org.springframework.web.servlet.ModelAndView
 
 import javax.servlet.http.HttpServletRequest
 
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
 
 /**
  * Handles nearly all VPR web service requests for individual entities in a domain as well as collections of entities in a domain.

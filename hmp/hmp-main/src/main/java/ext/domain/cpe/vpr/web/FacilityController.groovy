@@ -1,21 +1,21 @@
-package EXT.DOMAIN.cpe.vpr.web
+package org.osehra.cpe.vpr.web
 
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcTemplate
-import EXT.DOMAIN.cpe.vpr.IAppService
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO
-import EXT.DOMAIN.cpe.vpr.pom.jds.JdsTemplate
-import EXT.DOMAIN.cpe.vpr.queryeng.dynamic.IDynamicViewDefService
-import EXT.DOMAIN.cpe.vpr.queryeng.dynamic.IViewDefDefDAO;
-import EXT.DOMAIN.cpe.vpr.queryeng.dynamic.PatientPanelViewDef
-import EXT.DOMAIN.cpe.vpr.queryeng.dynamic.ViewDefDefColDef
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewDef
-import EXT.DOMAIN.cpe.vpr.queryeng.dynamic.columns.ViewDefDefColDef
-import EXT.DOMAIN.cpe.vpr.queryeng.ViewDefRenderer
-//import EXT.DOMAIN.cpe.vpr.queryeng.ViewDefRollup
-import EXT.DOMAIN.cpe.vpr.viewdef.RenderTask
-import EXT.DOMAIN.cpe.vpr.viewdef.ViewDefRenderer2
-import EXT.DOMAIN.cpe.vpr.viewdef.ViewDefRenderer2.JSONViewRenderer2
+import org.osehra.cpe.vista.rpc.RpcTemplate
+import org.osehra.cpe.vpr.IAppService
+import org.osehra.cpe.vpr.pom.IPatientDAO
+import org.osehra.cpe.vpr.pom.jds.JdsTemplate
+import org.osehra.cpe.vpr.queryeng.dynamic.IDynamicViewDefService
+import org.osehra.cpe.vpr.queryeng.dynamic.IViewDefDefDAO;
+import org.osehra.cpe.vpr.queryeng.dynamic.PatientPanelViewDef
+import org.osehra.cpe.vpr.queryeng.dynamic.ViewDefDefColDef
+import org.osehra.cpe.vpr.queryeng.ViewDef
+import org.osehra.cpe.vpr.queryeng.dynamic.columns.ViewDefDefColDef
+import org.osehra.cpe.vpr.queryeng.ViewDefRenderer
+//import org.osehra.cpe.vpr.queryeng.ViewDefRollup
+import org.osehra.cpe.vpr.viewdef.RenderTask
+import org.osehra.cpe.vpr.viewdef.ViewDefRenderer2
+import org.osehra.cpe.vpr.viewdef.ViewDefRenderer2.JSONViewRenderer2
 import grails.converters.JSON
 
 import javax.servlet.http.HttpServletRequest
@@ -36,8 +36,8 @@ import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.servlet.ModelAndView
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
+import org.osehra.cpe.vpr.pom.POMUtils
 
 @Controller
 public class FacilityController {

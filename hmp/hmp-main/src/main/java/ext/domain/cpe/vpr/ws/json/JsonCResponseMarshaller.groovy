@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vpr.ws.json
+package org.osehra.cpe.vpr.ws.json
 
 import grails.converters.JSON
 import org.codehaus.groovy.grails.web.converters.marshaller.ObjectMarshaller
 
-import EXT.DOMAIN.cpe.jsonc.JsonCResponse
+import org.osehra.cpe.jsonc.JsonCResponse
 
 
 class JsonCResponseMarshaller implements ObjectMarshaller<JSON> {

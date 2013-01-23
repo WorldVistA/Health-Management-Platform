@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr
+package org.osehra.cpe.vpr
 
-import EXT.DOMAIN.cpe.vpr.dao.solr.DefaultSolrDao
+import org.osehra.cpe.vpr.dao.solr.DefaultSolrDao
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 

@@ -1,18 +1,18 @@
-package EXT.DOMAIN.cpe.vpr.pom;
-import EXT.DOMAIN.cpe.vpr.pom.POMIndex.MultiValueJDSIndex
-import EXT.DOMAIN.cpe.vpr.pom.POMIndex.MultiValuePOMIndex
-import EXT.DOMAIN.cpe.vpr.pom.POMIndex.RangeJDSIndex
-import EXT.DOMAIN.cpe.vpr.pom.POMIndex.RangePOMIndex
-import EXT.DOMAIN.cpe.vpr.pom.POMIndex.TermJDSIndex
-import EXT.DOMAIN.cpe.vpr.pom.POMIndex.TermPOMIndex;
-import EXT.DOMAIN.cpe.vpr.pom.POMIndex.ValueJDSIndex
-import EXT.DOMAIN.cpe.vpr.pom.POMIndex.ValuePOMIndex;
-import EXT.DOMAIN.cpe.vpr.pom.TestPatientObject as Patient;
-import EXT.DOMAIN.cpe.vpr.termeng.TermEng
+package org.osehra.cpe.vpr.pom;
+import org.osehra.cpe.vpr.pom.POMIndex.MultiValueJDSIndex
+import org.osehra.cpe.vpr.pom.POMIndex.MultiValuePOMIndex
+import org.osehra.cpe.vpr.pom.POMIndex.RangeJDSIndex
+import org.osehra.cpe.vpr.pom.POMIndex.RangePOMIndex
+import org.osehra.cpe.vpr.pom.POMIndex.TermJDSIndex
+import org.osehra.cpe.vpr.pom.POMIndex.TermPOMIndex;
+import org.osehra.cpe.vpr.pom.POMIndex.ValueJDSIndex
+import org.osehra.cpe.vpr.pom.POMIndex.ValuePOMIndex;
+import org.osehra.cpe.vpr.pom.TestPatientObject as Patient;
+import org.osehra.cpe.vpr.termeng.TermEng
 
-import EXT.DOMAIN.cpe.datetime.PointInTime
+import org.osehra.cpe.datetime.PointInTime
 
-import EXT.DOMAIN.cpe.datetime.format.HL7DateTimeFormat;
+import org.osehra.cpe.datetime.format.HL7DateTimeFormat;
 
 import java.lang.reflect.Field
 

@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista
+package org.osehra.cpe.vpr.sync.vista
 
 import com.fasterxml.jackson.databind.JsonNode
 
-import EXT.DOMAIN.cpe.vpr.Patient
+import org.osehra.cpe.vpr.Patient
 
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils;
+import org.osehra.cpe.vpr.pom.POMUtils;
 
 /**
  * Represents a fragment of xml returned by a VistA RPC that corresponds to an item that is processed individually.

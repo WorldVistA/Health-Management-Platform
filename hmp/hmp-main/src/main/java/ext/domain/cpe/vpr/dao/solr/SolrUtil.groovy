@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.dao.solr
+package org.osehra.cpe.vpr.dao.solr
 
 import org.codehaus.groovy.grails.commons.GrailsClassUtils
 

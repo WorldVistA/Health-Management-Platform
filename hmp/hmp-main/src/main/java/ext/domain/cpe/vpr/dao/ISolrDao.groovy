@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vpr.dao
+package org.osehra.cpe.vpr.dao
 
 import org.apache.solr.client.solrj.SolrQuery
 import org.apache.solr.client.solrj.response.QueryResponse
 
-import EXT.DOMAIN.cpe.vpr.pom.IDataStoreDAO
+import org.osehra.cpe.vpr.pom.IDataStoreDAO
 
 public interface ISolrDao extends IDataStoreDAO {
     QueryResponse search(String query);

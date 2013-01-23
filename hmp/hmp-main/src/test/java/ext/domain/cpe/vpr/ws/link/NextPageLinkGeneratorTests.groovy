@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vpr.ws.link
+package org.osehra.cpe.vpr.ws.link
 
-import EXT.DOMAIN.cpe.feed.atom.Link
+import org.osehra.cpe.feed.atom.Link
 import org.junit.Before
 import org.junit.Test
 import static org.junit.Assert.*
-import EXT.DOMAIN.cpe.jsonc.JsonCCollection
+import org.osehra.cpe.jsonc.JsonCCollection
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageImpl
 import org.springframework.data.domain.PageRequest

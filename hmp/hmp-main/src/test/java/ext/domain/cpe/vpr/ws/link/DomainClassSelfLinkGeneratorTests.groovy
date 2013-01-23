@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vpr.ws.link
+package org.osehra.cpe.vpr.ws.link
 
-import EXT.DOMAIN.cpe.feed.atom.Link
-import EXT.DOMAIN.cpe.vpr.*
+import org.osehra.cpe.feed.atom.Link
+import org.osehra.cpe.vpr.*
 import org.junit.Test
 import org.junit.Before
 import static org.junit.Assert.*
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO
+import org.osehra.cpe.vpr.pom.IPatientDAO
 
 import static org.mockito.Mockito.mock
 import static org.mockito.Mockito.when

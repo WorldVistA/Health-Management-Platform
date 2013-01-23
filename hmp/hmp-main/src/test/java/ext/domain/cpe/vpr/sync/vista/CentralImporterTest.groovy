@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista
+package org.osehra.cpe.vpr.sync.vista
 
-import EXT.DOMAIN.cpe.vpr.Patient
+import org.osehra.cpe.vpr.Patient
 
 import org.springframework.core.convert.converter.Converter
 import org.junit.Before

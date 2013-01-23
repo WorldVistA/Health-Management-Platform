@@ -1,15 +1,15 @@
-package EXT.DOMAIN.cpe.vpr.service
+package org.osehra.cpe.vpr.service
 
-import EXT.DOMAIN.cpe.datetime.IntervalOfTime
-import EXT.DOMAIN.cpe.vpr.Patient
-import EXT.DOMAIN.cpe.vpr.VprConstants
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPatientObjectDAO
+import org.osehra.cpe.datetime.IntervalOfTime
+import org.osehra.cpe.vpr.Patient
+import org.osehra.cpe.vpr.VprConstants
+import org.osehra.cpe.vpr.pom.IGenericPatientObjectDAO
 import grails.util.GrailsNameUtils
 
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.util.ClassUtils
-import EXT.DOMAIN.cpe.vpr.web.UnknownDomainException
+import org.osehra.cpe.vpr.web.UnknownDomainException
 import org.springframework.stereotype.Service
 import org.springframework.beans.factory.annotation.Autowired
 

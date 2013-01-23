@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.web
+package org.osehra.cpe.web
 
 import org.springframework.security.web.util.RequestMatcher
 import javax.servlet.http.HttpServletRequest
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Required
 import org.springframework.context.ApplicationContextAware
 import org.springframework.context.EnvironmentAware
 import org.springframework.core.env.Environment
-import EXT.DOMAIN.cpe.Bootstrap
+import org.osehra.cpe.Bootstrap
 
 /**
  *  RequestMatcher that checks to see if application setup as run yet or not.

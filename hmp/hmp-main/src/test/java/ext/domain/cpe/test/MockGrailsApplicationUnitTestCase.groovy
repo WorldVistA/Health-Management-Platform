@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.test;
+package org.osehra.cpe.test;
 import grails.test.*
 import org.codehaus.groovy.grails.commons.GrailsApplication
 import org.codehaus.groovy.grails.web.converters.ConverterUtil

@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista.json
+package org.osehra.cpe.vpr.sync.vista.json
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.Test
-import EXT.DOMAIN.cpe.datetime.PointInTime
+import org.osehra.cpe.datetime.PointInTime
 import static org.junit.Assert.*
 
 class MedicationViewDefTest extends AbstractImporterTest {

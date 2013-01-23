@@ -1,13 +1,13 @@
-package EXT.DOMAIN.cpe.vpr
+package org.osehra.cpe.vpr
 
 import com.fasterxml.jackson.databind.JsonNode
-import EXT.DOMAIN.cpe.auth.UserContext
-import EXT.DOMAIN.cpe.param.ParamService
-import EXT.DOMAIN.cpe.vista.rpc.RpcTemplate
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils
-import EXT.DOMAIN.cpe.vpr.sync.ISyncService;
-import EXT.DOMAIN.cpe.vpr.web.PatientNotFoundException
+import org.osehra.cpe.auth.UserContext
+import org.osehra.cpe.param.ParamService
+import org.osehra.cpe.vista.rpc.RpcTemplate
+import org.osehra.cpe.vpr.pom.IPatientDAO
+import org.osehra.cpe.vpr.pom.POMUtils
+import org.osehra.cpe.vpr.sync.ISyncService;
+import org.osehra.cpe.vpr.web.PatientNotFoundException
 import grails.converters.JSON
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
@@ -19,8 +19,8 @@ import org.springframework.web.servlet.ModelAndView
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpSession
 
-import static EXT.DOMAIN.cpe.vpr.UserInterfaceRpcConstants.VPR_UI_CONTEXT
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
+import static org.osehra.cpe.vpr.UserInterfaceRpcConstants.VPR_UI_CONTEXT
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
 
 @RequestMapping(value = ["/roster/**", "/vpr/roster/**"])
 @Controller
@@ -230,7 +230,7 @@ public class RosterController {
         }
 
         // TODO: Must append this to each node
-        //[leaf: true, viewdef: 'EXT.DOMAIN.cpe.vpr.queryeng.RosterViewDef', panel: '/js/config/defaultchartpanel.js', allowDrop: true]
+        //[leaf: true, viewdef: 'org.osehra.cpe.vpr.queryeng.RosterViewDef', panel: '/js/config/defaultchartpanel.js', allowDrop: true]
 
         return contentNegotiatingModelAndView(ret);
     }

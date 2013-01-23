@@ -21,7 +21,7 @@
 * ----------------------------------------------------------------------------
 */
 
-package EXT.DOMAIN.cpe.vpr.dao.solr
+package org.osehra.cpe.vpr.dao.solr
 
 enum TESTENUM {
   NEW('New'),

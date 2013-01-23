@@ -1,16 +1,16 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista.json
+package org.osehra.cpe.vpr.sync.vista.json
 
 import static org.junit.Assert.*;
-import EXT.DOMAIN.cpe.datetime.PointInTime;
-import EXT.DOMAIN.cpe.vpr.PatientFacility
-import EXT.DOMAIN.cpe.vpr.Problem;
-import EXT.DOMAIN.cpe.vpr.UidUtils;
-import EXT.DOMAIN.cpe.vpr.sync.vista.MockVistaDataChunks;
-import EXT.DOMAIN.cpe.vpr.sync.vista.VistaDataChunk
+import org.osehra.cpe.datetime.PointInTime;
+import org.osehra.cpe.vpr.PatientFacility
+import org.osehra.cpe.vpr.Problem;
+import org.osehra.cpe.vpr.UidUtils;
+import org.osehra.cpe.vpr.sync.vista.MockVistaDataChunks;
+import org.osehra.cpe.vpr.sync.vista.VistaDataChunk
 import org.junit.Test
 
 import static org.hamcrest.CoreMatchers.*
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPatientObjectDAO
+import org.osehra.cpe.vpr.pom.IGenericPatientObjectDAO
 
 import static org.mockito.Mockito.mock
 import static org.mockito.Mockito.when

@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.web;
-import EXT.DOMAIN.cpe.vpr.sync.ISyncService
-import EXT.DOMAIN.cpe.vpr.RosterService
+package org.osehra.cpe.vpr.web;
+import org.osehra.cpe.vpr.sync.ISyncService
+import org.osehra.cpe.vpr.RosterService
 
 import java.util.List;
 import java.util.Map;
@@ -8,8 +8,8 @@ import java.util.Map;
 
 
 import static org.junit.Assert.*;
-import EXT.DOMAIN.cpe.auth.HmpUserDetails
-import EXT.DOMAIN.cpe.auth.UserContext
+import org.osehra.cpe.auth.HmpUserDetails
+import org.osehra.cpe.auth.UserContext
 
 import org.junit.Test
 import org.springframework.mock.web.MockHttpServletRequest

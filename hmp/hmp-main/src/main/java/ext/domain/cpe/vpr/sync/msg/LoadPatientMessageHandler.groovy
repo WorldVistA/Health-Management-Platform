@@ -1,33 +1,33 @@
-package EXT.DOMAIN.cpe.vpr.sync.msg
+package org.osehra.cpe.vpr.sync.msg
 
-import EXT.DOMAIN.cpe.vpr.Patient
-import EXT.DOMAIN.cpe.vpr.PatientFacility
+import org.osehra.cpe.vpr.Patient
+import org.osehra.cpe.vpr.PatientFacility
 
-import EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants
+import org.osehra.cpe.vpr.sync.SyncMessageConstants
 
-import EXT.DOMAIN.cpe.vpr.sync.UnreachableFacilityException
+import org.osehra.cpe.vpr.sync.UnreachableFacilityException
 
-import EXT.DOMAIN.cpe.vpr.sync.vista.VistaDataChunk
+import org.osehra.cpe.vpr.sync.vista.VistaDataChunk
 
 import org.perf4j.StopWatch
 import org.perf4j.slf4j.Slf4JStopWatch
 import org.springframework.beans.factory.annotation.Autowired
 
-import static EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants.PATIENT_ID
-import static EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants.VISTA_ID
+import static org.osehra.cpe.vpr.sync.SyncMessageConstants.PATIENT_ID
+import static org.osehra.cpe.vpr.sync.SyncMessageConstants.VISTA_ID
 
-import static EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants.PATIENT_DFN
+import static org.osehra.cpe.vpr.sync.SyncMessageConstants.PATIENT_DFN
 import org.springframework.core.env.Environment
 import org.springframework.context.EnvironmentAware
-import EXT.DOMAIN.cpe.HmpProperties
+import org.osehra.cpe.HmpProperties
 
 import org.springframework.dao.InvalidDataAccessResourceUsageException
 
-import EXT.DOMAIN.cpe.vpr.sync.vista.IVistaPatientDataService
+import org.osehra.cpe.vpr.sync.vista.IVistaPatientDataService
 import org.springframework.beans.factory.annotation.Required
 import org.springframework.core.convert.converter.Converter
-import EXT.DOMAIN.cpe.vpr.sync.ISyncService
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO
+import org.osehra.cpe.vpr.sync.ISyncService
+import org.osehra.cpe.vpr.pom.IPatientDAO
 
 // TODO: consider removing reference to jmsTemplate and move all msg generation into SyncService
 class LoadPatientMessageHandler implements IMapMessageHandler, EnvironmentAware {

@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.grails.plugins
+package org.osehra.cpe.grails.plugins
 
 import org.codehaus.groovy.grails.plugins.web.ServletsGrailsPlugin
 import org.springframework.beans.factory.InitializingBean

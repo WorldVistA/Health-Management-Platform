@@ -1,15 +1,15 @@
-package EXT.DOMAIN.cpe.vpr.sync.msg
+package org.osehra.cpe.vpr.sync.msg
 
 import org.springframework.transaction.annotation.Transactional
-import EXT.DOMAIN.cpe.vpr.SyncError
+import org.osehra.cpe.vpr.SyncError
 import org.springframework.transaction.annotation.Propagation
 
-import EXT.DOMAIN.cpe.vpr.sync.SyncAction
+import org.osehra.cpe.vpr.sync.SyncAction
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service
-import EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants
-import EXT.DOMAIN.cpe.vpr.dao.ISyncErrorDao
+import org.osehra.cpe.vpr.sync.SyncMessageConstants
+import org.osehra.cpe.vpr.dao.ISyncErrorDao
 
 
 @Deprecated

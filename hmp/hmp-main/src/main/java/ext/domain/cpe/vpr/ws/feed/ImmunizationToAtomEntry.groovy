@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.ws.feed
+package org.osehra.cpe.vpr.ws.feed
 
 /**
  * Created by IntelliJ IDEA.
@@ -8,13 +8,13 @@ package EXT.DOMAIN.cpe.vpr.ws.feed
  * To change this template use File | Settings | File Templates.
  */
 
-import EXT.DOMAIN.cpe.vpr.Immunization
-import EXT.DOMAIN.cpe.feed.atom.Entry
+import org.osehra.cpe.vpr.Immunization
+import org.osehra.cpe.feed.atom.Entry
 import org.springframework.beans.factory.InitializingBean
-import EXT.DOMAIN.cpe.vpr.LinkService
+import org.osehra.cpe.vpr.LinkService
 import org.springframework.util.Assert
-import EXT.DOMAIN.cpe.feed.atom.Text
-import EXT.DOMAIN.cpe.feed.atom.Link
+import org.osehra.cpe.feed.atom.Text
+import org.osehra.cpe.feed.atom.Link
 import org.springframework.core.convert.converter.Converter
 
 class ImmunizationToAtomEntry implements Converter<Immunization, Entry>, InitializingBean{

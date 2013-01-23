@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.sync
+package org.osehra.cpe.vpr.sync
 
-import EXT.DOMAIN.cpe.vpr.Patient
+import org.osehra.cpe.vpr.Patient
 
 
 class UnreachableFacilityException extends Exception {

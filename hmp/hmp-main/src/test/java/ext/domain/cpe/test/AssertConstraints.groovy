@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.test
+package org.osehra.cpe.test
 
 class AssertConstraints {
 

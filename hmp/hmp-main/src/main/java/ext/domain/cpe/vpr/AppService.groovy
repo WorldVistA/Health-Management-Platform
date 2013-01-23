@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr
+package org.osehra.cpe.vpr
 
-import EXT.DOMAIN.cpe.auth.HmpUserDetails
-import EXT.DOMAIN.cpe.auth.UserContext;
+import org.osehra.cpe.auth.HmpUserDetails
+import org.osehra.cpe.auth.UserContext;
 
 import java.util.Map;
 
@@ -19,31 +19,31 @@ class AppService implements IAppService, ApplicationContextAware {
 	// TODO: This needs to be moved to spring xml definition?
 	static defaultApps = [
 		// dynamic list of appbar menuitems
-		[type: 'EXT.DOMAIN.cpe.appbar.mainmenu', code: 'cpe', extClass:'EXT.DOMAIN.cpe.CPEApp', url: '/app/cpe', name: 'CPE', menu: 'Clinical Apps'],
-        [type: 'EXT.DOMAIN.cpe.appbar.mainmenu', code: 'team', extClass:'EXT.DOMAIN.hmp.team.TeamManagementApplication', url: '/app/team', name: 'Team Management', menu: 'Clinical Apps'],
-		[type: 'EXT.DOMAIN.cpe.appbar.mainmenu', code: 'admin', extClass:'EXT.DOMAIN.hmp.admin.AdminApp', url: '/app/admin', name: 'System Config', menu: 'Admin Tools'],
-		[type: 'EXT.DOMAIN.cpe.appbar.mainmenu', code: 'adminapi', url: '/api', name: 'API Docs', menu: 'Admin Tools'],
-		[type: 'EXT.DOMAIN.cpe.appbar.mainmenu', code: 'config', url: '/config', name: 'Board Builder', menu: 'Admin Tools'],
-        [type: 'EXT.DOMAIN.cpe.appbar.mainmenu', code: 'foo', extClass:'EXT.DOMAIN.hmp.FooApp',url: '/app/foo', name: 'Foo', menu: 'Experimental', requireKey: 'XUPROG'],
-        [type: 'EXT.DOMAIN.cpe.appbar.mainmenu', code: 'roles', extClass:'EXT.DOMAIN.hmp.team.RoleApp',url: '/app/roles', name: 'Role-y Poley', menu: 'Experimental', requireAuthority: 'VISTA_KEY_XUPROG'],
-        [type: 'EXT.DOMAIN.cpe.appbar.mainmenu', code: 'pageanalyzer', url: '/lib/extjs-4.1.3/examples/page-analyzer/page-analyzer.html', name: 'Page Analyzer', menu: 'Debug', requireKey: 'XUPROG'],
-//        [type: 'EXT.DOMAIN.cpe.appbar.mainmenu', code: 'team2', extClass:'EXT.DOMAIN.hmp.team.TeamApp2', url: '/app/team2', name: 'Team Management 2', menu: 'Experimental', requireKey: 'VPR EXPERIMENTAL'],
-        //[type: 'EXT.DOMAIN.cpe.appbar.mainmenu', code: 'cpedesigner', url: '/aviva/cpedesigner', name: 'CPE Designer', menu: 'Exploratory Apps', requireKey: 'VISTA_KEY_VPR_EXPERIMENTAL'],
-        [type: 'EXT.DOMAIN.cpe.appbar.mainmenu', code: 'cheklist', url: '/checklist', name: 'Check List', menu: 'Admin Tools'],
+		[type: 'org.osehra.cpe.appbar.mainmenu', code: 'cpe', extClass:'org.osehra.cpe.CPEApp', url: '/app/cpe', name: 'CPE', menu: 'Clinical Apps'],
+        [type: 'org.osehra.cpe.appbar.mainmenu', code: 'team', extClass:'org.osehra.hmp.team.TeamManagementApplication', url: '/app/team', name: 'Team Management', menu: 'Clinical Apps'],
+		[type: 'org.osehra.cpe.appbar.mainmenu', code: 'admin', extClass:'org.osehra.hmp.admin.AdminApp', url: '/app/admin', name: 'System Config', menu: 'Admin Tools'],
+		[type: 'org.osehra.cpe.appbar.mainmenu', code: 'adminapi', url: '/api', name: 'API Docs', menu: 'Admin Tools'],
+		[type: 'org.osehra.cpe.appbar.mainmenu', code: 'config', url: '/config', name: 'Board Builder', menu: 'Admin Tools'],
+        [type: 'org.osehra.cpe.appbar.mainmenu', code: 'foo', extClass:'org.osehra.hmp.FooApp',url: '/app/foo', name: 'Foo', menu: 'Experimental', requireKey: 'XUPROG'],
+        [type: 'org.osehra.cpe.appbar.mainmenu', code: 'roles', extClass:'org.osehra.hmp.team.RoleApp',url: '/app/roles', name: 'Role-y Poley', menu: 'Experimental', requireAuthority: 'VISTA_KEY_XUPROG'],
+        [type: 'org.osehra.cpe.appbar.mainmenu', code: 'pageanalyzer', url: '/lib/extjs-4.1.3/examples/page-analyzer/page-analyzer.html', name: 'Page Analyzer', menu: 'Debug', requireKey: 'XUPROG'],
+//        [type: 'org.osehra.cpe.appbar.mainmenu', code: 'team2', extClass:'org.osehra.hmp.team.TeamApp2', url: '/app/team2', name: 'Team Management 2', menu: 'Experimental', requireKey: 'VPR EXPERIMENTAL'],
+        //[type: 'org.osehra.cpe.appbar.mainmenu', code: 'cpedesigner', url: '/aviva/cpedesigner', name: 'CPE Designer', menu: 'Exploratory Apps', requireKey: 'VISTA_KEY_VPR_EXPERIMENTAL'],
+        [type: 'org.osehra.cpe.appbar.mainmenu', code: 'cheklist', url: '/checklist', name: 'Check List', menu: 'Admin Tools'],
 
 
                         // dynamic list of panel views
-		[type: 'EXT.DOMAIN.cpe.panels', code: 'defaultchartpanel', name: 'Generic Patient Chart'],
-		[type: 'EXT.DOMAIN.cpe.panels', code: 'chfpanel', name: 'CHF Panel'],
-        [type: 'EXT.DOMAIN.cpe.panels', code: 'search', name: 'Search'],
-        [type: 'EXT.DOMAIN.cpe.panels', code: 'activity-stream', name: 'Activity Stream (Wall)'],
-        [type: 'EXT.DOMAIN.cpe.panels', code: 'brian-worksheet-exp', name: 'Brian Worksheet Exp', requireKey: 'VPR EXPERIMENTAL'],
+		[type: 'org.osehra.cpe.panels', code: 'defaultchartpanel', name: 'Generic Patient Chart'],
+		[type: 'org.osehra.cpe.panels', code: 'chfpanel', name: 'CHF Panel'],
+        [type: 'org.osehra.cpe.panels', code: 'search', name: 'Search'],
+        [type: 'org.osehra.cpe.panels', code: 'activity-stream', name: 'Activity Stream (Wall)'],
+        [type: 'org.osehra.cpe.panels', code: 'brian-worksheet-exp', name: 'Brian Worksheet Exp', requireKey: 'VPR EXPERIMENTAL'],
 		
 		// dynamic list of tab types
-		[type: 'EXT.DOMAIN.cpe.tabtypes', code: 'viewdefgridpanel', name: 'Grid Detail'],
-		[type: 'EXT.DOMAIN.cpe.tabtypes', code: 'portalpanel', name: 'Dashboard'],
-		[type: 'EXT.DOMAIN.cpe.tabtypes', code: 'patientawarepanel', name: 'Web Page/App'],
-		[type: 'EXT.DOMAIN.cpe.tabtypes', code: 'wunderpanel', name: 'Dynamic Table'],
+		[type: 'org.osehra.cpe.tabtypes', code: 'viewdefgridpanel', name: 'Grid Detail'],
+		[type: 'org.osehra.cpe.tabtypes', code: 'portalpanel', name: 'Dashboard'],
+		[type: 'org.osehra.cpe.tabtypes', code: 'patientawarepanel', name: 'Web Page/App'],
+		[type: 'org.osehra.cpe.tabtypes', code: 'wunderpanel', name: 'Dynamic Table'],
 	];
 
     private ApplicationContext applicationContext;

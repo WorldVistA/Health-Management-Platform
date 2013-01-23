@@ -1,20 +1,20 @@
-package EXT.DOMAIN.cpe.web
+package org.osehra.cpe.web
 
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
 
-import EXT.DOMAIN.cpe.Bootstrap
-import EXT.DOMAIN.cpe.HmpProperties
-import EXT.DOMAIN.cpe.SetupCommand
-import EXT.DOMAIN.cpe.hub.VistaAccount
-import EXT.DOMAIN.cpe.hub.VistaAccountValidator
-import EXT.DOMAIN.cpe.hub.dao.IVistaAccountDao
-import EXT.DOMAIN.cpe.vista.rpc.ConnectionCallback
-import EXT.DOMAIN.cpe.vista.rpc.RpcOperations
-import EXT.DOMAIN.cpe.vista.rpc.conn.Connection
-import EXT.DOMAIN.cpe.vpr.sync.vista.SynchronizationRpcConstants
-import EXT.DOMAIN.cpe.vpr.termeng.TermEng
-import EXT.DOMAIN.cpe.vpr.web.BadRequestException
-import EXT.DOMAIN.cpe.vpr.web.IHealthCheck
+import org.osehra.cpe.Bootstrap
+import org.osehra.cpe.HmpProperties
+import org.osehra.cpe.SetupCommand
+import org.osehra.cpe.hub.VistaAccount
+import org.osehra.cpe.hub.VistaAccountValidator
+import org.osehra.cpe.hub.dao.IVistaAccountDao
+import org.osehra.cpe.vista.rpc.ConnectionCallback
+import org.osehra.cpe.vista.rpc.RpcOperations
+import org.osehra.cpe.vista.rpc.conn.Connection
+import org.osehra.cpe.vpr.sync.vista.SynchronizationRpcConstants
+import org.osehra.cpe.vpr.termeng.TermEng
+import org.osehra.cpe.vpr.web.BadRequestException
+import org.osehra.cpe.vpr.web.IHealthCheck
 
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse

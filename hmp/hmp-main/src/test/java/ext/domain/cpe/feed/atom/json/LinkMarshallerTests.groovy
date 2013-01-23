@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.feed.atom.json
+package org.osehra.cpe.feed.atom.json
 
-import EXT.DOMAIN.cpe.feed.atom.Link
+import org.osehra.cpe.feed.atom.Link
 import grails.converters.JSON
-import EXT.DOMAIN.cpe.test.MockGrailsApplicationUnitTestCase
+import org.osehra.cpe.test.MockGrailsApplicationUnitTestCase
 
 class LinkMarshallerTests extends MockGrailsApplicationUnitTestCase {
 
@@ -20,7 +20,7 @@ class LinkMarshallerTests extends MockGrailsApplicationUnitTestCase {
     }
 
     void testMarshalLink() {
-        assertEquals('{"class":"EXT.DOMAIN.cpe.feed.atom.json.Foo","link":{"rel":"self","href":"http://www.example.com"}}', new JSON(new Foo(link:new Link(rel: 'self', href: 'http://www.example.com'))).toString());
+        assertEquals('{"class":"org.osehra.cpe.feed.atom.json.Foo","link":{"rel":"self","href":"http://www.example.com"}}', new JSON(new Foo(link:new Link(rel: 'self', href: 'http://www.example.com'))).toString());
     }
 }
 

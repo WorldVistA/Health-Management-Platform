@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.feed.atom.xml;
+package org.osehra.cpe.feed.atom.xml;
 
 
-import EXT.DOMAIN.cpe.feed.atom.Category
+import org.osehra.cpe.feed.atom.Category
 import grails.converters.XML
 import org.custommonkey.xmlunit.Diff
 import org.custommonkey.xmlunit.XMLUnit

@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.dao.solr
+package org.osehra.cpe.vpr.dao.solr
 
 import org.apache.solr.client.solrj.SolrQuery
 import org.apache.solr.client.solrj.SolrServer
@@ -6,12 +6,12 @@ import org.apache.solr.client.solrj.response.QueryResponse
 import org.apache.solr.common.SolrInputDocument
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.core.convert.ConversionService
-import EXT.DOMAIN.cpe.vpr.dao.ISolrDao
-import EXT.DOMAIN.cpe.vpr.VitalSign
-import EXT.DOMAIN.cpe.vpr.VitalSignOrganizer
-import EXT.DOMAIN.cpe.vpr.Result
-import EXT.DOMAIN.cpe.vpr.ResultOrganizer
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject
+import org.osehra.cpe.vpr.dao.ISolrDao
+import org.osehra.cpe.vpr.VitalSign
+import org.osehra.cpe.vpr.VitalSignOrganizer
+import org.osehra.cpe.vpr.Result
+import org.osehra.cpe.vpr.ResultOrganizer
+import org.osehra.cpe.vpr.pom.IPatientObject
 
 class DefaultSolrDao implements ISolrDao {
 

@@ -1,15 +1,15 @@
-package EXT.DOMAIN.cpe.vpr.sync.msg
+package org.osehra.cpe.vpr.sync.msg
 
-import EXT.DOMAIN.cpe.datetime.PointInTime
-import EXT.DOMAIN.cpe.hub.dao.IVistaAccountDao
-import EXT.DOMAIN.cpe.vpr.Patient
+import org.osehra.cpe.datetime.PointInTime
+import org.osehra.cpe.hub.dao.IVistaAccountDao
+import org.osehra.cpe.vpr.Patient
 
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPOMObjectDAO
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils
-import EXT.DOMAIN.cpe.vpr.sync.SyncMessageConstants
-import EXT.DOMAIN.cpe.vpr.sync.SyncService
-import EXT.DOMAIN.cpe.vpr.sync.vista.VprUpdate
+import org.osehra.cpe.vpr.pom.IGenericPOMObjectDAO
+import org.osehra.cpe.vpr.pom.IPatientDAO
+import org.osehra.cpe.vpr.pom.POMUtils
+import org.osehra.cpe.vpr.sync.SyncMessageConstants
+import org.osehra.cpe.vpr.sync.SyncService
+import org.osehra.cpe.vpr.sync.vista.VprUpdate
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -17,9 +17,9 @@ import org.springframework.util.StringUtils
 import org.slf4j.LoggerFactory
 import org.slf4j.Logger
 
-import EXT.DOMAIN.cpe.vpr.dao.ISolrDao
-import EXT.DOMAIN.cpe.vpr.sync.ISyncService
-import EXT.DOMAIN.cpe.vpr.dao.IVprUpdateDao
+import org.osehra.cpe.vpr.dao.ISolrDao
+import org.osehra.cpe.vpr.sync.ISyncService
+import org.osehra.cpe.vpr.dao.IVprUpdateDao
 
 @Service
 @Transactional

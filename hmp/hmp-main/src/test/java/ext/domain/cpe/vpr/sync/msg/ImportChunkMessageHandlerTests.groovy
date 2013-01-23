@@ -1,24 +1,24 @@
-package EXT.DOMAIN.cpe.vpr.sync.msg
+package org.osehra.cpe.vpr.sync.msg
 
-import EXT.DOMAIN.cpe.test.mockito.ReturnsArgument
-import EXT.DOMAIN.cpe.vpr.dao.RoutingDataStore
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameRunner
+import org.osehra.cpe.test.mockito.ReturnsArgument
+import org.osehra.cpe.vpr.dao.RoutingDataStore
+import org.osehra.cpe.vpr.frameeng.FrameRunner
 
-import EXT.DOMAIN.cpe.vpr.sync.vista.CentralImporter
-import EXT.DOMAIN.cpe.vpr.sync.vista.Foo
-import EXT.DOMAIN.cpe.vpr.sync.vista.MockVistaDataChunks
-import EXT.DOMAIN.cpe.vpr.sync.vista.VistaDataChunk
+import org.osehra.cpe.vpr.sync.vista.CentralImporter
+import org.osehra.cpe.vpr.sync.vista.Foo
+import org.osehra.cpe.vpr.sync.vista.MockVistaDataChunks
+import org.osehra.cpe.vpr.sync.vista.VistaDataChunk
 import org.junit.Before
 import org.junit.Test
 import org.springframework.core.convert.ConversionService
 import org.springframework.core.convert.converter.Converter
 import org.springframework.core.env.Environment
-import EXT.DOMAIN.cpe.vpr.*
+import org.osehra.cpe.vpr.*
 
 import static org.mockito.Matchers.anyMapOf
 import static org.mockito.Mockito.*
 
-import EXT.DOMAIN.cpe.vpr.sync.ISyncService
+import org.osehra.cpe.vpr.sync.ISyncService
 import org.mockito.stubbing.Answer
 import org.mockito.invocation.InvocationOnMock
 import org.mockito.internal.stubbing.answers.ThrowsException

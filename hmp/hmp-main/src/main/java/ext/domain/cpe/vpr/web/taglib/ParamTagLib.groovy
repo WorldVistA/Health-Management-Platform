@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.web.taglib
+package org.osehra.cpe.vpr.web.taglib
 
-import EXT.DOMAIN.cpe.param.ParamService
+import org.osehra.cpe.param.ParamService
 import org.springframework.context.ApplicationContext
 import javax.servlet.ServletContext
 import org.springframework.web.context.support.WebApplicationContextUtils

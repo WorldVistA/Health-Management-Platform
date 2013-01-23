@@ -1,12 +1,12 @@
-package EXT.DOMAIN.cpe.vpr.ws.feed
+package org.osehra.cpe.vpr.ws.feed
 
-import EXT.DOMAIN.cpe.vpr.Result
-import EXT.DOMAIN.cpe.feed.atom.Entry
+import org.osehra.cpe.vpr.Result
+import org.osehra.cpe.feed.atom.Entry
 import org.springframework.beans.factory.InitializingBean
-import EXT.DOMAIN.cpe.vpr.LinkService
+import org.osehra.cpe.vpr.LinkService
 import org.springframework.util.Assert
-import EXT.DOMAIN.cpe.feed.atom.Text
-import EXT.DOMAIN.cpe.feed.atom.Link
+import org.osehra.cpe.feed.atom.Text
+import org.osehra.cpe.feed.atom.Link
 import org.springframework.core.convert.converter.Converter
 
 class ResultToAtomEntry implements Converter<Result, Entry>, InitializingBean {

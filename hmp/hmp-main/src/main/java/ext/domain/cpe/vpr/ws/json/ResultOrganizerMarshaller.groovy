@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vpr.ws.json
+package org.osehra.cpe.vpr.ws.json
 
 import java.beans.PropertyDescriptor;
 
 import grails.converters.JSON
-import EXT.DOMAIN.cpe.vpr.ResultOrganizer
-import EXT.DOMAIN.cpe.vpr.Result
+import org.osehra.cpe.vpr.ResultOrganizer
+import org.osehra.cpe.vpr.Result
 
 
 class ResultOrganizerMarshaller extends DomainClassMarshaller {

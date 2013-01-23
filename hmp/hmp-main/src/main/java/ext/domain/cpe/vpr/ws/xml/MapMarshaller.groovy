@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.ws.xml
+package org.osehra.cpe.vpr.ws.xml
 
 import grails.converters.XML
 

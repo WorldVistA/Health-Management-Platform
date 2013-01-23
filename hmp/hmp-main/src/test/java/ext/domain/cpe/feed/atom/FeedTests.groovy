@@ -1,12 +1,12 @@
-package EXT.DOMAIN.cpe.feed.atom
+package org.osehra.cpe.feed.atom
 
 import grails.test.GrailsUnitTestCase
 
-import EXT.DOMAIN.cpe.datetime.PointInTime
-import EXT.DOMAIN.cpe.feed.atom.Feed
-import EXT.DOMAIN.cpe.feed.atom.Entry
-import EXT.DOMAIN.cpe.feed.atom.Link
-import EXT.DOMAIN.cpe.feed.atom.Person
+import org.osehra.cpe.datetime.PointInTime
+import org.osehra.cpe.feed.atom.Feed
+import org.osehra.cpe.feed.atom.Entry
+import org.osehra.cpe.feed.atom.Link
+import org.osehra.cpe.feed.atom.Person
 
 
 class FeedTests extends GrailsUnitTestCase {

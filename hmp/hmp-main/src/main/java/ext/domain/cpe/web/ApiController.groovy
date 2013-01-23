@@ -1,29 +1,29 @@
-package EXT.DOMAIN.cpe.web
+package org.osehra.cpe.web
 
 import groovy.text.XmlTemplateEngine
 import groovy.util.slurpersupport.GPathResult
 import java.util.Map.Entry
 import org.codehaus.groovy.grails.commons.GrailsApplication
 
-import EXT.DOMAIN.cpe.vpr.IAppService;
-import EXT.DOMAIN.cpe.param.ParamService
-import EXT.DOMAIN.cpe.vpr.NotFoundException
-import EXT.DOMAIN.cpe.vpr.web.BadRequestException
-import EXT.DOMAIN.cpe.vpr.Allergy
-import EXT.DOMAIN.cpe.vpr.Immunization
-import EXT.DOMAIN.cpe.vpr.VitalSign
-import EXT.DOMAIN.cpe.vpr.Result
-import EXT.DOMAIN.cpe.vpr.Procedure
-import EXT.DOMAIN.cpe.vpr.Problem
-import EXT.DOMAIN.cpe.vpr.Patient
-import EXT.DOMAIN.cpe.vpr.Order
-import EXT.DOMAIN.cpe.vpr.Observation
-import EXT.DOMAIN.cpe.vpr.Medication
-import EXT.DOMAIN.cpe.vpr.HealthFactor
-import EXT.DOMAIN.cpe.vpr.Task
+import org.osehra.cpe.vpr.IAppService;
+import org.osehra.cpe.param.ParamService
+import org.osehra.cpe.vpr.NotFoundException
+import org.osehra.cpe.vpr.web.BadRequestException
+import org.osehra.cpe.vpr.Allergy
+import org.osehra.cpe.vpr.Immunization
+import org.osehra.cpe.vpr.VitalSign
+import org.osehra.cpe.vpr.Result
+import org.osehra.cpe.vpr.Procedure
+import org.osehra.cpe.vpr.Problem
+import org.osehra.cpe.vpr.Patient
+import org.osehra.cpe.vpr.Order
+import org.osehra.cpe.vpr.Observation
+import org.osehra.cpe.vpr.Medication
+import org.osehra.cpe.vpr.HealthFactor
+import org.osehra.cpe.vpr.Task
 
-import EXT.DOMAIN.cpe.vpr.Encounter
-import EXT.DOMAIN.cpe.vpr.Document
+import org.osehra.cpe.vpr.Encounter
+import org.osehra.cpe.vpr.Document
 import org.codehaus.groovy.grails.web.converters.ConverterUtil
 
 import grails.util.GrailsNameUtils
@@ -34,11 +34,11 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.servlet.ModelAndView
 import org.springframework.web.bind.annotation.RequestParam
-import EXT.DOMAIN.cpe.vpr.service.IPatientDomainService
+import org.osehra.cpe.vpr.service.IPatientDomainService
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
-import EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory
-import EXT.DOMAIN.cpe.jsonc.JsonCResponse
-import EXT.DOMAIN.cpe.jsonc.JsonCCollection
+import org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory
+import org.osehra.cpe.jsonc.JsonCResponse
+import org.osehra.cpe.jsonc.JsonCCollection
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo
 import org.springframework.web.method.HandlerMethod
 import org.springframework.core.MethodParameter

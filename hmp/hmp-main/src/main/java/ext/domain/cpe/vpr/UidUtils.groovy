@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr
+package org.osehra.cpe.vpr
 
 import groovy.text.SimpleTemplateEngine
 import groovy.text.Template

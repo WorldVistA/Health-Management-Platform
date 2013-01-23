@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.vpr.ws.xml
+package org.osehra.cpe.vpr.ws.xml
 
 import java.beans.PropertyDescriptor;
 
-import EXT.DOMAIN.cpe.vpr.ResultOrganizer
+import org.osehra.cpe.vpr.ResultOrganizer
 import grails.converters.XML
 
 

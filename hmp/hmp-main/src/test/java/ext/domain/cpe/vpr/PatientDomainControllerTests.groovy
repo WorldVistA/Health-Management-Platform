@@ -1,9 +1,9 @@
-package EXT.DOMAIN.cpe.vpr
+package org.osehra.cpe.vpr
 
-import EXT.DOMAIN.cpe.feed.atom.Link
-import EXT.DOMAIN.cpe.test.MockGrailsApplicationUnitTestCase
-import EXT.DOMAIN.cpe.vpr.mapping.ILinkService
-import EXT.DOMAIN.cpe.vpr.ws.link.LinkRelation
+import org.osehra.cpe.feed.atom.Link
+import org.osehra.cpe.test.MockGrailsApplicationUnitTestCase
+import org.osehra.cpe.vpr.mapping.ILinkService
+import org.osehra.cpe.vpr.ws.link.LinkRelation
 import grails.converters.JSON
 import grails.converters.XML
 import grails.test.ControllerUnitTestCase
@@ -56,15 +56,15 @@ class PatientDomainControllerTests {
 //        } as ILinkService
 //
 //        HL7DateTimeConverters.registerJsonAndXmlMarshallers();
-//        JSON.registerObjectMarshaller(new EXT.DOMAIN.cpe.vpr.ws.json.DomainClassMarshaller(proxyHandler: new DefaultProxyHandler(), linkService: mockUrlCreator), 1)
-//        JSON.registerObjectMarshaller(new EXT.DOMAIN.cpe.feed.atom.json.LinkMarshaller())
-//        JSON.registerObjectMarshaller(new EXT.DOMAIN.cpe.vpr.ws.json.VprResponseMarshaller())
-//        JSON.registerObjectMarshaller(new EXT.DOMAIN.cpe.vpr.ws.json.PaginatedCollectionResponseMarshaller())
-//        XML.registerObjectMarshaller(new EXT.DOMAIN.cpe.vpr.ws.xml.VprResponseMarshaller())
-//        XML.registerObjectMarshaller(new EXT.DOMAIN.cpe.vpr.ws.xml.PaginatedCollectionResponseMarshaller())
-//        XML.registerObjectMarshaller(new EXT.DOMAIN.cpe.vpr.ws.xml.MapMarshaller())
-//        XML.registerObjectMarshaller(new EXT.DOMAIN.cpe.feed.atom.xml.LinkMarshaller())
-//        XML.registerObjectMarshaller(new EXT.DOMAIN.cpe.vpr.ws.xml.DomainClassMarshaller(proxyHandler: new DefaultProxyHandler(), linkService: mockUrlCreator), 1)
+//        JSON.registerObjectMarshaller(new org.osehra.cpe.vpr.ws.json.DomainClassMarshaller(proxyHandler: new DefaultProxyHandler(), linkService: mockUrlCreator), 1)
+//        JSON.registerObjectMarshaller(new org.osehra.cpe.feed.atom.json.LinkMarshaller())
+//        JSON.registerObjectMarshaller(new org.osehra.cpe.vpr.ws.json.VprResponseMarshaller())
+//        JSON.registerObjectMarshaller(new org.osehra.cpe.vpr.ws.json.PaginatedCollectionResponseMarshaller())
+//        XML.registerObjectMarshaller(new org.osehra.cpe.vpr.ws.xml.VprResponseMarshaller())
+//        XML.registerObjectMarshaller(new org.osehra.cpe.vpr.ws.xml.PaginatedCollectionResponseMarshaller())
+//        XML.registerObjectMarshaller(new org.osehra.cpe.vpr.ws.xml.MapMarshaller())
+//        XML.registerObjectMarshaller(new org.osehra.cpe.feed.atom.xml.LinkMarshaller())
+//        XML.registerObjectMarshaller(new org.osehra.cpe.vpr.ws.xml.DomainClassMarshaller(proxyHandler: new DefaultProxyHandler(), linkService: mockUrlCreator), 1)
 //    }
 //
 //    protected void tearDown() {

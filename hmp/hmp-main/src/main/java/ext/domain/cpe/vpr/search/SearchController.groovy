@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr.search
+package org.osehra.cpe.vpr.search
 
-import EXT.DOMAIN.cpe.jsonc.JsonCCollection
-import EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory
+import org.osehra.cpe.jsonc.JsonCCollection
+import org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory
 import org.codehaus.groovy.grails.web.servlet.mvc.GrailsParameterMap
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.domain.Pageable
@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView
 
 import javax.servlet.http.HttpServletRequest
 
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
 
 @Controller
 class SearchController {

@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.auth
+package org.osehra.cpe.auth
 
 import org.springframework.security.web.util.RequestMatcher
 

@@ -1,4 +1,4 @@
-package EXT.DOMAIN.cpe.vpr.ws.xml
+package org.osehra.cpe.vpr.ws.xml
 
 import groovy.util.slurpersupport.GPathResult
 import javax.xml.transform.sax.SAXSource

@@ -1,14 +1,14 @@
-package EXT.DOMAIN.cpe.vpr.web
+package org.osehra.cpe.vpr.web
 
-import EXT.DOMAIN.cpe.auth.UserContext
-import EXT.DOMAIN.cpe.vpr.LastViewed
+import org.osehra.cpe.auth.UserContext
+import org.osehra.cpe.vpr.LastViewed
 
-import EXT.DOMAIN.cpe.vpr.UidUtils
-import EXT.DOMAIN.cpe.vpr.dao.ILastViewedDao
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameRunner
-import EXT.DOMAIN.cpe.vpr.pom.AbstractPOMObject
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPatientObjectDAO
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO;
+import org.osehra.cpe.vpr.UidUtils
+import org.osehra.cpe.vpr.dao.ILastViewedDao
+import org.osehra.cpe.vpr.frameeng.FrameRunner
+import org.osehra.cpe.vpr.pom.AbstractPOMObject
+import org.osehra.cpe.vpr.pom.IGenericPatientObjectDAO
+import org.osehra.cpe.vpr.pom.IPatientDAO;
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.ApplicationContext
@@ -20,7 +20,7 @@ import org.springframework.web.servlet.ModelAndView
 
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
-import EXT.DOMAIN.cpe.vpr.pom.POMUtils
+import org.osehra.cpe.vpr.pom.POMUtils
 import com.fasterxml.jackson.databind.JsonNode
 
 @Controller

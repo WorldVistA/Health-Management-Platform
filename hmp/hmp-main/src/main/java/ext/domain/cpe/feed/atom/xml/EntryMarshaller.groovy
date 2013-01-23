@@ -1,16 +1,16 @@
-package EXT.DOMAIN.cpe.feed.atom.xml
+package org.osehra.cpe.feed.atom.xml
 
 import grails.converters.XML
 import org.codehaus.groovy.grails.web.converters.marshaller.ObjectMarshaller
-import EXT.DOMAIN.cpe.feed.atom.Entry
+import org.osehra.cpe.feed.atom.Entry
 import org.codehaus.groovy.grails.web.converters.marshaller.NameAwareMarshaller
 import org.joda.time.format.ISODateTimeFormat
-import EXT.DOMAIN.cpe.feed.atom.Person
+import org.osehra.cpe.feed.atom.Person
 
 /**
  * Responsible for marshalling <code>Entry</code> atom nodes to XML.
  *
- * @see EXT.DOMAIN.cpe.feed.atom.Entry
+ * @see org.osehra.cpe.feed.atom.Entry
  */
 class EntryMarshaller implements ObjectMarshaller<XML>, NameAwareMarshaller {
 

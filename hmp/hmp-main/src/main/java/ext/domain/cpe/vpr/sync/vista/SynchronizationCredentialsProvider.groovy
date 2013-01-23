@@ -1,11 +1,11 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista
+package org.osehra.cpe.vpr.sync.vista
 
-import EXT.DOMAIN.cpe.hub.VistaAccount
-import EXT.DOMAIN.cpe.hub.dao.IVistaAccountDao
-import EXT.DOMAIN.cpe.vista.rpc.CredentialsProvider
-import EXT.DOMAIN.cpe.vista.rpc.RpcHost
+import org.osehra.cpe.hub.VistaAccount
+import org.osehra.cpe.hub.dao.IVistaAccountDao
+import org.osehra.cpe.vista.rpc.CredentialsProvider
+import org.osehra.cpe.vista.rpc.RpcHost
 
-import EXT.DOMAIN.cpe.hub.VistaAccountNotFoundException
+import org.osehra.cpe.hub.VistaAccountNotFoundException
 import org.springframework.beans.factory.annotation.Required
 
 class SynchronizationCredentialsProvider implements CredentialsProvider {

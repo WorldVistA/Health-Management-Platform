@@ -1,7 +1,7 @@
-package EXT.DOMAIN.cpe.vpr
+package org.osehra.cpe.vpr
 
-import static EXT.DOMAIN.cpe.test.AssertConstraints.*
-import EXT.DOMAIN.cpe.test.MockGrailsApplicationUnitTestCase
+import static org.osehra.cpe.test.AssertConstraints.*
+import org.osehra.cpe.test.MockGrailsApplicationUnitTestCase
 import org.codehaus.groovy.grails.commons.DomainClassArtefactHandler
 
 class PatientDomainCommandTests {

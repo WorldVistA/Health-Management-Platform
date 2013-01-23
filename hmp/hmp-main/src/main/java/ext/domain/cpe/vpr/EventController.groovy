@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr
+package org.osehra.cpe.vpr
 
-import EXT.DOMAIN.cpe.vpr.pom.POMObjectMapper
+import org.osehra.cpe.vpr.pom.POMObjectMapper
 
 import java.awt.BorderLayout
 import java.awt.Dimension
@@ -28,7 +28,7 @@ import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.servlet.ModelAndView
 import org.springframework.beans.factory.annotation.Autowired
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
 
 @Controller
 @RequestMapping("/event/**")

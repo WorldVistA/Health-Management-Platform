@@ -1,12 +1,12 @@
-package EXT.DOMAIN.cpe.vpr.ws.link
+package org.osehra.cpe.vpr.ws.link
 
-import EXT.DOMAIN.cpe.feed.atom.Link
+import org.osehra.cpe.feed.atom.Link
 
-import EXT.DOMAIN.cpe.vpr.Patient
+import org.osehra.cpe.vpr.Patient
 import grails.util.GrailsNameUtils
 import org.springframework.stereotype.Component
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO
+import org.osehra.cpe.vpr.pom.IPatientObject
+import org.osehra.cpe.vpr.pom.IPatientDAO
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Component

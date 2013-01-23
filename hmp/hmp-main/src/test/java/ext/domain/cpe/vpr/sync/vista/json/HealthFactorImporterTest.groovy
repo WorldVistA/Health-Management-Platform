@@ -1,10 +1,10 @@
-package EXT.DOMAIN.cpe.vpr.sync.vista.json
+package org.osehra.cpe.vpr.sync.vista.json
 
-import EXT.DOMAIN.cpe.datetime.PointInTime
-import EXT.DOMAIN.cpe.vpr.HealthFactor
-import EXT.DOMAIN.cpe.vpr.UidUtils
-import EXT.DOMAIN.cpe.vpr.sync.vista.VistaDataChunk
-import EXT.DOMAIN.cpe.vpr.sync.vista.MockVistaDataChunks;
+import org.osehra.cpe.datetime.PointInTime
+import org.osehra.cpe.vpr.HealthFactor
+import org.osehra.cpe.vpr.UidUtils
+import org.osehra.cpe.vpr.sync.vista.VistaDataChunk
+import org.osehra.cpe.vpr.sync.vista.MockVistaDataChunks;
 import org.junit.Test
 import static org.junit.Assert.*
 import static org.hamcrest.CoreMatchers.*;

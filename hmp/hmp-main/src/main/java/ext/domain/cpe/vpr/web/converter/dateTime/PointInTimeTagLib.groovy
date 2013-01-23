@@ -1,6 +1,6 @@
-package EXT.DOMAIN.cpe.vpr.web.converter.dateTime
+package org.osehra.cpe.vpr.web.converter.dateTime
 
-import EXT.DOMAIN.cpe.datetime.format.PointInTimeFormat
+import org.osehra.cpe.datetime.format.PointInTimeFormat
 import org.joda.time.format.DateTimeFormatter
 import org.springframework.core.convert.ConversionService;
 

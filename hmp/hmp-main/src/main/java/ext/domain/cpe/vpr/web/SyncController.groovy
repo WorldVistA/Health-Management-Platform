@@ -1,17 +1,17 @@
-package EXT.DOMAIN.cpe.vpr.web
+package org.osehra.cpe.vpr.web
 
-import EXT.DOMAIN.cpe.auth.UserContext
-import EXT.DOMAIN.cpe.hub.dao.IVistaAccountDao
-import EXT.DOMAIN.cpe.jsonc.JsonCCollection
-import EXT.DOMAIN.cpe.jsonc.JsonCResponse
-import EXT.DOMAIN.cpe.param.ParamService
-import EXT.DOMAIN.cpe.vpr.IAppService
-import EXT.DOMAIN.cpe.vpr.Patient
-import EXT.DOMAIN.cpe.vpr.RosterService
-import EXT.DOMAIN.cpe.vpr.SyncError
+import org.osehra.cpe.auth.UserContext
+import org.osehra.cpe.hub.dao.IVistaAccountDao
+import org.osehra.cpe.jsonc.JsonCCollection
+import org.osehra.cpe.jsonc.JsonCResponse
+import org.osehra.cpe.param.ParamService
+import org.osehra.cpe.vpr.IAppService
+import org.osehra.cpe.vpr.Patient
+import org.osehra.cpe.vpr.RosterService
+import org.osehra.cpe.vpr.SyncError
 
-import EXT.DOMAIN.cpe.vpr.pom.IPatientDAO
-import EXT.DOMAIN.cpe.vpr.sync.ISyncService
+import org.osehra.cpe.vpr.pom.IPatientDAO
+import org.osehra.cpe.vpr.sync.ISyncService
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.EnvironmentAware
@@ -28,11 +28,11 @@ import org.springframework.web.servlet.ModelAndView
 
 import javax.servlet.http.HttpServletRequest
 
-import static EXT.DOMAIN.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
+import static org.osehra.cpe.vpr.web.servlet.view.ModelAndViewFactory.contentNegotiatingModelAndView
 import static org.springframework.web.bind.annotation.RequestMethod.GET
 import static org.springframework.web.bind.annotation.RequestMethod.POST
-import EXT.DOMAIN.cpe.vpr.dao.ISyncErrorDao
-import EXT.DOMAIN.cpe.vpr.sync.vista.VprUpdateJob
+import org.osehra.cpe.vpr.dao.ISyncErrorDao
+import org.osehra.cpe.vpr.sync.vista.VprUpdateJob
 
 @Controller
 class SyncController implements EnvironmentAware {

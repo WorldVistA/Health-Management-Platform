@@ -1,8 +1,8 @@
-package EXT.DOMAIN.cpe.feed.atom.xml
+package org.osehra.cpe.feed.atom.xml
 
 import grails.converters.XML
 import org.codehaus.groovy.grails.web.converters.marshaller.ObjectMarshaller
-import EXT.DOMAIN.cpe.feed.atom.Person
+import org.osehra.cpe.feed.atom.Person
 
 /**
  * Responsible for marshalling <code>Person</code> atom nodes to XML.

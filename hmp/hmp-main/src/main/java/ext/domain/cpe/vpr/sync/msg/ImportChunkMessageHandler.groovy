@@ -1,14 +1,14 @@
-package EXT.DOMAIN.cpe.vpr.sync.msg
+package org.osehra.cpe.vpr.sync.msg
 
-import EXT.DOMAIN.cpe.vista.rpc.RpcIoException
-import EXT.DOMAIN.cpe.vpr.dao.RoutingDataStore
-import EXT.DOMAIN.cpe.vpr.pom.AbstractPOMObject
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameRunner
-import EXT.DOMAIN.cpe.vpr.pom.IPatientObject
-import EXT.DOMAIN.cpe.vpr.pom.PatientEvent
-import EXT.DOMAIN.cpe.vpr.sync.ISyncService
-import EXT.DOMAIN.cpe.vpr.sync.vista.CentralImporter
-import EXT.DOMAIN.cpe.vpr.sync.vista.VistaDataChunk
+import org.osehra.cpe.vista.rpc.RpcIoException
+import org.osehra.cpe.vpr.dao.RoutingDataStore
+import org.osehra.cpe.vpr.pom.AbstractPOMObject
+import org.osehra.cpe.vpr.frameeng.FrameRunner
+import org.osehra.cpe.vpr.pom.IPatientObject
+import org.osehra.cpe.vpr.pom.PatientEvent
+import org.osehra.cpe.vpr.sync.ISyncService
+import org.osehra.cpe.vpr.sync.vista.CentralImporter
+import org.osehra.cpe.vpr.sync.vista.VistaDataChunk
 
 import javax.jms.JMSException
 import javax.jms.Message

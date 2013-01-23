@@ -11,7 +11,7 @@
     <description>A servlet filter that rejects requests not originating from the host the jvm is running on.  Similar to Tomcat's RemoteAddrValve configured to only accept connections from localhost.</description>
     <organization>
         <name>Department of Veterans Affairs</name>
-        <url>http://www.DOMAIN.EXT/</url>
+        <url>http://www.osehra.org/</url>
     </organization>
     <licenses>
         <license>
@@ -19,35 +19,25 @@
             <url>http://creativecommons.org/licenses/publicdomain/</url>
         </license>
     </licenses>
-    <distributionManagement>
-        <repository>
-            <id>hmp-releases</id>
-            <name>HMP Releases</name>
-            <url>http://hmpcode.vainnovations.us:8080/nexus/content/repositories/releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>hmp-snapshots</id>
-            <name>HMP Snapshots</name>
-            <url>http://hmpcode.vainnovations.us:8080/nexus/content/repositories/snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
     <scm>
-        <connection>scm:git:https://hmpcode.vainnovations.us/git/hmp.git</connection>
-        <developerConnection>scm:git:https://hmpcode.vainnovations.us/git/hmp.git</developerConnection>
-        <url>http://hmpcode.vainnovations.us/browse/hmp</url>
+        <connection>scm:git:https://github.com/OSEHRA-Sandbox/hmp.git</connection>
+        <developerConnection>scm:git:https://github.com/OSEHRA-Sandbox/hmp.git</developerConnection>
+        <url>http://github.com/OSEHRA-Sandbox/hmp</url>
     </scm>
-    <repositories>
-        <repository>
-            <id>hmp-nexus</id>
-            <url>http://hmpcode.vainnovations.us:8080/nexus/content/groups/public/</url>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>hmp-nexus</id>
-            <url>http://hmpcode.vainnovations.us:8080/nexus/content/groups/public/</url>
-        </pluginRepository>
-    </pluginRepositories>
+	<repositories>
+		<repository>
+                    <id>maven2-repository.dev.java.net</id>
+                    <name>Java.net Repository for Maven</name>
+                    <url>http://download.java.net/maven/2/</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+                    <id>maven2-repository.dev.java.net</id>
+                    <name>Java.net Repository for Maven</name>
+                    <url>http://download.java.net/maven/2/</url>
+		</pluginRepository>
+	</pluginRepositories>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

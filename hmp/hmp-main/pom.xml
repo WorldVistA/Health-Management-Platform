@@ -399,7 +399,7 @@
                 <version>2.0-beta-1</version>
                 <configuration>
                     <server>hmp-dev</server>
-                    <url>https://hmpdev.vainnovations.us/manager</url>
+                    <url>https://localhost/manager</url>
                     <path>/</path>
                 </configuration>
             </plugin>

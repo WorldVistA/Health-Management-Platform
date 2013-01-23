@@ -128,13 +128,13 @@ Ext.define('org.osehra.hmp.appbar.AppBar', {
                     {
                         text: 'HMP Wiki',
                         icon: '/images/icons/help.png',
-                        href: 'https://vahmp.vainnovation.us:8080/',
+                        href: 'https://localhost:8080/',
                         hrefTarget: '_BLANK'
                     },
                     {
                         text: 'New and Noteworthy!',
                         icon: '/images/icons/new.png',
-                        href: 'https://vahmp.vainnovation.us:8080/label/sandbox/releasenotes',
+                        href: 'https://localhost:8080/label/sandbox/releasenotes',
                         hrefTarget: '_BLANK'
                     },
                     {

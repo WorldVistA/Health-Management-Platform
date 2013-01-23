@@ -8,7 +8,7 @@
     <name>Health Management Platform Web Application</name>
     <organization>
         <name>Department of Veterans Affairs</name>
-        <url>http://www.DOMAIN.EXT/</url>
+        <url>http://www.osehra.org/</url>
     </organization>
     <licenses>
         <license>
@@ -16,42 +16,29 @@
             <url>http://creativecommons.org/licenses/publicdomain/</url>
         </license>
     </licenses>
-    <issueManagement>
-        <system>JIRA</system>
-        <url>https://hmpagile.vainnovations.us</url>
-    </issueManagement>
-    <ciManagement>
-        <system>Jenkins</system>
-        <url>http://hmpcode.vainnovations.us:8080/jenkins/job/HMP/</url>
-    </ciManagement>
-    <distributionManagement>
-        <repository>
-            <id>hmp-releases</id>
-            <name>HMP Releases</name>
-            <url>http://hmpcode.vainnovations.us:8080/nexus/content/repositories/releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>hmp-snapshots</id>
-            <name>HMP Snapshots</name>
-            <url>http://hmpcode.vainnovations.us:8080/nexus/content/repositories/snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
     <scm>
-        <connection>scm:git:https://hmpcode.vainnovations.us/git/hmp.git</connection>
-        <developerConnection>scm:git:https://hmpcode.vainnovations.us/git/hmp.git</developerConnection>
-        <url>http://hmpcode.vainnovations.us/browse/hmp</url>
+        <connection>scm:git:https://github.com/OSEHRA-Sandbox/hmp.git</connection>
+        <developerConnection>scm:git:https://github.com/OSEHRA-Sandbox/hmp.git</developerConnection>
+        <url>http://github.com/OSEHRA-Sandbox/hmp</url>
         <tag>hmp-0.7-P34</tag>
    </scm>
     <repositories>
         <repository>
-            <id>hmp-nexus</id>
-            <url>http://hmpcode.vainnovations.us:8080/nexus/content/groups/public/</url>
+            <id>maven2-repository.dev.java.net</id>
+            <name>Java.net Repository for Maven</name>
+            <url>http://download.java.net/maven/2/</url>
+        </repository>
+        <repository>
+            <id>version99</id>
+            <name>empty artifacts for commons-logging and log4j</name>
+            <url>http://version99.qos.ch/</url>
         </repository>
     </repositories>
     <pluginRepositories>
         <pluginRepository>
-            <id>hmp-nexus</id>
-            <url>http://hmpcode.vainnovations.us:8080/nexus/content/groups/public/</url>
+            <id>maven2-repository.dev.java.net</id>
+            <name>Java.net Repository for Maven</name>
+            <url>http://download.java.net/maven/2/</url>
         </pluginRepository>
     </pluginRepositories>
     <properties>

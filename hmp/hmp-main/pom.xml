@@ -94,7 +94,7 @@
         <probe.version>2.3.1</probe.version>
         <termdb.version>1.umls2012aa.20121011</termdb.version>
         <!-- this is a little bit smelly, use maven-dependency-plugin:resources? -->
-        <solr.war.path>${settings.localRepository}/org/apache/solr/solr/${solr.version}/solr-${solr.version}-va-hmp.war</solr.war.path>
+        <solr.war.path>${settings.localRepository}/org/apache/solr/solr/${solr.version}/solr-${solr.version}.war</solr.war.path>
         <guvnor.war.path>${settings.localRepository}/org/drools/drools-guvnor-va-hmp/${drools.version}/drools-guvnor-va-hmp-${drools.version}.war</guvnor.war.path>
         <tomcat.version>7.0.29</tomcat.version>
         <spring.profiles.active>dev,vpr-datastore-json,vpr-datastore-solr</spring.profiles.active>
@@ -536,7 +536,7 @@
                                     <artifactId>solr</artifactId>
                                     <version>${solr.version}</version>
                                     <type>war</type>
-                                    <classifier>va-hmp</classifier>
+                                    <!--<classifier>va-hmp</classifier>-->
                                     <overWrite>false</overWrite>
                                     <outputDirectory>
                                         ${project.build.directory}/apache-tomcat-${tomcat.version}/webapps/solr
@@ -592,7 +592,7 @@
                         </configuration>
                     </execution>
 					<!-- This ensures that the required vocabulary databases are downloaded from nexus -->
-                    <execution>
+                                        <!--<execution>
                         <id>copy-termdb-databases</id>
                         <phase>process-resources</phase>
                         <goals>
@@ -629,7 +629,7 @@
                             <overWriteReleases>false</overWriteReleases>
                             <overWriteSnapshots>true</overWriteSnapshots>
                         </configuration>
-                    </execution>                    
+                    </execution>-->                    
                     <!-- For each dependency (direct and transitive) a project property will be set which follows the form groupId:artifactId:type:[classifier] and contains the path to the resolved artifact. -->
                     <execution>
                         <id>expose-paths-to-dependencies-as-project-properties</id>

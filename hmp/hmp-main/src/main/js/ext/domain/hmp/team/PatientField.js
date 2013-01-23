@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.hmp.team.PatientField', {
+Ext.define('org.osehra.hmp.team.PatientField', {
     extend:'Ext.form.field.ComboBox',
     alias: 'widget.patientfield',
     store:Ext.create('Ext.data.Store', {

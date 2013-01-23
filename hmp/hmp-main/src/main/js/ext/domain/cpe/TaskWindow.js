@@ -45,7 +45,7 @@ var gridTwoStore = Ext.create('Ext.data.ArrayStore', {
 });
 
 
-Ext.define('EXT.DOMAIN.cpe.TaskWindow', {
+Ext.define('org.osehra.cpe.TaskWindow', {
     extend:'Ext.window.Window',
     title:'Create a Task',
     height:400,
@@ -185,7 +185,7 @@ Ext.define('EXT.DOMAIN.cpe.TaskWindow', {
     },
     initPatientContext: function() {
     	var me = this;
-    	var po = EXT.DOMAIN.hmp.PatientContext.getPatientInfo();
+    	var po = org.osehra.hmp.PatientContext.getPatientInfo();
     	var pid, name;
     	if(me.patientRec) {pid = me.patientRec.get('pid'); name = me.patientRec.get('name');}
     	else if(po!=null) {pid = po.pid; name = po.fullName;}
@@ -201,7 +201,7 @@ Ext.define('EXT.DOMAIN.cpe.TaskWindow', {
         	me.setTitle('Task for ' + me.patientRec.get('name'));
         	me.enable();
         } else {
-        	var po = EXT.DOMAIN.hmp.PatientContext.getPatientInfo();
+        	var po = org.osehra.hmp.PatientContext.getPatientInfo();
             if (po.fullName) {
                 me.setTitle('Task for ' + po.fullName);
                 me.enable();
@@ -228,7 +228,7 @@ Ext.define('EXT.DOMAIN.cpe.TaskWindow', {
     			}
     		}
 			var taskWindow = Ext.getCmp('taskWindow');
-            if (!taskWindow) taskWindow = Ext.create('EXT.DOMAIN.cpe.TaskWindow', {
+            if (!taskWindow) taskWindow = Ext.create('org.osehra.cpe.TaskWindow', {
             	task: {
             		data: {
             			'type':'Order'

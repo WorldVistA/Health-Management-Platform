@@ -1,11 +1,11 @@
 /**
- * Controls behavior of {@link EXT.DOMAIN.hmp.admin.TermBrowserPanel}
+ * Controls behavior of {@link org.osehra.hmp.admin.TermBrowserPanel}
  */
-Ext.define('EXT.DOMAIN.hmp.admin.TermBrowserController', {
-    extend:'EXT.DOMAIN.hmp.Controller',
+Ext.define('org.osehra.hmp.admin.TermBrowserController', {
+    extend:'org.osehra.hmp.Controller',
     requires:[
-        'EXT.DOMAIN.hmp.admin.TermBrowserTree',
-        'EXT.DOMAIN.hmp.admin.TermBrowserPanel'
+        'org.osehra.hmp.admin.TermBrowserTree',
+        'org.osehra.hmp.admin.TermBrowserPanel'
     ],
     refs: [
         {

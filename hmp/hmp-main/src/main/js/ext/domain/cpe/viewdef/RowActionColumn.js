@@ -6,18 +6,18 @@
  * 
  * TODO: this needs some CSS cleanup
  */
-Ext.define('EXT.DOMAIN.cpe.viewdef.RowActionColumn', {
+Ext.define('org.osehra.cpe.viewdef.RowActionColumn', {
 	extend: 'Ext.grid.column.Action',
 	alias: 'widget.rowactioncolumn',
 	sortable: false,
-	requires: ['EXT.DOMAIN.cpe.AlertDialog'],
+	requires: ['org.osehra.cpe.AlertDialog'],
 	resizable: false,
 	hideable: false,
 	menuDisabled: true,
 	width: 20,
 	tdCls: 'hmp-action-btn-cell',
 	
-	requestAction: 'EXT.DOMAIN.cpe.vpr.rowaction', // if true, will make an invoke request for frames to generate any actions
+	requestAction: 'org.osehra.cpe.vpr.rowaction', // if true, will make an invoke request for frames to generate any actions
 	constructor: function(config) {
 		// the ActionColumn constructor rebuilds the items array, so we have to use contstructor instead of initComponent in 4.07
 		Ext.apply(config, {width: this.width, header: '', hideable: this.hideable, renderer: this.renderer});
@@ -89,7 +89,7 @@ Ext.define('EXT.DOMAIN.cpe.viewdef.RowActionColumn', {
             for (var i=0; i < actions.length; i++) {
             	var action = actions[i];
             	tip.alertset.add({xtype: 'button', ui: 'link', frameID: actions[i].frameID, text: actions[i].title, description: actions[i].description, handler: function() {
-            		EXT.DOMAIN.cpe.AlertDialog.open(action);
+            		org.osehra.cpe.AlertDialog.open(action);
             	}});
             }
         }

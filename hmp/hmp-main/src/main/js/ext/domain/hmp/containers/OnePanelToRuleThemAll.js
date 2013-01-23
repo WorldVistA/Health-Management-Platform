@@ -6,13 +6,13 @@
  * 
  */
 
-Ext.define('EXT.DOMAIN.hmp.containers.OnePanelToRuleThemAll', {
+Ext.define('org.osehra.hmp.containers.OnePanelToRuleThemAll', {
 	extend: 'Ext.panel.Panel',
     cls: 'x-gbpanel',
     bodyCls: 'x-gbpanel-body',
 	requires: [
-        'EXT.DOMAIN.hmp.containers.GridBagLayout',
-        'EXT.DOMAIN.hmp.containers.NewItemConfigWindow'
+        'org.osehra.hmp.containers.GridBagLayout',
+        'org.osehra.hmp.containers.NewItemConfigWindow'
     ],
 	alias: 'widget.wunderpanel',
 //    layout: 'auto',
@@ -75,7 +75,7 @@ Ext.define('EXT.DOMAIN.hmp.containers.OnePanelToRuleThemAll', {
                 // TODO: how to make this a menu/selection of different things to add?
                 var cfg = {xtype: 'viewdefgridpanel', title: 'New Item', html: 'Click Edit...', gridBagHint: 'east', deferRowRender: false, resizable: true};
                 //Ext.apply(cfg, me.getLayout().getNextAvailableCellConstraints(me.items));
-                var wnd = Ext.create('EXT.DOMAIN.hmp.containers.NewItemConfigWindow', {pnl: me, cmp: cfg}).show();
+                var wnd = Ext.create('org.osehra.hmp.containers.NewItemConfigWindow', {pnl: me, cmp: cfg}).show();
                 wnd.setValues(me.getLayout().getNextAvailableCellConstraints(me.items));
                 //me.add({xtype: 'viewdefgridpanel', title: 'New Item', html: 'Click Edit...', gridBagHint: 'east', deferRowRender: false, resizable: true});
             }
@@ -88,7 +88,7 @@ Ext.define('EXT.DOMAIN.hmp.containers.OnePanelToRuleThemAll', {
                 // TODO: how to make this a menu/selection of different things to add?
                 var cfg = {xtype: 'griddetailpanel', title: 'Shared Detail', resizable: true};
                 //Ext.apply(cfg, me.getLayout().getNextAvailableCellConstraints(me.items));
-                var wnd = Ext.create('EXT.DOMAIN.hmp.containers.NewItemConfigWindow', {pnl: me, cmp: cfg}).show();
+                var wnd = Ext.create('org.osehra.hmp.containers.NewItemConfigWindow', {pnl: me, cmp: cfg}).show();
                 wnd.setValues(me.getLayout().getNextAvailableCellConstraints(me.items));
                 //me.add({xtype: 'viewdefgridpanel', title: 'New Item', html: 'Click Edit...', gridBagHint: 'east', deferRowRender: false, resizable: true});
             }

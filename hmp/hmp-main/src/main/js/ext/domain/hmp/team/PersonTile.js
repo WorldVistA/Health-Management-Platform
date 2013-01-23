@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.hmp.team.PersonTile', {
+Ext.define('org.osehra.hmp.team.PersonTile', {
     extend:'Ext.Component',
     alias:'widget.persontile',
     /**
@@ -44,13 +44,13 @@ Ext.define('EXT.DOMAIN.hmp.team.PersonTile', {
             /**
              * @event close
              * Fires to indicate that the tile is to be closed, usually because the user has clicked the close button.
-             * @param {EXT.DOMAIN.hmp.team.PersonTile} panel The Tile object
+             * @param {org.osehra.hmp.team.PersonTile} panel The Tile object
              */
             'close',
             /**
              * @event mouseover
              * Fires when the mouse hovers over the button
-             * @param {EXT.DOMAIN.hmp.team.PersonTile} this
+             * @param {org.osehra.hmp.team.PersonTile} this
              * @param {Event} e The event object
              */
             'mouseover',
@@ -58,7 +58,7 @@ Ext.define('EXT.DOMAIN.hmp.team.PersonTile', {
             /**
              * @event mouseout
              * Fires when the mouse exits the button
-             * @param {EXT.DOMAIN.hmp.team.PersonTile} this
+             * @param {org.osehra.hmp.team.PersonTile} this
              * @param {Event} e The event object
              */
             'mouseout',
@@ -66,7 +66,7 @@ Ext.define('EXT.DOMAIN.hmp.team.PersonTile', {
             /**
              * @event textchange
              * Fired when the tile's text is changed by the {@link #setText} method.
-             * @param {EXT.DOMAIN.hmp.team.PersonTile} this
+             * @param {org.osehra.hmp.team.PersonTile} this
              * @param {String} oldText
              * @param {String} newText
              */
@@ -75,7 +75,7 @@ Ext.define('EXT.DOMAIN.hmp.team.PersonTile', {
             /**
              * @event iconchange
              * Fired when the tile's icon is changed by the {@link #setIcon} or {@link #setIconCls} methods.
-             * @param {EXT.DOMAIN.hmpteam.PersonTile} this
+             * @param {org.osehra.hmpteam.PersonTile} this
              * @param {String} oldIcon
              * @param {String} newIcon
              */
@@ -178,7 +178,7 @@ Ext.define('EXT.DOMAIN.hmp.team.PersonTile', {
      * Sets the background image (inline style) of the button. This method also changes the value of the {@link #icon}
      * config internally.
      * @param {String} icon The path to an image to display in the button
-     * @return {EXT.DOMAIN.hmp.team.PersonTile} this
+     * @return {org.osehra.hmp.team.PersonTile} this
      */
     setIcon: function(icon) {
         icon = icon || '';
@@ -202,7 +202,7 @@ Ext.define('EXT.DOMAIN.hmp.team.PersonTile', {
     /**
      * Sets this Button's text
      * @param {String} text The button text
-     * @return {EXT.DOMAIN.hmp.team.PersonTile} this
+     * @return {org.osehra.hmp.team.PersonTile} this
      */
     setText: function(text) {
         text = text || '';

@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.hmp.team.PersonIconDDProxy', {
+Ext.define('org.osehra.hmp.team.PersonIconDDProxy', {
     extend : 'Ext.dd.DDProxy',
     alias  : 'widget.personiconddproxy',
 

@@ -1,11 +1,11 @@
-Ext.define('EXT.DOMAIN.cpe.roster.TriStatePanel', {
+Ext.define('org.osehra.cpe.roster.TriStatePanel', {
     extend:'Ext.panel.Panel',
     requires:[
-        'EXT.DOMAIN.hmp.SegmentedButton',
-        'EXT.DOMAIN.cpe.patient.PatientBanner',
-        'EXT.DOMAIN.cpe.roster.PatientPicker',
-        'EXT.DOMAIN.cpe.PagePicker',
-        'EXT.DOMAIN.cpe.roster.PatientChart'
+        'org.osehra.hmp.SegmentedButton',
+        'org.osehra.cpe.patient.PatientBanner',
+        'org.osehra.cpe.roster.PatientPicker',
+        'org.osehra.cpe.PagePicker',
+        'org.osehra.cpe.roster.PatientChart'
     ],
     alias:'widget.tristatepanel',
     dockedItems: [
@@ -223,7 +223,7 @@ Ext.define('EXT.DOMAIN.cpe.roster.TriStatePanel', {
             collapsible:false,
             collapsed:false,
 //            margin:'0 0 6 0',
-            rosterViewDef:'EXT.DOMAIN.cpe.vpr.queryeng.RosterViewDef',
+            rosterViewDef:'org.osehra.cpe.vpr.queryeng.RosterViewDef',
             flex:1
         },
         {
@@ -244,7 +244,7 @@ Ext.define('EXT.DOMAIN.cpe.roster.TriStatePanel', {
                     collapsed:false,
                     margin:'0 0 6 0',
                     split:true,
-                    rosterViewDef:'EXT.DOMAIN.cpe.vpr.queryeng.RosterViewDef',
+                    rosterViewDef:'org.osehra.cpe.vpr.queryeng.RosterViewDef',
                     compactOrientation:true,
                     region:'west',
                     split:true,

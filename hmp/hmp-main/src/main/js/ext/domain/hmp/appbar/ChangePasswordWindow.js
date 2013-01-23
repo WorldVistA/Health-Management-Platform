@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.hmp.appbar.ChangePasswordWindow', {
+Ext.define('org.osehra.hmp.appbar.ChangePasswordWindow', {
     xtype: 'cpwin',
     extend: 'Ext.window.Window',
     layout: 'fit',

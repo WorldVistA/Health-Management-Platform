@@ -1,12 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ page import="EXT.DOMAIN.cpe.vpr.frameeng.*" %>
-<%@ page import="EXT.DOMAIN.cpe.vpr.frameeng.Frame.*" %>
-<%@ page import="EXT.DOMAIN.cpe.vpr.frameeng.FrameJob" %>
-<%@ page import="EXT.DOMAIN.cpe.vpr.frameeng.FrameJob.FrameTask" %>
-<%@ page import="EXT.DOMAIN.cpe.vpr.frameeng.IFrameEvent.InvokeEvent" %>
-<%@ page import="EXT.DOMAIN.cpe.vpr.frameeng.FrameAction.ObsRequestAction" %>
-<%@ page import="EXT.DOMAIN.cpe.vpr.Medication" %>
-<%@ page import="EXT.DOMAIN.cpe.vpr.pom.PatientEvent" %>
+<%@ page import="org.osehra.cpe.vpr.frameeng.*" %>
+<%@ page import="org.osehra.cpe.vpr.frameeng.Frame.*" %>
+<%@ page import="org.osehra.cpe.vpr.frameeng.FrameJob" %>
+<%@ page import="org.osehra.cpe.vpr.frameeng.FrameJob.FrameTask" %>
+<%@ page import="org.osehra.cpe.vpr.frameeng.IFrameEvent.InvokeEvent" %>
+<%@ page import="org.osehra.cpe.vpr.frameeng.FrameAction.ObsRequestAction" %>
+<%@ page import="org.osehra.cpe.vpr.Medication" %>
+<%@ page import="org.osehra.cpe.vpr.pom.PatientEvent" %>
 <html>
 <head>
     <title>${item.qualifiedName}</title>

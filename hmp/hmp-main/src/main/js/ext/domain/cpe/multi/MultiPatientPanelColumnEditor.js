@@ -12,10 +12,10 @@ Ext.define('MultiPatientPanelEditorColumnModel', {
 	]
 });
 
-Ext.define('EXT.DOMAIN.cpe.multi.MultiPatientPanelColumnEditor', {
+Ext.define('org.osehra.cpe.multi.MultiPatientPanelColumnEditor', {
 	extend: 'Ext.panel.Panel',
 	alias: 'widget.panelColumnEditor',
-	requires: ['MultiPatientPanelEditorColumnModel','EXT.DOMAIN.cpe.multi.MultiPanelColumnEditWindow','EXT.DOMAIN.cpe.multi.MultiPatientPanelColumnOptionsEditor'],
+	requires: ['MultiPatientPanelEditorColumnModel','org.osehra.cpe.multi.MultiPanelColumnEditWindow','org.osehra.cpe.multi.MultiPatientPanelColumnOptionsEditor'],
 	layout: {type: 'hbox', align: 'stretch'},
 	id: 'mpeColPanelEditor',
 	items: [{

@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.cpe.ChartPanel', {
+Ext.define('org.osehra.cpe.ChartPanel', {
 	extend: 'Ext.panel.Panel',
 	alias: 'widget.chartpanel',
 	id: 'cpanel-default',

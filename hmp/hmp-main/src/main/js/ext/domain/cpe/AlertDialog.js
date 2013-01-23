@@ -3,7 +3,7 @@
  * TODO: Tab to show frame/alert configuration?  Maybe customize the configuration?
  * TODO: How does this dialog integrate into detail views? 
  */
-Ext.define('EXT.DOMAIN.cpe.AlertDialog', {
+Ext.define('org.osehra.cpe.AlertDialog', {
 	extend: 'Ext.window.Window',
 	requires: [],
 	title: 'Alert Dialog',
@@ -105,7 +105,7 @@ Ext.define('EXT.DOMAIN.cpe.AlertDialog', {
 	},
 	obs: function(key, value, observed) {
 		console.log('AlertDialog.obs', arguments);
-		var pid = EXT.DOMAIN.hmp.PatientContext.pid;
+		var pid = org.osehra.hmp.PatientContext.pid;
 		Ext.Ajax.request({
 			url: '/frame/obs/set/' + pid + "/" + key + "?value=" + value + ((observed) ? "&observed=" + observed : ''),
 			success: function() {

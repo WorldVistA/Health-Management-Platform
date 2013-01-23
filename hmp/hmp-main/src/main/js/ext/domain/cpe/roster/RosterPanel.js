@@ -1,7 +1,7 @@
-Ext.define('EXT.DOMAIN.cpe.roster.RosterPanel', {
+Ext.define('org.osehra.cpe.roster.RosterPanel', {
 	extend: 'Ext.panel.Panel',
     requires: [
-        'EXT.DOMAIN.cpe.roster.FavoriteRosterPicker'
+        'org.osehra.cpe.roster.FavoriteRosterPicker'
     ],
 	alias: 'widget.rosterpanel',
 	layout: 'hbox',

@@ -1,12 +1,12 @@
-Ext.define('EXT.DOMAIN.hmp.appbar.UserButton', {
+Ext.define('org.osehra.hmp.appbar.UserButton', {
     extend:'Ext.button.Button',
     requires:[
-        'EXT.DOMAIN.hmp.UserContext',
-        'EXT.DOMAIN.hmp.appbar.PrefWin'
+        'org.osehra.hmp.UserContext',
+        'org.osehra.hmp.appbar.PrefWin'
     ],
     uses:[
-        'EXT.DOMAIN.hmp.appbar.ChangePhotoWindow',
-        'EXT.DOMAIN.hmp.appbar.ChangePasswordWindow'
+        'org.osehra.hmp.appbar.ChangePhotoWindow',
+        'org.osehra.hmp.appbar.ChangePasswordWindow'
     ],
     alias:'widget.userbutton',
     cls:'hmp-user-button',
@@ -71,7 +71,7 @@ Ext.define('EXT.DOMAIN.hmp.appbar.UserButton', {
                         itemId:'cvcButton',
                         text:'Change Verify Code',
                         handler:function () {
-                            var cpwin = Ext.create('EXT.DOMAIN.hmp.appbar.ChangePasswordWindow', {
+                            var cpwin = Ext.create('org.osehra.hmp.appbar.ChangePasswordWindow', {
                                 itemId:'ChangePasswordWindowID',
                                 modal:true,
                                 minHeight:200, minWidth:300,
@@ -96,16 +96,16 @@ Ext.define('EXT.DOMAIN.hmp.appbar.UserButton', {
 
         me.callParent(arguments);
 
-        if (EXT.DOMAIN.hmp.UserContext.isAuthenticated()) {
-            me.setText(EXT.DOMAIN.hmp.UserContext.getUserInfo().displayName);
+        if (org.osehra.hmp.UserContext.isAuthenticated()) {
+            me.setText(org.osehra.hmp.UserContext.getUserInfo().displayName);
             me.refreshPhoto();
-            me.menu.down('#userTitle').setValue(EXT.DOMAIN.hmp.UserContext.getUserInfo().title);
-            me.menu.down('#userDivision').setValue(EXT.DOMAIN.hmp.UserContext.getUserInfo().divisionName);
-            me.menu.down('#userService').setValue(EXT.DOMAIN.hmp.UserContext.getUserInfo().serviceSection);
+            me.menu.down('#userTitle').setValue(org.osehra.hmp.UserContext.getUserInfo().title);
+            me.menu.down('#userDivision').setValue(org.osehra.hmp.UserContext.getUserInfo().divisionName);
+            me.menu.down('#userService').setValue(org.osehra.hmp.UserContext.getUserInfo().serviceSection);
         }
 
         me.menu.down('#changePhotoButton').on('click', function () {
-            var win = Ext.create('EXT.DOMAIN.hmp.appbar.ChangePhotoWindow', {
+            var win = Ext.create('org.osehra.hmp.appbar.ChangePhotoWindow', {
                 title:'Edit User Photo',
                 modal:true,
                 listeners:{
@@ -119,7 +119,7 @@ Ext.define('EXT.DOMAIN.hmp.appbar.UserButton', {
 
         me.menu.down('#UserPrefID').on('click', function () {
             if (!me.prefwin) {
-                me.prefwin = Ext.create('EXT.DOMAIN.hmp.appbar.PrefWin');
+                me.prefwin = Ext.create('org.osehra.hmp.appbar.PrefWin');
             }
             me.prefwin.show();
         });
@@ -127,7 +127,7 @@ Ext.define('EXT.DOMAIN.hmp.appbar.UserButton', {
     refreshPhoto:function () {
         var me = this;
         var pnl = me.menu.down('panel');
-        var photoUrl = '/person/v1/' + EXT.DOMAIN.hmp.UserContext.getUserInfo().uid + '/photo?_dc=' + (new Date().getTime());
+        var photoUrl = '/person/v1/' + org.osehra.hmp.UserContext.getUserInfo().uid + '/photo?_dc=' + (new Date().getTime());
 //        console.log("refreshPhoto(" + photoUrl + ")");
 
         pnl.remove(pnl.getComponent(0), true);

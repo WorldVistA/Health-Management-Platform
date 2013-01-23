@@ -1,9 +1,9 @@
-Ext.define('EXT.DOMAIN.hmp.team.PatientPicker', {
+Ext.define('org.osehra.hmp.team.PatientPicker', {
     extend:'Ext.container.Container',
     requires:[
-        'EXT.DOMAIN.hmp.SegmentedButton',
-        'EXT.DOMAIN.hmp.team.SearchableList',
-        'EXT.DOMAIN.hmp.team.PersonStore'
+        'org.osehra.hmp.SegmentedButton',
+        'org.osehra.hmp.team.SearchableList',
+        'org.osehra.hmp.team.PersonStore'
     ],
     alias:'widget.patientpickerfoo',
     layout:{

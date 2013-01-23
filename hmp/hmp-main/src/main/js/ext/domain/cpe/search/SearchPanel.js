@@ -1,9 +1,9 @@
-Ext.define('EXT.DOMAIN.cpe.search.SearchPanel', {
+Ext.define('org.osehra.cpe.search.SearchPanel', {
     extend: 'Ext.panel.Panel',
     requires: [
-        'EXT.DOMAIN.cpe.search.SuggestBox',
-        'EXT.DOMAIN.cpe.search.SearchResultsPanel',
-        'EXT.DOMAIN.cpe.search.SearchDetailPanel'
+        'org.osehra.cpe.search.SuggestBox',
+        'org.osehra.cpe.search.SearchResultsPanel',
+        'org.osehra.cpe.search.SearchDetailPanel'
     ],
     alias: 'widget.searchpanel',
     frame: false,

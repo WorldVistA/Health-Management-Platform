@@ -2,7 +2,7 @@
  * TODO: is there a way to name the column, but not display a column heading?
  * -- so that in the column list it could say infobutton, but not display it in the renderered grid header?
  */
-Ext.define('EXT.DOMAIN.cpe.viewdef.InfobuttonColumn', {
+Ext.define('org.osehra.cpe.viewdef.InfobuttonColumn', {
 	extend: 'Ext.grid.column.Action',
 	alias: 'widget.infobuttoncolumn',
 	sortable: false,

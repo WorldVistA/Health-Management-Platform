@@ -1,10 +1,10 @@
-Ext.define('EXT.DOMAIN.cpe.search.SearchBox', {
+Ext.define('org.osehra.cpe.search.SearchBox', {
     extend: 'Ext.form.field.ComboBox',
     requires: [
-        'EXT.DOMAIN.cpe.search.SearchBoxDetailWindow'
+        'org.osehra.cpe.search.SearchBoxDetailWindow'
     ],
     mixins: {
-        patientaware: 'EXT.DOMAIN.hmp.PatientAware'
+        patientaware: 'org.osehra.hmp.PatientAware'
     },
     id: 'searchBox',
     itemId: 'searchBox',
@@ -82,7 +82,7 @@ Ext.define('EXT.DOMAIN.cpe.search.SearchBox', {
           if ((type == 'vital_sign') || ((type == 'result') && (kind == 'Laboratory'))) textDisplay = false;
           var detailWindow = Ext.getCmp('searchBoxDetailWindow');
           if(!detailWindow){
-        	  detailWindow = Ext.create('EXT.DOMAIN.cpe.search.SearchBoxDetailWindow');
+        	  detailWindow = Ext.create('org.osehra.cpe.search.SearchBoxDetailWindow');
 //        	  detailWindow = Ext.create('Ext.window.Window', {
 //        	    id: 'searchBoxDetailWindow',
 //				layout: 'fit',

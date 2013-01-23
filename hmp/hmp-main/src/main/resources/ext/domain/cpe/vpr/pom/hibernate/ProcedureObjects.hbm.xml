@@ -28,12 +28,12 @@
             <key>
                 <column name="procedure_modifiers_id" />
             </key>
-            <many-to-many entity-name="EXT.DOMAIN.cpe.vpr.Modifier">
+            <many-to-many entity-name="org.osehra.cpe.vpr.Modifier">
                 <column name="modifier_id" />
             </many-to-many>
         </set> -->
         <!-- Replaced by pid in default fields (the ones that should be extended via extends but apparently don't work via extends so we have to copy them to all these mappings...) 
-        <many-to-one name="patient" class="EXT.DOMAIN.cpe.vpr.Patient">
+        <many-to-one name="patient" class="org.osehra.cpe.vpr.Patient">
             <column name="patient_id" not-null="true" />
         </many-to-one> -->
         <list name="providers">

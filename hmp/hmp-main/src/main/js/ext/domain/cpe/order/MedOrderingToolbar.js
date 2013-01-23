@@ -5,7 +5,7 @@
  * Time: 6:39 PM
  * To change this template use File | Settings | File Templates.
  */
-Ext.define('EXT.DOMAIN.cpe.order.MedOrderingToolbar', {
+Ext.define('org.osehra.cpe.order.MedOrderingToolbar', {
             extend: 'Ext.toolbar.Toolbar',
             alias: "widget.medorderingtoolbar",
 //            id: 'medOrderingToolbar',
@@ -47,7 +47,7 @@ Ext.define('EXT.DOMAIN.cpe.order.MedOrderingToolbar', {
                                                         var text = message.elements[0].nextSibling.nodeValue;
                                                         var replaceText = text.replace(/\\r\\n/g,"<br />");
                                                         var snippet = Ext.getCmp('snippetWindow');
-                                                        if (!snippet) snippet = Ext.create('EXT.DOMAIN.cpe.SnippetWindow', {});
+                                                        if (!snippet) snippet = Ext.create('org.osehra.cpe.SnippetWindow', {});
                                                         var existText = '';
                                                         if (tbar.worksheet) {
                                                             console.log(worksheet);
@@ -105,7 +105,7 @@ Ext.define('EXT.DOMAIN.cpe.order.MedOrderingToolbar', {
                                                 if (success.elements[0].textContent == "true") {
                                                     var message = Ext.select("data message", false, xml);
                                                     var snippet = Ext.getCmp('snippetWindow');
-                                                    if (!snippet) snippet = Ext.create('EXT.DOMAIN.cpe.SnippetWindow', {});
+                                                    if (!snippet) snippet = Ext.create('org.osehra.cpe.SnippetWindow', {});
                                                     if (message.elements[0].nextSibling.nodeValue) {
                                                         var text = message.elements[0].nextSibling.nodeValue;
                                                         var replaceText = text.replace(/\\r\\n/g,"<br />");
@@ -134,7 +134,7 @@ Ext.define('EXT.DOMAIN.cpe.order.MedOrderingToolbar', {
                                     var grid = this.up("viewdefgridpanel");
                                     var itemUid = grid.selModel.selected.items[0].data.uid;
                                     var dcWindow = Ext.getCmp('dcReasonsListWindow');
-                                    if (!dcWindow) dcWindow = Ext.create('EXT.DOMAIN.cpe.order.DcReasonsListWindow', {});
+                                    if (!dcWindow) dcWindow = Ext.create('org.osehra.cpe.order.DcReasonsListWindow', {});
                                     dcWindow.uid = itemUid;
                                     var tbar = this.up("toolbar");
                                     if (tbar.worksheet) dcWindow.worksheet = true;
@@ -152,7 +152,7 @@ Ext.define('EXT.DOMAIN.cpe.order.MedOrderingToolbar', {
                                 click: function() {
 
                                     var qoWindow = Ext.getCmp('qoItemListWindow');
-                                    if (!qoWindow) qoWindow = Ext.create('EXT.DOMAIN.cpe.order.QoItemListWindow', {});
+                                    if (!qoWindow) qoWindow = Ext.create('org.osehra.cpe.order.QoItemListWindow', {});
                                     var tbar = this.up("toolbar");
                                     if (tbar.worksheet) qoWindow.worksheet = true;
                                     qoWindow.show();

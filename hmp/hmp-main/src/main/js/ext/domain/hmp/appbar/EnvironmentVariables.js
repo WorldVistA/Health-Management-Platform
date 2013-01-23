@@ -1,5 +1,5 @@
-Ext.define('EXT.DOMAIN.hmp.appbar.EnvironmentVariables', {
-    extend:'EXT.DOMAIN.hmp.appbar.AppInfoPropertiesGrid',
+Ext.define('org.osehra.hmp.appbar.EnvironmentVariables', {
+    extend:'org.osehra.hmp.appbar.AppInfoPropertiesGrid',
     title:'Environment Variables',
     appInfo:'env'
 });

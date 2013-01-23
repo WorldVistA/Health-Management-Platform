@@ -7,12 +7,12 @@ Ext.define('ViewDefColSpec', {
 });
 
 
-Ext.define('EXT.DOMAIN.cpe.multi.MultiPanelColumnEditWindow', {
+Ext.define('org.osehra.cpe.multi.MultiPanelColumnEditWindow', {
 	extend: 'Ext.window.Window',
 	title: 'Add / Edit Column',
 	id: 'mpeColEditWnd',
 	alias: 'widget.panelColumnEditWindow',
-	requires: ['EXT.DOMAIN.cpe.designer.PanelEditor'],
+	requires: ['org.osehra.cpe.designer.PanelEditor'],
 	width: 500,
 	height: 400,
 	title: 'Add Column',
@@ -32,7 +32,7 @@ Ext.define('EXT.DOMAIN.cpe.multi.MultiPanelColumnEditWindow', {
 					root: 'items'
 				},
 				extraParams: {
-					type: 'EXT.DOMAIN.cpe.vpr.queryeng.dynamic.columns.ViewDefDefColDef'
+					type: 'org.osehra.cpe.vpr.queryeng.dynamic.columns.ViewDefDefColDef'
 				}
 			}
 		},

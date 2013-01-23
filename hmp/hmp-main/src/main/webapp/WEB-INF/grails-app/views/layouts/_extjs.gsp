@@ -33,4 +33,4 @@
     }
 </script>
 <script type="text/javascript" src="${resource(dir: 'js', file: 'ExtOverrides.js')}"></script>
-<script type="text/javascript" src="${resource(dir: 'js/EXT/DOMAIN/hmp/appbar', file: 'ErrorHandler.js')}"></script>
+<script type="text/javascript" src="${resource(dir: 'js/org.osehra/hmp/appbar', file: 'ErrorHandler.js')}"></script>

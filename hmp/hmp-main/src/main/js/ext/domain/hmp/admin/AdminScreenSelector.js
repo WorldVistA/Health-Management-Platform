@@ -1,7 +1,7 @@
-Ext.define('EXT.DOMAIN.hmp.admin.AdminScreenSelector', {
+Ext.define('org.osehra.hmp.admin.AdminScreenSelector', {
     extend:'Ext.tree.Panel',
     requires:[
-        'EXT.DOMAIN.hmp.AppContext'
+        'org.osehra.hmp.AppContext'
     ],
     id:'adminScreenSelector',
     title:'HMP Admin',

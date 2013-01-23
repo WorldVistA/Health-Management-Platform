@@ -5,7 +5,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="stringView" class="EXT.DOMAIN.cpe.vpr.web.view.StringView"/>
+    <bean id="stringView" class="org.osehra.cpe.vpr.web.view.StringView"/>
 
-    <bean id="resourceView" class="EXT.DOMAIN.cpe.vpr.web.view.ResourceView" c:resourceConverter-ref="resourceHttpMessageConverter"/>
+    <bean id="resourceView" class="org.osehra.cpe.vpr.web.view.ResourceView" c:resourceConverter-ref="resourceHttpMessageConverter"/>
 </beans>

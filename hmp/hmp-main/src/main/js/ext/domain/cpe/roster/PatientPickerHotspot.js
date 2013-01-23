@@ -1,6 +1,6 @@
-Ext.define('EXT.DOMAIN.cpe.roster.PatientPickerHotspot', {
+Ext.define('org.osehra.cpe.roster.PatientPickerHotspot', {
     requires: [
-        'EXT.DOMAIN.cpe.roster.RosterContext'
+        'org.osehra.cpe.roster.RosterContext'
     ],
 	extend: 'Ext.panel.Panel',
 	alias: 'widget.pphotspot',
@@ -31,7 +31,7 @@ Ext.define('EXT.DOMAIN.cpe.roster.PatientPickerHotspot', {
                     {
                         itemId:'pphotspot-roster-label',
                         type:'text',
-                        text:EXT.DOMAIN.cpe.roster.RosterContext.getRosterInfo().name || '<No Roster Selected>',
+                        text:org.osehra.cpe.roster.RosterContext.getRosterInfo().name || '<No Roster Selected>',
                         rotate:{
                             degrees:me.degrot
                         }

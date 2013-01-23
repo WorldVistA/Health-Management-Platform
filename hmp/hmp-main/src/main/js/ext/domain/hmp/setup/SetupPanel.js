@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.hmp.setup.SetupPanel', {
+Ext.define('org.osehra.hmp.setup.SetupPanel', {
     extend: 'Ext.panel.Panel',
     title: 'Foo'
 });

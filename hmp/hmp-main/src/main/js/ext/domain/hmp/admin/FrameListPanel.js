@@ -1,5 +1,5 @@
-Ext.define('EXT.DOMAIN.hmp.admin.FrameListPanel', {
-    extend:'EXT.DOMAIN.cpe.viewdef.ViewDefGridPanel',
+Ext.define('org.osehra.hmp.admin.FrameListPanel', {
+    extend:'org.osehra.cpe.viewdef.ViewDefGridPanel',
     requires:[],
     itemId:'frame-list',
     title:'Frames',
@@ -8,7 +8,7 @@ Ext.define('EXT.DOMAIN.hmp.admin.FrameListPanel', {
         'group': 'type',
         'col.display': 'id,name,runCount,type'
     },
-    viewID:'EXT.DOMAIN.cpe.vpr.queryeng.FrameListViewDef',
+    viewID:'org.osehra.cpe.vpr.queryeng.FrameListViewDef',
     detailType: 'bottom',
     detail: {
     	height: '300px'

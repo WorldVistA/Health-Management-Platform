@@ -1,10 +1,10 @@
-Ext.define('EXT.DOMAIN.hmp.team.TeamTile', {
+Ext.define('org.osehra.hmp.team.TeamTile', {
     extend:'Ext.grid.Panel',
     requires:[
-        'EXT.DOMAIN.hmp.UserContext',
-        'EXT.DOMAIN.hmp.team.TeamPositionField',
-        'EXT.DOMAIN.hmp.team.PersonField',
-        'EXT.DOMAIN.cpe.roster.RosterPicker'
+        'org.osehra.hmp.UserContext',
+        'org.osehra.hmp.team.TeamPositionField',
+        'org.osehra.hmp.team.PersonField',
+        'org.osehra.cpe.roster.RosterPicker'
     ],
     alias:'widget.teamtile',
     ui:'gadget',
@@ -80,7 +80,7 @@ Ext.define('EXT.DOMAIN.hmp.team.TeamTile', {
 
         me.callParent(arguments);
 
-        var owner = me.owner ? me.owner : EXT.DOMAIN.hmp.UserContext.getUserInfo().userName;
+        var owner = me.owner ? me.owner : org.osehra.hmp.UserContext.getUserInfo().userName;
         me.down('form').getForm().setValues({
             owner:owner
         });

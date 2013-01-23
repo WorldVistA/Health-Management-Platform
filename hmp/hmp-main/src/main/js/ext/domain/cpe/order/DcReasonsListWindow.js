@@ -6,7 +6,7 @@ var dataStore = Ext.create('Ext.data.ArrayStore', {
 });
 
 
-Ext.define('EXT.DOMAIN.cpe.order.DcReasonsListWindow', {
+Ext.define('org.osehra.cpe.order.DcReasonsListWindow', {
     extend:'Ext.window.Window',
     title:'Discontinue Reasons',
     height:300,
@@ -19,7 +19,7 @@ Ext.define('EXT.DOMAIN.cpe.order.DcReasonsListWindow', {
     layout:{type:'border'},
     worksheet:false,
     mixins:{
-        patientaware:'EXT.DOMAIN.hmp.PatientAware'
+        patientaware:'org.osehra.hmp.PatientAware'
     },
     listeners:{
         show:function () {

@@ -1,30 +1,30 @@
-Ext.define('EXT.DOMAIN.hmp.admin.AdminApp', {
-    extend: 'EXT.DOMAIN.hmp.Application',
+Ext.define('org.osehra.hmp.admin.AdminApp', {
+    extend: 'org.osehra.hmp.Application',
     requires:[
         "Ext.util.History",
-        "EXT.DOMAIN.hmp.Viewport",
-        "EXT.DOMAIN.hmp.admin.AdminScreenSelector",
-        "EXT.DOMAIN.hmp.admin.AdminCardPanel"
+        "org.osehra.hmp.Viewport",
+        "org.osehra.hmp.admin.AdminScreenSelector",
+        "org.osehra.hmp.admin.AdminCardPanel"
     ],
     controllers: [
-        'EXT.DOMAIN.hmp.admin.AdminScreenController',
-        'EXT.DOMAIN.hmp.admin.TermBrowserController',
-        'EXT.DOMAIN.hmp.admin.VistaRpcRunnerController',
-        'EXT.DOMAIN.hmp.admin.SyncAdminController'
+        'org.osehra.hmp.admin.AdminScreenController',
+        'org.osehra.hmp.admin.TermBrowserController',
+        'org.osehra.hmp.admin.VistaRpcRunnerController',
+        'org.osehra.hmp.admin.SyncAdminController'
     ],
     init: function() {
         Ext.util.History.init();
     },
     launch:function() {
-        Ext.create('EXT.DOMAIN.hmp.Viewport',{
+        Ext.create('org.osehra.hmp.Viewport',{
             items: [
-                Ext.create('EXT.DOMAIN.hmp.admin.AdminScreenSelector', {
+                Ext.create('org.osehra.hmp.admin.AdminScreenSelector', {
                     region: 'west',
                     split: true,
                     padding: '6 0 6 6'
 
                 }),
-                Ext.create('EXT.DOMAIN.hmp.admin.AdminCardPanel', {
+                Ext.create('org.osehra.hmp.admin.AdminCardPanel', {
                     region: 'center',
                     padding: '6 6 6 0'
 

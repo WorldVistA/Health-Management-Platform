@@ -1,7 +1,7 @@
-Ext.define('EXT.DOMAIN.hmp.team.TeamSelector', {
+Ext.define('org.osehra.hmp.team.TeamSelector', {
     extend:'Ext.grid.Panel',
     requires:[
-        'EXT.DOMAIN.hmp.EventBus'
+        'org.osehra.hmp.EventBus'
     ],
     ui:'plain',
 //    title:'Teams',
@@ -30,11 +30,11 @@ Ext.define('EXT.DOMAIN.hmp.team.TeamSelector', {
         storeId:'teams',
         fields:['displayName', 'owner', 'positions'],
         associations:[
-            { type:'hasMany', model:'EXT.DOMAIN.hmp.team.TeamPosition', associationKey:'positions' }
+            { type:'hasMany', model:'org.osehra.hmp.team.TeamPosition', associationKey:'positions' }
         ],
         proxy:{
             type:'ajax',
-            url:'/js/EXT/DOMAIN/hmp/team/teams.json',
+            url:'/js/org.osehra/hmp/team/teams.json',
             reader:{
                 type:'json',
                 root:'data.items'
@@ -47,7 +47,7 @@ Ext.define('EXT.DOMAIN.hmp.team.TeamSelector', {
     ],
     listeners:{
         select:function (rowModel, record) {
-            EXT.DOMAIN.hmp.EventBus.fireEvent('teamselect', record);
+            org.osehra.hmp.EventBus.fireEvent('teamselect', record);
         }
     },
     initComponent:function () {

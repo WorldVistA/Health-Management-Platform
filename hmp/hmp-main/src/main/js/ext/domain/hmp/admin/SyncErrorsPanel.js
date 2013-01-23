@@ -1,7 +1,7 @@
-Ext.define('EXT.DOMAIN.hmp.admin.SyncErrorsPanel', {
+Ext.define('org.osehra.hmp.admin.SyncErrorsPanel', {
     extend:'Ext.container.Container',
     requires:[
-        'EXT.DOMAIN.hmp.admin.SyncErrorStore'
+        'org.osehra.hmp.admin.SyncErrorStore'
     ],
     alias: 'widget.syncerrorspanel',
     itemId:'sync-errors',
@@ -147,7 +147,7 @@ Ext.define('EXT.DOMAIN.hmp.admin.SyncErrorsPanel', {
     initComponent:function () {
         var store = Ext.getStore('syncErrors');
         if (!store) {
-            Ext.create("EXT.DOMAIN.hmp.admin.SyncErrorStore");
+            Ext.create("org.osehra.hmp.admin.SyncErrorStore");
         }
         this.callParent(arguments);
     }

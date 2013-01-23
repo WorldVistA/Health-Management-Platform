@@ -11,9 +11,9 @@ var termSearchStore = Ext.create('Ext.data.Store', {
 	}
 });
 
-Ext.define('EXT.DOMAIN.hmp.admin.TermBrowserPanel', {
+Ext.define('org.osehra.hmp.admin.TermBrowserPanel', {
 	extend : 'Ext.panel.Panel',
-	requires : [ 'EXT.DOMAIN.hmp.admin.TermBrowserTree' ],
+	requires : [ 'org.osehra.hmp.admin.TermBrowserTree' ],
 	itemId : 'term-browse',
 	title : 'Terminology Browser',
 	layout : 'border',

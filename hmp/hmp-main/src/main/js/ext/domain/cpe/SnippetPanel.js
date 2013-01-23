@@ -10,7 +10,7 @@ var cbtore = Ext.create('Ext.data.Store', {
         });
 
 
-Ext.define('EXT.DOMAIN.cpe.SnippetPanel', {
+Ext.define('org.osehra.cpe.SnippetPanel', {
             extend: 'Ext.form.Panel',
             alias: 'widget.snippetpanel',
             //id: 'snippetPanelId',

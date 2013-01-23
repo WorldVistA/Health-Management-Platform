@@ -1,9 +1,9 @@
-Ext.define('EXT.DOMAIN.hmp.admin.SyncAdminPanel', {
+Ext.define('org.osehra.hmp.admin.SyncAdminPanel', {
     extend:'Ext.panel.Panel',
     requires:[
-        'EXT.DOMAIN.hmp.AppContext',
-        'EXT.DOMAIN.hmp.UserContext',
-        'EXT.DOMAIN.cpe.roster.RosterPicker'
+        'org.osehra.hmp.AppContext',
+        'org.osehra.hmp.UserContext',
+        'org.osehra.cpe.roster.RosterPicker'
     ],
     alias: 'widget.syncadminpanel',
     itemId:'sync',

@@ -1,7 +1,7 @@
 /*
  * TODO: getState() support. The users will certainly want these filter buttons to remember. (the Alamo!)
  */
-Ext.define('EXT.DOMAIN.cpe.viewdef.AutoFilterToolbar', {
+Ext.define('org.osehra.cpe.viewdef.AutoFilterToolbar', {
 	extend: 'Ext.toolbar.Toolbar',
 	alias: 'widget.autofiltertbar',
 	layout: 'auto',
@@ -11,7 +11,7 @@ Ext.define('EXT.DOMAIN.cpe.viewdef.AutoFilterToolbar', {
 			for (var i in data.metaData.params) {
 				var param = data.metaData.params[i];
 				
-				if (param.enum && param.clazz === 'EXT.DOMAIN.cpe.vpr.queryeng.ViewParam$QuickFilterParam') {
+				if (param.enum && param.clazz === 'org.osehra.cpe.vpr.queryeng.ViewParam$QuickFilterParam') {
 					for (var j in param.enum) {
 						var et = true;
 						if(this.grid.viewParams && this.grid.viewParams[param.key])

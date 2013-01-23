@@ -6,7 +6,7 @@
  * There are config options for static sizing, horizontal- or vertical-only sizing, target component to cover by the sizing, and a delay timer for the close event.
  */
 
-Ext.define('EXT.DOMAIN.hmp.util.Animation', {
+Ext.define('org.osehra.hmp.util.Animation', {
     requires: 'Ext.window.Window',
 	myWindow: null,
 	/**
@@ -259,7 +259,7 @@ Ext.define('EXT.DOMAIN.hmp.util.Animation', {
 		 */
 		decorateComponent: function(targetCmp, animeCmp, cover, config, startRelativeToX, startRelativeToY, animOpenTrigger, animOpenDelay)
 		{
-			var anime = new EXT.DOMAIN.hmp.util.Animation();
+			var anime = new org.osehra.hmp.util.Animation();
 			anime.startRelativeToX = startRelativeToX || 0;
 			anime.startRelativeToY = startRelativeToY || 0;
 			anime.animOpenTrigger = animOpenTrigger || 'mouseover';

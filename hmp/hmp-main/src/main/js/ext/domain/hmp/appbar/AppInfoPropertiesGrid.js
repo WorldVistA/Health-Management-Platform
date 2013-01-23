@@ -1,7 +1,7 @@
-Ext.define('EXT.DOMAIN.hmp.appbar.AppInfoPropertiesGrid', {
+Ext.define('org.osehra.hmp.appbar.AppInfoPropertiesGrid', {
     extend:'Ext.grid.property.Grid',
     requires:[
-        'EXT.DOMAIN.hmp.AppContext'
+        'org.osehra.hmp.AppContext'
     ],
     alias:'widget.appinfopropertygrid',
     /**
@@ -15,6 +15,6 @@ Ext.define('EXT.DOMAIN.hmp.appbar.AppInfoPropertiesGrid', {
         return this.callParent(arguments);
     },
     refreshSource: function() {
-        this.setSource(EXT.DOMAIN.hmp.AppContext.getAppInfo()[this.appInfo]);
+        this.setSource(org.osehra.hmp.AppContext.getAppInfo()[this.appInfo]);
     }
 });

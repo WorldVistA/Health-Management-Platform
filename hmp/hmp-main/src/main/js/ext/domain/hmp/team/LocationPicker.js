@@ -1,7 +1,7 @@
-Ext.define('EXT.DOMAIN.hmp.team.LocationPicker', {
+Ext.define('org.osehra.hmp.team.LocationPicker', {
     extend:'Ext.form.field.ComboBox',
 //    requires:[
-//        'EXT.DOMAIN.hmp.team.PersonStore'
+//        'org.osehra.hmp.team.PersonStore'
 //    ],
     alias:'widget.locationpicker',
     displayField: 'name',
@@ -9,7 +9,7 @@ Ext.define('EXT.DOMAIN.hmp.team.LocationPicker', {
     initComponent:function () {
 //        var personStore = Ext.getStore('persons');
 //        if (!personStore) {
-//            personStore = Ext.create('EXT.DOMAIN.hmp.team.PersonStore');
+//            personStore = Ext.create('org.osehra.hmp.team.PersonStore');
 //        }
 //        this.store = personStore;
 

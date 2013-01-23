@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ page import="EXT.DOMAIN.cpe.vpr.*"%>
+<%@ page import="org.osehra.cpe.vpr.*"%>
 <%@ page import="org.springframework.data.domain.Page"%>
 
 <html>

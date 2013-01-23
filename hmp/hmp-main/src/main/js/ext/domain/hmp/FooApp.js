@@ -1,11 +1,11 @@
-Ext.define('EXT.DOMAIN.hmp.FooApp', {
-    extend:'EXT.DOMAIN.hmp.Application',
+Ext.define('org.osehra.hmp.FooApp', {
+    extend:'org.osehra.hmp.Application',
     requires:[
-        'EXT.DOMAIN.hmp.Viewport',
-        'EXT.DOMAIN.hmp.containers.SlidingCardLayout'
+        'org.osehra.hmp.Viewport',
+        'org.osehra.hmp.containers.SlidingCardLayout'
     ],
     launch:function () {
-        Ext.create('EXT.DOMAIN.hmp.Viewport', {
+        Ext.create('org.osehra.hmp.Viewport', {
             items:[
                 {
                     xtype:'panel',

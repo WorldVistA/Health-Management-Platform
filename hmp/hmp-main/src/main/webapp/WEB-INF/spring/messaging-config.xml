@@ -12,7 +12,7 @@
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
         http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd">
 
-    <context:component-scan base-package="EXT.DOMAIN.cpe.vpr.sync.msg"/>
+    <context:component-scan base-package="org.osehra.cpe.vpr.sync.msg"/>
 
     <amq:broker id="broker" brokerName="hmp-${hmp.server.id}" useJmx="true" persistent="true"
                 dataDirectory="${activemq.data.dir}"/>
@@ -28,7 +28,7 @@
     <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate" lazy-init="true"
           p:connectionFactory-ref="pooledJmsConnectionFactory"/>
 
-    <bean id="jmsSyncErrorDao" class="EXT.DOMAIN.cpe.vpr.dao.jms.JmsSyncErrorDao"
+    <bean id="jmsSyncErrorDao" class="org.osehra.cpe.vpr.dao.jms.JmsSyncErrorDao"
           p:jmsTemplate-ref="jmsTemplate"
           p:conversionService-ref="vprConversionService"
           p:errorQueueMBean-ref="vprErrorQueueMBean"/>
@@ -39,54 +39,54 @@
 
     <bean id="syncMessageDispatcherProxy" class="org.springframework.aop.framework.ProxyFactoryBean"
           p:target-ref="syncMessageDispatcher"
-          p:proxyInterfaces="EXT.DOMAIN.cpe.vpr.sync.msg.IMapMessageHandler"
+          p:proxyInterfaces="org.osehra.cpe.vpr.sync.msg.IMapMessageHandler"
           p:interceptorNames="hibernateInterceptor"/>
 
-    <bean id="loadPatientMessageHandler" class="EXT.DOMAIN.cpe.vpr.sync.msg.LoadPatientMessageHandler"
+    <bean id="loadPatientMessageHandler" class="org.osehra.cpe.vpr.sync.msg.LoadPatientMessageHandler"
           p:centralImporter-ref="centralImporter"/>
 
-    <bean id="syncMessageDispatcher" class="EXT.DOMAIN.cpe.vpr.sync.msg.SyncMessageDispatcher" lazy-init="true">
+    <bean id="syncMessageDispatcher" class="org.osehra.cpe.vpr.sync.msg.SyncMessageDispatcher" lazy-init="true">
         <property name="actionToProcessorMap">
             <map>
                 <entry>
                     <key>
-                        <util:constant static-field="EXT.DOMAIN.cpe.vpr.sync.SyncAction.PATIENT_LOAD"/>
+                        <util:constant static-field="org.osehra.cpe.vpr.sync.SyncAction.PATIENT_LOAD"/>
                     </key>
                     <ref bean="loadPatientMessageHandler"/>
                 </entry>
                 <entry>
                     <key>
-                        <util:constant static-field="EXT.DOMAIN.cpe.vpr.sync.SyncAction.PATIENT_LOAD_COMPLETE"/>
+                        <util:constant static-field="org.osehra.cpe.vpr.sync.SyncAction.PATIENT_LOAD_COMPLETE"/>
                     </key>
                     <ref bean="loadPatientCompleteMessageHandler"/>
                 </entry>
                 <entry>
                     <key>
-                        <util:constant static-field="EXT.DOMAIN.cpe.vpr.sync.SyncAction.PATIENT_REINDEX"/>
+                        <util:constant static-field="org.osehra.cpe.vpr.sync.SyncAction.PATIENT_REINDEX"/>
                     </key>
                     <ref bean="reindexPatientMessageHandler"/>
                 </entry>
                 <entry>
                     <key>
-                        <util:constant static-field="EXT.DOMAIN.cpe.vpr.sync.SyncAction.PATIENT_CLEAR"/>
+                        <util:constant static-field="org.osehra.cpe.vpr.sync.SyncAction.PATIENT_CLEAR"/>
                     </key>
                     <ref bean="clearPatientMessageHandler"/>
                 </entry>
                 <entry>
                     <key>
-                        <util:constant static-field="EXT.DOMAIN.cpe.vpr.sync.SyncAction.ITEM_CLEAR"/>
+                        <util:constant static-field="org.osehra.cpe.vpr.sync.SyncAction.ITEM_CLEAR"/>
                     </key>
                     <ref bean="clearItemMessageHandler"/>
                 </entry>
                 <entry>
                     <key>
-                        <util:constant static-field="EXT.DOMAIN.cpe.vpr.sync.SyncAction.IMPORT_CHUNK"/>
+                        <util:constant static-field="org.osehra.cpe.vpr.sync.SyncAction.IMPORT_CHUNK"/>
                     </key>
                     <ref bean="importChunkMessageHandler"/>
                 </entry>
                 <entry>
                     <key>
-                        <util:constant static-field="EXT.DOMAIN.cpe.vpr.sync.SyncAction.VPR_UPDATE_COMPLETE"/>
+                        <util:constant static-field="org.osehra.cpe.vpr.sync.SyncAction.VPR_UPDATE_COMPLETE"/>
                     </key>
                     <ref bean="vprUpdateCompleteMessageHandler"/>
                 </entry>
@@ -94,7 +94,7 @@
         </property>
     </bean>
 
-    <bean id="syncMessageErrorHandler" class="EXT.DOMAIN.cpe.vpr.sync.msg.SyncMessageErrorHandler"/>
+    <bean id="syncMessageErrorHandler" class="org.osehra.cpe.vpr.sync.msg.SyncMessageErrorHandler"/>
 
     <jms:listener-container
             error-handler="syncMessageErrorHandler"

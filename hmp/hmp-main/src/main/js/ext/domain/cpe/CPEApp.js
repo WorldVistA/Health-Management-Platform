@@ -1,11 +1,11 @@
-Ext.define('EXT.DOMAIN.cpe.CPEApp', {
-    extend:'EXT.DOMAIN.hmp.Application',
+Ext.define('org.osehra.cpe.CPEApp', {
+    extend:'org.osehra.hmp.Application',
     requires:[
-        'EXT.DOMAIN.hmp.appbar.ErrorManager',
-        'EXT.DOMAIN.hmp.Viewport',
-        'EXT.DOMAIN.cpe.CPEPanel',
-        'EXT.DOMAIN.hmp.PatientContext',
-        'EXT.DOMAIN.cpe.roster.RosterContext'
+        'org.osehra.hmp.appbar.ErrorManager',
+        'org.osehra.hmp.Viewport',
+        'org.osehra.cpe.CPEPanel',
+        'org.osehra.hmp.PatientContext',
+        'org.osehra.cpe.roster.RosterContext'
     ],
     launch:function () {
     	
@@ -14,7 +14,7 @@ Ext.define('EXT.DOMAIN.cpe.CPEApp', {
             region:'center'
         }
         
-        var appInfo = EXT.DOMAIN.hmp.AppContext.getAppInfo();
+        var appInfo = org.osehra.hmp.AppContext.getAppInfo();
         if (Ext.isDefined(appInfo.contexts)) {
             // restore roster context
             if (Ext.isDefined(appInfo.contexts.rosterId) && appInfo.contexts.rosterId) {
@@ -23,11 +23,11 @@ Ext.define('EXT.DOMAIN.cpe.CPEApp', {
 
             // restore patient context
             if (Ext.isDefined(appInfo.contexts.pid) && appInfo.contexts.pid != null) {
-                EXT.DOMAIN.hmp.PatientContext.setPatientContext(appInfo.contexts.pid);
+                org.osehra.hmp.PatientContext.setPatientContext(appInfo.contexts.pid);
             }
         }
 
-        Ext.create('EXT.DOMAIN.hmp.Viewport', {
+        Ext.create('org.osehra.hmp.Viewport', {
             items:[cpeConf]
         });
     }

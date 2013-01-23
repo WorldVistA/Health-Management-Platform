@@ -5,11 +5,11 @@
     <title><g:message code="platform.name"/> &raquo Core Web Service APIs</title>
     <g:render template="/layouts/api"/>
     <g:javascript>
-        Ext.require(['EXT.DOMAIN.hmp.Application', 'EXT.DOMAIN.hmp.Viewport']);
+        Ext.require(['org.osehra.hmp.Application', 'org.osehra.hmp.Viewport']);
         Ext.onReady(function() {
-            Ext.create('EXT.DOMAIN.hmp.Application', {
+            Ext.create('org.osehra.hmp.Application', {
                 launch: function() {
-                    Ext.create('EXT.DOMAIN.hmp.Viewport', {
+                    Ext.create('org.osehra.hmp.Viewport', {
                         items: [
                             {
                                 xtype: 'component',

@@ -2,7 +2,7 @@
  * The idea here is to have a detail pane 'baked' into the panel, and allow 2+ other components to
  * share the detail pane.  Layout could be either horizonal or vertical. 
  */
-Ext.define('EXT.DOMAIN.hmp.containers.MultiGridPanel', {
+Ext.define('org.osehra.hmp.containers.MultiGridPanel', {
 	extend: 'Ext.panel.Panel',
 	alias: 'widget.multigridpanel',
 	layout: {type: 'vbox', align: 'stretch', padding: '0 0 6 0'},

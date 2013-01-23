@@ -1,13 +1,13 @@
-Ext.define('EXT.DOMAIN.cpe.patient.PatientBanner', {
+Ext.define('org.osehra.cpe.patient.PatientBanner', {
     extend:'Ext.panel.Panel',
     requires:[
-        'EXT.DOMAIN.hmp.PopUpButton',
-        'EXT.DOMAIN.hmp.EventBus',
-        'EXT.DOMAIN.hmp.PhotoPicker'
+        'org.osehra.hmp.PopUpButton',
+        'org.osehra.hmp.EventBus',
+        'org.osehra.hmp.PhotoPicker'
     ],
     alias:'widget.ptbanner',
     mixins:{
-        patientaware:'EXT.DOMAIN.hmp.PatientAware'
+        patientaware:'org.osehra.hmp.PatientAware'
     },
     layout:{
         type:'hbox',
@@ -34,7 +34,7 @@ Ext.define('EXT.DOMAIN.cpe.patient.PatientBanner', {
             maxWidth:17,
             padding:'26 0 0 0',
             handler:function (button, e) {
-                EXT.DOMAIN.hmp.EventBus.fireEvent('prevPatient', button);
+                org.osehra.hmp.EventBus.fireEvent('prevPatient', button);
             }
         },
         {
@@ -49,7 +49,7 @@ Ext.define('EXT.DOMAIN.cpe.patient.PatientBanner', {
                 listeners: {
                     load: function(picker) {
                         var menu = picker.up('menu');
-                        menu.ownerButton.setIcon("/vpr/v1/" + EXT.DOMAIN.hmp.PatientContext.pid + "/photo?_dc=" + (new Date().getTime()));
+                        menu.ownerButton.setIcon("/vpr/v1/" + org.osehra.hmp.PatientContext.pid + "/photo?_dc=" + (new Date().getTime()));
                     }
                 }
             },
@@ -67,7 +67,7 @@ Ext.define('EXT.DOMAIN.cpe.patient.PatientBanner', {
                     handler:function (btn) {
                         var menu = btn.up('menu');
                         var photopicker = menu.down('photopicker');
-                        photopicker.uploadTo('/vpr/v1/' + EXT.DOMAIN.hmp.PatientContext.pid + '/photo?_dc=' + (new Date().getTime()));
+                        photopicker.uploadTo('/vpr/v1/' + org.osehra.hmp.PatientContext.pid + '/photo?_dc=' + (new Date().getTime()));
                         menu.hide();
                     }
                 }
@@ -115,7 +115,7 @@ Ext.define('EXT.DOMAIN.cpe.patient.PatientBanner', {
             maxWidth:17,
             padding:'26 0 0 0',
             handler:function (button, e) {
-                EXT.DOMAIN.hmp.EventBus.fireEvent('nextPatient', button);
+                org.osehra.hmp.EventBus.fireEvent('nextPatient', button);
             }
         },
         {
@@ -174,7 +174,7 @@ Ext.define('EXT.DOMAIN.cpe.patient.PatientBanner', {
                 height:300,
                 title:"Profile Docs",
                 titleTpl:'Profile Docs ({total})',
-                viewID:'EXT.DOMAIN.cpe.vpr.queryeng.ProfileDocsViewDef',
+                viewID:'org.osehra.cpe.vpr.queryeng.ProfileDocsViewDef',
                 detailType:'right',
                 tools:[]
             }
@@ -201,7 +201,7 @@ Ext.define('EXT.DOMAIN.cpe.patient.PatientBanner', {
     },
     initComponent:function () {
         this.callParent(arguments);
-        EXT.DOMAIN.hmp.EventBus.on('patientNav', this.refreshNavButtons, this);
+        org.osehra.hmp.EventBus.on('patientNav', this.refreshNavButtons, this);
     },
     onBoxReady:function () {
         this.initPatientContext();

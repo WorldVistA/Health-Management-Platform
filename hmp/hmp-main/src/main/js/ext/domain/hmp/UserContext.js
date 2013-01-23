@@ -1,9 +1,9 @@
 /**
  * Singleton for tracking the current user.
  */
-Ext.define('EXT.DOMAIN.hmp.UserContext', {
+Ext.define('org.osehra.hmp.UserContext', {
     uses: [
-        'EXT.DOMAIN.hmp.appbar.ErrorManager'
+        'org.osehra.hmp.appbar.ErrorManager'
     ],
     singleton:true,
     mixins:{
@@ -153,7 +153,7 @@ Ext.define('EXT.DOMAIN.hmp.UserContext', {
             window.location = '/auth/logout'
         } else if (remaining <= me.getTimeoutCountdownSeconds() && keepalive) {
             me.userActivity();
-            EXT.DOMAIN.hmp.appbar.ErrorManager.warn('Keepalive', 5000);
+            org.osehra.hmp.appbar.ErrorManager.warn('Keepalive', 5000);
             Ext.Ajax.request({
                 url:'/auth/keepalive',
                 params:{
@@ -164,7 +164,7 @@ Ext.define('EXT.DOMAIN.hmp.UserContext', {
                 }
             });
         } else if (remaining <= me.getTimeoutCountdownSeconds()) {
-            EXT.DOMAIN.hmp.appbar.ErrorManager.warn('Your session will expire in ' + remaining + ' seconds.', 1500);
+            org.osehra.hmp.appbar.ErrorManager.warn('Your session will expire in ' + remaining + ' seconds.', 1500);
         }
     },
     /**

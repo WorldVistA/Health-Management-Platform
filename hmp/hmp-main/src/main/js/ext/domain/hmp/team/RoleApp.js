@@ -1,18 +1,18 @@
-Ext.define('EXT.DOMAIN.hmp.team.RoleApp', {
-    extend:'EXT.DOMAIN.hmp.Application',
+Ext.define('org.osehra.hmp.team.RoleApp', {
+    extend:'org.osehra.hmp.Application',
     requires:[
-        'EXT.DOMAIN.hmp.team.VistaUserClass',
-        'EXT.DOMAIN.hmp.team.MyTreeReader',
+        'org.osehra.hmp.team.VistaUserClass',
+        'org.osehra.hmp.team.MyTreeReader',
         'Ext.ux.CheckColumn'
     ],
     autoCreateViewport:true,
     launch:function () {
         var store = Ext.create('Ext.data.TreeStore', {
             storeId:'userClassHierarchy',
-            model:'EXT.DOMAIN.hmp.team.VistaUserClass',
+            model:'org.osehra.hmp.team.VistaUserClass',
             proxy:{
                 type:'ajax',
-                url:'/js/EXT/DOMAIN/hmp/team/user-class-hierarchy.json',
+                url:'/js/org.osehra/hmp/team/user-class-hierarchy.json',
                 reader:{
 //                    type:'jsonctree',
                     root:'subclasses'
@@ -91,7 +91,7 @@ Ext.define('EXT.DOMAIN.hmp.team.RoleApp', {
             title:'Person Classes',
             padding:10,
             width:'40%',
-            store:Ext.create('EXT.DOMAIN.hmp.team.PersonClassStore', {
+            store:Ext.create('org.osehra.hmp.team.PersonClassStore', {
                 autoLoad:true
             }),
             columns:[

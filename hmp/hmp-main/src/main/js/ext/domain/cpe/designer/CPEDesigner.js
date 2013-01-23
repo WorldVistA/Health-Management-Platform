@@ -1,10 +1,10 @@
 /*
  * The editor/configuration of a WidgetTabPanel
  */
-Ext.define('EXT.DOMAIN.cpe.designer.CPEDesigner', {
+Ext.define('org.osehra.cpe.designer.CPEDesigner', {
 	extend: 'Ext.panel.Panel',
 	alias: 'widget.cpedesigner',
-	requires: ['EXT.DOMAIN.cpe.viewdef.ViewDefGridPanel'],
+	requires: ['org.osehra.cpe.viewdef.ViewDefGridPanel'],
 	layout: 'border',
 	
 	// this is a list of all the known component types/metadata.
@@ -13,7 +13,7 @@ Ext.define('EXT.DOMAIN.cpe.designer.CPEDesigner', {
 	types: {
 		'dashboard': {text: 'Dashboard', type: 'dashboard', icon: '/images/icons/folder_table.png', container: true},
 		'worksheet': {text: 'Worksheet', type: 'worksheet', icon: '/images/icons/layout_content.png', container: true},
-		'viewdefgridpanel': {text: 'Data Grid', type: 'viewdefgridpanel', icon: '/images/icons/table.png', component: 'EXT.DOMAIN.cpe.designer.DataGridDetail', container: false}
+		'viewdefgridpanel': {text: 'Data Grid', type: 'viewdefgridpanel', icon: '/images/icons/table.png', component: 'org.osehra.cpe.designer.DataGridDetail', container: false}
 	},
 	initComponent: function() {
 		var me = this;
@@ -26,7 +26,7 @@ Ext.define('EXT.DOMAIN.cpe.designer.CPEDesigner', {
 		// initalize the default (empty) editor and form
 		this.formCmp = this.down('form');
 		this.form = this.formCmp.getForm();
-		this.setEditor('EXT.DOMAIN.cpe.designer.PanelEditor', null);
+		this.setEditor('org.osehra.cpe.designer.PanelEditor', null);
 
 		// populate the add button menu
 		for (var t in this.types) {
@@ -52,7 +52,7 @@ Ext.define('EXT.DOMAIN.cpe.designer.CPEDesigner', {
 			// if no editor was defined, use the default
 			var type = me.types[rec.get('type')];
 			if (!type || !type.component) {
-				type = 'EXT.DOMAIN.cpe.designer.DefaultPanelEditor';
+				type = 'org.osehra.cpe.designer.DefaultPanelEditor';
 			} else if (true) {
 				type = type.component;
 			} else {
@@ -102,7 +102,7 @@ Ext.define('EXT.DOMAIN.cpe.designer.CPEDesigner', {
 		items: [
 	       {title: 'Dashboard', type: 'dashboard', cfg: {}},
 	       {title: 'Worksheet', type: 'worksheet', cfg: {}},
-	       {title: 'Recent Labs', type: 'viewdefgridpanel', viewID: 'EXT.DOMAIN.cpe.vpr.queryeng.LabViewDef', cfg: {collapsible: true}},
+	       {title: 'Recent Labs', type: 'viewdefgridpanel', viewID: 'org.osehra.cpe.vpr.queryeng.LabViewDef', cfg: {collapsible: true}},
         ]
 	},
 	

@@ -1,7 +1,7 @@
-Ext.define('EXT.DOMAIN.hmp.team.PersonPicker', {
+Ext.define('org.osehra.hmp.team.PersonPicker', {
     extend:'Ext.container.Container',
     requires:[
-        'EXT.DOMAIN.hmp.team.PersonStore'
+        'org.osehra.hmp.team.PersonStore'
     ],
     alias:'widget.personpicker',
     /**
@@ -66,7 +66,7 @@ Ext.define('EXT.DOMAIN.hmp.team.PersonPicker', {
         me.items[0].onTriggerClick = function () {
             me.onClickClearQuery.call(me)
         };
-        me.items[1].store = Ext.data.StoreManager.containsKey('persons') ? Ext.getStore('persons') : Ext.create('EXT.DOMAIN.hmp.team.PersonStore');
+        me.items[1].store = Ext.data.StoreManager.containsKey('persons') ? Ext.getStore('persons') : Ext.create('org.osehra.hmp.team.PersonStore');
 
         me.callParent(arguments);
 
@@ -78,7 +78,7 @@ Ext.define('EXT.DOMAIN.hmp.team.PersonPicker', {
              *
              * @param {Object} queryEvent An object that has these properties:
              *
-             *   - `picker` : EXT.DOMAIN.hmp.team.PersonPicker
+             *   - `picker` : org.osehra.hmp.team.PersonPicker
              *
              *     This combo box
              *
@@ -99,7 +99,7 @@ Ext.define('EXT.DOMAIN.hmp.team.PersonPicker', {
             /**
              * @event select
              * Fires when at least one list item is selected.
-             * @param {EXT.DOMAIN.hmp.team.PersonPicker} combo This picker
+             * @param {org.osehra.hmp.team.PersonPicker} combo This picker
              * @param {Array} records The selected records
              */
             'select',
@@ -107,8 +107,8 @@ Ext.define('EXT.DOMAIN.hmp.team.PersonPicker', {
             /**
              * @event beforeselect
              * Fires before the selected item is added to the collection
-             * @param {EXT.DOMAIN.hmp.team.PersonPicker} picker This picker
-             * @param {EXT.DOMAIN.hmp.team.Person} record The selected record
+             * @param {org.osehra.hmp.team.PersonPicker} picker This picker
+             * @param {org.osehra.hmp.team.Person} record The selected record
              * @param {Number} index The index of the selected record
              */
             'beforeselect',
@@ -116,8 +116,8 @@ Ext.define('EXT.DOMAIN.hmp.team.PersonPicker', {
             /**
              * @event beforedeselect
              * Fires before the deselected item is removed from the collection
-             * @param {EXT.DOMAIN.hmp.team.PersonPicker} picker This picker
-             * @param {EXT.DOMAIN.hmp.team.Person} record The deselected record
+             * @param {org.osehra.hmp.team.PersonPicker} picker This picker
+             * @param {org.osehra.hmp.team.Person} record The deselected record
              * @param {Number} index The index of the deselected record
              */
             'beforedeselect'

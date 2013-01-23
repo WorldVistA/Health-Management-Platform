@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.hmp.util.HL7DTMFormatter', {
+Ext.define('org.osehra.hmp.util.HL7DTMFormatter', {
 	
 statics: {
 	/**

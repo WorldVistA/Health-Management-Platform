@@ -15,7 +15,7 @@ var gridStore = Ext.create('Ext.data.ArrayStore', {
     ]
 });
 
-Ext.define('EXT.DOMAIN.cpe.patient.PatientChecksWindow', {
+Ext.define('org.osehra.cpe.patient.PatientChecksWindow', {
             extend: 'Ext.window.Window',
             title: 'Patient Checks',
             height: 200,

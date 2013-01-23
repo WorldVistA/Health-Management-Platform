@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.cpe.viewdef.ViewDefCellEditing', {
+Ext.define('org.osehra.cpe.viewdef.ViewDefCellEditing', {
 	extend: 'Ext.grid.plugin.CellEditing',
 	alias: 'plugin.viewdefcellediting',
 	clicksToEdit: 1,

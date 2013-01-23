@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.hmp.appbar.MessagesButton', {
+Ext.define('org.osehra.hmp.appbar.MessagesButton', {
     extend:'Ext.button.Button',
     alias:'widget.messagesbutton',
     text:'1',

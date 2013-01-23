@@ -1,7 +1,7 @@
-Ext.define('EXT.DOMAIN.hmp.team.TeamCircle', {
+Ext.define('org.osehra.hmp.team.TeamCircle', {
     extend:'Ext.container.Container',
     requires:[
-        'EXT.DOMAIN.hmp.Circle'
+        'org.osehra.hmp.Circle'
     ],
     alias:'widget.teamcircle',
 //    config: {

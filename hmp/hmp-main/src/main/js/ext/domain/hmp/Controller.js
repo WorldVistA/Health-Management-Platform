@@ -1,10 +1,10 @@
 /**
- * @class EXT.DOMAIN.hmp.Controller
+ * @class org.osehra.hmp.Controller
  *
  * HMP Controller base class that provides convenient stuff from Ext.app.Controller without inconvenient namespacing convention
  * and tight coupling to Ext.app.Application.
  */
-Ext.define('EXT.DOMAIN.hmp.Controller', {
+Ext.define('org.osehra.hmp.Controller', {
     mixins:{
         observable:'Ext.util.Observable'
     },
@@ -16,8 +16,8 @@ Ext.define('EXT.DOMAIN.hmp.Controller', {
      * @cfg {Object[]} refs
      * Array of configs to build up references to views on page. For example:
      *
-     *     Ext.define("EXT.DOMAIN.foo.Foo", {
-     *         extend: "EXT.DOMAIN.hmp.Controller",
+     *     Ext.define("org.osehra.foo.Foo", {
+     *         extend: "org.osehra.hmp.Controller",
      *         refs: [
      *             {
      *                 ref: 'list',
@@ -79,15 +79,15 @@ Ext.define('EXT.DOMAIN.hmp.Controller', {
      * A template method to call when your controller is instantiated to establish a link between the controller and the
      * primary view it is controlling.
      *
-     * @param {EXT.DOMAIN.hmp.Application} application
+     * @param {org.osehra.hmp.Application} application
      * @template
      */
     init: Ext.emptyFn,
     /**
      * A template method like {@link #init}, but called after the viewport is created.
-     * This is called after the {@link EXT.DOMAIN.hmp.Application#launch launch} method of Application is executed.
+     * This is called after the {@link org.osehra.hmp.Application#launch launch} method of Application is executed.
      *
-     * @param {EXT.DOMAIN.hmp.Application} application
+     * @param {org.osehra.hmp.Application} application
      * @template
      */
     onLaunch: Ext.emptyFn,
@@ -119,7 +119,7 @@ Ext.define('EXT.DOMAIN.hmp.Controller', {
      * @param {Object} listeners
      */
     control:function (selectors, listeners) {
-        EXT.DOMAIN.hmp.Controller.eventbus.control(selectors, listeners, this);
+        org.osehra.hmp.Controller.eventbus.control(selectors, listeners, this);
     },
 
     ref: function(refs) {
@@ -189,8 +189,8 @@ Ext.define('EXT.DOMAIN.hmp.Controller', {
         return this.references && this.references.indexOf(ref.toLowerCase()) !== -1;
     },
     /**
-     * Returns the base {@link EXT.DOMAIN.hmp.Application} for this controller.
-     * @return {EXT.DOMAIN.hmp.Application} the application
+     * Returns the base {@link org.osehra.hmp.Application} for this controller.
+     * @return {org.osehra.hmp.Application} the application
      */
     getApplication: function(){
         return this.application;

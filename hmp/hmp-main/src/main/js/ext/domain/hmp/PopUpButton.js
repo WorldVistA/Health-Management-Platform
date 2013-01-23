@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.hmp.PopUpButton', {
+Ext.define('org.osehra.hmp.PopUpButton', {
     extend:'Ext.button.Button',
     alias:'widget.popupbutton',
     ui:'popup',

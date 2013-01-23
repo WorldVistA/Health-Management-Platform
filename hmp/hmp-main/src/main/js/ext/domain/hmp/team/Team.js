@@ -1,7 +1,7 @@
-Ext.define('EXT.DOMAIN.hmp.team.Team', {
+Ext.define('org.osehra.hmp.team.Team', {
     extend:'Ext.data.Model',
     requires: [
-        'EXT.DOMAIN.hmp.team.TeamAssignment'
+        'org.osehra.hmp.team.TeamAssignment'
     ],
     idProperty: 'uid',
     fields:[
@@ -37,7 +37,7 @@ Ext.define('EXT.DOMAIN.hmp.team.Team', {
     ],
     hasMany: {
         associationKey: 'staff',
-        model: 'EXT.DOMAIN.hmp.team.TeamAssignment',
+        model: 'org.osehra.hmp.team.TeamAssignment',
         name: 'staff'
     }
 });

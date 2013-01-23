@@ -15,12 +15,12 @@
  * <li>Query all the PatientAware.pid component values to ensure that they all agree that the new patient context is the same.</li>
  * </ol>
  *
- * @see EXT.DOMAIN.hmp.PatientAware
+ * @see org.osehra.hmp.PatientAware
  */
-Ext.define('EXT.DOMAIN.hmp.PatientContext', {
+Ext.define('org.osehra.hmp.PatientContext', {
     requires: [
-        'EXT.DOMAIN.cpe.patient.PatientChecksWindow',
-        'EXT.DOMAIN.cpe.EventListener'
+        'org.osehra.cpe.patient.PatientChecksWindow',
+        'org.osehra.cpe.EventListener'
     ],
     singleton: true,
     config: {
@@ -71,7 +71,7 @@ Ext.define('EXT.DOMAIN.hmp.PatientContext', {
                                 //create array and fire event to change tab colors on new patient data
                                 //TODO need to attached meta-data instead of searching by tab title
                                 var domains = updates.split(', ');
-                                EXT.DOMAIN.hmp.PatientAware.setPatientUpdate(domains);
+                                org.osehra.hmp.PatientAware.setPatientUpdate(domains);
 //                                refresh(me.pid);
                             }
                         }
@@ -81,7 +81,7 @@ Ext.define('EXT.DOMAIN.hmp.PatientContext', {
             }
             Ext.TaskManager.start(this.pollTask);
         }
-        EXT.DOMAIN.cpe.EventListener.listen();
+        org.osehra.cpe.EventListener.listen();
     },
     /**
      * This initiates the process of coordinating/authorizing/updating the patient context change
@@ -130,7 +130,7 @@ Ext.define('EXT.DOMAIN.hmp.PatientContext', {
 
                 // Otherwise, create/configure the PatientChecksWindow and display what is needed
                 var checkWindow = Ext.getCmp('patientChecksWindow');
-                if (!checkWindow) checkWindow = Ext.create('EXT.DOMAIN.cpe.patient.PatientChecksWindow', {
+                if (!checkWindow) checkWindow = Ext.create('org.osehra.cpe.patient.PatientChecksWindow', {
                     listeners: {
                         hide: function() {
                             if (checkWindow.continuePatientLoading) {
@@ -208,6 +208,6 @@ Ext.define('EXT.DOMAIN.hmp.PatientContext', {
 });
 
 function refresh(pid) {
-    EXT.DOMAIN.hmp.PatientContext.refreshPatientContext(pid);
+    org.osehra.hmp.PatientContext.refreshPatientContext(pid);
     Ext.ComponentQuery.query('#msgwinWarnId')[0].hide();
 }

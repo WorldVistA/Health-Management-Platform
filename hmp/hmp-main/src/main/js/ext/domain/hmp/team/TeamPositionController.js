@@ -1,10 +1,10 @@
 /**
  * Controls TeamPositionPanel.
  */
-Ext.define('EXT.DOMAIN.hmp.team.TeamPositionController', {
-    extend:'EXT.DOMAIN.hmp.Controller',
+Ext.define('org.osehra.hmp.team.TeamPositionController', {
+    extend:'org.osehra.hmp.Controller',
     requires:[
-        'EXT.DOMAIN.hmp.team.TeamPositionPanel'
+        'org.osehra.hmp.team.TeamPositionPanel'
     ],
     refs:[
         {
@@ -53,7 +53,7 @@ Ext.define('EXT.DOMAIN.hmp.team.TeamPositionController', {
     },
     onNew:function () {
 //        console.log("new position please!");
-        var newPosition = Ext.create('EXT.DOMAIN.hmp.team.TeamPosition', {
+        var newPosition = Ext.create('org.osehra.hmp.team.TeamPosition', {
             name:"New Position"
         });
         var positionStore = Ext.getStore('teamPositions');

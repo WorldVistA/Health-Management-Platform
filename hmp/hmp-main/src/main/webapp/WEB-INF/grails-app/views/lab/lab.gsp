@@ -1,5 +1,5 @@
 <%@page import="java.awt.image.renderable.ParameterBlock"%>
-<%@ page import="EXT.DOMAIN.cpe.vpr.queryeng.*" %>
+<%@ page import="org.osehra.cpe.vpr.queryeng.*" %>
 <html>
 	<head>
 	<!-- CSS goes in the document HEAD or added to your external stylesheet -->

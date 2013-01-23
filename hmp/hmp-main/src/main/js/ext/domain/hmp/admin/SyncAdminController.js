@@ -1,8 +1,8 @@
 /**
- * Controls behavior of {@link EXT.DOMAIN.hmp.admin.SyncAdminPanel}
+ * Controls behavior of {@link org.osehra.hmp.admin.SyncAdminPanel}
  */
-Ext.define('EXT.DOMAIN.hmp.admin.SyncAdminController', {
-    extend:'EXT.DOMAIN.hmp.Controller',
+Ext.define('org.osehra.hmp.admin.SyncAdminController', {
+    extend:'org.osehra.hmp.Controller',
     refs:[
         {
             ref:'messageField',
@@ -156,7 +156,7 @@ Ext.define('EXT.DOMAIN.hmp.admin.SyncAdminController', {
             form.method = "POST";
             form.submit({
                 params:{
-                    vistaId:EXT.DOMAIN.hmp.UserContext.getUserInfo().vistaId
+                    vistaId:org.osehra.hmp.UserContext.getUserInfo().vistaId
                 },
                 success:function (form, action) {
                     me.getMessageField().update(action.result.data.message);

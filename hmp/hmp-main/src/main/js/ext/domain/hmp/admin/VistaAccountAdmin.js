@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.hmp.admin.VistaAccountAdmin', {
+Ext.define('org.osehra.hmp.admin.VistaAccountAdmin', {
     extend:'Ext.panel.Panel',
     title:'Administer VistA Accounts',
     items: [

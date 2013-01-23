@@ -11,7 +11,7 @@
  *
  * @ptype rowexpander
  */
-Ext.define('EXT.DOMAIN.hmp.util.RowExpander', {
+Ext.define('org.osehra.hmp.util.RowExpander', {
     extend: 'Ext.AbstractPlugin',
 
     requires: [

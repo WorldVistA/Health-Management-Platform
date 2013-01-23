@@ -1,7 +1,7 @@
-Ext.define('EXT.DOMAIN.cpe.PagePicker', {
+Ext.define('org.osehra.cpe.PagePicker', {
     extend:'Ext.form.field.ComboBox',
     requires:[
-        'EXT.DOMAIN.hmp.AppContext'
+        'org.osehra.hmp.AppContext'
     ],
     alias:'widget.pagepicker',
     fieldLabel:'Page Config',
@@ -19,15 +19,15 @@ Ext.define('EXT.DOMAIN.cpe.PagePicker', {
     }),
     initComponent:function () {
         this.callParent(arguments);
-        this.getStore().loadRawData(EXT.DOMAIN.hmp.AppContext.getAppInfo().panels);
+        this.getStore().loadRawData(org.osehra.hmp.AppContext.getAppInfo().panels);
     },
     onBoxReady:function () {
         var me = this;
         me.callParent(arguments);
 
         var panelId = null;
-        if (Ext.isDefined(EXT.DOMAIN.hmp.AppContext.getAppInfo().contexts.panelId)) {
-            panelId = EXT.DOMAIN.hmp.AppContext.getAppInfo().contexts.panelId;
+        if (Ext.isDefined(org.osehra.hmp.AppContext.getAppInfo().contexts.panelId)) {
+            panelId = org.osehra.hmp.AppContext.getAppInfo().contexts.panelId;
         }
         if (!panelId) panelId = this.getStore().getAt(0).get('code');
 

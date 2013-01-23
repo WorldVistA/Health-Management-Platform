@@ -1,10 +1,10 @@
-Ext.define('EXT.DOMAIN.cpe.search.SearchResultsPanel', {
+Ext.define('org.osehra.cpe.search.SearchResultsPanel', {
     extend: 'Ext.grid.Panel',
     requires: [
-        'EXT.DOMAIN.cpe.search.SummaryItem'
+        'org.osehra.cpe.search.SummaryItem'
     ],
     mixins: {
-        patientaware: 'EXT.DOMAIN.hmp.PatientAware'
+        patientaware: 'org.osehra.hmp.PatientAware'
     },
     alias: 'widget.searchresults',
     layout: 'fit',

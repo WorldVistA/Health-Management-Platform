@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.cpe.roster.RosterContext', {
+Ext.define('org.osehra.cpe.roster.RosterContext', {
     singleton:true,
     config: {
         rosterInfo: {}

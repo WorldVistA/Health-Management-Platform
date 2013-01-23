@@ -1,6 +1,6 @@
 <ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"
         updateCheck="false">
-    <!-- diskStore is configured programmatically in EXT.DOMAIN.cpe.Bootstrap -->
+    <!-- diskStore is configured programmatically in org.osehra.cpe.Bootstrap -->
     <!--<diskStore path="ehcache.disk.store.dir"/>-->
     
     <!--

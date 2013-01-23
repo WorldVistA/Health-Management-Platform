@@ -1,13 +1,13 @@
 /**
- * Represents an ExtJS 4 based HMP application, which is typically a single page app using a {@link EXT.DOMAIN.hmp.Viewport Viewport}.
+ * Represents an ExtJS 4 based HMP application, which is typically a single page app using a {@link org.osehra.hmp.Viewport Viewport}.
  * Provides an entry point for initializing the application via {@link #launch}.
  *
  * Serves similar role as {@link Ext.app.Application} without the same strict namespacing conventions for Models/Stores/Controllers/Views.
  */
-Ext.define('EXT.DOMAIN.hmp.Application', {
+Ext.define('org.osehra.hmp.Application', {
     requires:[
-        'EXT.DOMAIN.hmp.AppContext',
-        'EXT.DOMAIN.hmp.Controller'
+        'org.osehra.hmp.AppContext',
+        'org.osehra.hmp.Controller'
     ],
     mixins:{
         observable:'Ext.util.Observable'
@@ -30,7 +30,7 @@ Ext.define('EXT.DOMAIN.hmp.Application', {
     enableQuickTips:true,
     /**
      * @cfg {Boolean} autoCreateViewport
-     * True to automatically load and instantiate EXT.DOMAIN.hmp.Viewport before firing the launch function.
+     * True to automatically load and instantiate org.osehra.hmp.Viewport before firing the launch function.
      */
     autoCreateViewport:false,
 
@@ -46,7 +46,7 @@ Ext.define('EXT.DOMAIN.hmp.Application', {
         }
 
         if (data.autoCreateViewport) {
-            requires.push('EXT.DOMAIN.hmp.Viewport');
+            requires.push('org.osehra.hmp.Viewport');
         }
 
         // Any "requires" also have to be processed before we fire up the App instance.
@@ -95,7 +95,7 @@ Ext.define('EXT.DOMAIN.hmp.Application', {
 
 //            console.log("AppContext.load()");
         // trigger launch sequence after AppContext has loaded
-        EXT.DOMAIN.hmp.AppContext.load(function () {
+        org.osehra.hmp.AppContext.load(function () {
 //                console.log("AppContext loaded()");
             me.onBeforeLaunch.call(me);
         }, me);
@@ -111,7 +111,7 @@ Ext.define('EXT.DOMAIN.hmp.Application', {
      * {@link Ext.app.Application Application}'s launch function is executed so gives a hook point to run any code before
      * your Viewport is created.
      *
-     * @param {EXT.DOMAIN.hmp.Application} application
+     * @param {org.osehra.hmp.Application} application
      * @template
      */
     init:Ext.emptyFn,
@@ -140,7 +140,7 @@ Ext.define('EXT.DOMAIN.hmp.Application', {
         }
 
         if (me.autoCreateViewport) {
-            Ext.create('EXT.DOMAIN.hmp.Viewport');
+            Ext.create('org.osehra.hmp.Viewport');
         }
 
         me.launch.call(this.scope || this);

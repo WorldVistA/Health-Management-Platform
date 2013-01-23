@@ -34,7 +34,7 @@
 		TODO: Rename Alias to PatientAlias?
 		TODO: Extract some of this into a base class
 	 -->
-    <class table="patient" entity-name="patient"> <!-- class="EXT.DOMAIN.cpe.vpr.Patient" -->
+    <class table="patient" entity-name="patient"> <!-- class="org.osehra.cpe.vpr.Patient" -->
         <!-- patient is a slightly special case and doesn't need to extend PatientObjectMap -->
     	<id name="pid" length="64" type="string"/>
     	<property name="uid" length="64" unique="true" not-null="true" type="string"/>
@@ -66,7 +66,7 @@
         <bag name="addresses" table="patient_address">
             <key column="pid" not-null="true"/>
             <one-to-many entity-name="AddressMap"/>
-         	<composite-element class="EXT.DOMAIN.cpe.vpr.Address">
+         	<composite-element class="org.osehra.cpe.vpr.Address">
 		        <property name="city" type="string"/>
 		        <property name="country" type="string"/>
 		        <property name="postalCode" column="postal_code" type="string"/>
@@ -155,25 +155,25 @@
     </union-subclass>
 
     <!--  TODO: Figure these one out
-    <union-subclass name="EXT.DOMAIN.cpe.vpr.PatientEthnicity" table="patient_ethnicity">
-        <many-to-one name="ethnicity" class="EXT.DOMAIN.cpe.codes.Ethnicity">
+    <union-subclass name="org.osehra.cpe.vpr.PatientEthnicity" table="patient_ethnicity">
+        <many-to-one name="ethnicity" class="org.osehra.cpe.codes.Ethnicity">
             <column name="ethnicity_id" not-null="true" />
         </many-to-one>
-        <many-to-one name="patient" class="EXT.DOMAIN.cpe.vpr.Patient">
+        <many-to-one name="patient" class="org.osehra.cpe.vpr.Patient">
             <column name="patient_id" not-null="true" />
         </many-to-one>
     </union-subclass>        
      
-    <class name="EXT.DOMAIN.cpe.vpr.PatientExposure" table="patient_exposure">
-        <many-to-one name="exposure" class="EXT.DOMAIN.cpe.codes.VAExposure">
+    <class name="org.osehra.cpe.vpr.PatientExposure" table="patient_exposure">
+        <many-to-one name="exposure" class="org.osehra.cpe.codes.VAExposure">
             <column name="exposure_id" not-null="true" />
         </many-to-one>
-        <many-to-one name="patient" class="EXT.DOMAIN.cpe.vpr.Patient">
+        <many-to-one name="patient" class="org.osehra.cpe.vpr.Patient">
             <column name="patient_id" not-null="true" />
         </many-to-one>
     </class>     
-    <union-subclass name="EXT.DOMAIN.cpe.vpr.PatientSupport" table="patient_support" extends="POMObjectMap">
-        <many-to-one name="address" class="EXT.DOMAIN.cpe.vpr.Address">
+    <union-subclass name="org.osehra.cpe.vpr.PatientSupport" table="patient_support" extends="POMObjectMap">
+        <many-to-one name="address" class="org.osehra.cpe.vpr.Address">
             <column name="address_id" />
         </many-to-one>
         <property name="contactTypeCode" type="string">
@@ -195,7 +195,7 @@
             <key>
                 <column name="patient_support_telecoms_id" />
             </key>
-            <many-to-many entity-name="EXT.DOMAIN.cpe.vpr.Telecom">
+            <many-to-many entity-name="org.osehra.cpe.vpr.Telecom">
                 <column name="telecom_id" />
             </many-to-many>
         </set>

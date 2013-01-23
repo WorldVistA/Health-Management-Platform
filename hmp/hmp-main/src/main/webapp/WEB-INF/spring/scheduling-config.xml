@@ -10,7 +10,7 @@
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
         http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.1.xsd">
 
-    <bean id="vprUpdateJob" class="EXT.DOMAIN.cpe.vpr.sync.vista.VprUpdateJob"
+    <bean id="vprUpdateJob" class="org.osehra.cpe.vpr.sync.vista.VprUpdateJob"
             p:serverId="${hmp.server.id}"/>
 
     <!-- proxy for vprUpdateJob that wraps it in a Hibernate session -->

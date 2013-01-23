@@ -3,8 +3,8 @@
  * TODO: The header rows are selectable, how can we make them unselectable like group header row?
  *
  */
-Ext.define('EXT.DOMAIN.hmp.containers.MedsReviewTab', {
-            extend: 'EXT.DOMAIN.hmp.containers.OnePanelToRuleThemAll',
+Ext.define('org.osehra.hmp.containers.MedsReviewTab', {
+            extend: 'org.osehra.hmp.containers.OnePanelToRuleThemAll',
             alias: 'widget.medsreviewtab',
             title: 'Meds Review',
             detail: 'none',
@@ -19,7 +19,7 @@ Ext.define('EXT.DOMAIN.hmp.containers.MedsReviewTab', {
                     weightY: 1,
                     title: 'Outpatient Meds',
                     itemId: 'medsoutgrid',
-                    viewID: 'EXT.DOMAIN.cpe.vpr.queryeng.MedsTabViewDef',
+                    viewID: 'org.osehra.cpe.vpr.queryeng.MedsTabViewDef',
                     viewParams: {
                                 filter_kind: 'O,N',
                                 group: 'kind',
@@ -61,7 +61,7 @@ Ext.define('EXT.DOMAIN.hmp.containers.MedsReviewTab', {
                             },
 
                             addFilterTool: true,
-                            viewID: 'EXT.DOMAIN.cpe.vpr.queryeng.MedsTabViewDef',
+                            viewID: 'org.osehra.cpe.vpr.queryeng.MedsTabViewDef',
                             listeners : {
                             select: function(dv, record, item, index, e) {
                                 var medGrid = Ext.ComponentQuery.query('#medsgriddetailpanel')[0];
@@ -88,7 +88,7 @@ Ext.define('EXT.DOMAIN.hmp.containers.MedsReviewTab', {
                     weightY: 1,
                     title: 'Infusion',
                     itemId: 'medsivgrid',
-                    viewID: 'EXT.DOMAIN.cpe.vpr.queryeng.MedsIVViewDef',
+                    viewID: 'org.osehra.cpe.vpr.queryeng.MedsIVViewDef',
                     viewParams: {
                                 filter_kind: 'V',
                                 group: 'kind',
@@ -145,7 +145,7 @@ Ext.define('EXT.DOMAIN.hmp.containers.MedsReviewTab', {
 //                                        var outSelected = medOutGrid.getSelectionModel().getSelection();
 //                                        var inSelected = medInGrid.getSelectionModel().getSelection();
 //                                        var dcWindow = Ext.getCmp('dcReasonsListWindow');
-//                                        if (!dcWindow) dcWindow = Ext.create('EXT.DOMAIN.cpe.order.DcReasonsListWindow', {
+//                                        if (!dcWindow) dcWindow = Ext.create('org.osehra.cpe.order.DcReasonsListWindow', {
 //                                        });
 //                                        if (outSelected) {
 //                                            uid = outSelected[0].data.uid;
@@ -165,7 +165,7 @@ Ext.define('EXT.DOMAIN.hmp.containers.MedsReviewTab', {
 //                                listeners: {
 //                                    click: function() {
 //                                        var qoWindow = Ext.getCmp('qoItemListWindow');
-//                                        if (!qoWindow) qoWindow = Ext.create('EXT.DOMAIN.cpe.order.QoItemListWindow', {});
+//                                        if (!qoWindow) qoWindow = Ext.create('org.osehra.cpe.order.QoItemListWindow', {});
 //                                        qoWindow.show()
 //                                    }
 //                                }
@@ -180,7 +180,7 @@ Ext.define('EXT.DOMAIN.hmp.containers.MedsReviewTab', {
 //                                        var outSelected = medOutGrid.getSelectionModel().getSelection();
 //                                        var inSelected = medInGrid.getSelectionModel().getSelection();
 //                                        var snippet = Ext.getCmp('snippetWindow');
-//                                        if (!snippet) snippet = Ext.create('EXT.DOMAIN.cpe.SnippetWindow', {
+//                                        if (!snippet) snippet = Ext.create('org.osehra.cpe.SnippetWindow', {
 //                                        });
 //                                        if (outSelected) {
 //                                            uid = outSelected[0].data.uid;
@@ -209,7 +209,7 @@ Ext.define('EXT.DOMAIN.hmp.containers.MedsReviewTab', {
 //                                        var outSelected = medOutGrid.getSelectionModel().getSelection();
 //                                        var inSelected = medInGrid.getSelectionModel().getSelection();
 //                                        var snippet = Ext.getCmp('snippetWindow');
-//                                        if (!snippet) snippet = Ext.create('EXT.DOMAIN.cpe.SnippetWindow', {
+//                                        if (!snippet) snippet = Ext.create('org.osehra.cpe.SnippetWindow', {
 //                                        });
 //                                        if (outSelected) {
 //                                            uid = outSelected[0].data.uid;

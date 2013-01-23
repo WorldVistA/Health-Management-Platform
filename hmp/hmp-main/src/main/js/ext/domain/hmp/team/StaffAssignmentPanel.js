@@ -1,9 +1,9 @@
-Ext.define('EXT.DOMAIN.hmp.team.StaffAssignmentPanel', {
+Ext.define('org.osehra.hmp.team.StaffAssignmentPanel', {
     extend:'Ext.grid.Panel',
     requires:[
-        'EXT.DOMAIN.hmp.SegmentedButton',
-        'EXT.DOMAIN.hmp.team.TeamAssignment',
-        'EXT.DOMAIN.hmp.team.TeamPositionField'
+        'org.osehra.hmp.SegmentedButton',
+        'org.osehra.hmp.team.TeamAssignment',
+        'org.osehra.hmp.team.TeamPositionField'
     ],
     alias:'widget.staffeditor',
     minHeight:100,
@@ -89,7 +89,7 @@ Ext.define('EXT.DOMAIN.hmp.team.StaffAssignmentPanel', {
     ],
     initComponent:function () {
         this.store = Ext.create('Ext.data.Store', {
-            model:'EXT.DOMAIN.hmp.team.TeamAssignment',
+            model:'org.osehra.hmp.team.TeamAssignment',
             data:[]
         });
         this.callParent(arguments);
@@ -163,7 +163,7 @@ Ext.define('EXT.DOMAIN.hmp.team.StaffAssignmentPanel', {
         var position = records[0];
         this.fireEvent('positionadd', this, position);
         var gridView = this.getView();
-        var staffAssignment = Ext.create('EXT.DOMAIN.hmp.team.TeamAssignment', {
+        var staffAssignment = Ext.create('org.osehra.hmp.team.TeamAssignment', {
             positionUid:position.get('uid'),
             positionName:position.get('name')
         });

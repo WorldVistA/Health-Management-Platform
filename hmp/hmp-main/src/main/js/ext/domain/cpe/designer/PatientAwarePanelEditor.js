@@ -1,5 +1,5 @@
-Ext.define('EXT.DOMAIN.cpe.designer.PatientAwarePanelEditor', {
-	extend: 'EXT.DOMAIN.cpe.designer.PanelEditor',
+Ext.define('org.osehra.cpe.designer.PatientAwarePanelEditor', {
+	extend: 'org.osehra.cpe.designer.PanelEditor',
 	title: 'Web/App Editor',
 	layout: {type: 'vbox', align: 'stretch'},
 	items: [
@@ -14,8 +14,8 @@ Ext.define('EXT.DOMAIN.cpe.designer.PatientAwarePanelEditor', {
 		        	xtype: 'combobox', 
 		        	fieldLabel: 'Examples', 
 		        	store: [
-		        	    ['/vpr/view/EXT.DOMAIN.cpe.vpr.queryeng.LabViewDef?mode=/lab/lab&patient.id={pid}', 'Lab Panel'],
-		        	    ['/vpr/view/EXT.DOMAIN.cpe.vpr.queryeng.MedsViewDef?mode=/patientDomain/medicationtimeline&patient_id={pid}', 'Timeline']
+		        	    ['/vpr/view/org.osehra.cpe.vpr.queryeng.LabViewDef?mode=/lab/lab&patient.id={pid}', 'Lab Panel'],
+		        	    ['/vpr/view/org.osehra.cpe.vpr.queryeng.MedsViewDef?mode=/patientDomain/medicationtimeline&patient_id={pid}', 'Timeline']
 		        	],
 		        	listeners: {
 		        		select: function(box, recs) {
@@ -38,7 +38,7 @@ Ext.define('EXT.DOMAIN.cpe.designer.PatientAwarePanelEditor', {
         this.callParent(arguments);
     },
     setEditorValues: function(vals) {
-        this.form.setValues(EXT.DOMAIN.cpe.designer.PanelEditor.parseObjToDot(vals));
+        this.form.setValues(org.osehra.cpe.designer.PanelEditor.parseObjToDot(vals));
     },
     getEditorValues: function() {
         return this.form.getFieldValues();

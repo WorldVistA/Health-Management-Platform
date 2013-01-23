@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.cpe.LoggedInUserModel', {
+Ext.define('org.osehra.cpe.LoggedInUserModel', {
     extend:'Ext.data.Model',
     fields:[
         {name:'displayName', type:'string'},
@@ -6,12 +6,12 @@ Ext.define('EXT.DOMAIN.cpe.LoggedInUserModel', {
     ]
 });
 
-Ext.define('EXT.DOMAIN.cpe.LoggedInUserStore', {
+Ext.define('org.osehra.cpe.LoggedInUserStore', {
     extend: 'Ext.data.Store',
     requires: [
-        'EXT.DOMAIN.cpe.LoggedInUserModel'
+        'org.osehra.cpe.LoggedInUserModel'
     ],
-    model: 'EXT.DOMAIN.cpe.LoggedInUserModel',
+    model: 'org.osehra.cpe.LoggedInUserModel',
     proxy: {
         type: 'ajax',
         url: '/chat/users',
@@ -27,7 +27,7 @@ Ext.define('EXT.DOMAIN.cpe.LoggedInUserStore', {
     }
 });
 
-Ext.define('EXT.DOMAIN.cpe.ChatWindow', {
+Ext.define('org.osehra.cpe.ChatWindow', {
 	extend: 'Ext.window.Window',
     title:'Chat Window',
     height:400,
@@ -72,7 +72,7 @@ Ext.define('EXT.DOMAIN.cpe.ChatWindow', {
 					  forceSelection:true,
 					  displayField:'displayName',
 					  valueField:'uid',
-					  store: Ext.create('EXT.DOMAIN.cpe.LoggedInUserStore')
+					  store: Ext.create('org.osehra.cpe.LoggedInUserStore')
 				},
 				{
 					padding: '5 5 5 5',

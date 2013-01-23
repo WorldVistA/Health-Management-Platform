@@ -2,7 +2,7 @@
  * pnl will be the target panel to which to add the newly configured component.
  * cmp will be the new component to which to add the properties before adding to the pnl.
  */
-Ext.define('EXT.DOMAIN.hmp.containers.NewItemConfigWindow', {
+Ext.define('org.osehra.hmp.containers.NewItemConfigWindow', {
     pnl: null,
     extend: 'Ext.window.Window',
     alias: 'widget.gbconfwnd',

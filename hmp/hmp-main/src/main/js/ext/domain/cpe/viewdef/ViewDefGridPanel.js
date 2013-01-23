@@ -23,21 +23,21 @@
  * - Pluggable toolbars
  * - Try to take some of the metadata burden off of viewdefs
  */
-Ext.define('EXT.DOMAIN.cpe.viewdef.ViewDefGridPanel', {
+Ext.define('org.osehra.cpe.viewdef.ViewDefGridPanel', {
     extend: 'Ext.grid.Panel',
 	requires: [
-        'EXT.DOMAIN.cpe.viewdef.GridDetailPanel',
-        'EXT.DOMAIN.cpe.viewdef.HL7DTMColumn',
-        'EXT.DOMAIN.cpe.viewdef.InfobuttonColumn',
-        'EXT.DOMAIN.cpe.viewdef.RowActionColumn',
-        'EXT.DOMAIN.cpe.viewdef.GridAdvisor',
-        'EXT.DOMAIN.cpe.viewdef.AutoFilterToolbar',
-        'EXT.DOMAIN.cpe.viewdef.ViewDefCellEditing',
-        'EXT.DOMAIN.cpe.viewdef.ViewDefFilterTool'
+        'org.osehra.cpe.viewdef.GridDetailPanel',
+        'org.osehra.cpe.viewdef.HL7DTMColumn',
+        'org.osehra.cpe.viewdef.InfobuttonColumn',
+        'org.osehra.cpe.viewdef.RowActionColumn',
+        'org.osehra.cpe.viewdef.GridAdvisor',
+        'org.osehra.cpe.viewdef.AutoFilterToolbar',
+        'org.osehra.cpe.viewdef.ViewDefCellEditing',
+        'org.osehra.cpe.viewdef.ViewDefFilterTool'
     ],
 	alias: 'widget.viewdefgridpanel',
 	mixins: {
-		patientaware: 'EXT.DOMAIN.hmp.PatientAware',
+		patientaware: 'org.osehra.hmp.PatientAware',
 		stateful: 'Ext.state.Stateful'
 	},
 	gridAdvisor: null,
@@ -60,7 +60,7 @@ Ext.define('EXT.DOMAIN.cpe.viewdef.ViewDefGridPanel', {
 
 	// stateful configuration and editors
 	stateful: false, // while this component can save/load state, we do not want to auto load/save state
-	editorCmp: 'EXT.DOMAIN.cpe.designer.DataGridDetail', // the editor component (name or instance) use getEditor() to create/get it
+	editorCmp: 'org.osehra.cpe.designer.DataGridDetail', // the editor component (name or instance) use getEditor() to create/get it
 
 	// ViewDef configuration
 	viewID: null, // the viewdef to load
@@ -311,7 +311,7 @@ Ext.define('EXT.DOMAIN.cpe.viewdef.ViewDefGridPanel', {
 			tooltip: 'Edit Page',
 			text: 'Edit Page',
 			handler: function() {
-				var win = Ext.create('EXT.DOMAIN.hmp.containers.WidgetTabPanelEditWin');
+				var win = Ext.create('org.osehra.hmp.containers.WidgetTabPanelEditWin');
 				win.configure(me);
 				win.show();
 			}
@@ -335,7 +335,7 @@ Ext.define('EXT.DOMAIN.cpe.viewdef.ViewDefGridPanel', {
     	
     	// initalize gridAdvisor (with a default one) if not set.
 		if (!Ext.isObject(this.gridAdvisor)) {
-			this.gridAdvisor = Ext.create('EXT.DOMAIN.cpe.viewdef.GridAdvisor', this.gridAdvisor || {});
+			this.gridAdvisor = Ext.create('org.osehra.cpe.viewdef.GridAdvisor', this.gridAdvisor || {});
 			this.gridAdvisor.grid = this;
 		}
 		// If columnsConf is found, add it to gridAdvisor.

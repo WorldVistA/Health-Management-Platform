@@ -1,5 +1,5 @@
-Ext.define('EXT.DOMAIN.cpe.EventListener',{
-	requires: 'EXT.DOMAIN.cpe.ChatWindow',
+Ext.define('org.osehra.cpe.EventListener',{
+	requires: 'org.osehra.cpe.ChatWindow',
 	statics: {
 		listen: function() {
 			Ext.Ajax.request({
@@ -8,13 +8,13 @@ Ext.define('EXT.DOMAIN.cpe.EventListener',{
 				success: function(response, opts) {
 					// TODO: Process stuff.
 					//this.down('panel').update("LocalMessage: "+response.responseText);
-					EXT.DOMAIN.cpe.EventListener.handleMessage(response.responseText);
-					EXT.DOMAIN.cpe.EventListener.listen();
+					org.osehra.cpe.EventListener.handleMessage(response.responseText);
+					org.osehra.cpe.EventListener.listen();
 				},
 				failure: function(response, opts) {
 					// TODO: Process stuff.
 					//this.down('panel').update("LocalMessage: "+response.responseText);
-					//EXT.DOMAIN.cpe.EventListener.listen();
+					//org.osehra.cpe.EventListener.listen();
 					Ext.log('Event listener stopped: '+response.responseText);
 				},
 				timeout: 10000000,
@@ -26,13 +26,13 @@ Ext.define('EXT.DOMAIN.cpe.EventListener',{
 			var mob = Ext.decode(msg, true);
 			if(mob) {
 				if(mob['viewdef.id']) {
-					EXT.DOMAIN.cpe.EventListener.handleViewDefUpdate(mob);
+					org.osehra.cpe.EventListener.handleViewDefUpdate(mob);
 				} else if(mob['chatMessage']) {
-					EXT.DOMAIN.cpe.EventListener.handleChatMessage(mob.chatMessage);
+					org.osehra.cpe.EventListener.handleChatMessage(mob.chatMessage);
 				} else if(mob['syncComplete']) {
-					EXT.DOMAIN.cpe.EventListener.handleSyncCompleteMessage(mob.syncComplete);
+					org.osehra.cpe.EventListener.handleSyncCompleteMessage(mob.syncComplete);
 				} else if(mob['syncStatus']) {
-					EXT.DOMAIN.cpe.EventListener.handleSyncStatusMessage(mob.syncStatus);
+					org.osehra.cpe.EventListener.handleSyncStatusMessage(mob.syncStatus);
 				} 
 			}
 		},
@@ -66,7 +66,7 @@ Ext.define('EXT.DOMAIN.cpe.EventListener',{
 				}
 			}
 			if(wnd == null) {
-				wnd = Ext.create('EXT.DOMAIN.cpe.ChatWindow', {id: targetUid});
+				wnd = Ext.create('org.osehra.cpe.ChatWindow', {id: targetUid});
 				wnd.show();
 				wnd.down('combobox').setValue(mob.from.uid);
 			}

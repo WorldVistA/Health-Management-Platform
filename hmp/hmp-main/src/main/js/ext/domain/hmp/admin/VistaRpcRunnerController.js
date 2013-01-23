@@ -1,8 +1,8 @@
 /**
- * Controls behavior of {@link EXT.DOMAIN.hmp.admin.VistaRpcRunner}
+ * Controls behavior of {@link org.osehra.hmp.admin.VistaRpcRunner}
  */
-Ext.define('EXT.DOMAIN.hmp.admin.VistaRpcRunnerController', {
-    extend:'EXT.DOMAIN.hmp.Controller',
+Ext.define('org.osehra.hmp.admin.VistaRpcRunnerController', {
+    extend:'org.osehra.hmp.Controller',
     refs:[
         {
             ref:'rpcParams',

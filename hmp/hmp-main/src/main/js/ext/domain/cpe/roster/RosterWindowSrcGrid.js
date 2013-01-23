@@ -2,7 +2,7 @@
  * this is a private inner grid for the roster window
  * @private
  */
-Ext.define('EXT.DOMAIN.cpe.roster.RosterWindowSrcGrid', {
+Ext.define('org.osehra.cpe.roster.RosterWindowSrcGrid', {
     extend:'Ext.grid.Panel',
     alias: 'widget.rosterwindowsrcgrid',
     height:225,

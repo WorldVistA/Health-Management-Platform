@@ -1,9 +1,9 @@
 /**
  * Singleton for tracking the currently selected HMP 'app'.
  */
-Ext.define('EXT.DOMAIN.hmp.AppContext', {
+Ext.define('org.osehra.hmp.AppContext', {
     requires:[
-        'EXT.DOMAIN.hmp.UserContext'
+        'org.osehra.hmp.UserContext'
     ],
     singleton:true,
     config:{
@@ -52,8 +52,8 @@ Ext.define('EXT.DOMAIN.hmp.AppContext', {
             var appInfo = jsonc.data;
 
             // coordinate user stuff with UserContext
-            EXT.DOMAIN.hmp.UserContext.setUserInfo(appInfo.userInfo);
-            EXT.DOMAIN.hmp.UserContext.setUserPrefs(appInfo.userPrefs);
+            org.osehra.hmp.UserContext.setUserInfo(appInfo.userInfo);
+            org.osehra.hmp.UserContext.setUserPrefs(appInfo.userPrefs);
 
             // remove the user-related stuff now that it has been set in UserContext
             delete appInfo.userInfo;

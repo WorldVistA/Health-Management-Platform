@@ -27,7 +27,7 @@
  *     });
  *     Ext.Viewport.add({ xtype: 'container', padding: 10, items: [segmentedButton] });
  */
-Ext.define('EXT.DOMAIN.hmp.SegmentedButton', {
+Ext.define('org.osehra.hmp.SegmentedButton', {
     extend:'Ext.Container',
     xtype:'segmentedbutton',
     requires:['Ext.Button'],

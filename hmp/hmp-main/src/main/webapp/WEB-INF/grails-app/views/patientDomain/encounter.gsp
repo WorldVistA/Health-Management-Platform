@@ -1,4 +1,4 @@
-<%@ page import="EXT.DOMAIN.cpe.datetime.format.PointInTimeFormat" contentType="text/html;charset=UTF-8" %>
+<%@ page import="org.osehra.cpe.datetime.format.PointInTimeFormat" contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>${item.summary}</title>

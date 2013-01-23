@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.cpe.roster.RosterModel', {
+Ext.define('org.osehra.cpe.roster.RosterModel', {
     extend: 'Ext.data.Model',
     idProperty:'id',
     fields: [
@@ -6,7 +6,7 @@ Ext.define('EXT.DOMAIN.cpe.roster.RosterModel', {
         {name: 'name'},
         {name: 'favorite'},
         {name: 'panel'},
-        {name: 'viewdef', defaultValue: 'EXT.DOMAIN.cpe.vpr.queryeng.RosterViewDef'},
+        {name: 'viewdef', defaultValue: 'org.osehra.cpe.vpr.queryeng.RosterViewDef'},
         {name: 'sources'}
     ]
 });

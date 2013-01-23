@@ -1,15 +1,15 @@
-Ext.require(['EXT.DOMAIN.hmp.appbar.ErrorManager']);
+Ext.require(['org.osehra.hmp.appbar.ErrorManager']);
 Ext.onReady(function () {
     // global exception handler: translates into a visual error
     Ext.Error.handle = function(err) {
         //Ext.util.Cookies.set('SUPPRESS_ERRORS', '1', new Date(2020,1,1));
         var SUPPRESS_ERRORS = Ext.util.Cookies.get('SUPPRESS_ERRORS');
         if (SUPPRESS_ERRORS && false) return;
-        EXT.DOMAIN.hmp.appbar.ErrorManager.error('Browser/Ext Error.  <a href="">Please Reload</a>', 0, err.msg);
+        org.osehra.hmp.appbar.ErrorManager.error('Browser/Ext Error.  <a href="">Please Reload</a>', 0, err.msg);
 
         // register the error in the appbar (so the diagnostic window can find it)
         console.log('ext error',err);
-        EXT.DOMAIN.hmp.appbar.ErrorManager.errors.push({type: 'EXT', msg: err.msg});
+        org.osehra.hmp.appbar.ErrorManager.errors.push({type: 'EXT', msg: err.msg});
         //return true;
     }
 
@@ -25,7 +25,7 @@ Ext.onReady(function () {
             // unauthenticated.  Usually means the session timed out
             msg = 'Your session has expired! Please login again.';
             if(!errorHandledByView){
-	            EXT.DOMAIN.hmp.appbar.ErrorManager.error(msg);
+	            org.osehra.hmp.appbar.ErrorManager.error(msg);
 	            window.location.href = '/auth/login?msg=' + msg;
             }
         } else if (resp.status === 0) {
@@ -34,14 +34,14 @@ Ext.onReady(function () {
             msg = 'Server/HTTP Request unresponsive or aborted. Please contact support.';
             debugger;
             if(!errorHandledByView){
-            	EXT.DOMAIN.hmp.appbar.ErrorManager.error(msg, 0, url);
+            	org.osehra.hmp.appbar.ErrorManager.error(msg, 0, url);
             }
             	
         } else if (resp.status === 500 || resp.status === 404) {
             // server error
             msg = 'HTTP Error ' + resp.status + ": " + resp.statusText;
             if(!errorHandledByView){
-            	EXT.DOMAIN.hmp.appbar.ErrorManager.error('Server/HTTP Request Error.  Try again or <a href="">Reloading</a>', 0, url);
+            	org.osehra.hmp.appbar.ErrorManager.error('Server/HTTP Request Error.  Try again or <a href="">Reloading</a>', 0, url);
             }
             
             // if it was a JSON error response, try to parse it
@@ -62,14 +62,14 @@ Ext.onReady(function () {
         }
 
         // register the error in the appbar (so the diagnostic window can find it)
-        EXT.DOMAIN.hmp.appbar.ErrorManager.errors.push({type: 'XHR', msg: msg, loc: url, details: details});
+        org.osehra.hmp.appbar.ErrorManager.errors.push({type: 'XHR', msg: msg, loc: url, details: details});
     });
 
     // Low level javascript error: attempt to translate into visual error
     window.onerror = function(msg, url, line) {
-        //EXT.DOMAIN.hmp.appbar.ErrorManager.error('Browser Error.  You can try <a href="">Reloading</a>', 0, msg);
+        //org.osehra.hmp.appbar.ErrorManager.error('Browser Error.  You can try <a href="">Reloading</a>', 0, msg);
 
         // register the error in the appbar (so the diagnostic window can find it)
-        EXT.DOMAIN.hmp.appbar.ErrorManager.errors.push({type: 'JS', msg: msg, loc: url + ' (line: ' + line + ')'});
+        org.osehra.hmp.appbar.ErrorManager.errors.push({type: 'JS', msg: msg, loc: url + ' (line: ' + line + ')'});
     }
 });

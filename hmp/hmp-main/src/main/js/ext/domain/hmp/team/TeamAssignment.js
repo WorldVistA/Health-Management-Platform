@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.hmp.team.TeamAssignment', {
+Ext.define('org.osehra.hmp.team.TeamAssignment', {
     extend:'Ext.data.Model',
     fields:[
         {
@@ -22,5 +22,5 @@ Ext.define('EXT.DOMAIN.hmp.team.TeamAssignment', {
             type:'string'
         }
     ],
-    belongsTo: 'EXT.DOMAIN.hmp.team.Team'
+    belongsTo: 'org.osehra.hmp.team.Team'
 });

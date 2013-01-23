@@ -5,7 +5,7 @@
 
     <script type="text/javascript">
         Ext.require([
-            'EXT.DOMAIN.cpe.search.SearchPanel'
+            'org.osehra.cpe.search.SearchPanel'
         ]);
 
         Ext.onReady(function() {

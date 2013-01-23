@@ -13,16 +13,16 @@
 
     <logger name="org.springframework" level="warn"/>
 
-    <logger name="EXT.DOMAIN.cpe.Bootstrap" level="debug"/>
-    <logger name="EXT.DOMAIN.cpe.vpr.sync.VprUpdateJob" level="error"/>
+    <logger name="org.osehra.cpe.Bootstrap" level="debug"/>
+    <logger name="org.osehra.cpe.vpr.sync.VprUpdateJob" level="error"/>
 
     <!-- VistA RPC logging -->
-    <logger name="EXT.DOMAIN.cpe.vista.rpc.RpcTemplate" level="error"/>
-    <!--<logger name="EXT.DOMAIN.cpe.vista.rpc.RpcTemplate" level="debug"/>-->
-    <!--<logger name="EXT.DOMAIN.cpe.vista.rpc.wire" level="debug"/>-->
+    <logger name="org.osehra.cpe.vista.rpc.RpcTemplate" level="error"/>
+    <!--<logger name="org.osehra.cpe.vista.rpc.RpcTemplate" level="debug"/>-->
+    <!--<logger name="org.osehra.cpe.vista.rpc.wire" level="debug"/>-->
 
     <!-- JDS logging -->
-    <logger name="EXT.DOMAIN.cpe.vpr.pom.jds.JdsTemplate" level="error"/>
+    <logger name="org.osehra.cpe.vpr.pom.jds.JdsTemplate" level="error"/>
     <logger name="org.springframework.web.client.RestTemplate" level="error"/>
 
     <!-- HTTP logging (JDS and Solr) -->

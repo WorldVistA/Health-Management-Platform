@@ -3,10 +3,10 @@
 <head>
     <meta name="layout" content="viewport"/>
     <script type="text/javascript">
-    	Ext.require(['EXT.DOMAIN.cpe.viewdef.ViewDefGridPanel']);
+    	Ext.require(['org.osehra.cpe.viewdef.ViewDefGridPanel']);
 		Ext.onReady(function() {
 
-			var grid = Ext.create('EXT.DOMAIN.cpe.viewdef.ViewDefGridPanel', {
+			var grid = Ext.create('org.osehra.cpe.viewdef.ViewDefGridPanel', {
 				viewAutoLoad: true, 'detail.emptyHTML': 'one string!',
 				viewID: 'LabViewDef', viewParams: {'patient.id': 1}
 			});

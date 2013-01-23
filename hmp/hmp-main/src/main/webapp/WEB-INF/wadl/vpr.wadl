@@ -1537,7 +1537,7 @@
             </representation>
             <representation mediaType="application/json">
                 <doc title="Example JSON response for allergy result"><![CDATA[
-{"class":"EXT.DOMAIN.cpe.vpr.Allergy",
+{"class":"org.osehra.cpe.vpr.Allergy",
  "id":345,"adverseEventTypeCode":"urn:sct:419511003","adverseEventTypeName":"Drug - PHARMACOLOGIC","comments":[],
  "entered":"20050317195600.000","enteredBy":null,"facility":{"class":"PatientFacility","id":1},
  "historical":true,"localId":"747","patient":{"class":"Patient","id":1},
@@ -1673,21 +1673,21 @@
             <representation mediaType="application/json">
                 <doc title="Example JSON response for all allergies result"><![CDATA[
 [{"rel":"self","href":"http://localhost:8080/vpr/v1/10104/allergy/all"},
-{"class":"EXT.DOMAIN.cpe.vpr.Allergy","id":2,"adverseEventTypeCode":"urn:sct:419511003",
+{"class":"org.osehra.cpe.vpr.Allergy","id":2,"adverseEventTypeCode":"urn:sct:419511003",
 "adverseEventTypeName":"Drug - PHARMACOLOGIC","comments":[],"entered":"20050317195600.000",
 "enteredBy":null,"facility":{"class":"PatientFacility","id":1},"historical":true,
 "localId":"747","patient":{"class":"Patient","id":1},"products":[{"class":"AllergyProduct","id":1}],
 "reactions":[{"class":"AllergyReaction","id":1}],"reference":"125;GMRD(120.82,",
 "severityCode":null,"severityName":null,"uid":"urn:va:art:500:747","verified":"20050317195619.000",
 "verifiedBy":null},
-{"class":"EXT.DOMAIN.cpe.vpr.Allergy","id":3,"adverseEventTypeCode":"urn:sct:419199007",
+{"class":"org.osehra.cpe.vpr.Allergy","id":3,"adverseEventTypeCode":"urn:sct:419199007",
 "adverseEventTypeName":"Drug / Food - ALLERGY","comments":[],"entered":"20071217145800.000",
 "enteredBy":null,"facility":{"class":"PatientFacility","id":1},"historical":true,
 "localId":"870","patient":{"class":"Patient","id":1},"products":[{"class":"AllergyProduct","id":2}],
 "reactions":[{"class":"AllergyReaction","id":2}],"reference":"3;GMRD(120.82,",
 "severityCode":null,"severityName":null,"uid":"urn:va:art:500:870","verified":"20071217145839.000",
 "verifiedBy":null},
-{"class":"EXT.DOMAIN.cpe.vpr.Allergy","id":4,"adverseEventTypeCode":"urn:sct:414285001",
+{"class":"org.osehra.cpe.vpr.Allergy","id":4,"adverseEventTypeCode":"urn:sct:414285001",
 "adverseEventTypeName":"Food - ALLERGY","comments":[],"entered":"20101202121000.000",
 "enteredBy":null,"facility":{"class":"PatientFacility","id":1},"historical":true,
 "localId":"968","patient":{"class":"Patient","id":1},"products":[{"class":"AllergyProduct","id":3}],
@@ -1755,7 +1755,7 @@
     totalResults: 1
     entry: [
           {
-                + class: "EXT.DOMAIN.cpe.vpr.Problem"
+                + class: "org.osehra.cpe.vpr.Problem"
                   link: {
                       # rel: http://vaww.cpe.DOMAIN.EXT/rels/patient
                       # href: http://localhost:8080/vpr/v1/10104
@@ -1763,7 +1763,7 @@
                 acuity: "Chronic"
                 comments: [
                       {
-                         class: "EXT.DOMAIN.cpe.vpr.ProblemComment"
+                         class: "org.osehra.cpe.vpr.ProblemComment"
                          comment: "drinks too much"
                          entered: "20101130"
                          enteredBy: "PROVIDER,ONE"
@@ -1771,7 +1771,7 @@
                   ]
                 entered: "20101130"
                 facility: {
-                      class: "EXT.DOMAIN.cpe.vpr.PatientFacility"
+                      class: "org.osehra.cpe.vpr.PatientFacility"
                       code: "960"
                       localPatientId: "229"
                       name: "SLC-FO AVIVA VDEV"
@@ -1782,7 +1782,7 @@
                 location: "GENERAL MEDICINE"
                 problemText: "Alcohol Dependence"
                 provider: {
-                      class: "EXT.DOMAIN.cpe.vpr.Clinician"
+                      class: "org.osehra.cpe.vpr.Clinician"
                       name: "PROVIDER,ONE"
                   }
                 removed: "No"
@@ -1890,7 +1890,7 @@
     totalResults: 12
     entry: [
           {
-                + class: "EXT.DOMAIN.cpe.vpr.Problem"
+                + class: "org.osehra.cpe.vpr.Problem"
                   link: {
                       # rel: http://vaww.cpe.DOMAIN.EXT/rels/patient
                       # href: http://localhost:8080/vpr/v1/10104
@@ -1898,7 +1898,7 @@
                 acuity: "Chronic"
                 comments: [
                       {
-                         class: "EXT.DOMAIN.cpe.vpr.ProblemComment"
+                         class: "org.osehra.cpe.vpr.ProblemComment"
                          comment: "drinks too much"
                          entered: "20101130"
                          enteredBy: "PROVIDER,ONE"
@@ -1906,7 +1906,7 @@
                   ]
                 entered: "20101130"
                 facility: {
-                      class: "EXT.DOMAIN.cpe.vpr.PatientFacility"
+                      class: "org.osehra.cpe.vpr.PatientFacility"
                       code: "960"
                       localPatientId: "229"
                       name: "SLC-FO AVIVA VDEV"
@@ -1917,7 +1917,7 @@
                 location: "GENERAL MEDICINE"
                 problemText: "Alcohol Dependence"
                 provider: {
-                      class: "EXT.DOMAIN.cpe.vpr.Clinician"
+                      class: "org.osehra.cpe.vpr.Clinician"
                       name: "PROVIDER,ONE"
                   }
                 removed: "No"
@@ -1929,14 +1929,14 @@
                 updated: "20101130"
           }
           {
-           class: "EXT.DOMAIN.cpe.vpr.Problem"
+           class: "org.osehra.cpe.vpr.Problem"
            link: {
                       rel: http://vaww.cpe.DOMAIN.EXT/rels/patient
                       href: http://localhost:8080/vpr/v1/10104
                   }
                 comments: [
                       {
-                            * class: "EXT.DOMAIN.cpe.vpr.ProblemComment"
+                            * class: "org.osehra.cpe.vpr.ProblemComment"
                             * comment: "TESTING"
                             * entered: "20101130"
                             * enteredBy: "BUECHLER,MELANIE K"
@@ -1944,7 +1944,7 @@
                   ]
                 entered: "20101130"
                 facility: {
-                      # class: "EXT.DOMAIN.cpe.vpr.PatientFacility"
+                      # class: "org.osehra.cpe.vpr.PatientFacility"
                       # code: "960"
                       # localPatientId: "229"
                       # name: "SLC-FO AVIVA VDEV"
@@ -1956,7 +1956,7 @@
                 onset: "20101130"
                 problemText: "problems"
                 provider: {
-                      class: "EXT.DOMAIN.cpe.vpr.Clinician"
+                      class: "org.osehra.cpe.vpr.Clinician"
                       name: "PROVIDER,ONE"
                   }
                 removed: "No"
@@ -2033,7 +2033,7 @@
     totalResults: 2
     entry: [
     {
-        class: "EXT.DOMAIN.cpe.vpr.Procedure"
+        class: "org.osehra.cpe.vpr.Procedure"
         link: {
             rel: http://vaww.cpe.DOMAIN.EXT/rels/patient
             href: http://localhost:8080/vpr/v1/10104
@@ -2041,7 +2041,7 @@
         category: "SR"
         dateTime: "20061208073000.000"
         facility: {
-            class: "EXT.DOMAIN.cpe.vpr.PatientFacility"
+            class: "org.osehra.cpe.vpr.PatientFacility"
             code: "500"
             localPatientId: "229"
             name: "CAMP MASTER"
@@ -2050,31 +2050,31 @@
         localId: "10010"
         providers: [
             {
-                class: "EXT.DOMAIN.cpe.vpr.ProcedureProvider"
+                class: "org.osehra.cpe.vpr.ProcedureProvider"
                 provider: {
-                    class: "EXT.DOMAIN.cpe.vpr.Clinician"
+                    class: "org.osehra.cpe.vpr.Clinician"
                     name: "PROVIDER,ONE"
                     }
                 }
             ]
         results: [
             {
-                class: "EXT.DOMAIN.cpe.vpr.ProcedureResult"
+                class: "org.osehra.cpe.vpr.ProcedureResult"
                 localTitle: "NURSE INTRAOPERATIVE REPORT"
                 procedure: null
             }
             {
-                class: "EXT.DOMAIN.cpe.vpr.ProcedureResult"
+                class: "org.osehra.cpe.vpr.ProcedureResult"
                 localTitle: "OPERATION REPORT"
                 procedure: null
             }
             {
-                class: "EXT.DOMAIN.cpe.vpr.ProcedureResult"
+                class: "org.osehra.cpe.vpr.ProcedureResult"
                 procedure: null
                 report: "OPERATION REPORT"
             }
             {
-                class: "EXT.DOMAIN.cpe.vpr.ProcedureResult"
+                class: "org.osehra.cpe.vpr.ProcedureResult"
                 localTitle: "ANESTHESIA REPORT"
                 procedure: null
             }
@@ -2180,7 +2180,7 @@
     totalResults: 2
     entry: [
     {
-        class: "EXT.DOMAIN.cpe.vpr.Procedure"
+        class: "org.osehra.cpe.vpr.Procedure"
         link: {
             rel: http://vaww.cpe.DOMAIN.EXT/rels/patient
             href: http://localhost:8080/vpr/v1/10104
@@ -2188,7 +2188,7 @@
         category: "SR"
         dateTime: "20061208073000.000"
         facility: {
-            class: "EXT.DOMAIN.cpe.vpr.PatientFacility"
+            class: "org.osehra.cpe.vpr.PatientFacility"
             code: "500"
             localPatientId: "229"
             name: "CAMP MASTER"
@@ -2197,31 +2197,31 @@
         localId: "10010"
         providers: [
             {
-                class: "EXT.DOMAIN.cpe.vpr.ProcedureProvider"
+                class: "org.osehra.cpe.vpr.ProcedureProvider"
                 provider: {
-                    class: "EXT.DOMAIN.cpe.vpr.Clinician"
+                    class: "org.osehra.cpe.vpr.Clinician"
                     name: "PROVIDER,ONE"
                     }
                 }
             ]
         results: [
             {
-                class: "EXT.DOMAIN.cpe.vpr.ProcedureResult"
+                class: "org.osehra.cpe.vpr.ProcedureResult"
                 localTitle: "NURSE INTRAOPERATIVE REPORT"
                 procedure: null
             }
             {
-                class: "EXT.DOMAIN.cpe.vpr.ProcedureResult"
+                class: "org.osehra.cpe.vpr.ProcedureResult"
                 localTitle: "OPERATION REPORT"
                 procedure: null
             }
             {
-                class: "EXT.DOMAIN.cpe.vpr.ProcedureResult"
+                class: "org.osehra.cpe.vpr.ProcedureResult"
                 procedure: null
                 report: "OPERATION REPORT"
             }
             {
-                class: "EXT.DOMAIN.cpe.vpr.ProcedureResult"
+                class: "org.osehra.cpe.vpr.ProcedureResult"
                 localTitle: "ANESTHESIA REPORT"
                 procedure: null
             }
@@ -2232,7 +2232,7 @@
         uid: "urn:va:procedure:500:229:10010"
       }
     {
-        class: "EXT.DOMAIN.cpe.vpr.Procedure"
+        class: "org.osehra.cpe.vpr.Procedure"
         link: {
             rel: http://vaww.cpe.DOMAIN.EXT/rels/patient
             href: http://localhost:8080/vpr/v1/10104
@@ -2240,7 +2240,7 @@
         category: "RA"
         dateTime: "20101122110100.000"
         facility: {
-            class: "EXT.DOMAIN.cpe.vpr.PatientFacility"
+            class: "org.osehra.cpe.vpr.PatientFacility"
             code: "500"
             localPatientId: "229"
             name: "CAMP MASTER"
@@ -2249,7 +2249,7 @@
         localId: "6898877.8898-1"
         results: [
             {
-                class: "EXT.DOMAIN.cpe.vpr.ProcedureResult"
+                class: "org.osehra.cpe.vpr.ProcedureResult"
                 localTitle: "KNEE 2 VIEWS"
                 procedure: null
             }

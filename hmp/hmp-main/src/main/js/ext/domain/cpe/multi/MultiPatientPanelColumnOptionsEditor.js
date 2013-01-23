@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.cpe.multi.MultiPatientPanelColumnOptionsEditor', {
+Ext.define('org.osehra.cpe.multi.MultiPatientPanelColumnOptionsEditor', {
 	alias: 'widget.mpecoloptions',
 	extend: 'Ext.form.Panel',
 	defaults: {
@@ -64,7 +64,7 @@ Ext.define('EXT.DOMAIN.cpe.multi.MultiPatientPanelColumnOptionsEditor', {
 	 */
 	setConfigOptions: function(configOptions) {
 		this.removeAll();
-		this.add(EXT.DOMAIN.cpe.multi.MultiPatientPanelColumnOptionsEditor.buildConfigOptions(configOptions));
+		this.add(org.osehra.cpe.multi.MultiPatientPanelColumnOptionsEditor.buildConfigOptions(configOptions));
 		this.doLayout();
 	},
 	

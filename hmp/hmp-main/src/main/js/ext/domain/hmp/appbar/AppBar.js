@@ -7,15 +7,15 @@
  * TODO: the currentApp setting doesn't really work well and is probably not necessary.
  * TODO: AppBar could display TEST/PRODUCTION/ETC. environment warning and debug info (VISTA account, IP, etc.)
  */
-Ext.define('EXT.DOMAIN.hmp.appbar.AppBar', {
+Ext.define('org.osehra.hmp.appbar.AppBar', {
     extend: 'Ext.toolbar.Toolbar',
     requires: [
-        'EXT.DOMAIN.hmp.AppContext',
-        'EXT.DOMAIN.hmp.UserContext',
-        'EXT.DOMAIN.hmp.appbar.ErrorManager',
-        'EXT.DOMAIN.hmp.appbar.UserButton',
-        'EXT.DOMAIN.cpe.TaskWindow',
-        'EXT.DOMAIN.cpe.ChatWindow'
+        'org.osehra.hmp.AppContext',
+        'org.osehra.hmp.UserContext',
+        'org.osehra.hmp.appbar.ErrorManager',
+        'org.osehra.hmp.appbar.UserButton',
+        'org.osehra.cpe.TaskWindow',
+        'org.osehra.cpe.ChatWindow'
     ],
     alias: 'widget.appbar',
     ui: 'hmp-appbar',
@@ -74,7 +74,7 @@ Ext.define('EXT.DOMAIN.hmp.appbar.AppBar', {
             listeners: {
                 click: function(btn) {
                     var chatWindow = Ext.getCmp('chatWindow');
-                    if (!chatWindow) chatWindow = Ext.create('EXT.DOMAIN.cpe.ChatWindow', {});
+                    if (!chatWindow) chatWindow = Ext.create('org.osehra.cpe.ChatWindow', {});
                     range = btn.getPosition();
                     x = range[0];
                     y = range[1];
@@ -91,7 +91,7 @@ Ext.define('EXT.DOMAIN.hmp.appbar.AppBar', {
             listeners: {
                 click: function(btn) {
                     var taskWindow = Ext.getCmp('taskWindow');
-                    if (!taskWindow) taskWindow = Ext.create('EXT.DOMAIN.cpe.TaskWindow', {
+                    if (!taskWindow) taskWindow = Ext.create('org.osehra.cpe.TaskWindow', {
                     	task: {
                     		data: {
                     			'type':'General'
@@ -120,7 +120,7 @@ Ext.define('EXT.DOMAIN.hmp.appbar.AppBar', {
                      text: 'Feedback',
                      icon: '/images/icons/email.png',
                      handler: function() {
-                     EXT.DOMAIN.hmp.appbar.ErrorManager.warn('Not implemented yet.  Sorry...', 5000);
+                     org.osehra.hmp.appbar.ErrorManager.warn('Not implemented yet.  Sorry...', 5000);
                      }
 
                      },
@@ -149,7 +149,7 @@ Ext.define('EXT.DOMAIN.hmp.appbar.AppBar', {
                     {
                         text: 'Diagnostics',
                         handler: function() {
-                            EXT.DOMAIN.hmp.appbar.ErrorWindow.show();
+                            org.osehra.hmp.appbar.ErrorWindow.show();
                         }
                     },
                     {
@@ -173,17 +173,17 @@ Ext.define('EXT.DOMAIN.hmp.appbar.AppBar', {
         this.apps = {};
 
         me.authenticated = false;
-        if (!EXT.DOMAIN.hmp.UserContext.isAuthenticated())
-            EXT.DOMAIN.hmp.UserContext.on('userchange', this.onUserChange, this);
+        if (!org.osehra.hmp.UserContext.isAuthenticated())
+            org.osehra.hmp.UserContext.on('userchange', this.onUserChange, this);
         else
-            this.onUserChange(EXT.DOMAIN.hmp.UserContext.getUserInfo());
+            this.onUserChange(org.osehra.hmp.UserContext.getUserInfo());
 
         // place the version info into the menu
-        var version = EXT.DOMAIN.hmp.AppContext.getVersion();
+        var version = org.osehra.hmp.AppContext.getVersion();
         me.down('#VersionInfoID').text = "Version " + version;
 
 
-        var appInfo = EXT.DOMAIN.hmp.AppContext.getAppInfo();
+        var appInfo = org.osehra.hmp.AppContext.getAppInfo();
         // add the menus
         var menus = appInfo.menus;
         if (Ext.isDefined(menus)) {
@@ -221,7 +221,7 @@ Ext.define('EXT.DOMAIN.hmp.appbar.AppBar', {
 
     },
     onUserChange: function(userInfo) {
-        if (EXT.DOMAIN.hmp.UserContext.isAuthenticated()) {
+        if (org.osehra.hmp.UserContext.isAuthenticated()) {
             this.items.each(function(it){
                 it.setVisible(true);
             });

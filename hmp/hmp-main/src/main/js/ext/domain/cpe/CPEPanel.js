@@ -10,28 +10,28 @@
  * - user preferences are applied where necessary
  * - keybord shortcuts/navigation handled in here as well
  */
-Ext.define('EXT.DOMAIN.cpe.CPEPanel', {
+Ext.define('org.osehra.cpe.CPEPanel', {
     extend: 'Ext.panel.Panel',
     requires: [
-        'EXT.DOMAIN.cpe.roster.TriStatePanel',
-        'EXT.DOMAIN.hmp.AppContext',
-        'EXT.DOMAIN.hmp.UserContext',
-	    'EXT.DOMAIN.cpe.patient.PatientBanner',
-        'EXT.DOMAIN.cpe.roster.PatientPicker',
-        'EXT.DOMAIN.cpe.roster.PatientPickerHotspot',
-	    'EXT.DOMAIN.hmp.containers.WidgetTabPanel',
-        'EXT.DOMAIN.cpe.viewdef.ViewDefGridPanel',
-        'EXT.DOMAIN.cpe.PagePicker',
-	    'EXT.DOMAIN.cpe.search.SearchBox',
-        'EXT.DOMAIN.cpe.search.SearchPanel',
-        'EXT.DOMAIN.hmp.util.Animation',
-        'EXT.DOMAIN.cpe.roster.RosterWindow',
-        'EXT.DOMAIN.cpe.order.QoItemListWindow' // this one probably isn't in the correct spot.
-        //'EXT.DOMAIN.cpe.patient.PatientSelectorPanel'       
+        'org.osehra.cpe.roster.TriStatePanel',
+        'org.osehra.hmp.AppContext',
+        'org.osehra.hmp.UserContext',
+	    'org.osehra.cpe.patient.PatientBanner',
+        'org.osehra.cpe.roster.PatientPicker',
+        'org.osehra.cpe.roster.PatientPickerHotspot',
+	    'org.osehra.hmp.containers.WidgetTabPanel',
+        'org.osehra.cpe.viewdef.ViewDefGridPanel',
+        'org.osehra.cpe.PagePicker',
+	    'org.osehra.cpe.search.SearchBox',
+        'org.osehra.cpe.search.SearchPanel',
+        'org.osehra.hmp.util.Animation',
+        'org.osehra.cpe.roster.RosterWindow',
+        'org.osehra.cpe.order.QoItemListWindow' // this one probably isn't in the correct spot.
+        //'org.osehra.cpe.patient.PatientSelectorPanel'       
     ],
     alias: 'widget.cpepanel',
     mixins: {
-        patientaware: 'EXT.DOMAIN.hmp.PatientAware'
+        patientaware: 'org.osehra.hmp.PatientAware'
     },
     cls: 'hmp-cpe-panel',
     flex: 1,
@@ -60,7 +60,7 @@ Ext.define('EXT.DOMAIN.cpe.CPEPanel', {
             this.ptcards.getLayout().setActiveItem(1);
             
 			if (this.trackTitle) {
-				var patinfo = EXT.DOMAIN.hmp.PatientContext.getPatientInfo();
+				var patinfo = org.osehra.hmp.PatientContext.getPatientInfo();
 			    document.title = patinfo.fullName + " (" + patinfo.age + "yo " + patinfo.gender + ")";
 		    }	
 
@@ -82,7 +82,7 @@ Ext.define('EXT.DOMAIN.cpe.CPEPanel', {
 
         // translate to shorter javascript keys that the components expect
         // TODO: consider renaming the user prefs so they don't have to be translated!
-        var userPrefs = EXT.DOMAIN.hmp.UserContext.getUserPrefs();
+        var userPrefs = org.osehra.hmp.UserContext.getUserPrefs();
         userPrefs = {
             pickerRegion: userPrefs['cpe.patientpicker.loc'],
             pickerPinned: userPrefs['cpe.patientpicker.pinned'],
@@ -112,7 +112,7 @@ Ext.define('EXT.DOMAIN.cpe.CPEPanel', {
 //	         frame: true,
 //	         header: true,
 //	         margin: '0 0 6 0',
-//	         rosterViewDef: 'EXT.DOMAIN.cpe.vpr.queryeng.RosterViewDef'
+//	         rosterViewDef: 'org.osehra.cpe.vpr.queryeng.RosterViewDef'
 //	   };
 //       Ext.apply(picker, {
 //           rosterID: this.rosterID,
@@ -140,7 +140,7 @@ Ext.define('EXT.DOMAIN.cpe.CPEPanel', {
 //               picker.collapsible = true;
 //               picker.collapsed = false;
 //               picker.title = 'Patient List';
-//               this.ptpicker = Ext.create('EXT.DOMAIN.cpe.roster.PatientPicker', picker);
+//               this.ptpicker = Ext.create('org.osehra.cpe.roster.PatientPicker', picker);
 //               this.insert(0, this.ptpicker);
 //           } else {
 //               var target = {
@@ -173,7 +173,7 @@ Ext.define('EXT.DOMAIN.cpe.CPEPanel', {
 //               }
 ////               this.items = Ext.Array.insert(this.items, 0, target);
 //               target = this.insert(0, target);
-//               anime = EXT.DOMAIN.hmp.util.Animation.decorateComponent(target, picker, this, growParms, startRelativeToX, startRelativeToY, this.animationTrigger, this.animationDelay);
+//               anime = org.osehra.hmp.util.Animation.decorateComponent(target, picker, this, growParms, startRelativeToX, startRelativeToY, this.animationTrigger, this.animationDelay);
 //               this.ptpicker = anime.getAnimComponent();
 //           }
 //       } else if (this.pickerRegion === 'window') {
@@ -274,7 +274,7 @@ Ext.define('EXT.DOMAIN.cpe.CPEPanel', {
         	   frame: true,
         	   header: true,
         	   margin: '0 0 6 0',
-        	   rosterViewDef: 'EXT.DOMAIN.cpe.vpr.queryeng.RosterViewDef',
+        	   rosterViewDef: 'org.osehra.cpe.vpr.queryeng.RosterViewDef',
         	   header: false,
 	           frame: false,
 	           collapsible: false,
@@ -346,7 +346,7 @@ Ext.define('EXT.DOMAIN.cpe.CPEPanel', {
                 // TODO: Some panels don't have a config url, should this be moved into widgettabpanel?
                 Ext.Ajax.request({
                     url:panelconfig,
-//                scope: EXT.DOMAIN.cpe.CPEPanel.selectPatient,
+//                scope: org.osehra.cpe.CPEPanel.selectPatient,
                     success:function (resp) {
                         var cfg = Ext.JSON.decode(resp.responseText);
 //                    console.log(cfg);
@@ -365,7 +365,7 @@ Ext.define('EXT.DOMAIN.cpe.CPEPanel', {
                 //var colmap = rec.data.
             }
 
-            EXT.DOMAIN.cpe.CPEPanel.selectedTabPanelRecord = record;
+            org.osehra.cpe.CPEPanel.selectedTabPanelRecord = record;
 
             Ext.Ajax.request({
                 url: '/app/context',
@@ -382,7 +382,7 @@ Ext.define('EXT.DOMAIN.cpe.CPEPanel', {
     showRosterEditor: function() {
         var me = this;
         if (!me.rosterwin) {
-            me.rosterwin = Ext.create('EXT.DOMAIN.cpe.roster.RosterWindow');
+            me.rosterwin = Ext.create('org.osehra.cpe.roster.RosterWindow');
         }
         me.rosterwin.show();
     },

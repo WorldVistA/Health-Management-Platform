@@ -43,11 +43,11 @@ var store = Ext.create('Ext.data.Store', {
     }
 });
 
-Ext.define('EXT.DOMAIN.hmp.admin.VistaRpcBrowser', {
+Ext.define('org.osehra.hmp.admin.VistaRpcBrowser', {
     extend:'Ext.grid.Panel',
     requires:[
-        'EXT.DOMAIN.hmp.UserContext',
-        'EXT.DOMAIN.hmp.util.RowExpander'
+        'org.osehra.hmp.UserContext',
+        'org.osehra.hmp.util.RowExpander'
     ],
     alias: 'widget.vistarpcbrowser',
     itemId:'rpc-log',
@@ -152,7 +152,7 @@ Ext.define('EXT.DOMAIN.hmp.admin.VistaRpcBrowser', {
     ],
     initComponent:function () {
         this.callParent(arguments);
-        this.down('#logUserRpcsToggleButton').setText('Enable Logging RPCs for ' + EXT.DOMAIN.hmp.UserContext.getUserInfo().displayName);
+        this.down('#logUserRpcsToggleButton').setText('Enable Logging RPCs for ' + org.osehra.hmp.UserContext.getUserInfo().displayName);
         this.getStore().on('load', this.onLoad, this);
     },
 //    autorefresh:function () {

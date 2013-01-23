@@ -7,18 +7,18 @@
  * 
  * TODO: Need to figure out what to do with the patient search results
  */
-Ext.define('EXT.DOMAIN.cpe.roster.PatientPicker', {
+Ext.define('org.osehra.cpe.roster.PatientPicker', {
 	//id: 'patientPicker',
     extend: 'Ext.panel.Panel',
     alias: 'widget.patientpicker',
     requires: [
-        'EXT.DOMAIN.cpe.multi.MultiPatientBanner',
-        'EXT.DOMAIN.cpe.viewdef.ViewDefGridPanel',
-        'EXT.DOMAIN.cpe.roster.RosterPanel',
-        'EXT.DOMAIN.hmp.EventBus'
+        'org.osehra.cpe.multi.MultiPatientBanner',
+        'org.osehra.cpe.viewdef.ViewDefGridPanel',
+        'org.osehra.cpe.roster.RosterPanel',
+        'org.osehra.hmp.EventBus'
     ],
     mixins: {
-        patientaware: 'EXT.DOMAIN.hmp.PatientAware'
+        patientaware: 'org.osehra.hmp.PatientAware'
     },
 	layout: 'border',
 
@@ -129,8 +129,8 @@ Ext.define('EXT.DOMAIN.cpe.roster.PatientPicker', {
         // handler for patient search text box
 //        me.down('#patientsearchfield').on('change', me.doSearch, me, {buffer: 500});
 
-        EXT.DOMAIN.hmp.EventBus.on('nextPatient', me.navNext, me);
-        EXT.DOMAIN.hmp.EventBus.on('prevPatient', me.navPrevious, me);
+        org.osehra.hmp.EventBus.on('nextPatient', me.navNext, me);
+        org.osehra.hmp.EventBus.on('prevPatient', me.navPrevious, me);
 
         if (me.rosterID) {
             var rosterpicker = me.down('favrosterpicker');
@@ -196,7 +196,7 @@ Ext.define('EXT.DOMAIN.cpe.roster.PatientPicker', {
 		if (searchStr == '' && this.rosterViewDef && this.rosterID) {
 			grid.setViewDef(this.rosterViewDef, {'roster.ien': this.rosterID});
 		} else if (searchStr && searchStr.length >= 3) {
-			grid.setViewDef('EXT.DOMAIN.cpe.vpr.queryeng.RosterViewDef', {search: searchStr})
+			grid.setViewDef('org.osehra.cpe.vpr.queryeng.RosterViewDef', {search: searchStr})
 		}
 	},
 	/*
@@ -309,7 +309,7 @@ Ext.define('EXT.DOMAIN.cpe.roster.PatientPicker', {
     },
     firePatientNavEvent:function () {
         var me = this;
-        EXT.DOMAIN.hmp.EventBus.fireEvent('patientNav', me, {
+        org.osehra.hmp.EventBus.fireEvent('patientNav', me, {
             hasNext:me.hasNextItem(),
             hasPrev:me.hasPrevItem()
         });

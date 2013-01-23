@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.hmp.team.MyTreeReader', {
+Ext.define('org.osehra.hmp.team.MyTreeReader', {
     extend:'Ext.data.reader.Json',
     alias:'reader.jsonctree',
     readRecords: function(data) {

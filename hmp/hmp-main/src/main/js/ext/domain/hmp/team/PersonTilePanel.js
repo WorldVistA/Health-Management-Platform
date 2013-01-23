@@ -1,9 +1,9 @@
-Ext.define('EXT.DOMAIN.hmp.team.PersonTilePanel', {
+Ext.define('org.osehra.hmp.team.PersonTilePanel', {
     extend:'Ext.panel.Panel',
     requires:[
-        'EXT.DOMAIN.hmp.PopUpButton',
-        'EXT.DOMAIN.hmp.team.PersonField',
-        'EXT.DOMAIN.hmp.team.PersonTile'
+        'org.osehra.hmp.PopUpButton',
+        'org.osehra.hmp.team.PersonField',
+        'org.osehra.hmp.team.PersonTile'
     ],
     alias:'widget.persontilepanel',
     layout:'column',
@@ -55,7 +55,7 @@ Ext.define('EXT.DOMAIN.hmp.team.PersonTilePanel', {
     ],
     /**
      *
-     * @param {EXT.DOMAIN.hmp.team.Person} person
+     * @param {org.osehra.hmp.team.Person} person
      */
     addPerson:function (person) {
         this.add({

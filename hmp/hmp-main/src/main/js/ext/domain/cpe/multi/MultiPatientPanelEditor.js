@@ -1,12 +1,12 @@
-Ext.define('EXT.DOMAIN.cpe.multi.MultiPatientPanelEditor', {
+Ext.define('org.osehra.cpe.multi.MultiPatientPanelEditor', {
     extend:'Ext.panel.Panel',
     itemId:'mpePanel',
     requires:[
-        'EXT.DOMAIN.hmp.containers.GridBagLayout',
-        'EXT.DOMAIN.cpe.multi.MultiPatientPanelEditorModel',
-        'EXT.DOMAIN.cpe.multi.MultiPatientPanelColumnEditor',
-        'EXT.DOMAIN.cpe.viewdef.ViewDefGridPanel',
-        'EXT.DOMAIN.cpe.roster.RosterStore'
+        'org.osehra.hmp.containers.GridBagLayout',
+        'org.osehra.cpe.multi.MultiPatientPanelEditorModel',
+        'org.osehra.cpe.multi.MultiPatientPanelColumnEditor',
+        'org.osehra.cpe.viewdef.ViewDefGridPanel',
+        'org.osehra.cpe.roster.RosterStore'
     ],
     alias:'widget.panelEditor',
     layout: 'hbox',
@@ -32,7 +32,7 @@ Ext.define('EXT.DOMAIN.cpe.multi.MultiPatientPanelEditor', {
             region:'west',
             title:'Multi-Patient Panels',
             store:{
-                model:'EXT.DOMAIN.cpe.multi.MultiPatientPanelEditorModel',
+                model:'org.osehra.cpe.multi.MultiPatientPanelEditorModel',
                 proxy:{
                     type:'ajax',
                     url:'/config/panels',
@@ -59,7 +59,7 @@ Ext.define('EXT.DOMAIN.cpe.multi.MultiPatientPanelEditor', {
                                     Ext.Ajax.request({
                                         url:'/config/addPanel',
                                         method:'POST',
-                                        params:{name:text, primaryViewDefClassName:'EXT.DOMAIN.cpe.vpr.queryeng.dynamic.PatientPanelViewDef'},
+                                        params:{name:text, primaryViewDefClassName:'org.osehra.cpe.vpr.queryeng.dynamic.PatientPanelViewDef'},
                                         success:function (response, opts) {
                                             this.store.load();
                                         },
@@ -98,7 +98,7 @@ Ext.define('EXT.DOMAIN.cpe.multi.MultiPatientPanelEditor', {
 									  forceSelection:true,
 									  displayField:'name',
 									  valueField:'id',
-									  store: Ext.getStore('rosters') ? Ext.getStore('rosters') : Ext.create('EXT.DOMAIN.cpe.roster.RosterStore')
+									  store: Ext.getStore('rosters') ? Ext.getStore('rosters') : Ext.create('org.osehra.cpe.roster.RosterStore')
 									}
                         		],
                         		bbar: {

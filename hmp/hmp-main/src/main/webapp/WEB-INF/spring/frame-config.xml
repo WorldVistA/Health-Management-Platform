@@ -18,39 +18,39 @@
 	-->
 	
 	<!-- Terminology Config -->
-	<bean id="termEng" class="EXT.DOMAIN.cpe.vpr.termeng.TermEng" factory-method="createInstance">
+	<bean id="termEng" class="org.osehra.cpe.vpr.termeng.TermEng" factory-method="createInstance">
    		<constructor-arg index="0">
             <array>
-            	<bean class="EXT.DOMAIN.cpe.vpr.termeng.H2TermDataSource" c:jdbcurl="jdbc:h2:split:zip:${termdb.dir}/termdb-${termdb.version}-drugdb.zip!/termdb"/>
-            	<bean class="EXT.DOMAIN.cpe.vpr.termeng.H2TermDataSource" c:jdbcurl="jdbc:h2:split:zip:${termdb.dir}/termdb-${termdb.version}-loincdb.zip!/termdb"/>
-            	<bean class="EXT.DOMAIN.cpe.vpr.termeng.H2TermDataSource" c:jdbcurl="jdbc:h2:split:zip:${termdb.dir}/termdb-${termdb.version}-sctdb.zip!/termdb"/>
+            	<bean class="org.osehra.cpe.vpr.termeng.H2TermDataSource" c:jdbcurl="jdbc:h2:split:zip:${termdb.dir}/termdb-${termdb.version}-drugdb.zip!/termdb"/>
+            	<bean class="org.osehra.cpe.vpr.termeng.H2TermDataSource" c:jdbcurl="jdbc:h2:split:zip:${termdb.dir}/termdb-${termdb.version}-loincdb.zip!/termdb"/>
+            	<bean class="org.osehra.cpe.vpr.termeng.H2TermDataSource" c:jdbcurl="jdbc:h2:split:zip:${termdb.dir}/termdb-${termdb.version}-sctdb.zip!/termdb"/>
             </array>
         </constructor-arg>
    	</bean>
    	
    	<!-- Frame Registry -->
-   	<bean id="frameRegistry" class="EXT.DOMAIN.cpe.vpr.frameeng.FrameRegistry" init-method="load">
+   	<bean id="frameRegistry" class="org.osehra.cpe.vpr.frameeng.FrameRegistry" init-method="load">
    		<constructor-arg index="0">
    			<array>
-	   			<bean class="EXT.DOMAIN.cpe.vpr.frameeng.FrameRegistry.SpringFrameLoader"/>
+	   			<bean class="org.osehra.cpe.vpr.frameeng.FrameRegistry.SpringFrameLoader"/>
 	   			<!-- Not ready yet:
-	   			<bean class="EXT.DOMAIN.cpe.vpr.frameeng.FrameRegistry.DroolsFrameLoader" c:kb-ref="kbase1"/>
-	   			<bean class="EXT.DOMAIN.cpe.vpr.frameeng.FrameRegistry.RemindersFrameLoader" c:tpl-ref="synchronizationRpcTemplate"/>
+	   			<bean class="org.osehra.cpe.vpr.frameeng.FrameRegistry.DroolsFrameLoader" c:kb-ref="kbase1"/>
+	   			<bean class="org.osehra.cpe.vpr.frameeng.FrameRegistry.RemindersFrameLoader" c:tpl-ref="synchronizationRpcTemplate"/>
 	   			 -->
-	   			<bean class="EXT.DOMAIN.cpe.vpr.frameeng.FrameRegistry.ProtocolFileFrameLoader" c:dir="classpath:ext/domain/cpe/vpr/frames/"/>
+	   			<bean class="org.osehra.cpe.vpr.frameeng.FrameRegistry.ProtocolFileFrameLoader" c:dir="classpath:ext/domain/cpe/vpr/frames/"/>
    			</array>
  		</constructor-arg>
    	</bean>
 
 	<!-- Frame engine that runs async (listens to events) and saves generated alerts -->   	
-	<bean id="frameEng" class="EXT.DOMAIN.cpe.vpr.frameeng.FrameEng"/>
+	<bean id="frameEng" class="org.osehra.cpe.vpr.frameeng.FrameEng"/>
     <jms:listener-container  connection-factory="pooledJmsConnectionFactory" concurrency="2" >
         <jms:listener destination="vpr.events" ref="frameEng" />
     </jms:listener-container>
 
    	<!--  Sync frame runner that can be called by web services, viewdefs, etc. -->
-   	<bean id="jdsSaveActionRunner" class="EXT.DOMAIN.cpe.vpr.frameeng.FrameRunner.JDSSaveActionRunner" c:tpl-ref="jdsTemplate"/>
-	<bean id="frameRunner" class="EXT.DOMAIN.cpe.vpr.frameeng.FrameRunner">
+   	<bean id="jdsSaveActionRunner" class="org.osehra.cpe.vpr.frameeng.FrameRunner.JDSSaveActionRunner" c:tpl-ref="jdsTemplate"/>
+	<bean id="frameRunner" class="org.osehra.cpe.vpr.frameeng.FrameRunner">
 		<constructor-arg><ref bean="frameRegistry"/></constructor-arg>
 		<constructor-arg><null/></constructor-arg>
 	</bean>

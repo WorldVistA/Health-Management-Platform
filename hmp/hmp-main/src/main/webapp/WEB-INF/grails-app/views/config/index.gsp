@@ -4,9 +4,9 @@
     <title>HMP Config</title>
     <g:render template="/layouts/extjs"/>
     <g:javascript>
-        Ext.require('EXT.DOMAIN.cpe.multi.BoardBuilderApp');
+        Ext.require('org.osehra.cpe.multi.BoardBuilderApp');
         Ext.onReady(function () {
-            Ext.create('EXT.DOMAIN.cpe.multi.BoardBuilderApp');
+            Ext.create('org.osehra.cpe.multi.BoardBuilderApp');
         });
     </g:javascript>
 </head>

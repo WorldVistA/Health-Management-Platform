@@ -1,8 +1,8 @@
-Ext.define('EXT.DOMAIN.cpe.roster.FavoriteRosterPicker', {
+Ext.define('org.osehra.cpe.roster.FavoriteRosterPicker', {
     extend:'Ext.form.field.ComboBox',
     requires:[
-        'EXT.DOMAIN.cpe.roster.RosterContext',
-        'EXT.DOMAIN.cpe.roster.RosterModel'
+        'org.osehra.cpe.roster.RosterContext',
+        'org.osehra.cpe.roster.RosterModel'
     ],
     alias:'widget.favrosterpicker',
     //Commented out because Rosters are not populated
@@ -19,7 +19,7 @@ Ext.define('EXT.DOMAIN.cpe.roster.FavoriteRosterPicker', {
     initComponent:function() {
         this.store = Ext.create('Ext.data.Store', {
             storeId:'favoriteRosters',
-            model: 'EXT.DOMAIN.cpe.roster.RosterModel',
+            model: 'org.osehra.cpe.roster.RosterModel',
             proxy:{
                 type:'ajax',
                 url:'/roster/list',
@@ -56,7 +56,7 @@ Ext.define('EXT.DOMAIN.cpe.roster.FavoriteRosterPicker', {
 //        Ext.log(Ext.getClassName(this) + ".doRosterSelection()");
         Ext.suspendLayouts();
 
-        EXT.DOMAIN.cpe.roster.RosterContext.setRosterInfo(record.data);
+        org.osehra.cpe.roster.RosterContext.setRosterInfo(record.data);
         var title = record.get('name');
         var ptpicker = combo.up('patientpicker');
         ptpicker.setTitle(title);

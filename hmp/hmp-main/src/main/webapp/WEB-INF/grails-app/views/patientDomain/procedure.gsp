@@ -1,4 +1,4 @@
-<%@ page import="EXT.DOMAIN.cpe.vpr.web.converter.dateTime.PointInTimeToStringConverter" contentType="text/html;charset=UTF-8" %>
+<%@ page import="org.osehra.cpe.vpr.web.converter.dateTime.PointInTimeToStringConverter" contentType="text/html;charset=UTF-8" %>
 
 <html>
 <head>

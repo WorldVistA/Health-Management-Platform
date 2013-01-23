@@ -1,19 +1,19 @@
-Ext.define('EXT.DOMAIN.hmp.team.TeamManagementPanel', {
+Ext.define('org.osehra.hmp.team.TeamManagementPanel', {
     extend:'Ext.container.Container',
     requires:[
-        'EXT.DOMAIN.hmp.team.StaffAssignmentPanel',
-        'EXT.DOMAIN.hmp.team.TeamPositionField',
-        'EXT.DOMAIN.hmp.PopUpButton',
-        'EXT.DOMAIN.hmp.team.TeamStore',
-        'EXT.DOMAIN.cpe.roster.RosterStore',
-        'EXT.DOMAIN.cpe.roster.RosterPicker',
-        'EXT.DOMAIN.hmp.team.PersonField',
-        'EXT.DOMAIN.hmp.team.PersonPicker',
-        'EXT.DOMAIN.hmp.team.PatientPicker',
-        'EXT.DOMAIN.hmp.team.PatientField',
-        'EXT.DOMAIN.cpe.viewdef.ViewDefGridPanel',
-        'EXT.DOMAIN.hmp.team.SearchableList',
-        'EXT.DOMAIN.cpe.multi.MultiPatientPanelEditorModel'
+        'org.osehra.hmp.team.StaffAssignmentPanel',
+        'org.osehra.hmp.team.TeamPositionField',
+        'org.osehra.hmp.PopUpButton',
+        'org.osehra.hmp.team.TeamStore',
+        'org.osehra.cpe.roster.RosterStore',
+        'org.osehra.cpe.roster.RosterPicker',
+        'org.osehra.hmp.team.PersonField',
+        'org.osehra.hmp.team.PersonPicker',
+        'org.osehra.hmp.team.PatientPicker',
+        'org.osehra.hmp.team.PatientField',
+        'org.osehra.cpe.viewdef.ViewDefGridPanel',
+        'org.osehra.hmp.team.SearchableList',
+        'org.osehra.cpe.multi.MultiPatientPanelEditorModel'
     ],
     padding:10,
     layout:'border',
@@ -97,7 +97,7 @@ Ext.define('EXT.DOMAIN.hmp.team.TeamManagementPanel', {
                     disableSelection:true,
                     scroll:false,
                     minHeight:100,
-                    viewID:'EXT.DOMAIN.cpe.vpr.queryeng.dynamic.PatientPanelViewDef',
+                    viewID:'org.osehra.cpe.vpr.queryeng.dynamic.PatientPanelViewDef',
                     emptyText:'There are no patients associated with this team.',
                     columns:[
                         {
@@ -166,7 +166,7 @@ Ext.define('EXT.DOMAIN.hmp.team.TeamManagementPanel', {
 //                                items:[
 //                                    {
 //                                        xtype:'boundlist',
-//                                        store:Ext.create('EXT.DOMAIN.cpe.roster.RosterStore'),
+//                                        store:Ext.create('org.osehra.cpe.roster.RosterStore'),
 //
 ////                                        columns:[
 ////                                            {text:'Patient List', flex:1}
@@ -224,7 +224,7 @@ Ext.define('EXT.DOMAIN.hmp.team.TeamManagementPanel', {
                     emptyText: "Search Boards",
                     displayField: 'name',
                     store:{
-                        model:'EXT.DOMAIN.cpe.multi.MultiPatientPanelEditorModel',
+                        model:'org.osehra.cpe.multi.MultiPatientPanelEditorModel',
                         proxy:{
                             type:'ajax',
                             url:'/config/panels',
@@ -245,8 +245,8 @@ Ext.define('EXT.DOMAIN.hmp.team.TeamManagementPanel', {
         }
     ],
     initComponent:function () {
-        this.items[0].store = Ext.data.StoreManager.containsKey('teams') ? Ext.getStore('teams') : Ext.create('EXT.DOMAIN.hmp.team.TeamStore');
-        this.items[1].items[3].bbarConfig[2].store = Ext.data.StoreManager.containsKey('rosters') ? Ext.getStore('rosters') : Ext.create('EXT.DOMAIN.cpe.roster.RosterStore');
+        this.items[0].store = Ext.data.StoreManager.containsKey('teams') ? Ext.getStore('teams') : Ext.create('org.osehra.hmp.team.TeamStore');
+        this.items[1].items[3].bbarConfig[2].store = Ext.data.StoreManager.containsKey('rosters') ? Ext.getStore('rosters') : Ext.create('org.osehra.cpe.roster.RosterStore');
 
         this.callParent(arguments);
     },

@@ -16,12 +16,12 @@
  * TODO: Cookies?
  * TODO: keep track of muliple exceptions? show them as a list?
  */
-Ext.define('EXT.DOMAIN.hmp.appbar.ErrorWindow', {
+Ext.define('org.osehra.hmp.appbar.ErrorWindow', {
     extend: 'Ext.window.Window',
     requires: [
-        'EXT.DOMAIN.hmp.AppContext',
-        'EXT.DOMAIN.hmp.UserContext',
-        'EXT.DOMAIN.hmp.appbar.AppInfoPropertiesGrid'
+        'org.osehra.hmp.AppContext',
+        'org.osehra.hmp.UserContext',
+        'org.osehra.hmp.appbar.AppInfoPropertiesGrid'
     ],
     singleton: true,
     alias: 'widget.errorwin',
@@ -41,11 +41,11 @@ Ext.define('EXT.DOMAIN.hmp.appbar.ErrorWindow', {
 	listeners: {
 		show: function() {
 			this.errorstore.removeAll();
-        	this.errorstore.add(EXT.DOMAIN.hmp.appbar.ErrorManager.errors);
+        	this.errorstore.add(org.osehra.hmp.appbar.ErrorManager.errors);
 		},
 		render: function() {
             var me = this;
-            me.usrprops.setSource(EXT.DOMAIN.hmp.UserContext.getUserInfo());
+            me.usrprops.setSource(org.osehra.hmp.UserContext.getUserInfo());
 //            me.hmpprops.setSource(data.props);
 //            me.sysprops.setSource(data.system);
 //            me.envprops.setSource(data.env);
@@ -105,11 +105,11 @@ Ext.define('EXT.DOMAIN.hmp.appbar.ErrorWindow', {
                     this.setSource({
                         "Current URL": location.href,
                         "Browser Agent": navigator.userAgent,
-                        "HMP Version": EXT.DOMAIN.hmp.AppContext.getVersion(),
-                        "HMP App": EXT.DOMAIN.hmp.AppContext.getAppInfo().app,
+                        "HMP Version": org.osehra.hmp.AppContext.getVersion(),
+                        "HMP App": org.osehra.hmp.AppContext.getAppInfo().app,
                         "HMP Build": '',
-                        "User Name": EXT.DOMAIN.hmp.UserContext.getUserInfo().displayName,
-                        "User DUZ": EXT.DOMAIN.hmp.UserContext.getUserInfo().duz,
+                        "User Name": org.osehra.hmp.UserContext.getUserInfo().displayName,
+                        "User DUZ": org.osehra.hmp.UserContext.getUserInfo().duz,
                         "Screen Size": screen.width + "x" + screen.height,
                         "Patient Context": Ext.util.Cookies.get("CONTEXT")
                     });

@@ -1,7 +1,7 @@
 /**
  * Like an editable ComboBox with its popUp stuck open.
  */
-Ext.define('EXT.DOMAIN.hmp.team.SearchableList', {
+Ext.define('org.osehra.hmp.team.SearchableList', {
     extend:'Ext.container.Container',
     alias:'widget.searchablelist',
     /**
@@ -108,7 +108,7 @@ Ext.define('EXT.DOMAIN.hmp.team.SearchableList', {
              *
              * @param {Object} queryEvent An object that has these properties:
              *
-             *   - `picker` : EXT.DOMAIN.hmp.team.PersonPicker
+             *   - `picker` : org.osehra.hmp.team.PersonPicker
              *
              *     This combo box
              *

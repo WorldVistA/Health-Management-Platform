@@ -11,55 +11,55 @@
 
     <util:map id="jsonImporters">
     	<entry key="observation">
-    		<bean class="EXT.DOMAIN.cpe.vpr.sync.vista.json.ObservationImporter"/>
+    		<bean class="org.osehra.cpe.vpr.sync.vista.json.ObservationImporter"/>
     	</entry>
         <!--<entry key="accession">-->
-            <!--<bean class="EXT.DOMAIN.cpe.vpr.sync.vista.json.AccessionImporter"/>-->
+            <!--<bean class="org.osehra.cpe.vpr.sync.vista.json.AccessionImporter"/>-->
         <!--</entry>-->
         <entry key="lab">
-            <bean class="EXT.DOMAIN.cpe.vpr.sync.vista.json.ResultImporter"/>
+            <bean class="org.osehra.cpe.vpr.sync.vista.json.ResultImporter"/>
         </entry>
         <entry key="allergy">
-            <bean class="EXT.DOMAIN.cpe.vpr.sync.vista.json.AllergyImporter"/>
+            <bean class="org.osehra.cpe.vpr.sync.vista.json.AllergyImporter"/>
         </entry>
         <entry key="appointment" value-ref="jsonEncounterImporter"/>
         <entry key="document">
-            <bean class="EXT.DOMAIN.cpe.vpr.sync.vista.json.DocumentImporter"/>
+            <bean class="org.osehra.cpe.vpr.sync.vista.json.DocumentImporter"/>
         </entry>
         <entry key="immunization">
-            <bean class="EXT.DOMAIN.cpe.vpr.sync.vista.json.ImmunizationImporter"/>
+            <bean class="org.osehra.cpe.vpr.sync.vista.json.ImmunizationImporter"/>
         </entry>
         <entry key="pharmacy">
-            <bean class="EXT.DOMAIN.cpe.vpr.sync.vista.json.MedicationImporter"/>
+            <bean class="org.osehra.cpe.vpr.sync.vista.json.MedicationImporter"/>
         </entry>
         <entry key="visit">
-            <bean class="EXT.DOMAIN.cpe.vpr.sync.vista.json.EncounterImporter"/>
+            <bean class="org.osehra.cpe.vpr.sync.vista.json.EncounterImporter"/>
         </entry>
         <entry key="surgery" value-ref="jsonProcedureImporter"/>
         <entry key="radiology" value-ref="jsonProcedureImporter"/>
         <entry key="consult" value-ref="jsonProcedureImporter"/>
         <entry key="order">
-            <bean class="EXT.DOMAIN.cpe.vpr.sync.vista.json.OrderImporter"/>
+            <bean class="org.osehra.cpe.vpr.sync.vista.json.OrderImporter"/>
         </entry>
         <entry key="problem">
-            <bean class="EXT.DOMAIN.cpe.vpr.sync.vista.json.ProblemImporter"/>
+            <bean class="org.osehra.cpe.vpr.sync.vista.json.ProblemImporter"/>
         </entry>
         <entry key="vital">
-            <bean class="EXT.DOMAIN.cpe.vpr.sync.vista.json.VitalSignImporter"/>
+            <bean class="org.osehra.cpe.vpr.sync.vista.json.VitalSignImporter"/>
         </entry>
         <entry key="visit" value-ref="jsonEncounterImporter"/>
         <entry key="factor">
-            <bean class="EXT.DOMAIN.cpe.vpr.sync.vista.json.HealthFactorImporter"/>
+            <bean class="org.osehra.cpe.vpr.sync.vista.json.HealthFactorImporter"/>
         </entry>
         <entry key="task">
-            <bean class="EXT.DOMAIN.cpe.vpr.sync.vista.json.TaskImporter"/>
+            <bean class="org.osehra.cpe.vpr.sync.vista.json.TaskImporter"/>
         </entry>
         <entry key="patient">
-            <bean id="jsonPatientImporter" class="EXT.DOMAIN.cpe.vpr.sync.vista.json.PatientImporter"/>
+            <bean id="jsonPatientImporter" class="org.osehra.cpe.vpr.sync.vista.json.PatientImporter"/>
         </entry>
     </util:map>
-    <bean id="jsonProcedureImporter" class="EXT.DOMAIN.cpe.vpr.sync.vista.json.ProcedureImporter"/>
-    <bean id="jsonEncounterImporter" class="EXT.DOMAIN.cpe.vpr.sync.vista.json.EncounterImporter"/>
+    <bean id="jsonProcedureImporter" class="org.osehra.cpe.vpr.sync.vista.json.ProcedureImporter"/>
+    <bean id="jsonEncounterImporter" class="org.osehra.cpe.vpr.sync.vista.json.EncounterImporter"/>
 
-    <bean id="centralImporter" class="EXT.DOMAIN.cpe.vpr.sync.vista.CentralImporter" p:importers-ref="jsonImporters"/>
+    <bean id="centralImporter" class="org.osehra.cpe.vpr.sync.vista.CentralImporter" p:importers-ref="jsonImporters"/>
 </beans>

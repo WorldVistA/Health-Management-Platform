@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.cpe.patient.PatientSelectBox', {
+Ext.define('org.osehra.cpe.patient.PatientSelectBox', {
     extend:'Ext.form.field.ComboBox',
     alias:'widget.patientselectbox',
     id:'patientselectbox',
@@ -56,7 +56,7 @@ Ext.define('EXT.DOMAIN.cpe.patient.PatientSelectBox', {
 
 
 //------------------------------------------------------
-Ext.define('EXT.DOMAIN.cpe.patient.PatientSelectorPanel', {
+Ext.define('org.osehra.cpe.patient.PatientSelectorPanel', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.patientselectorpanel',
     frame: false,

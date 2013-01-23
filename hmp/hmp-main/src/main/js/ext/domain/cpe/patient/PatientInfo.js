@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.cpe.patient.PatientInfo', {
+Ext.define('org.osehra.cpe.patient.PatientInfo', {
     extend:'Ext.window.Window',
     title:'Patient Info',
     height:200,

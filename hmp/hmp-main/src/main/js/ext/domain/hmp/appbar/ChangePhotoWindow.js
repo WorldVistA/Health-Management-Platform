@@ -1,8 +1,8 @@
-Ext.define('EXT.DOMAIN.hmp.appbar.ChangePhotoWindow', {
+Ext.define('org.osehra.hmp.appbar.ChangePhotoWindow', {
     extend:'Ext.window.Window',
     requires:[
-        'EXT.DOMAIN.hmp.UserContext',
-        'EXT.DOMAIN.hmp.PhotoPicker'
+        'org.osehra.hmp.UserContext',
+        'org.osehra.hmp.PhotoPicker'
     ],
     title:'Edit Photo',
     items:[
@@ -50,7 +50,7 @@ Ext.define('EXT.DOMAIN.hmp.appbar.ChangePhotoWindow', {
     },
     onSetPhoto:function () {
         var photopicker = this.down('photopicker');
-        photopicker.uploadTo('/person/v1/' + EXT.DOMAIN.hmp.UserContext.getUserInfo().uid + '/photo');
+        photopicker.uploadTo('/person/v1/' + org.osehra.hmp.UserContext.getUserInfo().uid + '/photo');
     },
     onUpload:function () {
         this.fireEvent('load', this);

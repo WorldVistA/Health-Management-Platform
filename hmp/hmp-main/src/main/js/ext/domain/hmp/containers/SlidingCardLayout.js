@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.hmp.containers.SlidingCardLayout', {
+Ext.define('org.osehra.hmp.containers.SlidingCardLayout', {
     extend:'Ext.layout.container.Card',
     alias:'layout.slidingcard',
     next:function () {

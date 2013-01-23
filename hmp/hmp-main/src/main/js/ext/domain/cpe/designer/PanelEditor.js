@@ -1,5 +1,5 @@
 
-Ext.define('EXT.DOMAIN.cpe.designer.PanelEditor', {
+Ext.define('org.osehra.cpe.designer.PanelEditor', {
 	extend: 'Ext.container.Container',
 	title: 'Default Editor',
 	setEditorValues: function(vals) {
@@ -58,7 +58,7 @@ Ext.create('Ext.data.Store', {
 	autoLoad: true,
 	proxy: {
 		type: 'ajax',
-		url: '/app/list?type=EXT.DOMAIN.cpe.viewdef',
+		url: '/app/list?type=org.osehra.cpe.viewdef',
 		reader: {
 			root: 'items',
 			type: 'json'
@@ -66,7 +66,7 @@ Ext.create('Ext.data.Store', {
 	}    
 });
 
-Ext.define('EXT.DOMAIN.cpe.designer.DataGridDetail', {
+Ext.define('org.osehra.cpe.designer.DataGridDetail', {
 	extend: 'Ext.tab.Panel',
 	preview: false, // live preview mode?
 	
@@ -137,7 +137,7 @@ Ext.define('EXT.DOMAIN.cpe.designer.DataGridDetail', {
 //			// then add any fields to it that we can infer from metadata
 //			for (var i in meta.params) {
 //				var param = meta.params[i];
-//				if (param.defaults && param.enum && param.clazz == "EXT.DOMAIN.cpe.vpr.queryeng.ViewParam$ENUMParam") {
+//				if (param.defaults && param.enum && param.clazz == "org.osehra.cpe.vpr.queryeng.ViewParam$ENUMParam") {
 //					for (var key in param.defaults) {
 //						var val = param.defaults[key];
 //						misctab.add({xtype: 'combobox', name: 'viewParams.' + key, fieldLabel: key, value: val, store: param.enum})
@@ -156,7 +156,7 @@ Ext.define('EXT.DOMAIN.cpe.designer.DataGridDetail', {
 	},
 	
 	setEditorValues: function(vals) {
-		var v = EXT.DOMAIN.cpe.designer.PanelEditor.parseObjToDot(vals);
+		var v = org.osehra.cpe.designer.PanelEditor.parseObjToDot(vals);
  		this.form.setValues(v);
  		var dt = vals.detailType;
  		
@@ -172,7 +172,7 @@ Ext.define('EXT.DOMAIN.cpe.designer.DataGridDetail', {
 	
 	getEditorValues: function() {
 		// first inject all the form values (and convert to a nested map)
-		var ret = EXT.DOMAIN.cpe.designer.PanelEditor.parseDotToObj(this.form.getFieldValues());
+		var ret = org.osehra.cpe.designer.PanelEditor.parseDotToObj(this.form.getFieldValues());
 		
 		// also collect the column list/orders
 //		var disp = '';
@@ -237,7 +237,7 @@ Ext.define('EXT.DOMAIN.cpe.designer.DataGridDetail', {
 		console.log('preview config: ');
 		console.log(cfg);
 
-		var grid = Ext.create('EXT.DOMAIN.cpe.viewdef.ViewDefGridPanel', cfg);
+		var grid = Ext.create('org.osehra.cpe.viewdef.ViewDefGridPanel', cfg);
 		this.previewpanel.add(grid);
 	},
 	
@@ -344,7 +344,7 @@ Ext.define('EXT.DOMAIN.cpe.designer.DataGridDetail', {
 			    {xtype: 'combobox', name: 'tbarConfig', fieldLabel: 'Top Toolbar', 
 			    	store: [
 		    	        ['','None'],
-		    	        ['EXT.DOMAIN.cpe.viewdef.AutoFilterToolbar','Filter Toolbar'],
+		    	        ['org.osehra.cpe.viewdef.AutoFilterToolbar','Filter Toolbar'],
 		    	        ['Ext.toolbar.Paging','Paging Toolbar']
 		    	    ]},
 			    {xtype: 'combobox', name: 'bbarConfig', fieldLabel: 'Bottom Toolbar',

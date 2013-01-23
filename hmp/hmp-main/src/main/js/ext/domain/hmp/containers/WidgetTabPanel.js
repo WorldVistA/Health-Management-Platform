@@ -2,19 +2,19 @@
  * This is a customizable tab panel that can be filled with widgets.
  * The state can be saved/restored.
  */
-Ext.define('EXT.DOMAIN.hmp.containers.WidgetTabPanel', {
+Ext.define('org.osehra.hmp.containers.WidgetTabPanel', {
 	extend: 'Ext.tab.Panel',
 	alias: 'widget.widgettabpanel',
 	requires: [
-        'EXT.DOMAIN.hmp.UserContext',
-        'EXT.DOMAIN.hmp.containers.MultiGridPanel',
-        'EXT.DOMAIN.hmp.containers.PortalPanel',
-        'EXT.DOMAIN.cpe.order.MedOrderingToolbar',
-        'EXT.DOMAIN.cpe.PatientWikiPanel',
-        'EXT.DOMAIN.hmp.containers.PatientAwarePanel',
-        'EXT.DOMAIN.hmp.containers.LabReviewTab',
-        'EXT.DOMAIN.hmp.containers.MedsReviewTab',
-        'EXT.DOMAIN.hmp.containers.OnePanelToRuleThemAll'
+        'org.osehra.hmp.UserContext',
+        'org.osehra.hmp.containers.MultiGridPanel',
+        'org.osehra.hmp.containers.PortalPanel',
+        'org.osehra.cpe.order.MedOrderingToolbar',
+        'org.osehra.cpe.PatientWikiPanel',
+        'org.osehra.hmp.containers.PatientAwarePanel',
+        'org.osehra.hmp.containers.LabReviewTab',
+        'org.osehra.hmp.containers.MedsReviewTab',
+        'org.osehra.hmp.containers.OnePanelToRuleThemAll'
     ],
     itemId: 'WidgetTabPanelID',
 	editMode: true, // true to allow the user to edit/add tabs
@@ -114,7 +114,7 @@ Ext.define('EXT.DOMAIN.hmp.containers.WidgetTabPanel', {
 					        	
 					        	var dfltVal = '';
 					        	
-					        	var rec = EXT.DOMAIN.cpe.CPEPanel.selectedTabPanelRecord;
+					        	var rec = org.osehra.cpe.CPEPanel.selectedTabPanelRecord;
 					        	if(rec)
 					        	{
 					        		if(rec.data.url.indexOf('.js')<0)
@@ -156,7 +156,7 @@ Ext.define('EXT.DOMAIN.hmp.containers.WidgetTabPanel', {
 						this.loadedFlag = true;
 
 						Ext.Ajax.request({
-							url: '/app/list?type=EXT.DOMAIN.cpe.tabtypes',
+							url: '/app/list?type=org.osehra.cpe.tabtypes',
 							success: function(resp) {
 								var data = Ext.JSON.decode(resp.responseText);
 								var menuItems = [];
@@ -272,7 +272,7 @@ Ext.define('EXT.DOMAIN.hmp.containers.WidgetTabPanel', {
 				// only insert the tabs if the user has the required role (or no required role is declared)
 				var tab = state.tabs[i];
 
-				if (!tab.requireKey || EXT.DOMAIN.hmp.UserContext.currentUserHasVistaKey(tab.requireKey)) {
+				if (!tab.requireKey || org.osehra.hmp.UserContext.currentUserHasVistaKey(tab.requireKey)) {
 					var cmp = this.insert((this.editMode ? 1 : 0), tab);
 				}
 			}
@@ -321,9 +321,9 @@ Ext.define('Ext.ux.tab.Tab', {
 	   }
 });
 
-Ext.define('EXT.DOMAIN.hmp.containers.WidgetTabPanelEditWin',{
+Ext.define('org.osehra.hmp.containers.WidgetTabPanelEditWin',{
 	extend: 'Ext.window.Window',
-	requires: ['EXT.DOMAIN.cpe.designer.PanelEditor'],
+	requires: ['org.osehra.cpe.designer.PanelEditor'],
 	height: 400,
 	width: 600,
 	stateful: false,
@@ -339,7 +339,7 @@ Ext.define('EXT.DOMAIN.hmp.containers.WidgetTabPanelEditWin',{
 
 		// if no editor was derived, then use the default
 		if (!editor) {
-			editor = Ext.create('EXT.DOMAIN.cpe.designer.PanelEditor', {title: comp.title});
+			editor = Ext.create('org.osehra.cpe.designer.PanelEditor', {title: comp.title});
 		}
 
 		// remove any existing editor, unless its the current one
@@ -368,7 +368,7 @@ Ext.define('EXT.DOMAIN.hmp.containers.WidgetTabPanelEditWin',{
 		Ext.apply(cfg, this.editor.getEditorValues(), {});
 
 		// remove the tab, then recreate/add new one
-		var pid = this.comp.pid || EXT.DOMAIN.hmp.PatientContext.getPatientInfo().pid;
+		var pid = this.comp.pid || org.osehra.hmp.PatientContext.getPatientInfo().pid;
 		var clazz = this.comp.$className;
 		var tabpanel = this.comp.ownerCt;
 //		var ocmp = tabpanel.getComponent(this.comp);

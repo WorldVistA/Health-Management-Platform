@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.hmp.PhotoSnapshot', {
+Ext.define('org.osehra.hmp.PhotoSnapshot', {
     extend:'Ext.panel.Panel',
     alias:'widget.photosnapshot',
 //    layout:
@@ -30,7 +30,7 @@ Ext.define('EXT.DOMAIN.hmp.PhotoSnapshot', {
     initComponent:function () {
         var me = this;
 
-        if (!EXT.DOMAIN.hmp.supports.GetUserMedia) {
+        if (!org.osehra.hmp.supports.GetUserMedia) {
             me.items = [
                 {
                     xtype:'component',
@@ -45,7 +45,7 @@ Ext.define('EXT.DOMAIN.hmp.PhotoSnapshot', {
             /**
              * @event snapshot
              * Fires when this component has taken a snapshot.
-             * @param {EXT.DOMAIN.hmp.PhotoSnapshot} this
+             * @param {org.osehra.hmp.PhotoSnapshot} this
              * @param {Event} dataUrl The data URL of the image
              */
             'snapshot'
@@ -54,14 +54,14 @@ Ext.define('EXT.DOMAIN.hmp.PhotoSnapshot', {
         me.down('#snapshotButton').on('click', me.onSnapshotClick, me);
     },
     startCamera:function () {
-        if (!EXT.DOMAIN.hmp.supports.GetUserMedia) return;
+        if (!org.osehra.hmp.supports.GetUserMedia) return;
 //        console.log("startCamera()");
         var videoEl = this.getVideoEl();
         videoEl.play();
         this.getUserMedia({video:true}, this.onObtainVideoStream, this.onUnableToObtainVideoStream);
     },
     stopCamera:function () {
-        if (!EXT.DOMAIN.hmp.supports.GetUserMedia) return;
+        if (!org.osehra.hmp.supports.GetUserMedia) return;
 //        console.log("stopCamera()");
         var videoEl = this.getVideoEl();
         videoEl.pause();

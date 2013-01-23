@@ -102,12 +102,12 @@
 		<mapping resource="ext/domain/cpe/vpr/VitalSignOrganizer.hbm.xml" />
 		<mapping resource="ext/domain/cpe/vpr/VistaPatientDem.hbm.xml" />
 
-<!--		<class-cache class="EXT.DOMAIN.cpe.codes.AbstractCodedValue"
+<!--		<class-cache class="org.osehra.cpe.codes.AbstractCodedValue"
 			usage="read-only" />
-		<class-cache class="EXT.DOMAIN.cpe.vpr.Patient" usage="read-write" />
-		<class-cache class="EXT.DOMAIN.cpe.vpr.Clinician" usage="read-write" />
+		<class-cache class="org.osehra.cpe.vpr.Patient" usage="read-write" />
+		<class-cache class="org.osehra.cpe.vpr.Clinician" usage="read-write" />
 
  		<listener type="pre-insert"
-			class="EXT.DOMAIN.cpe.hibernate.DateCreatedPreInsertListener" /> -->
+			class="org.osehra.cpe.hibernate.DateCreatedPreInsertListener" /> -->
 	</session-factory>
 </hibernate-configuration>

@@ -44,13 +44,13 @@
         </property>
         <property name="customArgumentResolvers">
             <list>
-                <bean class="EXT.DOMAIN.cpe.vpr.web.PageableArgumentResolver"/>
+                <bean class="org.osehra.cpe.vpr.web.PageableArgumentResolver"/>
             </list>
         </property>
     </bean>
-    <bean id="resourceHttpMessageConverter" class="EXT.DOMAIN.cpe.vpr.web.converter.ResourceHttpMessageConverter" />
+    <bean id="resourceHttpMessageConverter" class="org.osehra.cpe.vpr.web.converter.ResourceHttpMessageConverter" />
 
-    <bean id="ajaxHandlerExceptionResolver" class="EXT.DOMAIN.cpe.vpr.web.servlet.AjaxHandlerExceptionResolver"
+    <bean id="ajaxHandlerExceptionResolver" class="org.osehra.cpe.vpr.web.servlet.AjaxHandlerExceptionResolver"
           p:order="0"/>
 
     <bean id="defaultHandlerExceptionResolver" class="org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver"
@@ -59,14 +59,14 @@
 
     <!-- packages to scan for @Controllers -->
     <context:component-scan
-            base-package="EXT.DOMAIN.cpe.web,EXT.DOMAIN.cpe.auth,EXT.DOMAIN.cpe.vpr,EXT.DOMAIN.cpe.vpr.search,EXT.DOMAIN.cpe.vpr.web,EXT.DOMAIN.cpe.rpc,EXT.DOMAIN.cpe.team"/>
+            base-package="org.osehra.cpe.web,org.osehra.cpe.auth,org.osehra.cpe.vpr,org.osehra.cpe.vpr.search,org.osehra.cpe.vpr.web,org.osehra.cpe.rpc,org.osehra.cpe.team"/>
 
     <!-- Configures Handler Interceptors -->
     <mvc:interceptors>
         <bean class="org.springframework.orm.hibernate3.support.OpenSessionInViewInterceptor"
               p:sessionFactory-ref="sessionFactory"/>
         <bean class="org.codehaus.groovy.grails.web.i18n.ParamsAwareLocaleChangeInterceptor" p:paramName="lang"/>
-        <!--<bean class="EXT.DOMAIN.cpe.vpr.web.interceptor.UserInterceptor"/>-->
+        <!--<bean class="org.osehra.cpe.vpr.web.interceptor.UserInterceptor"/>-->
     </mvc:interceptors>
 
     <!-- Saves a locale change using a cookie -->
@@ -93,7 +93,7 @@
     <bean id="jspTagLibraryResolver" class="org.codehaus.groovy.grails.web.pages.ext.jsp.TagLibraryResolver"/>
     <bean id="gspTagLibraryLookup" class="org.codehaus.groovy.grails.web.pages.TagLibraryLookup"/>
 
-    <bean class="EXT.DOMAIN.cpe.grails.plugins.GrailsTagLibsRegistrar"/>
+    <bean class="org.osehra.cpe.grails.plugins.GrailsTagLibsRegistrar"/>
 
     <bean id="groovyPagesTemplateEngine" class="org.codehaus.groovy.grails.web.pages.GroovyPagesTemplateEngine"
           lazy-init="true"
@@ -106,7 +106,7 @@
           lazy-init="true"/>
 
     <!-- first resolve views based on requested content-type (via format request param) for specified viewNames -->
-    <bean class="EXT.DOMAIN.cpe.vpr.web.servlet.view.ContentNegotiatingViewResolver"
+    <bean class="org.osehra.cpe.vpr.web.servlet.view.ContentNegotiatingViewResolver"
           p:order="0"
           p:favorParameter="true"
           p:ignoreAcceptHeader="true"
@@ -127,19 +127,19 @@
         </property>
         <property name="defaultViews">
             <list>
-                <!-- <bean class="EXT.DOMAIN.cpe.vpr.web.view.GrailsJSONView"/> -->
+                <!-- <bean class="org.osehra.cpe.vpr.web.view.GrailsJSONView"/> -->
                 <!-- <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" p:objectMapper-ref="vprMapper"/> -->
-                <bean class="EXT.DOMAIN.cpe.vpr.web.view.VPRMappingJacksonJsonView" 
+                <bean class="org.osehra.cpe.vpr.web.view.VPRMappingJacksonJsonView" 
                     p:objectMapper-ref="vprJsonMapper"
 	                p:extractValueFromSingleKeyModel="true" 
 	                p:modelKey="response"/>
                 <!-- deprecated TODO: replace GrailsXMLView with Jackson XML serialization -->
-               <bean class="EXT.DOMAIN.cpe.vpr.web.view.GrailsXMLView"/>
+               <bean class="org.osehra.cpe.vpr.web.view.GrailsXMLView"/>
             </list>
         </property>
     </bean>
-	<bean id="vprJsonMapper" class="EXT.DOMAIN.cpe.vpr.pom.POMObjectMapper"
-            c:serializationView="EXT.DOMAIN.cpe.vpr.pom.JSONViews.WSView"/>
+	<bean id="vprJsonMapper" class="org.osehra.cpe.vpr.pom.POMObjectMapper"
+            c:serializationView="org.osehra.cpe.vpr.pom.JSONViews.WSView"/>
 	
     <!-- next resolve views as beans declared in views.xml -->
     <bean class="org.springframework.web.servlet.view.XmlViewResolver"
@@ -175,12 +175,12 @@
           class="org.codehaus.groovy.grails.plugins.web.taglib.SitemeshTagLib" lazy-init="true" autowire="byName"/>
     <bean id="org.codehaus.groovy.grails.web.filters.JavascriptLibraryFilters"
           class="org.codehaus.groovy.grails.web.filters.JavascriptLibraryFilters" lazy-init="true" autowire="byName"/>
-    <bean id="EXT.DOMAIN.cpe.auth.AuthTagLib" class="EXT.DOMAIN.cpe.auth.AuthTagLib" lazy-init="true" autowire="byName"/>
-    <bean id="EXT.DOMAIN.cpe.vpr.web.converter.dateTime.PointInTimeTagLib" class="EXT.DOMAIN.cpe.vpr.web.converter.dateTime.PointInTimeTagLib" lazy-init="true"
+    <bean id="org.osehra.cpe.auth.AuthTagLib" class="org.osehra.cpe.auth.AuthTagLib" lazy-init="true" autowire="byName"/>
+    <bean id="org.osehra.cpe.vpr.web.converter.dateTime.PointInTimeTagLib" class="org.osehra.cpe.vpr.web.converter.dateTime.PointInTimeTagLib" lazy-init="true"
           autowire="byName"/>
-    <bean id="EXT.DOMAIN.cpe.vpr.web.taglib.ParamTagLib" class="EXT.DOMAIN.cpe.vpr.web.taglib.ParamTagLib" lazy-init="true" autowire="byName"/>
-    <bean id="EXT.DOMAIN.cpe.vpr.web.taglib.DetailTagLib" class="EXT.DOMAIN.cpe.vpr.web.taglib.DetailTagLib" lazy-init="true" autowire="byName"/>
-    <bean id="EXT.DOMAIN.cpe.vpr.web.taglib.MedDetailTagLib" class="EXT.DOMAIN.cpe.vpr.web.taglib.MedDetailTagLib" lazy-init="true" autowire="byName"/>
+    <bean id="org.osehra.cpe.vpr.web.taglib.ParamTagLib" class="org.osehra.cpe.vpr.web.taglib.ParamTagLib" lazy-init="true" autowire="byName"/>
+    <bean id="org.osehra.cpe.vpr.web.taglib.DetailTagLib" class="org.osehra.cpe.vpr.web.taglib.DetailTagLib" lazy-init="true" autowire="byName"/>
+    <bean id="org.osehra.cpe.vpr.web.taglib.MedDetailTagLib" class="org.osehra.cpe.vpr.web.taglib.MedDetailTagLib" lazy-init="true" autowire="byName"/>
 
     <!-- Grails UrlMappingsPlugin beans -->
     <bean id="grailsUrlMappingsHolderBean" class="org.codehaus.groovy.grails.web.mapping.UrlMappingsHolderFactoryBean"

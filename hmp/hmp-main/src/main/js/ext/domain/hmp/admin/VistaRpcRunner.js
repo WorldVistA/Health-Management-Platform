@@ -31,10 +31,10 @@ function addParam() {
         ]});
 }
 
-Ext.define('EXT.DOMAIN.hmp.admin.VistaRpcRunner', {
+Ext.define('org.osehra.hmp.admin.VistaRpcRunner', {
     extend:'Ext.container.Container',
     requires:[
-        'EXT.DOMAIN.hmp.containers.LinkBar'
+        'org.osehra.hmp.containers.LinkBar'
     ],
     alias: 'widget.vistarpcrunner',
     itemId: 'rpc-call',

@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.cpe.PingWindow', {
+Ext.define('org.osehra.cpe.PingWindow', {
 	extend: 'Ext.window.Window',
 	alias: 'widget.pingwindow',
 	title: 'PING',

@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.hmp.admin.TermBrowserTree', {
+Ext.define('org.osehra.hmp.admin.TermBrowserTree', {
 	extend:'Ext.tree.Panel',
 	alias: 'widget.termbrowsertree',
 	searchText: '', // the main search/selection criteria

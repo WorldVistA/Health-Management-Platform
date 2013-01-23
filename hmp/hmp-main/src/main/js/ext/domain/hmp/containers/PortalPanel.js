@@ -3,7 +3,7 @@
  * TODO: Need to trigger stateSave on drag/drop target event.
  * 
  */
-Ext.define('EXT.DOMAIN.hmp.containers.PortalPanel', {
+Ext.define('org.osehra.hmp.containers.PortalPanel', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.portalpanel',
     cls: 'x-portal',

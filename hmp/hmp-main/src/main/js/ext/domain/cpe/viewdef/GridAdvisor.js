@@ -6,11 +6,11 @@
  * - Helping the editor out with rendering custom fields.
  * - Custom detail formats/widgets/etc.
  */
-Ext.define('EXT.DOMAIN.cpe.viewdef.GridAdvisor', {
+Ext.define('org.osehra.cpe.viewdef.GridAdvisor', {
     requires: [
-        'EXT.DOMAIN.hmp.UserContext',
+        'org.osehra.hmp.UserContext',
         'Ext.ux.CheckColumn',
-        'EXT.DOMAIN.cpe.viewdef.GridEditors'
+        'org.osehra.cpe.viewdef.GridEditors'
     ],
 	grid: null, // set at construction time.
 	columnsConf: null, // This will be populated by any saved column specifications the user may have provided.
@@ -64,7 +64,7 @@ Ext.define('EXT.DOMAIN.cpe.viewdef.GridAdvisor', {
 			for(var n = 0; n<metadata.columns.length; n++)
 			{
 				if(metadata.columns[n].editOpt!=null) {
-					EXT.DOMAIN.cpe.viewdef.GridEditors.applyEditOpt(grid, metadata.columns[n], metadata.columns[n].editOpt);
+					org.osehra.cpe.viewdef.GridEditors.applyEditOpt(grid, metadata.columns[n], metadata.columns[n].editOpt);
 				}
 				cols.push(metadata.columns[n]);
 			}
@@ -112,7 +112,7 @@ Ext.define('EXT.DOMAIN.cpe.viewdef.GridAdvisor', {
 
 	userBoldRenderer: function(value, metaData, record)
 	{
-		var usr = EXT.DOMAIN.hmp.UserContext.getUserInfo().displayName;
+		var usr = org.osehra.hmp.UserContext.getUserInfo().displayName;
 		for(key in record.data)
 		{
 			if(record.data[key]==usr)

@@ -1,5 +1,5 @@
-Ext.define('EXT.DOMAIN.cpe.viewdef.LabGridAdvisor', {
-    extend: 'EXT.DOMAIN.cpe.viewdef.GridAdvisor',
+Ext.define('org.osehra.cpe.viewdef.LabGridAdvisor', {
+    extend: 'org.osehra.cpe.viewdef.GridAdvisor',
     tpl: new Ext.XTemplate('{result} {units} <div style=\"float: right; color: red; font-weight: bold;\">{interpretation}</div>', {compiled: true}),
     defineColumns: function(grid, metadata) {
         return [

@@ -1,10 +1,10 @@
-Ext.define('EXT.DOMAIN.hmp.team.TeamPanel', {
+Ext.define('org.osehra.hmp.team.TeamPanel', {
     extend:'Ext.panel.Panel',
     requires:[
-        'EXT.DOMAIN.hmp.EventBus',
-        'EXT.DOMAIN.hmp.team.TeamTile',
-        'EXT.DOMAIN.hmp.containers.LinkBar',
-        'EXT.DOMAIN.cpe.roster.RosterPicker'
+        'org.osehra.hmp.EventBus',
+        'org.osehra.hmp.team.TeamTile',
+        'org.osehra.hmp.containers.LinkBar',
+        'org.osehra.cpe.roster.RosterPicker'
     ],
     title:'No Team Selected',
     bodyPadding:12,
@@ -86,7 +86,7 @@ Ext.define('EXT.DOMAIN.hmp.team.TeamPanel', {
     initComponent:function () {
         var me = this;
         me.callParent(arguments);
-        EXT.DOMAIN.hmp.EventBus.on('teamselect', me.setTeam, me);
+        org.osehra.hmp.EventBus.on('teamselect', me.setTeam, me);
     },
     getTeamPositionStore:function () {
         return this.down('#careTeamGrid').getStore();

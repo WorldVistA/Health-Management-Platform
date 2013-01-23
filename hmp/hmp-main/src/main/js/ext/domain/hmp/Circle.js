@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.hmp.Circle', {
+Ext.define('org.osehra.hmp.Circle', {
     extend:'Ext.Component',
     alias:'widget.circle',
     height:182,
@@ -126,7 +126,7 @@ Ext.define('EXT.DOMAIN.hmp.Circle', {
         Ext.select('#'+me.id+' .circlePerson').each(function(item) {
             var circleIcon = Ext.get(item.dom);
 
-            Ext.create('EXT.DOMAIN.hmp.team.PersonIconDDProxy', circleIcon, 'personDD');
+            Ext.create('org.osehra.hmp.team.PersonIconDDProxy', circleIcon, 'personDD');
 
             circleIcon.first().on({
                 mouseenter : function(e, icon) {

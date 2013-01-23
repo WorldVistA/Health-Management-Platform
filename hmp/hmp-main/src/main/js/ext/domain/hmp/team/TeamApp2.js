@@ -1,18 +1,18 @@
-Ext.define('EXT.DOMAIN.hmp.team.TeamApp2', {
-    extend:'EXT.DOMAIN.hmp.Application',
+Ext.define('org.osehra.hmp.team.TeamApp2', {
+    extend:'org.osehra.hmp.Application',
     requires:[
-        'EXT.DOMAIN.hmp.Viewport',
-        'EXT.DOMAIN.hmp.team.TeamSelector',
-        'EXT.DOMAIN.hmp.team.TeamManagementPanel'
+        'org.osehra.hmp.Viewport',
+        'org.osehra.hmp.team.TeamSelector',
+        'org.osehra.hmp.team.TeamManagementPanel'
     ],
     launch:function () {
-        Ext.create('EXT.DOMAIN.hmp.Viewport', {
+        Ext.create('org.osehra.hmp.Viewport', {
             items:[
-                Ext.create('EXT.DOMAIN.hmp.team.TeamSelector', {
+                Ext.create('org.osehra.hmp.team.TeamSelector', {
                     region:'west',
                     split:true
                 }),
-                Ext.create('EXT.DOMAIN.hmp.team.TeamPanel', {
+                Ext.create('org.osehra.hmp.team.TeamPanel', {
                     region:'center'
                 })
             ]

@@ -1,7 +1,7 @@
-Ext.define('EXT.DOMAIN.cpe.search.SuggestBox', {
+Ext.define('org.osehra.cpe.search.SuggestBox', {
     extend:'Ext.form.field.ComboBox',
     mixins:{
-        patientaware:'EXT.DOMAIN.hmp.PatientAware'
+        patientaware:'org.osehra.hmp.PatientAware'
     },
     alias:'widget.suggestbox',
     enableKeyEvents:true,

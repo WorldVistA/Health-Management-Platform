@@ -1,5 +1,5 @@
 Ext.onReady(function() {
-    Ext.require('EXT.DOMAIN.hmp.supports');
+    Ext.require('org.osehra.hmp.supports');
 
     // register date format patterns
     Ext.define("Ext.Date_patterns", {

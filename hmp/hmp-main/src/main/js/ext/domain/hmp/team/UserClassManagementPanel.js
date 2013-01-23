@@ -1,3 +1,3 @@
-Ext.define('EXT.DOMAIN.hmp.team.UserClassManagementPanel', {
+Ext.define('org.osehra.hmp.team.UserClassManagementPanel', {
     extend: ''
 });

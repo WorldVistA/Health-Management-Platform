@@ -6,8 +6,8 @@
 	"icdCode": "urn:icd:250.00",
 	"conditionType": "Chronic Conditions",
 	"status": "<span style=\"color: red; font-weight: bold;\">Screening Due</span>",
-	"class" : "EXT.DOMAIN.cpe.vpr.frameeng.ProtocolFrame",
-	"viewdef" : "EXT.DOMAIN.cpe.vpr.queryeng.DiabetesViewDef",
+	"class" : "org.osehra.cpe.vpr.frameeng.ProtocolFrame",
+	"viewdef" : "org.osehra.cpe.vpr.queryeng.DiabetesViewDef",
 	"med_filters": {"qfilter_status": "ACTIVE,PENDING", "filter_class_code": "urn:vadc:HS502,urn:vadc:BL110"},  
     "relevantDrugClasses": {
     	"urn:vadc:HS502": "Oral Hypoglycemics",
@@ -25,7 +25,7 @@
 		{
 			"desc": "Fasting plasma glucose level  7.0 mmol/l (126 mg/dl)",
 			"trigger": {
-				"class": "EXT.DOMAIN.cpe.vpr.frameeng.IFrameTrigger.LabResultRangeTrigger",
+				"class": "org.osehra.cpe.vpr.frameeng.IFrameTrigger.LabResultRangeTrigger",
 				"params": [
 					"GLUCOSE",
 					7.0 
@@ -34,7 +34,7 @@
 		},{
 			"desc": "Glycated hemoglobin (Hb A1C)  6.5%",
 			"trigger": {
-				"class": "EXT.DOMAIN.cpe.vpr.frameeng.IFrameTrigger.LabResultRangeTrigger",
+				"class": "org.osehra.cpe.vpr.frameeng.IFrameTrigger.LabResultRangeTrigger",
 				"params": [
 					"HEMOGLOBIN A1C",
 					6.5
@@ -49,7 +49,7 @@
 			"type" : "obs_frequency",
 			"type_interval" : "1y",
 			"trigger" : {
-				"class" : "EXT.DOMAIN.cpe.vpr.frameeng.IFrameTrigger.NewVitalSignTrigger",
+				"class" : "org.osehra.cpe.vpr.frameeng.IFrameTrigger.NewVitalSignTrigger",
 				"params" : [
 					"HEIGHT"
 				]

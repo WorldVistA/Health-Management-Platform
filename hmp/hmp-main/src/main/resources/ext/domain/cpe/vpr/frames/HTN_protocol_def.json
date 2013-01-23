@@ -6,8 +6,8 @@
         "icdCode": "urn:icd:401.9",
         "conditionType": "Chronic Conditions",
         "status": "<span style=\"color: red; font-weight: bold;\">Prehypertensive</span>",
-        "class" : "EXT.DOMAIN.cpe.vpr.frameeng.ProtocolFrame",
-        "viewdef" : "EXT.DOMAIN.cpe.vpr.queryeng.HTNViewDef",
+        "class" : "org.osehra.cpe.vpr.frameeng.ProtocolFrame",
+        "viewdef" : "org.osehra.cpe.vpr.queryeng.HTNViewDef",
 		"links": {
 			"VA Clinical Pracice Guideline: HTN in Primary Care (2005)": "http://www.healthquality.DOMAIN.EXT/Hypertension_Clinical_practice_Guideline.asp",
 			"UpToDate: hypertension": "http://www.uptodate.com/contents/search?search=hypertension&sp=0&searchType=PLAIN_TEXT&source=USER_INPUT&searchControl=TOP_PULLDOWN&searchOffset=&autoComplete=true"

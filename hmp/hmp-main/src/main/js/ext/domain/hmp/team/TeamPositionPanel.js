@@ -1,7 +1,7 @@
-Ext.define('EXT.DOMAIN.hmp.team.TeamPositionPanel', {
+Ext.define('org.osehra.hmp.team.TeamPositionPanel', {
     extend:'Ext.container.Container',
     requires:[
-        'EXT.DOMAIN.hmp.team.TeamPositionStore'
+        'org.osehra.hmp.team.TeamPositionStore'
     ],
     layout:'border',
     items:[
@@ -74,7 +74,7 @@ Ext.define('EXT.DOMAIN.hmp.team.TeamPositionPanel', {
     initComponent:function () {
         var positionStore = Ext.getStore('teamPositions');
         if (!positionStore) {
-            positionStore = Ext.create('EXT.DOMAIN.hmp.team.TeamPositionStore');
+            positionStore = Ext.create('org.osehra.hmp.team.TeamPositionStore');
         }
         this.items[0].store = positionStore;
 

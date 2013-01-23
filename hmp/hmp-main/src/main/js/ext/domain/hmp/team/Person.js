@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.hmp.team.Person', {
+Ext.define('org.osehra.hmp.team.Person', {
     extend:'Ext.data.Model',
     idProperty:'uid',
     fields:[

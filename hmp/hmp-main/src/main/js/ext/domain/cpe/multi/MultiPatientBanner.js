@@ -1,9 +1,9 @@
-Ext.define('EXT.DOMAIN.cpe.multi.MultiPatientBanner', {
+Ext.define('org.osehra.cpe.multi.MultiPatientBanner', {
     extend:'Ext.panel.Panel',
     requires:[
-        'EXT.DOMAIN.hmp.PopUpButton',
-        'EXT.DOMAIN.hmp.EventBus',
-        'EXT.DOMAIN.hmp.PhotoPicker'
+        'org.osehra.hmp.PopUpButton',
+        'org.osehra.hmp.EventBus',
+        'org.osehra.hmp.PhotoPicker'
     ],
     alias:'widget.multiptbanner',
     layout:{

@@ -1,10 +1,10 @@
 /**
  *
  */
-Ext.define('EXT.DOMAIN.hmp.PhotoPicker', {
+Ext.define('org.osehra.hmp.PhotoPicker', {
     extend:'Ext.panel.Panel',
     requires:[
-        'EXT.DOMAIN.hmp.PhotoSnapshot'
+        'org.osehra.hmp.PhotoSnapshot'
     ],
     alias:'widget.photopicker',
     bodyPadding:6,
@@ -126,7 +126,7 @@ Ext.define('EXT.DOMAIN.hmp.PhotoPicker', {
         ]);
 
         var cameraButton = this.down('#cameraButton');
-        if (!EXT.DOMAIN.hmp.supports.GetUserMedia) {
+        if (!org.osehra.hmp.supports.GetUserMedia) {
             cameraButton.hide();
         }
         cameraButton.on('click', this.onCameraSelect, this);

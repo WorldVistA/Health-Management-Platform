@@ -12,7 +12,7 @@
     <context:annotation-config/>
 
     <context:component-scan 
-            base-package="EXT.DOMAIN.cpe.auth,EXT.DOMAIN.cpe.param,EXT.DOMAIN.cpe.vpr,EXT.DOMAIN.cpe.hub,EXT.DOMAIN.cpe.vpr.service,EXT.DOMAIN.cpe.vpr.sync,EXT.DOMAIN.cpe.vpr.sync.vista,EXT.DOMAIN.cpe.grails.plugins,EXT.DOMAIN.cpe.vpr.queryeng,EXT.DOMAIN.cpe.vpr.frameeng"/>
+            base-package="org.osehra.cpe.auth,org.osehra.cpe.param,org.osehra.cpe.vpr,org.osehra.cpe.hub,org.osehra.cpe.vpr.service,org.osehra.cpe.vpr.sync,org.osehra.cpe.vpr.sync.vista,org.osehra.cpe.grails.plugins,org.osehra.cpe.vpr.queryeng,org.osehra.cpe.vpr.frameeng"/>
 
     <bean id="messageSource"
           class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
@@ -44,11 +44,11 @@
                 <value>org.codehaus.groovy.grails.plugins.web.taglib.PluginTagLib</value>
                 <value>org.codehaus.groovy.grails.plugins.web.taglib.SitemeshTagLib</value>
                 <value>org.codehaus.groovy.grails.web.filters.JavascriptLibraryFilters</value>
-                <value>EXT.DOMAIN.cpe.auth.AuthTagLib</value>
-                <value>EXT.DOMAIN.cpe.vpr.web.converter.dateTime.PointInTimeTagLib</value>
-                <value>EXT.DOMAIN.cpe.vpr.web.taglib.ParamTagLib</value>
-                <value>EXT.DOMAIN.cpe.vpr.web.taglib.DetailTagLib</value>
-                <value>EXT.DOMAIN.cpe.vpr.web.taglib.MedDetailTagLib</value>
+                <value>org.osehra.cpe.auth.AuthTagLib</value>
+                <value>org.osehra.cpe.vpr.web.converter.dateTime.PointInTimeTagLib</value>
+                <value>org.osehra.cpe.vpr.web.taglib.ParamTagLib</value>
+                <value>org.osehra.cpe.vpr.web.taglib.DetailTagLib</value>
+                <value>org.osehra.cpe.vpr.web.taglib.MedDetailTagLib</value>
             </array>
         </constructor-arg>
         <constructor-arg index="1">
@@ -56,53 +56,53 @@
         </constructor-arg>
     </bean>
 
-    <bean id="grailsMetaClassEnhancer" class="EXT.DOMAIN.cpe.grails.plugins.GrailsMetaClassEnhancer"/>
+    <bean id="grailsMetaClassEnhancer" class="org.osehra.cpe.grails.plugins.GrailsMetaClassEnhancer"/>
 
     <bean class="org.codehaus.groovy.grails.plugins.support.aware.GrailsApplicationAwareBeanPostProcessor">
         <constructor-arg ref="grailsApplication"/>
     </bean>
 
-    <bean id="infoButtonLinkGenerator" class="EXT.DOMAIN.cpe.vpr.ws.link.OpenInfoButtonLinkGenerator"/>
+    <bean id="infoButtonLinkGenerator" class="org.osehra.cpe.vpr.ws.link.OpenInfoButtonLinkGenerator"/>
 <!--     
 	//Took it off as it is annotated.
-	<bean id="selfLinkGenerator" class="EXT.DOMAIN.cpe.vpr.ws.link.PatientRelatedSelfLinkGenerator"/>
+	<bean id="selfLinkGenerator" class="org.osehra.cpe.vpr.ws.link.PatientRelatedSelfLinkGenerator"/>
  -->    
- 	<bean id="patientLinkGenerator" class="EXT.DOMAIN.cpe.vpr.ws.link.DomainClassPatientLinkGenerator"
+ 	<bean id="patientLinkGenerator" class="org.osehra.cpe.vpr.ws.link.DomainClassPatientLinkGenerator"
           p:linkService-ref="linkService">
         <property name="omitClasses">
             <list value-type="java.lang.Class">
-                <value>EXT.DOMAIN.cpe.vpr.PatientDisability</value>
-                <value>EXT.DOMAIN.cpe.vpr.PatientEthnicity</value>
-                <value>EXT.DOMAIN.cpe.vpr.PatientExposure</value>
-                <value>EXT.DOMAIN.cpe.vpr.PatientFacility</value>
-                <value>EXT.DOMAIN.cpe.vpr.PatientFlag</value>
-                <value>EXT.DOMAIN.cpe.vpr.PatientLanguage</value>
-                <value>EXT.DOMAIN.cpe.vpr.PatientMaritalStatus</value>
-                <value>EXT.DOMAIN.cpe.vpr.PatientRace</value>
-                <value>EXT.DOMAIN.cpe.vpr.Veteran</value>
+                <value>org.osehra.cpe.vpr.PatientDisability</value>
+                <value>org.osehra.cpe.vpr.PatientEthnicity</value>
+                <value>org.osehra.cpe.vpr.PatientExposure</value>
+                <value>org.osehra.cpe.vpr.PatientFacility</value>
+                <value>org.osehra.cpe.vpr.PatientFlag</value>
+                <value>org.osehra.cpe.vpr.PatientLanguage</value>
+                <value>org.osehra.cpe.vpr.PatientMaritalStatus</value>
+                <value>org.osehra.cpe.vpr.PatientRace</value>
+                <value>org.osehra.cpe.vpr.Veteran</value>
             </list>
         </property>
     </bean>
 
-    <bean id="nextPageLinkGenerator" class="EXT.DOMAIN.cpe.vpr.ws.link.NextPageLinkGenerator"/>
-    <bean id="previousPageLinkGenerator" class="EXT.DOMAIN.cpe.vpr.ws.link.PreviousPageLinkGenerator"/>
+    <bean id="nextPageLinkGenerator" class="org.osehra.cpe.vpr.ws.link.NextPageLinkGenerator"/>
+    <bean id="previousPageLinkGenerator" class="org.osehra.cpe.vpr.ws.link.PreviousPageLinkGenerator"/>
 
-    <bean id="resultTrendLinkGenerator" class="EXT.DOMAIN.cpe.vpr.ws.link.ResultTrendLinkGenerator"
+    <bean id="resultTrendLinkGenerator" class="org.osehra.cpe.vpr.ws.link.ResultTrendLinkGenerator"
           p:linkService-ref="linkService"/>
-    <bean id="vitalSignTrendLinkGenerator" class="EXT.DOMAIN.cpe.vpr.ws.link.VitalSignTrendLinkGenerator"
+    <bean id="vitalSignTrendLinkGenerator" class="org.osehra.cpe.vpr.ws.link.VitalSignTrendLinkGenerator"
           p:linkService-ref="linkService"/>
-    <bean id="medDoseHistoryTrendLinkGenerator" class="EXT.DOMAIN.cpe.vpr.ws.link.MedicationDoseHistoryTrendLinkGenerator"
+    <bean id="medDoseHistoryTrendLinkGenerator" class="org.osehra.cpe.vpr.ws.link.MedicationDoseHistoryTrendLinkGenerator"
           p:linkService-ref="linkService"/>
 
     <bean id="hl7DateTimePropertyEditorRegistrar"
-          class="EXT.DOMAIN.cpe.grails.plugins.datetime.HL7DateTimePropertyEditorRegistrar"/>
+          class="org.osehra.cpe.grails.plugins.datetime.HL7DateTimePropertyEditorRegistrar"/>
 
-    <bean id="viewDefRenderer" class="EXT.DOMAIN.cpe.vpr.viewdef.ViewDefRenderer2.JSONViewRenderer2">
+    <bean id="viewDefRenderer" class="org.osehra.cpe.vpr.viewdef.ViewDefRenderer2.JSONViewRenderer2">
     	<constructor-arg value="5000"/>
     	<constructor-arg value="0"/>
    	</bean>
    	
-    <bean id="vistaAccountDao" class="EXT.DOMAIN.cpe.hub.dao.json.JsonVistaAccountDao"/>
+    <bean id="vistaAccountDao" class="org.osehra.cpe.hub.dao.json.JsonVistaAccountDao"/>
 
     <import resource="solr-config.xml"/>
     <import resource="vista-rpc-config.xml"/>

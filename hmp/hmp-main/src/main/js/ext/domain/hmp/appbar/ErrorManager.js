@@ -3,10 +3,10 @@
  * TODO: The warning/error window should have a close [x] icon if there is no display timeout.
  * TODO: The warning/error window should have a stack of messages/timeouts.  So that one message/error does not clobber others.
  */
-Ext.define('EXT.DOMAIN.hmp.appbar.ErrorManager', {
+Ext.define('org.osehra.hmp.appbar.ErrorManager', {
     singleton:true,
     requires: [
-        'EXT.DOMAIN.hmp.appbar.ErrorWindow'
+        'org.osehra.hmp.appbar.ErrorWindow'
     ],
     /**
      * The list of errors
@@ -36,7 +36,7 @@ Ext.define('EXT.DOMAIN.hmp.appbar.ErrorManager', {
             // attach a click handler to the element on render
             win.getEl().on('click', function () {
                 if (win.details) {
-                    EXT.DOMAIN.hmp.appbar.ErrorWindow.show();
+                    org.osehra.hmp.appbar.ErrorWindow.show();
                 }
             });
         });

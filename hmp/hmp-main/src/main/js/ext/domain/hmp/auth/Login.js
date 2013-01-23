@@ -1,8 +1,8 @@
-Ext.define('EXT.DOMAIN.hmp.auth.Login', {
-    extend: 'EXT.DOMAIN.hmp.Application',
+Ext.define('org.osehra.hmp.auth.Login', {
+    extend: 'org.osehra.hmp.Application',
     requires: [
-        'EXT.DOMAIN.hmp.Viewport',
-        'EXT.DOMAIN.hmp.AppContext'
+        'org.osehra.hmp.Viewport',
+        'org.osehra.hmp.AppContext'
     ],
     launch:function() {
         var vistaAccountsStore = Ext.create('Ext.data.Store', {
@@ -50,7 +50,7 @@ Ext.define('EXT.DOMAIN.hmp.auth.Login', {
             }
         });
 
-        Ext.create('EXT.DOMAIN.hmp.Viewport', {
+        Ext.create('org.osehra.hmp.Viewport', {
             items: [
                 {
                     xtype:'container',
@@ -68,7 +68,7 @@ Ext.define('EXT.DOMAIN.hmp.auth.Login', {
                         },
                         {
                             xtype:'component',
-                            html:'<p class="hmp-label">'+ EXT.DOMAIN.hmp.AppContext.getVersion()+'</p>',
+                            html:'<p class="hmp-label">'+ org.osehra.hmp.AppContext.getVersion()+'</p>',
                             height:60
                         },
                         {

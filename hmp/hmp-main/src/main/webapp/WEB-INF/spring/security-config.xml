@@ -66,14 +66,14 @@
                 class="org.springframework.security.authentication.AuthenticationTrustResolverImpl"
                 p:anonymousClass="org.springframework.security.authentication.AnonymousAuthenticationToken"/>
 
-    <beans:bean id="vistaUserDetailsService" class="EXT.DOMAIN.cpe.auth.HmpUserDetailsService"
+    <beans:bean id="vistaUserDetailsService" class="org.osehra.cpe.auth.HmpUserDetailsService"
                 p:rpcTemplate-ref="authenticationRpcTemplate"/>
 
-    <beans:bean id="authenticationRpcTemplate" class="EXT.DOMAIN.cpe.vista.rpc.RpcTemplate"
+    <beans:bean id="authenticationRpcTemplate" class="org.osehra.cpe.vista.rpc.RpcTemplate"
                 p:connectionFactory-ref="vistaConnectionManager" p:hostResolver-ref="vistaAccountRpcHostResolver"/>
 
     <beans:bean id="vistaAuthenticationProvider"
-                class="EXT.DOMAIN.cpe.vista.springframework.security.authentication.VistaAuthenticationProvider"
+                class="org.osehra.cpe.vista.springframework.security.authentication.VistaAuthenticationProvider"
                 p:userDetailsService-ref="vistaUserDetailsService"/>
 
     <beans:bean id="vprAuthenticationEntryPoint"
@@ -89,16 +89,16 @@
         </beans:constructor-arg>
     </beans:bean>
 
-    <beans:bean id="setupRequestMatcher" class="EXT.DOMAIN.cpe.web.SetupRequestMatcher"/>
-    <beans:bean id="ajaxRequestMatcher" class="EXT.DOMAIN.cpe.auth.AjaxRequestMatcher"/>
-    <beans:bean id="vprWebServiceRequestMatcher" class="EXT.DOMAIN.cpe.auth.WebServiceRequestMatcher"/>
+    <beans:bean id="setupRequestMatcher" class="org.osehra.cpe.web.SetupRequestMatcher"/>
+    <beans:bean id="ajaxRequestMatcher" class="org.osehra.cpe.auth.AjaxRequestMatcher"/>
+    <beans:bean id="vprWebServiceRequestMatcher" class="org.osehra.cpe.auth.WebServiceRequestMatcher"/>
 
-    <beans:bean id="ajax401EntryPoint" class="EXT.DOMAIN.cpe.auth.UnauthorizedAjaxEntryPoint"
+    <beans:bean id="ajax401EntryPoint" class="org.osehra.cpe.auth.UnauthorizedAjaxEntryPoint"
                 p:authenticationFailureHandler-ref="failureHandler"/>
 
     <!-- HTTP Basic Auth support -->
     <beans:bean id="vistaBasicAuthenticationFilter"
-                class="EXT.DOMAIN.cpe.vista.springframework.security.web.VistaBasicAuthenticationFilter"
+                class="org.osehra.cpe.vista.springframework.security.web.VistaBasicAuthenticationFilter"
                 p:authenticationManager-ref="authenticationManager"
                 p:authenticationEntryPoint-ref="basicAuthenticationEntryPoint"/>
 
@@ -108,7 +108,7 @@
 
     <!-- Login Form Auth support -->
     <beans:bean id="vistaFormLoginProcessingFilter"
-                class="EXT.DOMAIN.cpe.vista.springframework.security.web.VistaAccessVerifyAuthenticationFilter"
+                class="org.osehra.cpe.vista.springframework.security.web.VistaAccessVerifyAuthenticationFilter"
                 p:authenticationManager-ref="authenticationManager"
                 p:authenticationSuccessHandler-ref="successHandler"
                 p:authenticationFailureHandler-ref="failureHandler"/>
@@ -135,14 +135,14 @@
         </beans:property>
     </beans:bean>
 
-    <beans:bean id="successHandler" class="EXT.DOMAIN.cpe.auth.AjaxAuthenticationSuccessHandler">
+    <beans:bean id="successHandler" class="org.osehra.cpe.auth.AjaxAuthenticationSuccessHandler">
         <beans:constructor-arg>
             <beans:bean
                     class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler"/>
         </beans:constructor-arg>
     </beans:bean>
 
-    <beans:bean id="failureHandler" class="EXT.DOMAIN.cpe.auth.AjaxAuthenticationFailureHandler">
+    <beans:bean id="failureHandler" class="org.osehra.cpe.auth.AjaxAuthenticationFailureHandler">
         <beans:constructor-arg>
             <beans:bean class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler"
                         p:defaultFailureUrl="/auth/login"/>
@@ -164,7 +164,7 @@
         <beans:constructor-arg>
             <util:list>
                 <beans:bean
-                        class="EXT.DOMAIN.cpe.vista.springframework.security.web.VistaLogoutHandler"
+                        class="org.osehra.cpe.vista.springframework.security.web.VistaLogoutHandler"
                         p:userDetailsService-ref="vistaUserDetailsService"/>
                 <beans:bean
                         class="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler"/>

@@ -4,17 +4,17 @@
  * 
  * TODO: Try to merge the details panel and this.  They are similar except for the patientaware part.
  */
-Ext.define('EXT.DOMAIN.hmp.containers.PatientAwarePanel',{
+Ext.define('org.osehra.hmp.containers.PatientAwarePanel',{
 	extend: 'Ext.panel.Panel',
 	alias: 'widget.patientawarepanel',
 	mixins: {
-		patientaware: 'EXT.DOMAIN.hmp.PatientAware'
+		patientaware: 'org.osehra.hmp.PatientAware'
 	},
 	detailURL: '',
 	detailURLTpl: null, // detailURL will be compiled into this tpl
 	autoScroll: true,
 	iframe: false, // render the detailURL in an iframe instead of an ajax request (for cross-site scripting issues)
-	editorCmp: 'EXT.DOMAIN.cpe.designer.PatientAwarePanelEditor', // the editor component (name or instance) use getEditor() to create/get it
+	editorCmp: 'org.osehra.cpe.designer.PatientAwarePanelEditor', // the editor component (name or instance) use getEditor() to create/get it
 	loader: {
 		autoLoad: false,
         failure: function(loader, resp, opts) {
@@ -50,8 +50,8 @@ Ext.define('EXT.DOMAIN.hmp.containers.PatientAwarePanel',{
 	    	tooltip: 'Edit Page',
 	    	text: 'Edit Page',
 	    	handler: function() {
-				//var win = Ext.create('EXT.DOMAIN.cpe.designer.PatientAwarePanelEditor');
-				var win = Ext.create('EXT.DOMAIN.hmp.containers.WidgetTabPanelEditWin');
+				//var win = Ext.create('org.osehra.cpe.designer.PatientAwarePanelEditor');
+				var win = Ext.create('org.osehra.hmp.containers.WidgetTabPanelEditWin');
 				win.configure(me);
 				win.show();
 			}

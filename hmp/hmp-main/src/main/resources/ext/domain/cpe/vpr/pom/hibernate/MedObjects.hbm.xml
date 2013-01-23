@@ -15,7 +15,7 @@
 		8) Add a test to HibMapTests (or create your own test suite)
 	 -->
 	
-    <class table="medication"  entity-name="medication"> <!-- class="EXT.DOMAIN.cpe.vpr.Medication" -->
+    <class table="medication"  entity-name="medication"> <!-- class="org.osehra.cpe.vpr.Medication" -->
         <id name="uid" length="64" type="string"/>
         <property name="pid" length="64" type="string"/>
         <property name="json" type="text"/>
@@ -49,7 +49,7 @@
         </list>
         
 
-        <!--<many-to-one name="facility" class="EXT.DOMAIN.cpe.vpr.PatientFacility">-->
+        <!--<many-to-one name="facility" class="org.osehra.cpe.vpr.PatientFacility">-->
             <!--<column name="facility_id" not-null="true" />-->
         <!--</many-to-one>-->
         <list name="fills" >
@@ -105,7 +105,7 @@
         <property name="fulfillmentInstructions" column="fulfillment_instructions" type="string"/>
         <property name="locationUid" column="location_uid" type="string"/>
         <property name="locationName" column="location_name" type="string"/>
-        <!--<many-to-one name="med" class="EXT.DOMAIN.cpe.vpr.Medication" column="med_id" not-null="true" insert="false" update="false"/>-->
+        <!--<many-to-one name="med" class="org.osehra.cpe.vpr.Medication" column="med_id" not-null="true" insert="false" update="false"/>-->
         <property name="orderUid" column="order_uid" type="string"/>
         <property name="ordered" column="ordered" type="string"/>
         <property name="pharmacistUid" column="pharmacist_uid" type="string"/>
@@ -126,7 +126,7 @@
         <property name="ingredientName" column="ingredient_name" type="string" />
         <property name="ingredientRole" column="ingredient_role" type="string" />
         <property name="ivBag" column="iv_bag" type="string" />
-        <!--<many-to-one name="med" class="EXT.DOMAIN.cpe.vpr.Medication" column="med_id" not-null="true" insert="false" update="false"/>-->
+        <!--<many-to-one name="med" class="org.osehra.cpe.vpr.Medication" column="med_id" not-null="true" insert="false" update="false"/>-->
         <property name="relatedOrder" column="related_order" type="string" />
         <property name="strength" type="string" />
         <property name="suppliedCode" column="supplied_code" type="string" />
@@ -139,7 +139,7 @@
         <property name="dispenseDate" column="dispense_date" type="string"/>
         <property name="dispensingPharmacy" column="dispensing_pharmacy" type="string"/>
         <property name="fillStatus" column="fill_status" type="string"/>
-        <!--<many-to-one name="med" class="EXT.DOMAIN.cpe.vpr.Medication" column="med_id" not-null="true" insert="false" update="false"/>-->
+        <!--<many-to-one name="med" class="org.osehra.cpe.vpr.Medication" column="med_id" not-null="true" insert="false" update="false"/>-->
         <property name="quantityDispensed" column="quantity_dispensed" type="string"/>
         <property name="routing" type="string"/>
     </union-subclass>

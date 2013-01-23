@@ -1,9 +1,9 @@
-Ext.define('EXT.DOMAIN.hmp.admin.VprPatientBrowser', {
-    extend:'EXT.DOMAIN.cpe.viewdef.ViewDefGridPanel',
+Ext.define('org.osehra.hmp.admin.VprPatientBrowser', {
+    extend:'org.osehra.cpe.viewdef.ViewDefGridPanel',
     alias:'widget.vprpatientbrowser',
     itemId:'vpr-patients',
     title:'Patients',
-    viewID:'EXT.DOMAIN.cpe.vpr.queryeng.VprPatientsViewDef',
+    viewID:'org.osehra.cpe.vpr.queryeng.VprPatientsViewDef',
     patientAware:false,
     viewConfig:{
         emptyText:'No patients in the VPR',

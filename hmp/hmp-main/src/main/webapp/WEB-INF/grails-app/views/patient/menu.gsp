@@ -1,4 +1,4 @@
-<%@ page import="EXT.DOMAIN.cpe.vpr.Patient" %>
+<%@ page import="org.osehra.cpe.vpr.Patient" %>
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>

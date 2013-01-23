@@ -1,5 +1,5 @@
-Ext.define('EXT.DOMAIN.hmp.appbar.SystemProperties', {
-    extend:'EXT.DOMAIN.hmp.appbar.AppInfoPropertiesGrid',
+Ext.define('org.osehra.hmp.appbar.SystemProperties', {
+    extend:'org.osehra.hmp.appbar.AppInfoPropertiesGrid',
     title:'System Properties',
     appInfo: 'system'
 });

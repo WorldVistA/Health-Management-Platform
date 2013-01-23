@@ -1,8 +1,8 @@
-Ext.define('EXT.DOMAIN.cpe.multi.ConfigPanelMain', {
+Ext.define('org.osehra.cpe.multi.ConfigPanelMain', {
 	extend: 'Ext.panel.Panel',
 	title: 'Column Selection',
 	padding: '20 20 20 20',
-	requires: 'EXT.DOMAIN.cpe.multi.MultiPatientPanelEditor',
+	requires: 'org.osehra.cpe.multi.MultiPatientPanelEditor',
 	id: 'cpMain',
 	alias: 'widget.configpanel',
 	layout: {type: 'hbox', align: 'stretch'},

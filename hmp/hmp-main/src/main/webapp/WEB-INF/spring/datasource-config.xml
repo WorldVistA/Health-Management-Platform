@@ -21,7 +21,7 @@
           c:conman-ref="jdsHttpConnectionManager"/>
     <bean id="jdsHttpConnectionManager" class="org.apache.http.impl.conn.PoolingClientConnectionManager"
           destroy-method="shutdown"/>
-    <bean id="jdsTemplate" class="EXT.DOMAIN.cpe.vpr.pom.jds.JdsTemplate"
+    <bean id="jdsTemplate" class="org.osehra.cpe.vpr.pom.jds.JdsTemplate"
           p:restTemplate-ref="jdsRestTemplate"
           p:jdsUrl="${jds.url}"
           p:connectOnInitialization="false"/>
@@ -75,7 +75,7 @@
     <!--</bean>-->
 
     <!-- DAO layer configuration TODO: any way to DRY these out, maybe with BeanFactory?)-->
-    <bean id="routingDao" class="EXT.DOMAIN.cpe.vpr.dao.multi.DefaultRoutingDataStore"
+    <bean id="routingDao" class="org.osehra.cpe.vpr.dao.multi.DefaultRoutingDataStore"
           p:dataStores-ref="dataStores"/>
 
     <beans profile="properties-datasource">
@@ -98,15 +98,15 @@
     </beans>
 
     <beans profile="vpr-datastore-relational">
-        <bean id="hibernateGenericDao" class="EXT.DOMAIN.cpe.vpr.pom.hibernate.GenericHibMapDAO"
+        <bean id="hibernateGenericDao" class="org.osehra.cpe.vpr.pom.hibernate.GenericHibMapDAO"
               c:sessionFactory-ref="sessionFactory"
               c:enableIndexTable="true"
               c:enablePropertiesTable="true"/>
 
-        <bean id="hibernatePatientDao" class="EXT.DOMAIN.cpe.vpr.pom.hibernate.PatientHibMapDAO"
+        <bean id="hibernatePatientDao" class="org.osehra.cpe.vpr.pom.hibernate.PatientHibMapDAO"
               c:sessionFactory-ref="sessionFactory"/>
 
-        <util:map id="dataStores" key-type="java.lang.String" value-type="EXT.DOMAIN.cpe.vpr.pom.IDataStoreDAO"
+        <util:map id="dataStores" key-type="java.lang.String" value-type="org.osehra.cpe.vpr.pom.IDataStoreDAO"
                   map-class="java.util.TreeMap">
             <entry key="vpr-datastore-relational" value-ref="hibernateGenericDao"/>
             <entry key="vpr-datastore-solr" value-ref="defaultSolrDao"/>
@@ -116,38 +116,38 @@
     <!-- JDS data source config -->
     <beans profile="vpr-datastore-json">
 
-        <bean id="jdsGenericPOMObjectDao" class="EXT.DOMAIN.cpe.vpr.pom.jds.JdsGenericPOMObjectDAO"
+        <bean id="jdsGenericPOMObjectDao" class="org.osehra.cpe.vpr.pom.jds.JdsGenericPOMObjectDAO"
               p:jdsTemplate-ref="jdsTemplate"/>
 
-        <bean id="jdsGenericDao" class="EXT.DOMAIN.cpe.vpr.pom.jds.JdsGenericPatientObjectDAO"
+        <bean id="jdsGenericDao" class="org.osehra.cpe.vpr.pom.jds.JdsGenericPatientObjectDAO"
               p:jdsTemplate-ref="jdsTemplate"/>
 
 
-        <bean id="jdsPatientDao" class="EXT.DOMAIN.cpe.vpr.pom.jds.JdsPatientDAO"
+        <bean id="jdsPatientDao" class="org.osehra.cpe.vpr.pom.jds.JdsPatientDAO"
               p:jdsTemplate-ref="jdsTemplate"
               p:genericDao-ref="jdsGenericDao"/>
               
-        <bean id="jdsViewDefDefDao" class="EXT.DOMAIN.cpe.vpr.dao.jms.ViewDefDefJdsDAO"
+        <bean id="jdsViewDefDefDao" class="org.osehra.cpe.vpr.dao.jms.ViewDefDefJdsDAO"
         		p:jdsTemplate-ref="jdsTemplate"/>
 
-        <bean id="jdsVprUpdateDao" class="EXT.DOMAIN.cpe.vpr.dao.jds.JdsVprUpdateDao"
+        <bean id="jdsVprUpdateDao" class="org.osehra.cpe.vpr.dao.jds.JdsVprUpdateDao"
                 c:genericDao-ref="jdsGenericPOMObjectDao"
                 p:jdsTemplate-ref="jdsTemplate"/>
 
-        <bean id="jdsLastViewedDao" class="EXT.DOMAIN.cpe.vpr.dao.jds.JdsLastViewedDao"
+        <bean id="jdsLastViewedDao" class="org.osehra.cpe.vpr.dao.jds.JdsLastViewedDao"
               c:genericDao-ref="jdsGenericPOMObjectDao"
               p:jdsTemplate-ref="jdsTemplate"/>
 
-        <bean class="EXT.DOMAIN.cpe.vpr.sync.vista.VistaVprPatientObjectDao"
+        <bean class="org.osehra.cpe.vpr.sync.vista.VistaVprPatientObjectDao"
                 p:jdsGenericDao-ref="jdsGenericDao"
                 p:jdsPatientDao-ref="jdsPatientDao"
                 p:rpcTemplate-ref="rpcTemplate"/>
 
-        <bean class="EXT.DOMAIN.cpe.vpr.sync.vista.VistaVprObjectDao"
+        <bean class="org.osehra.cpe.vpr.sync.vista.VistaVprObjectDao"
               p:jdsDao-ref="jdsGenericPOMObjectDao"
               p:rpcTemplate-ref="rpcTemplate"/>
 
-        <util:map id="dataStores" key-type="java.lang.String" value-type="EXT.DOMAIN.cpe.vpr.pom.IDataStoreDAO"
+        <util:map id="dataStores" key-type="java.lang.String" value-type="org.osehra.cpe.vpr.pom.IDataStoreDAO"
                   map-class="java.util.TreeMap">
             <entry key="vpr-datastore-json" value-ref="jdsGenericDao"/>
             <entry key="vpr-datastore-solr" value-ref="defaultSolrDao"/>
@@ -164,10 +164,10 @@
         <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate"
               c:mongo-ref="mongo" c:databaseName="${mongo.db}"/>
 
-        <bean id="mongoGenericDao" class="EXT.DOMAIN.cpe.vpr.pom.mongo.GenericMongoDAO" c:db-ref="mongodb"/>
-        <bean id="mongoPatientDao" class="EXT.DOMAIN.cpe.vpr.pom.mongo.PatientMongoDAO" c:dao-ref="mongoGenericDao"/>
+        <bean id="mongoGenericDao" class="org.osehra.cpe.vpr.pom.mongo.GenericMongoDAO" c:db-ref="mongodb"/>
+        <bean id="mongoPatientDao" class="org.osehra.cpe.vpr.pom.mongo.PatientMongoDAO" c:dao-ref="mongoGenericDao"/>
 
-        <util:map id="dataStores" key-type="java.lang.String" value-type="EXT.DOMAIN.cpe.vpr.pom.IDataStoreDAO"
+        <util:map id="dataStores" key-type="java.lang.String" value-type="org.osehra.cpe.vpr.pom.IDataStoreDAO"
                   map-class="java.util.TreeMap">
             <entry key="vpr-datastore-mongo" value-ref="mongoGenericDao"/>
             <entry key="vpr-datastore-solr" value-ref="defaultSolrDao"/>

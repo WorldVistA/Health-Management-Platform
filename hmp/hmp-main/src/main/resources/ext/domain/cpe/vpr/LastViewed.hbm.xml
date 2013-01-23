@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Dec 28, 2011 9:47:28 AM by Hibernate Tools 3.2.4.GA -->
 <hibernate-mapping>
-    <class name="EXT.DOMAIN.cpe.vpr.LastViewed" table="last_viewed">
+    <class name="org.osehra.cpe.vpr.LastViewed" table="last_viewed">
     	<id name="uid" type="java.lang.String">
             <column name="uid" />
         </id>

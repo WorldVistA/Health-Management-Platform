@@ -1,4 +1,4 @@
-<%@ page import="EXT.DOMAIN.cpe.datetime.format.PointInTimeFormat; EXT.DOMAIN.cpe.datetime.format.HL7DateTimeFormat" contentType="text/html;charset=UTF-8" %>
+<%@ page import="org.osehra.cpe.datetime.format.PointInTimeFormat; org.osehra.cpe.datetime.format.HL7DateTimeFormat" contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>${item.patient.familyName}, ${item.patient.givenNames} &raquo; ${item.summary}</title>

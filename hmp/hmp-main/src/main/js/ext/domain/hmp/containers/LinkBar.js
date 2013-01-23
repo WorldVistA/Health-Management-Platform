@@ -1,7 +1,7 @@
 /**
  * A {@link Ext.toolbar.Toolbar} where child buttons are styled as links.
  */
-Ext.define('EXT.DOMAIN.hmp.containers.LinkBar', {
+Ext.define('org.osehra.hmp.containers.LinkBar', {
     extend:'Ext.toolbar.Toolbar',
     alias:'widget.linkbar',
     ui:'plain',

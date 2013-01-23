@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.hmp.team.TeamCategoriesPanel', {
+Ext.define('org.osehra.hmp.team.TeamCategoriesPanel', {
     extend:'Ext.container.Container',
     layout:'border',
     items:[

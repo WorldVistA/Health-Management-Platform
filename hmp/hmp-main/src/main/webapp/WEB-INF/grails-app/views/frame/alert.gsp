@@ -26,12 +26,12 @@
 			<g:if test="${ob.type.equals('ObsDateRequestAction')}">
 				<input type="checkbox" name="" value=""/>${ob.getTitle()}
 				<input type="date" name="${ob.getValue()}" value=""
-				  onBlur="EXT.DOMAIN.cpe.AlertDialog.obs(this.name, '', this.value);"
+				  onBlur="org.osehra.cpe.AlertDialog.obs(this.name, '', this.value);"
 				  /><br>
 			</g:if>
 			<g:else>
 				<input type="checkbox" name="${ob.getValue()}" value="1"
-					onClick="EXT.DOMAIN.cpe.AlertDialog.obs(this.name, this.value);"
+					onClick="org.osehra.cpe.AlertDialog.obs(this.name, this.value);"
 					/>${ob.getTitle()}<br>
 			</g:else>
 		</g:each>

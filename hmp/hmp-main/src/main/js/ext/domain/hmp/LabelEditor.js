@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.hmp.LabelEditor', {
+Ext.define('org.osehra.hmp.LabelEditor', {
     extend:'Ext.Editor',
     requires:[
         'Ext.form.field.Text'

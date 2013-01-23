@@ -1,11 +1,11 @@
 /**
  * Coordinates selection on AdminScreenSelector and active card on AdminCardPanel along with history so state is preserved across browser refresh
  */
-Ext.define('EXT.DOMAIN.hmp.admin.AdminScreenController', {
-    extend:'EXT.DOMAIN.hmp.Controller',
+Ext.define('org.osehra.hmp.admin.AdminScreenController', {
+    extend:'org.osehra.hmp.Controller',
     requires:[
-        'EXT.DOMAIN.hmp.admin.AdminCardPanel',
-        'EXT.DOMAIN.hmp.admin.SyncErrorStore'
+        'org.osehra.hmp.admin.AdminCardPanel',
+        'org.osehra.hmp.admin.SyncErrorStore'
     ],
     refs:[
         {

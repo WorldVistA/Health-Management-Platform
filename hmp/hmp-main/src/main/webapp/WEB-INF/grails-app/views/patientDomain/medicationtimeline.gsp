@@ -157,7 +157,7 @@
 		var timeline2 = new links.Timeline(document.getElementById('timelineContent2'));
 		links.events.addListener(timeline2, 'rangechange', onrangechange2);
 		Ext.Ajax.request({
-			url: '/vpr/view/EXT.DOMAIN.cpe.vpr.queryeng.RecentViewDef?pid=<%= params.pid%>',
+			url: '/vpr/view/org.osehra.cpe.vpr.queryeng.RecentViewDef?pid=<%= params.pid%>',
 			success: function(resp) {
 				var data = Ext.JSON.decode(resp.responseText).data;
 				var newdata = [];
@@ -170,7 +170,7 @@
 			}
 		});
 		Ext.Ajax.request({
-			url: '/vpr/view/EXT.DOMAIN.cpe.vpr.queryeng.EncounterViewDef?pid=<%= params.pid%>',
+			url: '/vpr/view/org.osehra.cpe.vpr.queryeng.EncounterViewDef?pid=<%= params.pid%>',
 			success: function(resp) {
 				var data = Ext.JSON.decode(resp.responseText).data;
 				var newdata = [];

@@ -3,7 +3,7 @@
 <head>
     <g:render template="/layouts/viewport"/>
     <script type="text/javascript">
-    	Ext.require(['EXT.DOMAIN.cpe.designer.CPEDesigner', 'EXT.DOMAIN.cpe.designer.PanelEditor']);
+    	Ext.require(['org.osehra.cpe.designer.CPEDesigner', 'org.osehra.cpe.designer.PanelEditor']);
 		Ext.onReady(function() {
 
 			/*

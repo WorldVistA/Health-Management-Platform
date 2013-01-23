@@ -1,7 +1,7 @@
-Ext.define("EXT.DOMAIN.cpe.search.SearchDetailPanel", {
+Ext.define("org.osehra.cpe.search.SearchDetailPanel", {
     extend: 'Ext.panel.Panel',
     mixins: {
-        patientaware: 'EXT.DOMAIN.hmp.PatientAware'
+        patientaware: 'org.osehra.hmp.PatientAware'
     },
     alias: 'widget.searchdetail',
     config: {

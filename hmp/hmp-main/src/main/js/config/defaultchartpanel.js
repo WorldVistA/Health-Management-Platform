@@ -12,10 +12,10 @@
                     xtype:'viewdefgridpanel',
                     title:"Labs",
                     titleTpl:'Recent Labs ({total})',
-                    viewID:'EXT.DOMAIN.cpe.vpr.queryeng.LabViewDef',
+                    viewID:'org.osehra.cpe.vpr.queryeng.LabViewDef',
                     viewParams: {'row.count': 500},
                     tools: [{xtype: 'viewdeffiltertool', paramKeys: ['range']}],
-//                    tbarConfig:"EXT.DOMAIN.cpe.viewdef.ViewDefFilterTool",
+//                    tbarConfig:"org.osehra.cpe.viewdef.ViewDefFilterTool",
                     detailType:'tip',
                     gridX:0,
                     gridY:0,
@@ -27,7 +27,7 @@
                 {
                     xtype:'viewdefgridpanel',
                     title:"Most Recent Vitals",
-                    viewID:'EXT.DOMAIN.cpe.vpr.queryeng.VitalsViewDef',
+                    viewID:'org.osehra.cpe.vpr.queryeng.VitalsViewDef',
                     gridX:1,
                     gridY:0,
                     widthX:1,
@@ -38,12 +38,12 @@
                 {
                     xtype:'viewdefgridpanel',
                     title:"Problems",
-                    tbarConfig:"EXT.DOMAIN.cpe.viewdef.AutoFilterToolbar",
+                    tbarConfig:"org.osehra.cpe.viewdef.AutoFilterToolbar",
                     viewParams:{
                         "qfilter_status":"ACTIVE"
                     },
                     titleTpl:"Problems ({total})",
-                    viewID:'EXT.DOMAIN.cpe.vpr.queryeng.ProblemViewDef',
+                    viewID:'org.osehra.cpe.vpr.queryeng.ProblemViewDef',
                     detailType:'tip',
                     rowBodyTpl:'<tpl for="comments"><p style="padding: 0px 0px 0px 15px;">{comment}</p></tpl>',
                     gridX:0,
@@ -60,7 +60,7 @@
                     xtype:'viewdefgridpanel',
                     title:"Immunizations",
                     titleTpl:'Immunizations ({total})',
-                    viewID:'EXT.DOMAIN.cpe.vpr.queryeng.ImmunizationsViewDef',
+                    viewID:'org.osehra.cpe.vpr.queryeng.ImmunizationsViewDef',
                     bbar:null,
                     gridX:1,
                     gridY:1,
@@ -73,8 +73,8 @@
                     xtype:'viewdefgridpanel',
                     title:"Meds",
                     titleTpl:'Meds ({total})',
-                    viewID:'EXT.DOMAIN.cpe.vpr.queryeng.MedsViewDef',
-                    tbarConfig:"EXT.DOMAIN.cpe.viewdef.AutoFilterToolbar",
+                    viewID:'org.osehra.cpe.vpr.queryeng.MedsViewDef',
+                    tbarConfig:"org.osehra.cpe.viewdef.AutoFilterToolbar",
                     viewParams:{
                         "qfilter_status":"ACTIVE"
                     },
@@ -88,7 +88,7 @@
                 {
                     xtype:'viewdefgridpanel',
                     title:'Recent Activity (last 300 days)',
-                    viewID:'EXT.DOMAIN.cpe.vpr.queryeng.RecentViewDef',
+                    viewID:'org.osehra.cpe.vpr.queryeng.RecentViewDef',
                     gridX:1,
                     gridY:2,
                     widthX:1,
@@ -102,7 +102,7 @@
         {
 			xtype: 'patientawarepanel',
 			title: 'Timeline',
-			detailURL: '/vpr/view/EXT.DOMAIN.cpe.vpr.queryeng.MedsViewDef?mode=/patientDomain/medicationtimeline&pid={pid}',
+			detailURL: '/vpr/view/org.osehra.cpe.vpr.queryeng.MedsViewDef?mode=/patientDomain/medicationtimeline&pid={pid}',
 			tbar: [
 			   {xtype: 'button', icon: '/images/icons/arrow_refresh.png', handler: function() {this.up('panel').reload()}},
 		       {xtype: 'splitbutton', text: 'Display Options', menu: {
@@ -126,18 +126,18 @@
                 {
                     xtype:'viewdefgridpanel',
                     flex:1,
-                    viewID:'EXT.DOMAIN.cpe.vpr.queryeng.StudiesViewDef',
+                    viewID:'org.osehra.cpe.vpr.queryeng.StudiesViewDef',
                     addFilterTool:true,
                     title:'Studies and Surgeries',
-                    detailTitleTpl:'{[EXT.DOMAIN.hmp.util.HL7DTMFormatter.format(values.referenceDateTime)]}: {localTitle}'
+                    detailTitleTpl:'{[org.osehra.hmp.util.HL7DTMFormatter.format(values.referenceDateTime)]}: {localTitle}'
                 },
                 {
                     xtype:'viewdefgridpanel',
                     flex:1,
-                    viewID:'EXT.DOMAIN.cpe.vpr.queryeng.NotesViewDef',
+                    viewID:'org.osehra.cpe.vpr.queryeng.NotesViewDef',
                     addFilterTool:true,
                     title:'Notes and Consults',
-                    detailTitleTpl:'{[EXT.DOMAIN.hmp.util.HL7DTMFormatter.format(values.DateTime)]}: {Summary}'}
+                    detailTitleTpl:'{[org.osehra.hmp.util.HL7DTMFormatter.format(values.DateTime)]}: {Summary}'}
             ]
         },
         {
@@ -152,15 +152,15 @@
                     flex:1,
                     title:"Observations",
                     titleTpl:'Observations ({total})',
-                    viewID:'EXT.DOMAIN.cpe.vpr.queryeng.ObservationsViewDef'
+                    viewID:'org.osehra.cpe.vpr.queryeng.ObservationsViewDef'
                 },
                 {
                     xtype:'viewdefgridpanel',
                     flex:1,
                     title:"Health Factors",
                     titleTpl:'Health Factors ({total})',
-                    detailTitleTpl:'{[EXT.DOMAIN.hmp.util.HL7DTMFormatter.format(values.DateTime)]}: {Summary}',
-                    viewID:'EXT.DOMAIN.cpe.vpr.queryeng.FactorsViewDef'
+                    detailTitleTpl:'{[org.osehra.hmp.util.HL7DTMFormatter.format(values.DateTime)]}: {Summary}',
+                    viewID:'org.osehra.cpe.vpr.queryeng.FactorsViewDef'
                 }
             ]
         },
@@ -168,18 +168,18 @@
             xtype:'viewdefgridpanel',
             title:"Orders",
             titleTpl:'Orders ({total})',
-            detailTitleTpl:'{[EXT.DOMAIN.hmp.util.HL7DTMFormatter.format(values.start)]}: {Summary}',
-            viewID:'EXT.DOMAIN.cpe.vpr.queryeng.OrdersViewDef',
+            detailTitleTpl:'{[org.osehra.hmp.util.HL7DTMFormatter.format(values.start)]}: {Summary}',
+            viewID:'org.osehra.cpe.vpr.queryeng.OrdersViewDef',
             viewParams:{group:'displayGroup'},
             detailType:'right',
-            tbar:'EXT.DOMAIN.cpe.viewdef.AutoFilterToolbar'
+            tbar:'org.osehra.cpe.viewdef.AutoFilterToolbar'
         },
         {
             xtype:'viewdefgridpanel',
             title:"Procedures",
             titleTpl:'Procedures ({total})',
-            detailTitleTpl:'{[EXT.DOMAIN.hmp.util.HL7DTMFormatter.format(values.DateTime)]}: {Summary}',
-            viewID:'EXT.DOMAIN.cpe.vpr.queryeng.ProceduresViewDef',
+            detailTitleTpl:'{[org.osehra.hmp.util.HL7DTMFormatter.format(values.DateTime)]}: {Summary}',
+            viewID:'org.osehra.cpe.vpr.queryeng.ProceduresViewDef',
             detailType:'right',
             // TODO: Replace this with the automatic AutoFilterToolbar
             tbar:[
@@ -205,11 +205,11 @@
             xtype:'viewdefgridpanel',
             title:"Tasks",
             titleTpl:'Tasks ({total})',
-//            detailTitleTpl: '{[EXT.DOMAIN.hmp.util.HL7DTMFormatter.format(values.start)]}: {Summary}',
-            viewID:'EXT.DOMAIN.cpe.vpr.queryeng.TasksViewDef',
+//            detailTitleTpl: '{[org.osehra.hmp.util.HL7DTMFormatter.format(values.start)]}: {Summary}',
+            viewID:'org.osehra.cpe.vpr.queryeng.TasksViewDef',
 //            viewParams: {group: 'displayGroup'},
             detailType:'right'
-//            tbar: 'EXT.DOMAIN.cpe.viewdef.AutoFilterToolbar'
+//            tbar: 'org.osehra.cpe.viewdef.AutoFilterToolbar'
         }
     ]
 }

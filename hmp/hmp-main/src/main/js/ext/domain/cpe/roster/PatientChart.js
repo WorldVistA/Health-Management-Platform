@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.cpe.roster.PatientChart', {
+Ext.define('org.osehra.cpe.roster.PatientChart', {
 	extend: 'Ext.container.Container',
 //  	hidden: true,
   	id: 'PatientChart',

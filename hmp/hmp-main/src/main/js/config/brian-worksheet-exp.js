@@ -74,7 +74,7 @@
 	    	        {
 	    	        	xtype: 'viewdefgridpanel',
 	    	        	title: 'Goals/Guidelines',
-	    	        	viewID: 'EXT.DOMAIN.cpe.vpr.queryeng.GoalsDueViewDef',
+	    	        	viewID: 'org.osehra.cpe.vpr.queryeng.GoalsDueViewDef',
 	                   	//rowBodyTpl: '<tpl for="comments"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{entered}</b> ({author}):<em style="grey: b; font-weight: normal; font-style: italic; padding: 0px 0px 0px 15px;">{comment}</em></p></tpl>',
 	                   	detailType: '#conditiondetailpanel2',
 	                   	tools: [{xtype: 'viewdeffiltertool', paramKeys: ['conditions']}],
@@ -88,7 +88,7 @@
 	    	        },
 	    	        {
 	    	        	xtype: 'viewdefgridpanel',
-	    	        	viewID: 'EXT.DOMAIN.cpe.vpr.queryeng.MedsTabViewDef',
+	    	        	viewID: 'org.osehra.cpe.vpr.queryeng.MedsTabViewDef',
 //	    	        	titleTpl: 'Relevant Meds ({total})',
 	                    tools: [{xtype: 'viewdeffiltertool'}],
 	                    detailType: '#conditiondetailpanel2',
@@ -140,7 +140,7 @@
 	    	        {
 	    	        	xtype: 'viewdefgridpanel',
 	    	        	title: 'Conditions/Protocols',
-	    	        	viewID: 'EXT.DOMAIN.cpe.vpr.queryeng.ProtocolViewDef',
+	    	        	viewID: 'org.osehra.cpe.vpr.queryeng.ProtocolViewDef',
 	    	        	viewParams: {group: 'conditionType'},
 	    	        	detailType: '#conditiondetailpanel',
 	    	    		gridX: 0,
@@ -152,9 +152,9 @@
 	    	        }, 
 	    	        {
 	    	        	xtype: 'viewdefgridpanel',
-	    	        	viewID: 'EXT.DOMAIN.cpe.vpr.queryeng.MedsTabViewDef',
+	    	        	viewID: 'org.osehra.cpe.vpr.queryeng.MedsTabViewDef',
 	    	        	titleTpl: 'Relevant Meds ({total})',
-	                    tbarConfig : "EXT.DOMAIN.cpe.viewdef.AutoFilterToolbar",
+	                    tbarConfig : "org.osehra.cpe.viewdef.AutoFilterToolbar",
 	    	        	//viewParams: {'qfilter_status': 'ACTIVE'},
 	                    detailType: '#conditiondetailpanel',
 	    	    		gridX: 1,
@@ -167,7 +167,7 @@
 	    	        {
 	    	        	xtype: 'viewdefgridpanel',
 	    	        	title: 'Condition Goals/Observations/Guidelines',
-	    	        	viewID: 'EXT.DOMAIN.cpe.vpr.queryeng.DiabetesViewDef',
+	    	        	viewID: 'org.osehra.cpe.vpr.queryeng.DiabetesViewDef',
                     	rowBodyTpl: '<tpl for="comments"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{entered}</b> ({author}):<em style="grey: b; font-weight: normal; font-style: italic; padding: 0px 0px 0px 15px;">{comment}</em></p></tpl>',
                     	detailType: '#conditiondetailpanel',
                     	reconfigureColumnsAlways: true,
@@ -201,7 +201,7 @@
 					     xtype: 'viewdefgridpanel',
 					     title: "Labs",
 					     titleTpl: 'Labs ({total})',
-					     viewID: 'EXT.DOMAIN.cpe.vpr.queryeng.LabViewDef',
+					     viewID: 'org.osehra.cpe.vpr.queryeng.LabViewDef',
 					     detailType: '#CommonDetailPanelID',
 					     height: 250,
 					     detailTitleTpl: '{name} {result}{units}',
@@ -215,7 +215,7 @@
 					     title: "Most Recent Vitals",
 					     height: 250,
 					     detailType: '#CommonDetailPanelID',
-					     viewID: 'EXT.DOMAIN.cpe.vpr.queryeng.VitalsViewDef',
+					     viewID: 'org.osehra.cpe.vpr.queryeng.VitalsViewDef',
 					 },
 					 {
 					     xtype: 'viewdefgridpanel',
@@ -223,7 +223,7 @@
 					     titleTpl: "Active Problems ({total})",
 					     height: 250,
 					     detailType: '#CommonDetailPanelID',
-					     viewID: 'EXT.DOMAIN.cpe.vpr.queryeng.ProblemViewDef',
+					     viewID: 'org.osehra.cpe.vpr.queryeng.ProblemViewDef',
 					     viewParams: {'col.display': "infobtnurl,summary,onset,provider"}
 					 }
 				    ]
@@ -234,12 +234,12 @@
 	    	        ]
 		    	},{
 		    		items: [
-		                {xtype: 'viewdefgridpanel', title: "Immunizations", titleTpl: 'Immunizations ({total})', viewID: 'EXT.DOMAIN.cpe.vpr.queryeng.ImmunizationsViewDef', height: 150, bbar: null},
+		                {xtype: 'viewdefgridpanel', title: "Immunizations", titleTpl: 'Immunizations ({total})', viewID: 'org.osehra.cpe.vpr.queryeng.ImmunizationsViewDef', height: 150, bbar: null},
 		                {
 		                    xtype: 'viewdefgridpanel',
 		                    title: "Active Meds",
 		                    titleTpl: 'Active Meds ({total})',
-		                    viewID: 'EXT.DOMAIN.cpe.vpr.queryeng.MedsViewDef',
+		                    viewID: 'org.osehra.cpe.vpr.queryeng.MedsViewDef',
 		                    viewParams: {filter_status: 'ACTIVE'},
 		                    height: 200,
 		                    detailType: '#CommonDetailPanelID',
@@ -252,7 +252,7 @@
 		                {
 		                	xtype: 'viewdefgridpanel',
 		                	title: 'Recent Activity (last 300 days)',
-		                	viewID: 'EXT.DOMAIN.cpe.vpr.queryeng.RecentViewDef',
+		                	viewID: 'org.osehra.cpe.vpr.queryeng.RecentViewDef',
 		                	detailType: '#CommonDetailPanelID',
 		                	height: 250
 		                }

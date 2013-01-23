@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ page import="EXT.DOMAIN.cpe.vpr.*"%>
+<%@ page import="org.osehra.cpe.vpr.*"%>
 <%@ page import="org.springframework.data.domain.Page"%>
 
 <%-- TODO: wild idea: if this was a Frame with a GSPRenderAction, then some settings etc could become frame params and configurable by an admin interface.--%>
@@ -119,13 +119,13 @@
 		
 		
 		Ext.Ajax.request({
-			url: '/vpr/view/render?view=EXT.DOMAIN.cpe.vpr.queryeng.LabTrendViewDef&range=2000..NOW&row.count=1000&pid=<%=pid%>&filter_typeCodes=urn:lnc:4548-4',
+			url: '/vpr/view/render?view=org.osehra.cpe.vpr.queryeng.LabTrendViewDef&range=2000..NOW&row.count=1000&pid=<%=pid%>&filter_typeCodes=urn:lnc:4548-4',
 			success: function(resp) {
 				var data = Ext.JSON.decode(resp.responseText).data;
 				
 				var newdata = [];
 				for (var i in data) {
-					var obs = EXT.DOMAIN.hmp.util.HL7DTMFormatter.UTC(data[i].observed);
+					var obs = org.osehra.hmp.util.HL7DTMFormatter.UTC(data[i].observed);
 					var val = data[i]['0'];
 					var err = val * 0.035;
 					newdata.push([obs,val]);
@@ -141,7 +141,7 @@
 		});	
 		
 		Ext.Ajax.request({
-			url: '/vpr/view/render?view=EXT.DOMAIN.cpe.vpr.queryeng.MedsTabViewDef&range=2000..NOW&row.count=1000&pid=<%=pid%>&filter_class_code=urn:vadc:HS502',
+			url: '/vpr/view/render?view=org.osehra.cpe.vpr.queryeng.MedsTabViewDef&range=2000..NOW&row.count=1000&pid=<%=pid%>&filter_class_code=urn:vadc:HS502',
 			success: function(resp) {
 				var data = Ext.JSON.decode(resp.responseText).data;
 				
@@ -149,8 +149,8 @@
 					var dosedata = [];
 					for (var j in data[i].doseList) {
 						var dose = data[i].doseList[j];
-						var start = EXT.DOMAIN.hmp.util.HL7DTMFormatter.UTC(dose.doseStart);
-						var stop = EXT.DOMAIN.hmp.util.HL7DTMFormatter.UTC(dose.doseStop);
+						var start = org.osehra.hmp.util.HL7DTMFormatter.UTC(dose.doseStart);
+						var stop = org.osehra.hmp.util.HL7DTMFormatter.UTC(dose.doseStop);
 						
 						if (dose.doseStart && dose.doseStart) {
 							var doseVal = parseFloat(dose.dose.split(' ')[0]);

@@ -5,7 +5,7 @@
          version="3.0">
     <display-name>${project.name} ${project.version}</display-name>
     <session-config>
-        <!-- default timeout that is overridden with CPRS timeout parameters when a user logs in, see EXT.DOMAIN.cpe.vpr.web.servlet.UserTimeoutIntegrationSessionAttributeListener -->
+        <!-- default timeout that is overridden with CPRS timeout parameters when a user logs in, see org.osehra.cpe.vpr.web.servlet.UserTimeoutIntegrationSessionAttributeListener -->
         <session-timeout>5</session-timeout>
         <cookie-config>
             <!-- HttpOnly is an additional flag included in a Set-Cookie HTTP response header. Using the HttpOnly flag when generating a cookie helps mitigate the risk of client side script accessing the protected cookie (if the browser supports it). See https://www.owasp.org/index.php/HttpOnly -->
@@ -22,11 +22,11 @@
     </context-param>
     <context-param>
         <param-name>contextClass</param-name>
-        <param-value>EXT.DOMAIN.cpe.vpr.web.context.GroovyObjectWebApplicationContext</param-value>
+        <param-value>org.osehra.cpe.vpr.web.context.GroovyObjectWebApplicationContext</param-value>
     </context-param>
     <context-param>
         <param-name>contextInitializerClasses</param-name>
-        <param-value>EXT.DOMAIN.cpe.Bootstrap</param-value>
+        <param-value>org.osehra.cpe.Bootstrap</param-value>
     </context-param>
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>
@@ -83,7 +83,7 @@
     <!--</filter>-->
     <filter>
         <filter-name>noCacheFilter</filter-name>
-        <filter-class>EXT.DOMAIN.cpe.vpr.web.servlet.filter.ResponseHeaderFilter</filter-class>
+        <filter-class>org.osehra.cpe.vpr.web.servlet.filter.ResponseHeaderFilter</filter-class>
         <init-param>
             <param-name>Cache-Control</param-name>
             <param-value>no-store, must-revalidate</param-value>
@@ -95,7 +95,7 @@
     </filter>
     <filter>
         <filter-name>buildTimeLastModifiedFilter</filter-name>
-        <filter-class>EXT.DOMAIN.cpe.vpr.web.servlet.filter.BuildTimeLastModifiedResponseHeaderFilter</filter-class>
+        <filter-class>org.osehra.cpe.vpr.web.servlet.filter.BuildTimeLastModifiedResponseHeaderFilter</filter-class>
         <init-param>
             <param-name>versionPropertyKey</param-name>
             <param-value>hmp.version</param-value>
@@ -111,7 +111,7 @@
     </filter>
     <filter>
         <filter-name>grailsWebRequest</filter-name>
-        <filter-class>EXT.DOMAIN.cpe.vpr.web.servlet.mvc.GrailsWebRequestFilter</filter-class>
+        <filter-class>org.osehra.cpe.vpr.web.servlet.mvc.GrailsWebRequestFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>springSecurityFilterChain</filter-name>
@@ -151,10 +151,10 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
     <listener>
-        <listener-class>EXT.DOMAIN.cpe.vpr.web.servlet.UserTimeoutIntegrationSessionAttributeListener</listener-class>
+        <listener-class>org.osehra.cpe.vpr.web.servlet.UserTimeoutIntegrationSessionAttributeListener</listener-class>
     </listener>
     <listener>
-    	<listener-class>EXT.DOMAIN.cpe.vpr.web.servlet.EHCacheClearSessionListener</listener-class>
+    	<listener-class>org.osehra.cpe.vpr.web.servlet.EHCacheClearSessionListener</listener-class>
     </listener>
     <listener>
         <listener-class>net.sf.ehcache.constructs.web.ShutdownListener</listener-class>
@@ -169,7 +169,7 @@
         </init-param>
         <init-param>
             <param-name>contextClass</param-name>
-            <param-value>EXT.DOMAIN.cpe.vpr.web.context.GroovyObjectWebApplicationContext</param-value>
+            <param-value>org.osehra.cpe.vpr.web.context.GroovyObjectWebApplicationContext</param-value>
         </init-param>
     </servlet>
     <servlet>

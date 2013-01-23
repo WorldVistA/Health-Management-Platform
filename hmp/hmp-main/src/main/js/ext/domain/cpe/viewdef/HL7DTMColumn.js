@@ -1,5 +1,5 @@
-Ext.define('EXT.DOMAIN.cpe.viewdef.HL7DTMColumn', {
-	requires: ['EXT.DOMAIN.hmp.util.HL7DTMFormatter'],
+Ext.define('org.osehra.cpe.viewdef.HL7DTMColumn', {
+	requires: ['org.osehra.hmp.util.HL7DTMFormatter'],
 	extend : 'Ext.grid.column.Column',
 	alias : [ 'widget.hl7dtmcolumn' ],
 
@@ -21,7 +21,7 @@ Ext.define('EXT.DOMAIN.cpe.viewdef.HL7DTMColumn', {
 		 * ex:19750723152342.398-07 or 1975
 		 */
 		me.renderer = function(value) {
-			return EXT.DOMAIN.hmp.util.HL7DTMFormatter.format(value);
+			return org.osehra.hmp.util.HL7DTMFormatter.format(value);
 		}
 	}
 });

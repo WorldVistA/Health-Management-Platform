@@ -21,10 +21,10 @@
  * 
  * TODO: Stacked chart mode?
  */
-Ext.define('EXT.DOMAIN.cpe.viewdef.GridDetailPanel', {
+Ext.define('org.osehra.cpe.viewdef.GridDetailPanel', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.griddetailpanel',
-    requires: 'EXT.DOMAIN.cpe.ChartPanel',
+    requires: 'org.osehra.cpe.ChartPanel',
 
     //dock: 'bottom',
 	resizable: true, // is the detail window resizable (applies to all detailTypes, except none).  For right, bottom, the detailBorder will be ajusted appropriately
@@ -182,7 +182,7 @@ Ext.define('EXT.DOMAIN.cpe.viewdef.GridDetailPanel', {
 		// second is trend/grid, third is chart (if enabled)
 		if (this.enableTrendChart) {
 			// chart defaults to empty containers, will be recreated when needed.
-			this.grid = this.add({xtype: 'viewdefgridpanel', tag:'labTrend', reconfigureColumnsAlways: true, header: true, viewID: 'EXT.DOMAIN.cpe.vpr.queryeng.LabTrendViewDef'});
+			this.grid = this.add({xtype: 'viewdefgridpanel', tag:'labTrend', reconfigureColumnsAlways: true, header: true, viewID: 'org.osehra.cpe.vpr.queryeng.LabTrendViewDef'});
 			this.grid.update(this.emptyHTML)
 			this.add({xtype: 'container', tag:'labTrend'}).update(this.emptyHTML);
 			

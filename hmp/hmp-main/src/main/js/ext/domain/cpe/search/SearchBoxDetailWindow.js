@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.cpe.search.SearchBoxDetailWindow', {
+Ext.define('org.osehra.cpe.search.SearchBoxDetailWindow', {
     extend: 'Ext.window.Window',
     alias: 'widget.searchBoxDetailWindow',
     id: 'searchBoxDetailWindow',

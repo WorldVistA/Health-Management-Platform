@@ -28,7 +28,7 @@
           p:marshaller-ref="jsonErrorsMarshaller"/>
 
     <!-- PointInTime/Joda DateTime marshallers -->
-    <bean id="hl7DateTimeMarshaller" class="EXT.DOMAIN.cpe.vpr.ws.HL7DateTimeMarshaller"/>
+    <bean id="hl7DateTimeMarshaller" class="org.osehra.cpe.vpr.ws.HL7DateTimeMarshaller"/>
     <bean id="jsonHL7DateTimeMarshallerRegisterer"
           class="org.codehaus.groovy.grails.web.converters.configuration.ObjectMarshallerRegisterer"
           p:converterClass="grails.converters.JSON"
@@ -44,7 +44,7 @@
           p:converterClass="grails.converters.XML"
           p:priority="1">
         <property name="marshaller">
-            <bean class="EXT.DOMAIN.cpe.feed.atom.xml.TextMarshaller"/>
+            <bean class="org.osehra.cpe.feed.atom.xml.TextMarshaller"/>
         </property>
     </bean>
     <bean id="atomLinkXmlMarshaller"
@@ -52,7 +52,7 @@
           p:converterClass="grails.converters.XML"
           p:priority="1">
         <property name="marshaller">
-            <bean class="EXT.DOMAIN.cpe.feed.atom.xml.LinkMarshaller"/>
+            <bean class="org.osehra.cpe.feed.atom.xml.LinkMarshaller"/>
         </property>
     </bean>
     <bean id="atomLinkJsonMarshaller"
@@ -60,7 +60,7 @@
           p:converterClass="grails.converters.JSON"
           p:priority="1">
         <property name="marshaller">
-            <bean class="EXT.DOMAIN.cpe.feed.atom.json.LinkMarshaller"/>
+            <bean class="org.osehra.cpe.feed.atom.json.LinkMarshaller"/>
         </property>
     </bean>
     <bean id="atomPersonMarshaller"
@@ -68,7 +68,7 @@
           p:converterClass="grails.converters.XML"
           p:priority="1">
         <property name="marshaller">
-            <bean class="EXT.DOMAIN.cpe.feed.atom.xml.PersonMarshaller"/>
+            <bean class="org.osehra.cpe.feed.atom.xml.PersonMarshaller"/>
         </property>
     </bean>
     <bean id="atomCategoryMarshaller"
@@ -76,7 +76,7 @@
           p:converterClass="grails.converters.XML"
           p:priority="1">
         <property name="marshaller">
-            <bean class="EXT.DOMAIN.cpe.feed.atom.xml.CategoryMarshaller"/>
+            <bean class="org.osehra.cpe.feed.atom.xml.CategoryMarshaller"/>
         </property>
     </bean>
     <bean id="atomEntryMarshaller"
@@ -84,7 +84,7 @@
           p:converterClass="grails.converters.XML"
           p:priority="1">
         <property name="marshaller">
-            <bean class="EXT.DOMAIN.cpe.feed.atom.xml.EntryMarshaller"/>
+            <bean class="org.osehra.cpe.feed.atom.xml.EntryMarshaller"/>
         </property>
     </bean>
     <bean id="atomFeedMarshaller"
@@ -92,7 +92,7 @@
           p:converterClass="grails.converters.XML"
           p:priority="1">
         <property name="marshaller">
-            <bean class="EXT.DOMAIN.cpe.feed.atom.xml.FeedMarshaller"/>
+            <bean class="org.osehra.cpe.feed.atom.xml.FeedMarshaller"/>
         </property>
     </bean>
 
@@ -101,7 +101,7 @@
           p:converterClass="grails.converters.XML"
           p:priority="2">
         <property name="marshaller">
-            <bean class="EXT.DOMAIN.cpe.vpr.ws.xml.VitalSignMarshaller"
+            <bean class="org.osehra.cpe.vpr.ws.xml.VitalSignMarshaller"
                   p:proxyHandler-ref="proxyHandler"
                   p:linkService-ref="linkService"/>
         </property>
@@ -112,7 +112,7 @@
           p:converterClass="grails.converters.XML"
           p:priority="2">
         <property name="marshaller">
-            <bean class="EXT.DOMAIN.cpe.vpr.ws.xml.ResultMarshaller"
+            <bean class="org.osehra.cpe.vpr.ws.xml.ResultMarshaller"
                   p:proxyHandler-ref="proxyHandler"
                   p:linkService-ref="linkService"/>
         </property>
@@ -123,7 +123,7 @@
           p:converterClass="grails.converters.XML"
           p:priority="2">
         <property name="marshaller">
-            <bean class="EXT.DOMAIN.cpe.vpr.ws.xml.ResultOrganizerMarshaller"
+            <bean class="org.osehra.cpe.vpr.ws.xml.ResultOrganizerMarshaller"
                   p:proxyHandler-ref="proxyHandler"
                   p:linkService-ref="linkService"/>
         </property>
@@ -143,7 +143,7 @@
           class="org.codehaus.groovy.grails.web.converters.configuration.ObjectMarshallerRegisterer"
           p:converterClass="grails.converters.XML">
         <property name="marshaller">
-            <bean class="EXT.DOMAIN.cpe.vpr.ws.xml.MapMarshaller"/>
+            <bean class="org.osehra.cpe.vpr.ws.xml.MapMarshaller"/>
         </property>
     </bean>
 
@@ -151,7 +151,7 @@
           class="org.codehaus.groovy.grails.web.converters.configuration.ObjectMarshallerRegisterer"
           p:converterClass="grails.converters.XML">
         <property name="marshaller">
-            <bean class="EXT.DOMAIN.cpe.vpr.ws.xml.ClinicianMarshaller"/>
+            <bean class="org.osehra.cpe.vpr.ws.xml.ClinicianMarshaller"/>
         </property>
     </bean>
 
@@ -160,7 +160,7 @@
           p:converterClass="grails.converters.XML"
           p:priority="1">
         <property name="marshaller">
-            <bean class="EXT.DOMAIN.cpe.vpr.ws.xml.DomainClassMarshaller"
+            <bean class="org.osehra.cpe.vpr.ws.xml.DomainClassMarshaller"
                   p:proxyHandler-ref="proxyHandler"
                   p:linkService-ref="linkService"/>
         </property>
@@ -171,7 +171,7 @@
           p:converterClass="grails.converters.JSON"
           p:priority="1">
         <property name="marshaller">
-            <bean class="EXT.DOMAIN.cpe.vpr.ws.json.JsonCResponseMarshaller"/>
+            <bean class="org.osehra.cpe.vpr.ws.json.JsonCResponseMarshaller"/>
         </property>
     </bean>
     <bean id="jsonDomainClassMarshallerRegistrar"
@@ -179,7 +179,7 @@
           p:converterClass="grails.converters.JSON"
           p:priority="1">
         <property name="marshaller">
-            <bean class="EXT.DOMAIN.cpe.vpr.ws.json.DomainClassMarshaller"
+            <bean class="org.osehra.cpe.vpr.ws.json.DomainClassMarshaller"
                   p:proxyHandler-ref="proxyHandler"
                   p:linkService-ref="linkService"/>
         </property>
@@ -189,7 +189,7 @@
           p:converterClass="grails.converters.JSON"
           p:priority="2">
         <property name="marshaller">
-            <bean class="EXT.DOMAIN.cpe.vpr.ws.json.ResultMarshaller"
+            <bean class="org.osehra.cpe.vpr.ws.json.ResultMarshaller"
                   p:proxyHandler-ref="proxyHandler"
                   p:linkService-ref="linkService"/>
         </property>
@@ -199,7 +199,7 @@
           p:converterClass="grails.converters.JSON"
           p:priority="2">
         <property name="marshaller">
-            <bean class="EXT.DOMAIN.cpe.vpr.ws.json.ResultOrganizerMarshaller"
+            <bean class="org.osehra.cpe.vpr.ws.json.ResultOrganizerMarshaller"
                   p:proxyHandler-ref="proxyHandler"
                   p:linkService-ref="linkService"/>
         </property>

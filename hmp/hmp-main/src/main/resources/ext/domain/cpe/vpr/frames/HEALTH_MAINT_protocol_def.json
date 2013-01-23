@@ -5,8 +5,8 @@
         "name" : "Health Maint",
         "conditionType": "Health Maintenance",
         "status": "",
-        "class" : "EXT.DOMAIN.cpe.vpr.frameeng.ProtocolFrame",
-        "viewdef" : "EXT.DOMAIN.cpe.vpr.queryeng.HealthMaintViewDef",
+        "class" : "org.osehra.cpe.vpr.frameeng.ProtocolFrame",
+        "viewdef" : "org.osehra.cpe.vpr.queryeng.HealthMaintViewDef",
 		"links": {
 		}      
 }

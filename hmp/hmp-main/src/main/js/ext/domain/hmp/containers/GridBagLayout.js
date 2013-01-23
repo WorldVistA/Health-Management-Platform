@@ -6,11 +6,11 @@
  * - Cell span / row span based on widthX and widthY values.
  * - Skipping all the other attributes such as orientation, padding, insets, etc. for now as it's not part of our current problem space.
  */
-Ext.define('EXT.DOMAIN.hmp.containers.GridBagLayout', {
+Ext.define('org.osehra.hmp.containers.GridBagLayout', {
 
     alias: ['layout.gridbag'],
     extend: 'Ext.layout.container.Auto',
-    alternateClassName: 'EXT.DOMAIN.hmp.containers.GridBagLayout',
+    alternateClassName: 'org.osehra.hmp.containers.GridBagLayout',
 
     monitorResize:false,
 

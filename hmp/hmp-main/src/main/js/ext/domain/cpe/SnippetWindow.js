@@ -1,6 +1,6 @@
-Ext.define('EXT.DOMAIN.cpe.SnippetWindow', {
+Ext.define('org.osehra.cpe.SnippetWindow', {
     extend:'Ext.window.Window',
-    requires:['EXT.DOMAIN.cpe.SnippetPanel'],
+    requires:['org.osehra.cpe.SnippetPanel'],
     title:'Reason for Action',
     height:300,
     alias:'widget.snippetwindow',
@@ -11,7 +11,7 @@ Ext.define('EXT.DOMAIN.cpe.SnippetWindow', {
     model:true,
     worksheet:false,
     mixins:{
-        patientaware:'EXT.DOMAIN.hmp.PatientAware'
+        patientaware:'org.osehra.hmp.PatientAware'
     },
     items:[
         {

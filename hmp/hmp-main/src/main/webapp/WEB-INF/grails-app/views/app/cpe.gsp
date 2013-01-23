@@ -4,9 +4,9 @@
     <title>CPE</title>
     <g:render template="/layouts/extjs"/>
     <g:javascript>
-        Ext.require(['EXT.DOMAIN.cpe.CPEApp']);
+        Ext.require(['org.osehra.cpe.CPEApp']);
         Ext.onReady(function(){
-            Ext.create('EXT.DOMAIN.cpe.CPEApp');
+            Ext.create('org.osehra.cpe.CPEApp');
         });
     </g:javascript>
 </head>

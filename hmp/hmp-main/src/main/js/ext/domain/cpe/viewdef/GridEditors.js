@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.cpe.viewdef.GridEditors',{
+Ext.define('org.osehra.cpe.viewdef.GridEditors',{
 	statics: {
 		applyEditOpt: function(grd, coldef, editOpt) {
 			var grid = grd;

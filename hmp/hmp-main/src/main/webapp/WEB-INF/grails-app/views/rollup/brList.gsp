@@ -1,11 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
-<%@ page import="EXT.DOMAIN.cpe.vpr.queryeng.*" %>
-<%@ page import="EXT.DOMAIN.cpe.vpr.viewdef.*" %>
-<%@ page import="EXT.DOMAIN.cpe.datetime.*" %>
-<%@ page import="EXT.DOMAIN.cpe.datetime.format.*" %>
+<%@ page import="org.osehra.cpe.vpr.queryeng.*" %>
+<%@ page import="org.osehra.cpe.vpr.viewdef.*" %>
+<%@ page import="org.osehra.cpe.datetime.*" %>
+<%@ page import="org.osehra.cpe.datetime.format.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.text.*" %>
-<%@ page import="EXT.DOMAIN.cpe.vpr.web.converter.dateTime.*" %>
+<%@ page import="org.osehra.cpe.vpr.web.converter.dateTime.*" %>
 <html>
 <body>
 <%

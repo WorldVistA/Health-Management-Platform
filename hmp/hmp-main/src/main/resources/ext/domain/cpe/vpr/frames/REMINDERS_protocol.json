@@ -5,6 +5,6 @@
         "name" : "Reminders",
         "conditionType": "Health Maintenance",
         "status": "<span style=\"color: red; font-weight: bold;\">n DUE</span>",
-        "class" : "EXT.DOMAIN.cpe.vpr.frameeng.ProtocolFrame",
-        "viewdef" : "EXT.DOMAIN.cpe.vpr.frameeng.AllRemindersFrame"
+        "class" : "org.osehra.cpe.vpr.frameeng.ProtocolFrame",
+        "viewdef" : "org.osehra.cpe.vpr.frameeng.AllRemindersFrame"
 }

@@ -1,14 +1,14 @@
-Ext.define('EXT.DOMAIN.hmp.team.TeamManagementApplication', {
-    extend:'EXT.DOMAIN.hmp.Application',
+Ext.define('org.osehra.hmp.team.TeamManagementApplication', {
+    extend:'org.osehra.hmp.Application',
     requires:[
         "Ext.util.History",
-        'EXT.DOMAIN.hmp.Viewport',
-        'EXT.DOMAIN.hmp.team.TeamManagementPanel',
-        'EXT.DOMAIN.hmp.team.TeamPositionPanel'
+        'org.osehra.hmp.Viewport',
+        'org.osehra.hmp.team.TeamManagementPanel',
+        'org.osehra.hmp.team.TeamPositionPanel'
     ],
     controllers:[
-        'EXT.DOMAIN.hmp.team.TeamManagementController',
-        'EXT.DOMAIN.hmp.team.TeamPositionController'
+        'org.osehra.hmp.team.TeamManagementController',
+        'org.osehra.hmp.team.TeamPositionController'
     ],
     init:function () {
         Ext.util.History.init();
@@ -16,7 +16,7 @@ Ext.define('EXT.DOMAIN.hmp.team.TeamManagementApplication', {
     launch:function () {
         var me = this;
 
-        var viewport = Ext.create('EXT.DOMAIN.hmp.Viewport', {
+        var viewport = Ext.create('org.osehra.hmp.Viewport', {
             items:[
                 {
                     xtype:'treepanel',
@@ -63,13 +63,13 @@ Ext.define('EXT.DOMAIN.hmp.team.TeamManagementApplication', {
                         deferredRender:true
                     },
                     items:[
-                        Ext.create('EXT.DOMAIN.hmp.team.TeamManagementPanel', {
+                        Ext.create('org.osehra.hmp.team.TeamManagementPanel', {
                             itemId:'team-config'
                         }),
-                        Ext.create('EXT.DOMAIN.hmp.team.TeamCategoriesPanel', {
+                        Ext.create('org.osehra.hmp.team.TeamCategoriesPanel', {
                             itemId:'category-config'
                         }),
-                        Ext.create('EXT.DOMAIN.hmp.team.TeamPositionPanel', {
+                        Ext.create('org.osehra.hmp.team.TeamPositionPanel', {
                             itemId:'position-config'
                         })
                     ]

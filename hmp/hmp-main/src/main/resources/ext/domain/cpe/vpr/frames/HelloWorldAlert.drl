@@ -1,9 +1,9 @@
-import EXT.DOMAIN.cpe.vpr.pom.PatientEvent
-import EXT.DOMAIN.cpe.vpr.Patient
-import EXT.DOMAIN.cpe.vpr.Medication
-import EXT.DOMAIN.cpe.vpr.Allergy
-import EXT.DOMAIN.cpe.vpr.frameeng.FrameAction.AlertAction
-import EXT.DOMAIN.cpe.vpr.pom.IGenericPatientObjectDAO
+import org.osehra.cpe.vpr.pom.PatientEvent
+import org.osehra.cpe.vpr.Patient
+import org.osehra.cpe.vpr.Medication
+import org.osehra.cpe.vpr.Allergy
+import org.osehra.cpe.vpr.frameeng.FrameAction.AlertAction
+import org.osehra.cpe.vpr.pom.IGenericPatientObjectDAO
 
 global IGenericPatientObjectDAO DAO;
 

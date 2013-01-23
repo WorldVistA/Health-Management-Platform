@@ -1,10 +1,10 @@
-Ext.define('EXT.DOMAIN.hmp.team.TeamPositionStore', {
+Ext.define('org.osehra.hmp.team.TeamPositionStore', {
     extend: 'Ext.data.Store',
     requires: [
-        'EXT.DOMAIN.hmp.team.TeamPosition'
+        'org.osehra.hmp.team.TeamPosition'
     ],
     storeId: 'teamPositions',
-    model:'EXT.DOMAIN.hmp.team.TeamPosition',
+    model:'org.osehra.hmp.team.TeamPosition',
     proxy: {
         type: 'ajax',
         url: '/teamMgmt/v1/position/list',

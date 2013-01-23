@@ -5,7 +5,7 @@
  * TODO: would be nice to update the current menu's instead of re-creating them on each refresh.
  * TODO: Declare which params to filter on?
  */
-Ext.define('EXT.DOMAIN.cpe.viewdef.ViewDefFilterTool', {
+Ext.define('org.osehra.cpe.viewdef.ViewDefFilterTool', {
 	extend: 'Ext.toolbar.Toolbar',
 	alias: 'widget.viewdeffiltertool',
 	
@@ -85,11 +85,11 @@ Ext.define('EXT.DOMAIN.cpe.viewdef.ViewDefFilterTool', {
 			var menu = Ext.create('Ext.menu.Menu');
 			menu.on('click', refresh, menu);
 
-    		if (item.clazz === 'EXT.DOMAIN.cpe.vpr.queryeng.ViewParam$BooleanParam') {
+    		if (item.clazz === 'org.osehra.cpe.vpr.queryeng.ViewParam$BooleanParam') {
     			// A boolean param gets translated into a single checkbox menu item
     			var checked = item.defaults[key];
     			menu.add({xtype: 'menucheckitem', boolean: true, key: key, checked: checked, text: title});
-    		} else if (item.clazz === 'EXT.DOMAIN.cpe.vpr.queryeng.ViewParam$ENUMParam') {
+    		} else if (item.clazz === 'org.osehra.cpe.vpr.queryeng.ViewParam$ENUMParam') {
     			// enumerated list param builds a submenu with checkbox menu items
     			var curvals = item.values[key];
     			var group = (item.multiple === true) ? null : key;
@@ -111,10 +111,10 @@ Ext.define('EXT.DOMAIN.cpe.viewdef.ViewDefFilterTool', {
     			*/
     			if (!summarydisp.length) summarydisp = ['All'];
     			if (summarydisp.length) summary = summarydisp.join(',');
-    		} else if (item.clazz === 'EXT.DOMAIN.cpe.vpr.queryeng.ViewParam$NumRangeParam') {
+    		} else if (item.clazz === 'org.osehra.cpe.vpr.queryeng.ViewParam$NumRangeParam') {
     			var min = item.min || Number.NEGATIVE_INFINITY, max = item.max || Number.MAX_VALUE, val = item.values[item.key];
     			menu.add({xtype: 'numberfield', fieldLabel: title, labelWidth: 50, width: 20, key: item.key, value: val, minValue: min, maxValue: max});
-    		} else if (item.clazz === 'EXT.DOMAIN.cpe.vpr.queryeng.ViewParam$DateRangeParam') {
+    		} else if (item.clazz === 'org.osehra.cpe.vpr.queryeng.ViewParam$DateRangeParam') {
     			var curvalkey = (item.values && item.key) ? item.values[item.key + '.orig'] : null;
     			for (var key in me.datePickerOptions) {
     				var txt = me.datePickerOptions[key.toUpperCase()];

@@ -1,6 +1,6 @@
-Ext.define('EXT.DOMAIN.hmp.appbar.PrefWin',{
+Ext.define('org.osehra.hmp.appbar.PrefWin',{
 	extend: 'Ext.window.Window',
-	requires: ['EXT.DOMAIN.cpe.roster.FavoriteRosterPicker'],
+	requires: ['org.osehra.cpe.roster.FavoriteRosterPicker'],
     alias: 'widget.prefwin',
 	id: 'PrefWinID',
  	height: 350,

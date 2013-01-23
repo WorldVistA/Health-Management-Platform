@@ -3,8 +3,8 @@
  * TODO: The header rows are selectable, how can we make them unselectable like group header row?
  * 
  */
-Ext.define('EXT.DOMAIN.hmp.containers.LabReviewTab', {
-	extend: 'EXT.DOMAIN.hmp.containers.OnePanelToRuleThemAll',
+Ext.define('org.osehra.hmp.containers.LabReviewTab', {
+	extend: 'org.osehra.hmp.containers.OnePanelToRuleThemAll',
 	alias: 'widget.labreviewtab',
 	title: 'Lab Review',
 	detail: 'none',
@@ -19,7 +19,7 @@ Ext.define('EXT.DOMAIN.hmp.containers.LabReviewTab', {
         	weightY: 2,
         	title: 'Lab Summary',
         	itemId: 'labresultssgrid',
-        	viewID: 'EXT.DOMAIN.cpe.vpr.queryeng.LabProfileViewDef',
+        	viewID: 'org.osehra.cpe.vpr.queryeng.LabProfileViewDef',
         	viewParams: {group: 'group', 'row.count': 1000},
         	tools: [{xtype: 'viewdeffiltertool', paramKeys: ['range', 'filter.profiles']}],
         	hideHeaders: true,
@@ -36,8 +36,8 @@ Ext.define('EXT.DOMAIN.hmp.containers.LabReviewTab', {
         		beforerenderXXX: function() {
         			var me = this;
         			var cfg = {xtype: 'button', ui: 'link', text: 'View Mode', menu: {listeners: {}, items: []}}
-        			cfg.menu.items.push({text: 'Chronological Accession View', viewdef: 'EXT.DOMAIN.cpe.vpr.queryeng.LabViewDef', viewParams: {group: 'accessionId', groupHeaderTpl: "{[values.children[0].data.specimen]} (Collected: {[EXT.DOMAIN.hmp.util.HL7DTMFormatter.format(values.children[0].data.observed)]})"}});
-        			cfg.menu.items.push({text: 'Worksheet Profile View', viewdef: 'EXT.DOMAIN.cpe.vpr.queryeng.LabProfileViewDef', viewParams: {group: 'group', 'row.count': 100}});
+        			cfg.menu.items.push({text: 'Chronological Accession View', viewdef: 'org.osehra.cpe.vpr.queryeng.LabViewDef', viewParams: {group: 'accessionId', groupHeaderTpl: "{[values.children[0].data.specimen]} (Collected: {[org.osehra.hmp.util.HL7DTMFormatter.format(values.children[0].data.observed)]})"}});
+        			cfg.menu.items.push({text: 'Worksheet Profile View', viewdef: 'org.osehra.cpe.vpr.queryeng.LabProfileViewDef', viewParams: {group: 'group', 'row.count': 100}});
         			cfg.menu.listeners.click = function(menu, item) {
         				me.setViewDef(item.viewdef, item.viewParams);
     				};
@@ -75,7 +75,7 @@ Ext.define('EXT.DOMAIN.hmp.containers.LabReviewTab', {
             ],
             detailType: '#labgriddetailpanel',
 //			extraColumns: [{xtype: 'flagcolumn'}],
-            viewID: 'EXT.DOMAIN.cpe.vpr.queryeng.OrdersViewDef',
+            viewID: 'org.osehra.cpe.vpr.queryeng.OrdersViewDef',
             viewParams: {filter_group: 'CH,MI,LAB'}
 		},
 		{
@@ -116,8 +116,8 @@ Ext.define('EXT.DOMAIN.hmp.containers.LabReviewTab', {
 							me.selCodes.push(recs[i].data.typeCode);
 							if(name) {me.selNames.push(i+'^'+name);}
 						}
-						var viewParams = {'view':'EXT.DOMAIN.cpe.vpr.queryeng.LabTrendViewDef','filter_typeCodes': me.selCodes.join(','), 'pid': labgrid.pid};
-						me.updateChart(me.chartCfg, viewParams, 'EXT.DOMAIN.cpe.vpr.queryeng.LabTrendViewDef', function(store, records, success, operation, eopts) {
+						var viewParams = {'view':'org.osehra.cpe.vpr.queryeng.LabTrendViewDef','filter_typeCodes': me.selCodes.join(','), 'pid': labgrid.pid};
+						me.updateChart(me.chartCfg, viewParams, 'org.osehra.cpe.vpr.queryeng.LabTrendViewDef', function(store, records, success, operation, eopts) {
 							var chartData = [];
 							/*
 							 * TODO: In the case we have the same name with different units of measure,
@@ -136,7 +136,7 @@ Ext.define('EXT.DOMAIN.hmp.containers.LabReviewTab', {
 										me.chartCfg.yAxis = {title: {text: dat[id + '_units']}};
 										var datapoint = {};
 										datapoint['y'] = dat[id];
-										datapoint['x'] = EXT.DOMAIN.hmp.util.HL7DTMFormatter.UTC(dat['observed']);
+										datapoint['x'] = org.osehra.hmp.util.HL7DTMFormatter.UTC(dat['observed']);
 										datapoint['interpreted'] = dat[id+'_interpret'];
 										cdat.data.push(datapoint);
 									}

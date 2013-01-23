@@ -1,11 +1,11 @@
-Ext.define('EXT.DOMAIN.cpe.multi.BoardBuilderApp', {
-    extend:'EXT.DOMAIN.hmp.Application',
+Ext.define('org.osehra.cpe.multi.BoardBuilderApp', {
+    extend:'org.osehra.hmp.Application',
     requires:[
-        'EXT.DOMAIN.hmp.Viewport',
-        'EXT.DOMAIN.cpe.multi.MultiPatientPanelEditor'
+        'org.osehra.hmp.Viewport',
+        'org.osehra.cpe.multi.MultiPatientPanelEditor'
     ],
     launch:function () {
-        Ext.create('EXT.DOMAIN.hmp.Viewport', {
+        Ext.create('org.osehra.hmp.Viewport', {
             items:[
                 {
                     xtype:'panelEditor',
@@ -15,7 +15,7 @@ Ext.define('EXT.DOMAIN.cpe.multi.BoardBuilderApp', {
         });
 
 
-//        var wnd = Ext.create("EXT.DOMAIN.cpe.PingWindow", {
+//        var wnd = Ext.create("org.osehra.cpe.PingWindow", {
 //        	width: 400,
 //        	height: 400
 //        });

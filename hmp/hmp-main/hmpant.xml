@@ -53,8 +53,8 @@
         	<!--
         	include
             <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/joda-time/joda-time/1.6.2/joda-time-1.6.2.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/EXT/DOMAIN/cpe/health-time-core/2.0.21/health-time-core-2.0.21.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/EXT/DOMAIN/cpe/health-time-jackson/2.0.21/health-time-jackson-2.0.21.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/org.osehra/cpe/health-time-core/2.0.21/health-time-core-2.0.21.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/org.osehra/cpe/health-time-jackson/2.0.21/health-time-jackson-2.0.21.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.0.6/jackson-annotations-2.0.6.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.0.6/jackson-core-2.0.6.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.0.6/jackson-databind-2.0.6.jar"/>
@@ -68,7 +68,7 @@
             <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/javax/transaction/jta/1.1/jta-1.1.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/javax/persistence/persistence-api/1.0/persistence-api-1.0.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/EXT/DOMAIN/cpe/health-time-hibernate/2.0.21/health-time-hibernate-2.0.21.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/org.osehra/cpe/health-time-hibernate/2.0.21/health-time-hibernate-2.0.21.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/org/hibernate/hibernate-core/3.3.1.GA/hibernate-core-3.3.1.GA.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/antlr/antlr/2.7.6/antlr-2.7.6.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar"/>
@@ -77,7 +77,7 @@
             <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/org/slf4j/slf4j-api/1.5.11/slf4j-api-1.5.11.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/javassist/javassist/3.4.GA/javassist-3.4.GA.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/net/sf/ehcache/ehcache-core/2.6.0/ehcache-core-2.6.0.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/EXT/DOMAIN/cpe/vista-rpc-client/0.9.7/vista-rpc-client-0.9.7.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/org.osehra/cpe/vista-rpc-client/0.9.7/vista-rpc-client-0.9.7.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/commons-io/commons-io/2.1/commons-io-2.1.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/commons-pool/commons-pool/1.6/commons-pool-1.6.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/org/springframework/spring-asm/3.1.2.RELEASE/spring-asm-3.1.2.RELEASE.jar"/>
@@ -88,7 +88,7 @@
             <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/org/springframework/spring-expression/3.1.2.RELEASE/spring-expression-3.1.2.RELEASE.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/org/springframework/spring-web/3.1.2.RELEASE/spring-web-3.1.2.RELEASE.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/org/springframework/spring-tx/3.1.2.RELEASE/spring-tx-3.1.2.RELEASE.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/EXT/DOMAIN/cpe/vista-auth/0.9.7/vista-auth-0.9.7.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/org.osehra/cpe/vista-auth/0.9.7/vista-auth-0.9.7.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/org/springframework/spring-webmvc/3.1.2.RELEASE/spring-webmvc-3.1.2.RELEASE.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="C:/Users/brian/.m2/repository/org/springframework/spring-context-support/3.1.2.RELEASE/spring-context-support-3.1.2.RELEASE.jar"/>

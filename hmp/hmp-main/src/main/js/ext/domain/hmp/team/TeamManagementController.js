@@ -1,12 +1,12 @@
 /**
  * Controls Team Management panel.
  */
-Ext.define('EXT.DOMAIN.hmp.team.TeamManagementController', {
-    extend:'EXT.DOMAIN.hmp.Controller',
+Ext.define('org.osehra.hmp.team.TeamManagementController', {
+    extend:'org.osehra.hmp.Controller',
     requires:[
-        'EXT.DOMAIN.hmp.team.TeamManagementPanel',
-        'EXT.DOMAIN.hmp.UserContext',
-        'EXT.DOMAIN.cpe.roster.RosterStore'
+        'org.osehra.hmp.team.TeamManagementPanel',
+        'org.osehra.hmp.UserContext',
+        'org.osehra.cpe.roster.RosterStore'
     ],
     refs:[
         {
@@ -97,12 +97,12 @@ Ext.define('EXT.DOMAIN.hmp.team.TeamManagementController', {
     doNewTeam:function () {
 //        console.log("New Team Please!");
         // TODO: increment new team name based on how many teams have "New Team *" as their name
-        var userInfo = EXT.DOMAIN.hmp.UserContext.getUserInfo();
+        var userInfo = org.osehra.hmp.UserContext.getUserInfo();
         var newTeamName = "New Team";
         if (this.getNewTeamNumber() > 0) {
             newTeamName += " " + this.getNewTeamNumber();
         }
-        var newTeam = Ext.create('EXT.DOMAIN.hmp.team.Team', {
+        var newTeam = Ext.create('org.osehra.hmp.team.Team', {
             displayName:newTeamName,
             ownerUid:userInfo.uid,
             ownerName:userInfo.displayName
@@ -205,7 +205,7 @@ Ext.define('EXT.DOMAIN.hmp.team.TeamManagementController', {
         var team = this.getCurrentTeam();
         team.set('rosterId', rosterId);
 //        console.log(rosterId);
-//        var staffAssignment = Ext.create('EXT.DOMAIN.hmp.team.TeamAssignment', {
+//        var staffAssignment = Ext.create('org.osehra.hmp.team.TeamAssignment', {
 //            positionUid:position.get('uid'),
 //            positionName:position.get('name')
 //        });

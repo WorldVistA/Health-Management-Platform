@@ -1,11 +1,11 @@
-Ext.define('EXT.DOMAIN.cpe.PatientWikiPanel',{
+Ext.define('org.osehra.cpe.PatientWikiPanel',{
 	extend: 'Ext.panel.Panel',
 	alias: 'widget.patientwikipanel',
      title: "Clinical Wiki/Note",
      height: 450,
      layout: 'fit',
      mixins: {
- 		patientaware: 'EXT.DOMAIN.hmp.PatientAware'
+ 		patientaware: 'org.osehra.hmp.PatientAware'
  	 },				     
      bbar: ['->', 
             'draft auto saved x min ago', 

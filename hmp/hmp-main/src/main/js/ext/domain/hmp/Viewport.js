@@ -1,10 +1,10 @@
 /**
  * A simple viewport with AppBar in the north region by default.
  */
-Ext.define('EXT.DOMAIN.hmp.Viewport', {
+Ext.define('org.osehra.hmp.Viewport', {
     extend: 'Ext.container.Viewport',
     requires: [
-        'EXT.DOMAIN.hmp.appbar.AppBar'
+        'org.osehra.hmp.appbar.AppBar'
     ],
     ui:'plain',
     layout:{

@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.hmp.admin.SyncErrorStore', {
+Ext.define('org.osehra.hmp.admin.SyncErrorStore', {
     extend:'Ext.data.Store',
     storeId:'syncErrors',
     fields:['id', 'patient', 'pids', 'dateCreated', 'item', 'message', 'stackTrace', 'json'],

@@ -1,14 +1,14 @@
-Ext.define('EXT.DOMAIN.hmp.team.PersonField', {
+Ext.define('org.osehra.hmp.team.PersonField', {
     extend:'Ext.form.field.ComboBox',
     requires:[
-        'EXT.DOMAIN.hmp.team.PersonStore'
+        'org.osehra.hmp.team.PersonStore'
     ],
     alias:'widget.personfield',
     queryMode: 'local',
     displayField: 'name',
     valueField: 'uid',
     initComponent:function () {
-        this.store = Ext.data.StoreManager.containsKey('persons') ? Ext.getStore('persons') : Ext.create('EXT.DOMAIN.hmp.team.PersonStore');
+        this.store = Ext.data.StoreManager.containsKey('persons') ? Ext.getStore('persons') : Ext.create('org.osehra.hmp.team.PersonStore');
 
         this.callParent(arguments);
     },

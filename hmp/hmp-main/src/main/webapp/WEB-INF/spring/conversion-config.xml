@@ -8,15 +8,15 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
     <!-- atom converters -->
-    <bean id="resultToAtom" class="EXT.DOMAIN.cpe.vpr.ws.feed.ResultToAtomEntry" p:linkService-ref="linkService"/>
-    <bean id="encounterToAtom" class="EXT.DOMAIN.cpe.vpr.ws.feed.ResultToAtomEntry" p:linkService-ref="linkService"/>
-    <bean id="documentToAtom" class="EXT.DOMAIN.cpe.vpr.ws.feed.ResultToAtomEntry" p:linkService-ref="linkService"/>
-    <bean id="immunizationToAtom" class="EXT.DOMAIN.cpe.vpr.ws.feed.ResultToAtomEntry" p:linkService-ref="linkService"/>
-    <bean id="medicationToAtom" class="EXT.DOMAIN.cpe.vpr.ws.feed.ResultToAtomEntry" p:linkService-ref="linkService"/>
+    <bean id="resultToAtom" class="org.osehra.cpe.vpr.ws.feed.ResultToAtomEntry" p:linkService-ref="linkService"/>
+    <bean id="encounterToAtom" class="org.osehra.cpe.vpr.ws.feed.ResultToAtomEntry" p:linkService-ref="linkService"/>
+    <bean id="documentToAtom" class="org.osehra.cpe.vpr.ws.feed.ResultToAtomEntry" p:linkService-ref="linkService"/>
+    <bean id="immunizationToAtom" class="org.osehra.cpe.vpr.ws.feed.ResultToAtomEntry" p:linkService-ref="linkService"/>
+    <bean id="medicationToAtom" class="org.osehra.cpe.vpr.ws.feed.ResultToAtomEntry" p:linkService-ref="linkService"/>
 
     <!-- point in time converters -->
-    <bean id="pointInTimeToString" class="EXT.DOMAIN.cpe.vpr.web.converter.dateTime.PointInTimeToStringConverter" />
-    <bean id="stringToPointInTime" class="EXT.DOMAIN.cpe.vpr.web.converter.dateTime.StringToPointInTimeConverter" />
+    <bean id="pointInTimeToString" class="org.osehra.cpe.vpr.web.converter.dateTime.PointInTimeToStringConverter" />
+    <bean id="stringToPointInTime" class="org.osehra.cpe.vpr.web.converter.dateTime.StringToPointInTimeConverter" />
 
     <!-- conversion service -->
     <bean id="vprConversionService" class="org.springframework.context.support.ConversionServiceFactoryBean"
@@ -39,16 +39,16 @@
     </util:set>
 
     <!-- message converters -->
-    <bean id="mapMsgToSyncError" class="EXT.DOMAIN.cpe.vpr.sync.convert.MapMessageToSyncError"/>
-    <bean id="syncErrorToMap" class="EXT.DOMAIN.cpe.vpr.sync.convert.SyncErrorToMap"/>
-    <bean id="vistaDataChunkToMap" class="EXT.DOMAIN.cpe.vpr.sync.convert.VistaDataChunkToMap"/>
+    <bean id="mapMsgToSyncError" class="org.osehra.cpe.vpr.sync.convert.MapMessageToSyncError"/>
+    <bean id="syncErrorToMap" class="org.osehra.cpe.vpr.sync.convert.SyncErrorToMap"/>
+    <bean id="vistaDataChunkToMap" class="org.osehra.cpe.vpr.sync.convert.VistaDataChunkToMap"/>
     <beans profile="vpr-datastore-relational">
-        <bean id="mapToVistaDataChunk" class="EXT.DOMAIN.cpe.vpr.sync.convert.MapToVistaDataChunk" p:patientDao-ref="hibernatePatientDao"/>
+        <bean id="mapToVistaDataChunk" class="org.osehra.cpe.vpr.sync.convert.MapToVistaDataChunk" p:patientDao-ref="hibernatePatientDao"/>
     </beans>
     <beans profile="vpr-datastore-json">
-        <bean id="mapToVistaDataChunk" class="EXT.DOMAIN.cpe.vpr.sync.convert.MapToVistaDataChunk" p:patientDao-ref="jdsPatientDao"/>
+        <bean id="mapToVistaDataChunk" class="org.osehra.cpe.vpr.sync.convert.MapToVistaDataChunk" p:patientDao-ref="jdsPatientDao"/>
     </beans>
     <beans profile="vpr-datastore-mongo">
-        <bean id="mapToVistaDataChunk" class="EXT.DOMAIN.cpe.vpr.sync.convert.MapToVistaDataChunk" p:patientDao-ref="mongoPatientDao"/>
+        <bean id="mapToVistaDataChunk" class="org.osehra.cpe.vpr.sync.convert.MapToVistaDataChunk" p:patientDao-ref="mongoPatientDao"/>
     </beans>
 </beans>

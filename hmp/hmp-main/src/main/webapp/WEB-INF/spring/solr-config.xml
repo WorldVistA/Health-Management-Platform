@@ -8,13 +8,13 @@
        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
-    <bean id="domainObjectToSolrInputDocument" class="EXT.DOMAIN.cpe.vpr.dao.solr.DomainObjectToSolrInputDocument">
+    <bean id="domainObjectToSolrInputDocument" class="org.osehra.cpe.vpr.dao.solr.DomainObjectToSolrInputDocument">
         <constructor-arg index="0">
-            <util:constant static-field="EXT.DOMAIN.cpe.vpr.dao.solr.SolrDomainMappings.MAPPINGS"/>
+            <util:constant static-field="org.osehra.cpe.vpr.dao.solr.SolrDomainMappings.MAPPINGS"/>
         </constructor-arg>
     </bean>
 
-    <bean id="defaultSolrDao" class="EXT.DOMAIN.cpe.vpr.dao.solr.DefaultSolrDao"/>
+    <bean id="defaultSolrDao" class="org.osehra.cpe.vpr.dao.solr.DefaultSolrDao"/>
 
     <bean id="solrServer" class="org.apache.solr.client.solrj.impl.HttpSolrServer"
             c:baseURL="${solr.url}"

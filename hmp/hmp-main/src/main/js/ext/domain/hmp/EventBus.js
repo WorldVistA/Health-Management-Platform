@@ -3,7 +3,7 @@
  *
  * TODO: maybe merge this into AppContext or Application instance?
  */
-Ext.define('EXT.DOMAIN.hmp.EventBus', {
+Ext.define('org.osehra.hmp.EventBus', {
     singleton: true,
     mixins:{
         observable: 'Ext.util.Observable'

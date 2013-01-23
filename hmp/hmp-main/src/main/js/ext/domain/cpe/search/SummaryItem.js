@@ -1,7 +1,7 @@
 /**
  * An actual shared model!
  */
-Ext.define("EXT.DOMAIN.cpe.search.SummaryItem", {
+Ext.define("org.osehra.cpe.search.SummaryItem", {
     extend: 'Ext.data.Model',
     fields: [
         'uid',

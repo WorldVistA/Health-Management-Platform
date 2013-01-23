@@ -1,4 +1,4 @@
-Ext.define('EXT.DOMAIN.hmp.team.VistaUserClass', {
+Ext.define('org.osehra.hmp.team.VistaUserClass', {
     extend:'Ext.data.Model',
     fields:[
         "uid",
@@ -12,7 +12,7 @@ Ext.define('EXT.DOMAIN.hmp.team.VistaUserClass', {
         {name:'private', type:'boolean', convert: function(v,record) { return record.data.okToDistribute === false}}
     ],
     hasMany:{
-        model:'EXT.DOMAIN.hmp.team.VistaUserClass',
+        model:'org.osehra.hmp.team.VistaUserClass',
         name:'subclasses'
     }
 });

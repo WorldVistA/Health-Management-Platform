@@ -1,9 +1,9 @@
-Ext.define('EXT.DOMAIN.cpe.roster.RosterWindow', {
+Ext.define('org.osehra.cpe.roster.RosterWindow', {
     extend:'Ext.window.Window',
     requires:[
-        'EXT.DOMAIN.cpe.roster.RosterWindowSrcGrid',
-        'EXT.DOMAIN.cpe.roster.RosterStore',
-        'EXT.DOMAIN.cpe.PagePicker'
+        'org.osehra.cpe.roster.RosterWindowSrcGrid',
+        'org.osehra.cpe.roster.RosterStore',
+        'org.osehra.cpe.PagePicker'
     ],
     alias:'widget.rosterwin',
     itemId:'RosterWinID',
@@ -113,7 +113,7 @@ Ext.define('EXT.DOMAIN.cpe.roster.RosterWindow', {
                                             xtype:'combobox',
                                             fieldLabel:'Pt. List Display',
                                             name:'viewdef',
-                                            value:'EXT.DOMAIN.cpe.vpr.queryeng.RosterViewDef',
+                                            value:'org.osehra.cpe.vpr.queryeng.RosterViewDef',
                                             forceSelection:true,
                                             defaultListConfig:{minWidth:200},
                                             displayField:'name',
@@ -122,7 +122,7 @@ Ext.define('EXT.DOMAIN.cpe.roster.RosterWindow', {
                                                 fields:['code', 'name'],
                                                 proxy:{
                                                     type:'ajax',
-                                                    url:'/view/ptlists', //'/app/list?type=EXT.DOMAIN.cpe.multipatientviewdef',
+                                                    url:'/view/ptlists', //'/app/list?type=org.osehra.cpe.multipatientviewdef',
                                                     reader:{
                                                         root:'items',
                                                         type:'json'
@@ -190,7 +190,7 @@ Ext.define('EXT.DOMAIN.cpe.roster.RosterWindow', {
         var me = this;
 
         // create the roster store (can't put this inline because it gets called at load time, before the requires clauses have all be called)
-        me.items[0].items[0].store = Ext.getStore('rosters') ? Ext.getStore('rosters') : Ext.create('EXT.DOMAIN.cpe.roster.RosterStore');
+        me.items[0].items[0].store = Ext.getStore('rosters') ? Ext.getStore('rosters') : Ext.create('org.osehra.cpe.roster.RosterStore');
 
         me.callParent(arguments);
 

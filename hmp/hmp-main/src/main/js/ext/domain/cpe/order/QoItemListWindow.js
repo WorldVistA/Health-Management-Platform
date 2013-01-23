@@ -6,9 +6,9 @@ var dataStore = Ext.create('Ext.data.ArrayStore', {
 });
 
 
-Ext.define('EXT.DOMAIN.cpe.order.QoItemListWindow', {
+Ext.define('org.osehra.cpe.order.QoItemListWindow', {
     extend:'Ext.window.Window',
-    requires:['EXT.DOMAIN.cpe.SnippetPanel'],
+    requires:['org.osehra.cpe.SnippetPanel'],
     title:'Quick Order Menu',
     height:400,
 //            alias: 'widget.qoitemlistwindow',
@@ -22,7 +22,7 @@ Ext.define('EXT.DOMAIN.cpe.order.QoItemListWindow', {
 //            componentLayout: 'body',
 //            autoScroll: true,
     mixins:{
-        patientaware:'EXT.DOMAIN.hmp.PatientAware'
+        patientaware:'org.osehra.hmp.PatientAware'
     },
     listeners:{
         show:function () {

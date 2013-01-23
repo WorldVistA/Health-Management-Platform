@@ -13,14 +13,14 @@
  * by setting the <pre>pid</pre> field and returning true.
  *
  * The <pre>setPatientContext()</pre> method can be called on any PatientAware component
- * (or statically via {@link EXT.DOMAIN.hmp.PatientContext#setPatientContext} to initate the multi-step
+ * (or statically via {@link org.osehra.hmp.PatientContext#setPatientContext} to initate the multi-step
  * process of switching patient context.
  *
- * See {@link EXT.DOMAIN.hmp.PatientContext} for more details.
+ * See {@link org.osehra.hmp.PatientContext} for more details.
  */
-Ext.define('EXT.DOMAIN.hmp.PatientAware', {
+Ext.define('org.osehra.hmp.PatientAware', {
     requires:[
-        'EXT.DOMAIN.hmp.PatientContext'
+        'org.osehra.hmp.PatientContext'
     ],
     pid:0, // the current patient ID according to this component (0=no patient currently selected)
     patientAware:true, // this is the way to identify/query for all patient aware mixin objects
@@ -53,27 +53,27 @@ Ext.define('EXT.DOMAIN.hmp.PatientAware', {
      * returns the current patient info
      */
     getPatientInfo:function () {
-        return EXT.DOMAIN.hmp.PatientContext.getPatientInfo();
+        return org.osehra.hmp.PatientContext.getPatientInfo();
     },
 
     setPatientContext:function (pid) {
         // simply delegate from this instance method to the singleton
-        EXT.DOMAIN.hmp.PatientContext.setPatientContext(pid);
+        org.osehra.hmp.PatientContext.setPatientContext(pid);
     },
 
     setPatientUpdate:function (domains) {
-        EXT.DOMAIN.hmp.PatientContext.setPatientUpdate(domains);
+        org.osehra.hmp.PatientContext.setPatientUpdate(domains);
     },
 
     initPatientContext:function () {
-        var pid = EXT.DOMAIN.hmp.PatientContext.pid;
+        var pid = org.osehra.hmp.PatientContext.pid;
         if (pid > 0) {
             if (this.fireEvent('beforepatientchange', pid) !== true) {
-                EXT.DOMAIN.hmp.PatientContext.reportError('Unable to initialize patient context!', this);
+                org.osehra.hmp.PatientContext.reportError('Unable to initialize patient context!', this);
                 return;
             }
             if (this.fireEvent('patientchange', pid) !== true) {
-                EXT.DOMAIN.hmp.PatientContext.reportError('Unable to initialize patient context!', this);
+                org.osehra.hmp.PatientContext.reportError('Unable to initialize patient context!', this);
             }
         }
     }

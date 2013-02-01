@@ -592,7 +592,7 @@
                         </configuration>
                     </execution>
 					<!-- This ensures that the required vocabulary databases are downloaded from nexus -->
-                                        <!--<execution>
+                    <execution>
                         <id>copy-termdb-databases</id>
                         <phase>process-resources</phase>
                         <goals>
@@ -629,7 +629,7 @@
                             <overWriteReleases>false</overWriteReleases>
                             <overWriteSnapshots>true</overWriteSnapshots>
                         </configuration>
-                    </execution>-->                    
+                    </execution>
                     <!-- For each dependency (direct and transitive) a project property will be set which follows the form groupId:artifactId:type:[classifier] and contains the path to the resolved artifact. -->
                     <execution>
                         <id>expose-paths-to-dependencies-as-project-properties</id>

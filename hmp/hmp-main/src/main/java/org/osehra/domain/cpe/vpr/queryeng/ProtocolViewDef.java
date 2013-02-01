@@ -98,7 +98,7 @@ public class ProtocolViewDef extends ViewDef {
         declareParam(new ViewParam.ColumnsParam(this, displayCols, requireCols, hideCols, sortCols, groupCols));
 
         // TODO: Should fetch this from the FrameRegistry
-        URL url = ViewDef.class.getResource("/org.osehra/cpe/vpr/frames/");
+        URL url = ViewDef.class.getResource("/org/osehra/cpe/vpr/frames/");
 		File dir = new File(url.toURI());
         Query q1 = new JSONFileQuery("id", dir.listFiles(JSONFileQuery.JSON_FILES));
 		addColumns(q1, "id", "type", "name", "icdCode", "status", "conditionType", "relevantDrugClasses", "selfLink");

@@ -8,7 +8,7 @@
 	<!-- Drools Setup/Config 
 	<drools:kbase id="kbase1">
 		<drools:resources>
-			<drools:resource source="classpath:ext/domain/cpe/vpr/frames/HelloWorldAlert.drl"/>
+			<drools:resource source="classpath:org/osehra/cpe/vpr/frames/HelloWorldAlert.drl"/>
 		</drools:resources>
 
 		<drools:configuration>
@@ -37,7 +37,7 @@
 	   			<bean class="org.osehra.cpe.vpr.frameeng.FrameRegistry.DroolsFrameLoader" c:kb-ref="kbase1"/>
 	   			<bean class="org.osehra.cpe.vpr.frameeng.FrameRegistry.RemindersFrameLoader" c:tpl-ref="synchronizationRpcTemplate"/>
 	   			 -->
-	   			<bean class="org.osehra.cpe.vpr.frameeng.FrameRegistry.ProtocolFileFrameLoader" c:dir="classpath:ext/domain/cpe/vpr/frames/"/>
+	   			<bean class="org.osehra.cpe.vpr.frameeng.FrameRegistry.ProtocolFileFrameLoader" c:dir="classpath:org/osehra/cpe/vpr/frames/"/>
    			</array>
  		</constructor-arg>
    	</bean>

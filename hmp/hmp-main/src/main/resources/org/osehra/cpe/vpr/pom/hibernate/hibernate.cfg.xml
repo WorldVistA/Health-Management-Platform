@@ -16,18 +16,18 @@
 
  		<property name="hibernate.default_entity_mode">dynamic-map</property>
 
-		<mapping resource="ext/domain/cpe/vpr/pom/hibernate/PatientObjects.hbm.xml" />
-		<mapping resource="ext/domain/cpe/vpr/pom/hibernate/MedObjects.hbm.xml" />
-        <mapping resource="ext/domain/cpe/vpr/pom/hibernate/OrderObjects.hbm.xml" />
-		<mapping resource="ext/domain/cpe/vpr/pom/hibernate/ProcedureObjects.hbm.xml" />
-		<mapping resource="ext/domain/cpe/vpr/pom/hibernate/ImmunizationObjects.hbm.xml" />
-		<mapping resource="ext/domain/cpe/vpr/pom/hibernate/DocumentObjects.hbm.xml" />
-		<mapping resource="ext/domain/cpe/vpr/pom/hibernate/EncounterObjects.hbm.xml" />
-        <mapping resource="ext/domain/cpe/vpr/pom/hibernate/AllergyObjects.hbm.xml" />
-        <mapping resource="ext/domain/cpe/vpr/pom/hibernate/ResultObjects.hbm.xml" />
-        <mapping resource="ext/domain/cpe/vpr/pom/hibernate/ProblemObjects.hbm.xml" />
-        <mapping resource="ext/domain/cpe/vpr/pom/hibernate/ObservationObjects.hbm.xml" />
-        <mapping resource="ext/domain/cpe/vpr/pom/hibernate/VitalsObjects.hbm.xml" />
-        <mapping resource="ext/domain/cpe/vpr/pom/hibernate/HealthFactorObjects.hbm.xml" />
+		<mapping resource="org/osehra/cpe/vpr/pom/hibernate/PatientObjects.hbm.xml" />
+		<mapping resource="org/osehra/cpe/vpr/pom/hibernate/MedObjects.hbm.xml" />
+        <mapping resource="org/osehra/cpe/vpr/pom/hibernate/OrderObjects.hbm.xml" />
+		<mapping resource="org/osehra/cpe/vpr/pom/hibernate/ProcedureObjects.hbm.xml" />
+		<mapping resource="org/osehra/cpe/vpr/pom/hibernate/ImmunizationObjects.hbm.xml" />
+		<mapping resource="org/osehra/cpe/vpr/pom/hibernate/DocumentObjects.hbm.xml" />
+		<mapping resource="org/osehra/cpe/vpr/pom/hibernate/EncounterObjects.hbm.xml" />
+        <mapping resource="org/osehra/cpe/vpr/pom/hibernate/AllergyObjects.hbm.xml" />
+        <mapping resource="org/osehra/cpe/vpr/pom/hibernate/ResultObjects.hbm.xml" />
+        <mapping resource="org/osehra/cpe/vpr/pom/hibernate/ProblemObjects.hbm.xml" />
+        <mapping resource="org/osehra/cpe/vpr/pom/hibernate/ObservationObjects.hbm.xml" />
+        <mapping resource="org/osehra/cpe/vpr/pom/hibernate/VitalsObjects.hbm.xml" />
+        <mapping resource="org/osehra/cpe/vpr/pom/hibernate/HealthFactorObjects.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>

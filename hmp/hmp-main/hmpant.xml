@@ -12,42 +12,42 @@
         		-->
             	
             	<!-- Include packages -->
-            	<include name="ext/domain/cpe/vpr/*.class"/>
-            	<include name="ext/domain/cpe/vpr/pom/*.class"/>
+            	<include name="org/osehra/cpe/vpr/*.class"/>
+            	<include name="org/osehra/cpe/vpr/pom/*.class"/>
             	
             	<!-- include some frameeng and queryeng stuff -->
-            	<include name="ext/domain/cpe/vpr/frameeng/IFrameEvent*.class"/>
-            	<include name="ext/domain/cpe/vpr/termeng/Concept.class"/>
-        		<include name="ext/domain/cpe/vpr/termeng/TermEng*.class"/>
-            	<include name="ext/domain/cpe/vpr/termeng/ITermDataSource.class"/>
-            	<include name="ext/domain/cpe/vpr/vistasvc/ICacheMgr.class"/>
+            	<include name="org/osehra/cpe/vpr/frameeng/IFrameEvent*.class"/>
+            	<include name="org/osehra/cpe/vpr/termeng/Concept.class"/>
+        		<include name="org/osehra/cpe/vpr/termeng/TermEng*.class"/>
+            	<include name="org/osehra/cpe/vpr/termeng/ITermDataSource.class"/>
+            	<include name="org/osehra/cpe/vpr/vistasvc/ICacheMgr.class"/>
             		
             	<!-- Exclude controllers/services -->
-            	<exclude name="ext/domain/cpe/vpr/*Controller.class"/>
-            	<exclude name="ext/domain/cpe/vpr/*Service.class"/>
-            	<exclude name="ext/domain/cpe/vpr/VprConstants.class"/>
+            	<exclude name="org/osehra/cpe/vpr/*Controller.class"/>
+            	<exclude name="org/osehra/cpe/vpr/*Service.class"/>
+            	<exclude name="org/osehra/cpe/vpr/VprConstants.class"/>
             	
             	<!-- exclude groovy classes/artifacts -->
-            	<exclude name="ext/domain/cpe/vpr/*_closure*.class"/>
-            	<exclude name="ext/domain/cpe/vpr/DomainNameUtils.class"/>
-            	<exclude name="ext/domain/cpe/vpr/NamedQueryListBuilder.class"/>
-        		<exclude name="ext/domain/cpe/vpr/NotFoundException.class"/>
-            	<exclude name="ext/domain/cpe/vpr/UidUtils.class"/>
+            	<exclude name="org/osehra/cpe/vpr/*_closure*.class"/>
+            	<exclude name="org/osehra/cpe/vpr/DomainNameUtils.class"/>
+            	<exclude name="org/osehra/cpe/vpr/NamedQueryListBuilder.class"/>
+        		<exclude name="org/osehra/cpe/vpr/NotFoundException.class"/>
+            	<exclude name="org/osehra/cpe/vpr/UidUtils.class"/>
             	
             	<!-- exclude non Domain objects -->
-            	<exclude name="ext/domain/cpe/vpr/HMPApp.class"/>
-            	<exclude name="ext/domain/cpe/vpr/SyncError.class"/>
+            	<exclude name="org/osehra/cpe/vpr/HMPApp.class"/>
+            	<exclude name="org/osehra/cpe/vpr/SyncError.class"/>
             	
             	<!-- exclude DAO stuff for now -->
-            	<exclude name="ext/domain/cpe/vpr/pom/*DAO.class"/>
+            	<exclude name="org/osehra/cpe/vpr/pom/*DAO.class"/>
             	
             	<!-- domain objects that reference other stuff to exlcude for now-->
-            	<exclude name="ext/domain/cpe/vpr/Allergy.class"/>
-            	<exclude name="ext/domain/cpe/vpr/Procedure.class"/>
-            	<exclude name="ext/domain/cpe/vpr/ClinicalResultDocument.class"/>
-            	<exclude name="ext/domain/cpe/vpr/ProcedureResult.class"/>
-            	<exclude name="ext/domain/cpe/vpr/ProcedureLink.class"/>
-            	<exclude name="ext/domain/cpe/vpr/ProcedureProvider.class"/>
+            	<exclude name="org/osehra/cpe/vpr/Allergy.class"/>
+            	<exclude name="org/osehra/cpe/vpr/Procedure.class"/>
+            	<exclude name="org/osehra/cpe/vpr/ClinicalResultDocument.class"/>
+            	<exclude name="org/osehra/cpe/vpr/ProcedureResult.class"/>
+            	<exclude name="org/osehra/cpe/vpr/ProcedureLink.class"/>
+            	<exclude name="org/osehra/cpe/vpr/ProcedureProvider.class"/>
             </fileset>
         	
         	<!--

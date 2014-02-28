@@ -18,7 +18,7 @@ public class ResourceHttpMessageConverter extends org.springframework.http.conve
     private ConfigurableMimeFileTypeMap fileTypeMap = new ConfigurableMimeFileTypeMap();
 
     public ResourceHttpMessageConverter() {
-        fileTypeMap.setMappingLocation(new ClassPathResource("org.osehra/cpe/vpr/web/converter/mime.types"));
+        fileTypeMap.setMappingLocation(new ClassPathResource("org/osehra/cpe/vpr/web/converter/mime.types"));
         fileTypeMap.afterPropertiesSet();
     }
 

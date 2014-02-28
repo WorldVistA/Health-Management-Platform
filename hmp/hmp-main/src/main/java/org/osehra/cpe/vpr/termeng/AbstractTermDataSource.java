@@ -28,6 +28,7 @@ public abstract class AbstractTermDataSource implements ITermDataSource {
 	}
 	
 	@Override
+	@SuppressWarnings("unchecked")
 	public Set<String> getAncestorSet(String urn) {
 		Map<String, Object> data = getConceptData(urn);
 		if (data != null && data.containsKey("ancestors")) {
@@ -37,6 +38,7 @@ public abstract class AbstractTermDataSource implements ITermDataSource {
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public Set<String> getEquivalentSet(String urn) {
 		Map<String, Object> data = getConceptData(urn);
 		if (data != null && data.containsKey("sameas")) {
@@ -46,6 +48,7 @@ public abstract class AbstractTermDataSource implements ITermDataSource {
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public Set<String> getParentSet(String urn) {
 		Map<String, Object> data = getConceptData(urn);
 		if (data != null && data.containsKey("parents")) {
@@ -55,6 +58,7 @@ public abstract class AbstractTermDataSource implements ITermDataSource {
 	}
 	
 	@Override
+	@SuppressWarnings("unchecked")
 	public Map<String, String> getRelMap(String urn) {
 		Map<String, Object> data = getConceptData(urn);
 		if (data != null && data.containsKey("rels")) {

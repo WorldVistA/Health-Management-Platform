@@ -131,6 +131,7 @@ public class CacheMgr<T> implements ICacheMgr<T> {
 	 * @see org.osehra.cpe.vpr.vistasvc.ICacheMgr#store(java.lang.String, T)
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public T store(String key, T val) {
 		return (T) store(this.type.getCacheName(this.cacheName), key, val, this.type, -1);
 	}
@@ -139,6 +140,7 @@ public class CacheMgr<T> implements ICacheMgr<T> {
 	 * @see org.osehra.cpe.vpr.vistasvc.ICacheMgr#store(java.lang.String, T, int)
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public T store(String key, T val, int ttlSec) {
 		return (T) store(this.type.getCacheName(this.cacheName), key, val, this.type, ttlSec);
 	}
@@ -147,6 +149,7 @@ public class CacheMgr<T> implements ICacheMgr<T> {
 	 * @see org.osehra.cpe.vpr.vistasvc.ICacheMgr#fetch(java.lang.String)
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public T fetch(String key) {
 		return (T) fetch(this.type.getCacheName(this.cacheName), key, this.type);
 	}
@@ -217,6 +220,7 @@ public class CacheMgr<T> implements ICacheMgr<T> {
 	
 	// static methods -------------------------------
 	
+	@SuppressWarnings("unchecked")
 	public static Object fetch(String cacheName, String key, CacheType type) {
 		if (key == null || cacheName == null) {
 			throw new NullPointerException("CacheName + Key cannot be null");
@@ -244,6 +248,7 @@ public class CacheMgr<T> implements ICacheMgr<T> {
 		return store(cacheName, key, val, type, -1);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public static Object store(String cacheName, String key, Object val, CacheType type, int ttlSec) {
 		if (key == null || cacheName == null) {
 			throw new NullPointerException("CacheName + Key cannot be null");
@@ -273,6 +278,7 @@ public class CacheMgr<T> implements ICacheMgr<T> {
 		return val;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public static boolean contains(String cacheName, String key, CacheType type) {
 		if (key == null || cacheName == null) {
 			throw new NullPointerException("CacheName + Key cannot be null");
@@ -289,6 +295,7 @@ public class CacheMgr<T> implements ICacheMgr<T> {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public static int getSize(String cacheName, CacheType type) {
 		if (cacheName == null) {
 			throw new NullPointerException("CacheName + Key cannot be null");
@@ -312,6 +319,7 @@ public class CacheMgr<T> implements ICacheMgr<T> {
 		remove(cacheName, key, CacheType.DISK);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public static void remove(String cacheName, String key, CacheType type) {
 		if (key == null || cacheName == null) {
 			throw new NullPointerException("CacheName + Key cannot be null");

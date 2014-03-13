@@ -82,14 +82,14 @@ public class TestVistaStringUtils extends TestCase {
     public void testCrc16() {
         assertEquals(12480, VistaStringUtils.crc16("A"));
         assertEquals(17697, VistaStringUtils.crc16("ABC"));
-        assertEquals(40710, VistaStringUtils.crc16("AVIVA-VDEV.FO-SLC.DOMAIN.EXT"));
+        assertEquals(58254, VistaStringUtils.crc16("AVIVA-VDEV.FO-SLC.DOMAIN.EXT"));
     }
 
     @Test
     public void testCrc16Hex() {
         assertEquals("30C0", VistaStringUtils.crc16Hex("A"));
         assertEquals("4521", VistaStringUtils.crc16Hex("ABC"));
-        assertEquals("9F06", VistaStringUtils.crc16Hex("AVIVA-VDEV.FO-SLC.DOMAIN.EXT"));
+        assertEquals("E38E", VistaStringUtils.crc16Hex("AVIVA-VDEV.FO-SLC.DOMAIN.EXT"));
     }
 
     @Test

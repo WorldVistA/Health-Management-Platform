@@ -144,6 +144,7 @@ public class JSONBuilderDataSource implements ITermDataSource {
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public Map<String, Object> getConceptData(String urn) {
 		Map<String, Object> data = fetchDBRowField(urn, null, Map.class);
 		HashMap<String, Object> ret = new HashMap<String, Object>();
@@ -274,6 +275,7 @@ public class JSONBuilderDataSource implements ITermDataSource {
 		return ret;
 	}
 	
+	@SuppressWarnings("unchecked")
 	private Map<String, Object> fetchAttributes(String urn) {
 		ResultSet rs = null;
 		try {
@@ -330,7 +332,7 @@ public class JSONBuilderDataSource implements ITermDataSource {
 		return null;
 	}
 
-	
+	@SuppressWarnings("unchecked")	
 	private <T> T fetchDBRowField(String urn, String field, Class<T> type) {
 		if (!contains(urn)) return null;
 		Map<String, Object> data = rec.fetch(urn);
